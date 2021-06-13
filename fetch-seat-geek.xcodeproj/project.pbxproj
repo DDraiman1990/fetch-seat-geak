@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6440B6EA267551920087987F /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440B6E9267551920087987F /* MainTabController.swift */; };
+		6440B6EF267558140087987F /* Combine+SinkToResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440B6EE267558140087987F /* Combine+SinkToResult.swift */; };
+		6440B6FA26755EA20087987F /* Dictionary+Merge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440B6F926755EA20087987F /* Dictionary+Merge.swift */; };
+		6440B7002675B2B30087987F /* APIKeysManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440B6FF2675B2B30087987F /* APIKeysManager.swift */; };
+		6440B71426766C7F0087987F /* api-keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6440B71326766C7F0087987F /* api-keys.plist */; };
+		6440B71A26766CD80087987F /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440B71926766CD80087987F /* AppConstants.swift */; };
+		6440B72626766F4C0087987F /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440B72526766F4C0087987F /* FileHelper.swift */; };
+		6440B7332676700B0087987F /* NetworkAuthMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440B7322676700B0087987F /* NetworkAuthMethod.swift */; };
+		6440B73B267670130087987F /* NetworkPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440B73A267670130087987F /* NetworkPlugin.swift */; };
+		6440B7402676701A0087987F /* NetworkLoggerPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440B73F2676701A0087987F /* NetworkLoggerPlugin.swift */; };
+		6440B745267670210087987F /* NetworkAuthPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440B744267670210087987F /* NetworkAuthPlugin.swift */; };
+		6440B74A2676702C0087987F /* NetworkServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440B7492676702C0087987F /* NetworkServicing.swift */; };
+		6440B74F267670330087987F /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440B74E267670330087987F /* NetworkResult.swift */; };
+		6440B7542676711E0087987F /* Headers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440B7532676711E0087987F /* Headers.swift */; };
+		6440B759267671270087987F /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440B758267671270087987F /* HTTPMethod.swift */; };
+		6440B75E267671420087987F /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440B75D267671420087987F /* Route.swift */; };
 		64C7A3932673DF0400951930 /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = 64C7A3922673DF0400951930 /* Main.strings */; };
 		64C7A3A02673F59500951930 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C7A39F2673F59500951930 /* ViewModel.swift */; };
 		64C7A3A82673F5A600951930 /* ViewModel+TypeErasure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C7A3A72673F5A600951930 /* ViewModel+TypeErasure.swift */; };
@@ -60,6 +76,22 @@
 		5111C3FD2CD01E6AB313D685 /* Pods_fetch_seat_geekUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fetch_seat_geekUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59965EF54F73FD3B84CD2FD3 /* Pods-fetch-seat-geekTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fetch-seat-geekTests.release.xcconfig"; path = "Target Support Files/Pods-fetch-seat-geekTests/Pods-fetch-seat-geekTests.release.xcconfig"; sourceTree = "<group>"; };
 		6435935857E5A5FA497E6DD2 /* Pods-fetch-seat-geek.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fetch-seat-geek.debug.xcconfig"; path = "Target Support Files/Pods-fetch-seat-geek/Pods-fetch-seat-geek.debug.xcconfig"; sourceTree = "<group>"; };
+		6440B6E9267551920087987F /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
+		6440B6EE267558140087987F /* Combine+SinkToResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+SinkToResult.swift"; sourceTree = "<group>"; };
+		6440B6F926755EA20087987F /* Dictionary+Merge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Merge.swift"; sourceTree = "<group>"; };
+		6440B6FF2675B2B30087987F /* APIKeysManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeysManager.swift; sourceTree = "<group>"; };
+		6440B71326766C7F0087987F /* api-keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "api-keys.plist"; sourceTree = SOURCE_ROOT; };
+		6440B71926766CD80087987F /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		6440B72526766F4C0087987F /* FileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
+		6440B7322676700B0087987F /* NetworkAuthMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAuthMethod.swift; sourceTree = "<group>"; };
+		6440B73A267670130087987F /* NetworkPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkPlugin.swift; sourceTree = "<group>"; };
+		6440B73F2676701A0087987F /* NetworkLoggerPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLoggerPlugin.swift; sourceTree = "<group>"; };
+		6440B744267670210087987F /* NetworkAuthPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAuthPlugin.swift; sourceTree = "<group>"; };
+		6440B7492676702C0087987F /* NetworkServicing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServicing.swift; sourceTree = "<group>"; };
+		6440B74E267670330087987F /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
+		6440B7532676711E0087987F /* Headers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Headers.swift; sourceTree = "<group>"; };
+		6440B758267671270087987F /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		6440B75D267671420087987F /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		64C7A3922673DF0400951930 /* Main.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Main.strings; sourceTree = "<group>"; };
 		64C7A39F2673F59500951930 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		64C7A3A72673F5A600951930 /* ViewModel+TypeErasure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModel+TypeErasure.swift"; sourceTree = "<group>"; };
@@ -135,6 +167,49 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6440B6F326755CDC0087987F /* APIKeys */ = {
+			isa = PBXGroup;
+			children = (
+				6440B71326766C7F0087987F /* api-keys.plist */,
+			);
+			path = APIKeys;
+			sourceTree = "<group>";
+		};
+		6440B6FE2675B2A70087987F /* APIKeys */ = {
+			isa = PBXGroup;
+			children = (
+				6440B6FF2675B2B30087987F /* APIKeysManager.swift */,
+			);
+			path = APIKeys;
+			sourceTree = "<group>";
+		};
+		6440B71826766CCE0087987F /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				6440B71926766CD80087987F /* AppConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		6440B73026766FFB0087987F /* Plugins */ = {
+			isa = PBXGroup;
+			children = (
+				6440B73A267670130087987F /* NetworkPlugin.swift */,
+				6440B73F2676701A0087987F /* NetworkLoggerPlugin.swift */,
+				6440B744267670210087987F /* NetworkAuthPlugin.swift */,
+			);
+			path = Plugins;
+			sourceTree = "<group>";
+		};
+		6440B731267670000087987F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6440B7322676700B0087987F /* NetworkAuthMethod.swift */,
+				6440B74E267670330087987F /* NetworkResult.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		64C7A3912673DE8D00951930 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +221,7 @@
 		64C7A39A2673F53C00951930 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				6440B72526766F4C0087987F /* FileHelper.swift */,
 				64C7A39B2673F54100951930 /* Extensions */,
 			);
 			path = Utilities;
@@ -156,6 +232,8 @@
 			children = (
 				64C7A3B62673F63100951930 /* Combine+CancelBag.swift */,
 				64C7A3BB2673F65B00951930 /* UIView+Anchor.swift */,
+				6440B6EE267558140087987F /* Combine+SinkToResult.swift */,
+				6440B6F926755EA20087987F /* Dictionary+Merge.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -249,6 +327,8 @@
 		64E6E9422672F5A600BDE2E6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6440B71826766CCE0087987F /* Constants */,
+				6440B6F326755CDC0087987F /* APIKeys */,
 				64C7A3912673DE8D00951930 /* Localization */,
 				64E6E9692672F8ED00BDE2E6 /* Generated */,
 			);
@@ -267,6 +347,7 @@
 		64E6E9442672F5AE00BDE2E6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				6440B6E9267551920087987F /* MainTabController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -296,6 +377,7 @@
 		64E6E94E2672F73E00BDE2E6 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				6440B6FE2675B2A70087987F /* APIKeys */,
 				64E6E9B32672FBAF00BDE2E6 /* Network */,
 				64E6E9A02672FA2300BDE2E6 /* Logger */,
 			);
@@ -335,8 +417,13 @@
 		64E6E9B32672FBAF00BDE2E6 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				6440B731267670000087987F /* Models */,
+				6440B73026766FFB0087987F /* Plugins */,
 				64E6E9BF2672FC5800BDE2E6 /* Routes */,
 				64E6E96F2672F96400BDE2E6 /* NetworkService.swift */,
+				6440B7492676702C0087987F /* NetworkServicing.swift */,
+				6440B7532676711E0087987F /* Headers.swift */,
+				6440B758267671270087987F /* HTTPMethod.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -345,6 +432,7 @@
 			isa = PBXGroup;
 			children = (
 				64E6E9B42672FBB900BDE2E6 /* SeatGeekRoutes.swift */,
+				6440B75D267671420087987F /* Route.swift */,
 			);
 			path = Routes;
 			sourceTree = "<group>";
@@ -371,6 +459,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 64E6E9352672F59300BDE2E6 /* Build configuration list for PBXNativeTarget "fetch-seat-geek" */;
 			buildPhases = (
+				6440B71E26766E3C0087987F /* Check for API Keys */,
 				52EDE86DDF77F5A8A302AC17 /* [CP] Check Pods Manifest.lock */,
 				64E6E9652672F8AD00BDE2E6 /* R.Swift Code Gen */,
 				64E6E9072672F59100BDE2E6 /* Sources */,
@@ -475,6 +564,7 @@
 				64C7A3932673DF0400951930 /* Main.strings in Resources */,
 				64E6E91B2672F59300BDE2E6 /* LaunchScreen.storyboard in Resources */,
 				64E6E9182672F59300BDE2E6 /* Assets.xcassets in Resources */,
+				6440B71426766C7F0087987F /* api-keys.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,6 +646,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		6440B71E26766E3C0087987F /* Check for API Keys */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Check for API Keys";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "CONFIG_FILE_BASE_NAME=\"api-keys\"\nCONFIG_FILE_NAME=${CONFIG_FILE_BASE_NAME}.plist\nCONFIG_FILE_PATH=$SRCROOT/$CONFIG_FILE_NAME\nif [ -f \"$CONFIG_FILE_PATH\" ]; then\n  echo \"$CONFIG_FILE_PATH exists.\"\nelse\n  echo \"$CONFIG_FILE_PATH is missing. Please contact the developer to get a copy of the file.\"\n  exit 1\nfi\n";
+		};
 		64E6E9652672F8AD00BDE2E6 /* R.Swift Code Gen */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -605,25 +713,40 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6440B6FA26755EA20087987F /* Dictionary+Merge.swift in Sources */,
 				64E6E90F2672F59100BDE2E6 /* AppDelegate.swift in Sources */,
 				64C7A3AD2673F5DB00951930 /* ViewModeled.swift in Sources */,
+				6440B6EA267551920087987F /* MainTabController.swift in Sources */,
+				6440B7542676711E0087987F /* Headers.swift in Sources */,
 				64C7A3BC2673F65B00951930 /* UIView+Anchor.swift in Sources */,
 				64E6E9112672F59100BDE2E6 /* SceneDelegate.swift in Sources */,
 				64E6E9AB2672FA2300BDE2E6 /* CrashReporter.swift in Sources */,
 				64E6E99B2672F9CE00BDE2E6 /* DependencyManager.swift in Sources */,
+				6440B75E267671420087987F /* Route.swift in Sources */,
 				64C7A3B22673F60600951930 /* ModelUpdate.swift in Sources */,
+				6440B6EF267558140087987F /* Combine+SinkToResult.swift in Sources */,
 				64E6E9AA2672FA2300BDE2E6 /* LogLevel.swift in Sources */,
 				64C7A3A82673F5A600951930 /* ViewModel+TypeErasure.swift in Sources */,
 				64C7A3B72673F63100951930 /* Combine+CancelBag.swift in Sources */,
+				6440B759267671270087987F /* HTTPMethod.swift in Sources */,
+				6440B7402676701A0087987F /* NetworkLoggerPlugin.swift in Sources */,
 				64E6E9A72672FA2300BDE2E6 /* LogMetadata.swift in Sources */,
 				64C7A3A02673F59500951930 /* ViewModel.swift in Sources */,
+				6440B7332676700B0087987F /* NetworkAuthMethod.swift in Sources */,
+				6440B7002675B2B30087987F /* APIKeysManager.swift in Sources */,
+				6440B72626766F4C0087987F /* FileHelper.swift in Sources */,
 				64E6E9702672F96400BDE2E6 /* NetworkService.swift in Sources */,
 				64E6E9AC2672FA2300BDE2E6 /* OSLogger.swift in Sources */,
+				6440B73B267670130087987F /* NetworkPlugin.swift in Sources */,
 				64E6E9B52672FBB900BDE2E6 /* SeatGeekRoutes.swift in Sources */,
+				6440B71A26766CD80087987F /* AppConstants.swift in Sources */,
+				6440B74F267670330087987F /* NetworkResult.swift in Sources */,
+				6440B745267670210087987F /* NetworkAuthPlugin.swift in Sources */,
 				64E6E99C2672F9CE00BDE2E6 /* DependencyResolver.swift in Sources */,
 				64E6E96B2672F90000BDE2E6 /* R.generated.swift in Sources */,
 				64E6E9A92672FA2300BDE2E6 /* LogFormat.swift in Sources */,
 				64E6E9A82672FA2300BDE2E6 /* Logger.swift in Sources */,
+				6440B74A2676702C0087987F /* NetworkServicing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
