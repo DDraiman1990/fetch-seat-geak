@@ -14,17 +14,14 @@ final class NetworkService: NetworkServicing {
     // MARK: - Properties | Dependencies
     
     private let session: URLSession
-    private let logger: Logger
     private let plugins: [NetworkPlugin]
     
     // MARK: - Lifecycle
     
     init(session: URLSession,
-         plugins: [NetworkPlugin],
-         logger: Logger) {
+         plugins: [NetworkPlugin]) {
         self.session = session
         self.plugins = plugins
-        self.logger = logger
     }
     
     // MARK: - Methods | Networking
@@ -43,8 +40,8 @@ final class NetworkService: NetworkServicing {
                 if let error = error {
                     promise(.failure(error))
                 } else {
-                    let status = (response as? HTTPURLResponse)?.statusCode
-                    let result = NetworkResult(httpStatusCode: status,
+                    let status = response as? HTTPURLResponse
+                    let result = NetworkResult(response: status,
                                                data: data)
                     promise(.success(result))
                 }

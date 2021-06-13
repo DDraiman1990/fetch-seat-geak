@@ -16,12 +16,11 @@ final class DependencyManager: DependencyManaging {
         session: .shared,
         plugins: [
             NetworkAuthPlugin.init(
-                    authMethod: .apiKey(
-                        key: AppConstants.Keys.seatGeekClientIdParamName,
-                        value: apiKeysManager.values[AppConstants.Keys.seatGeekStoredClientId] ?? "")),
+                authMethod: .apiKey(
+                    key: AppConstants.Keys.seatGeekClientIdParamName,
+                    value: apiKeysManager.values[AppConstants.Keys.seatGeekStoredClientId] ?? "")),
             NetworkLoggerPlugin(logger: _logger)
-        ],
-        logger: _logger)
+        ])
         
     init() {
         let resolver = DependencyResolver.shared

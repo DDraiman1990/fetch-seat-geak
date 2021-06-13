@@ -34,7 +34,7 @@ enum SeatGeekRoutes: Route {
         }
     }
     
-    var headers: [String : String]? {
+    var headers: [URLQueryItem]? {
         switch self {
         case .events(let request):
             return request.headers
@@ -97,8 +97,8 @@ enum SeatGeekRoutes: Route {
             return .get
         }
         
-        var headers: [String : String]? {
-            return Headers.json
+        var headers: [URLQueryItem]? {
+            return [Headers.json]
         }
         
         var body: Data? {
@@ -127,8 +127,8 @@ enum SeatGeekRoutes: Route {
             return .get
         }
         
-        var headers: [String : String]? {
-            return Headers.json
+        var headers: [URLQueryItem]? {
+            return [Headers.json]
         }
         
         var body: Data? {
@@ -157,8 +157,8 @@ enum SeatGeekRoutes: Route {
             return .get
         }
         
-        var headers: [String : String]? {
-            return Headers.json
+        var headers: [URLQueryItem]? {
+            return [Headers.json]
         }
         
         var body: Data? {

@@ -9,6 +9,6 @@ import Foundation
 
 /// HTTP Request result
 struct NetworkResult {
-    let httpStatusCode: Int?
+    let response: HTTPURLResponse?
     let data: Data?
 }

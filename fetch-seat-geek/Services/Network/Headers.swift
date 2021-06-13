@@ -8,5 +8,5 @@
 import Foundation
 
 enum Headers {
-    static let json = ["Content-Type": "application/json"]
+    static let json: URLQueryItem = .init(name: "Content-Type", value: "application/json")
 }

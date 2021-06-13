@@ -1,19 +1,27 @@
 platform :ios, '14.3'
 
+def appPods
+  pod 'R.swift'
+  pod 'Hero'
+end
+
+def testPods
+  pod 'Quick'
+  pod 'Nimble'
+end
+
 target 'fetch-seat-geek' do
   use_frameworks!
 
-  pod 'R.swift'
-  pod 'Hero'
+  appPods
 
-  
-  abstract_target 'Tests' do
+  target 'fetch-seat-geekTests' do
     inherit! :search_paths
-    target "fetch-seat-geekTests"
-    target "fetch-seat-geekUITests"
-
-    pod 'Quick'
-    pod 'Nimble'
+    testPods
   end
-
+  
+  target 'fetch-seat-geekUITests' do
+    inherit! :search_paths
+    testPods
+  end
 end

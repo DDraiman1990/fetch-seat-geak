@@ -11,7 +11,7 @@ protocol Route {
     var path: String { get }
     var method: HTTPMethod { get }
     var body: Data? { get }
-    var headers: [String: String]? { get }
+    var headers: [URLQueryItem]? { get }
     var urlRequest: URLRequest { get }
     var parameters: [String: String]? { get }
 }
@@ -23,7 +23,7 @@ extension Route {
         request.httpMethod = method.rawValue
         request.httpBody = body
         headers?.forEach {
-            request.addValue($0.value, forHTTPHeaderField: $0.key)
+            request.addValue($0.value ?? "", forHTTPHeaderField: $0.name)
         }
         return request
     }

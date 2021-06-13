@@ -1,20 +1,32 @@
 PODS:
+  - Hero (1.6.1)
+  - Nimble (9.2.0)
+  - Quick (4.0.0)
   - R.swift (5.4.0):
     - R.swift.Library (~> 5.3.0)
   - R.swift.Library (5.3.0)
 
 DEPENDENCIES:
+  - Hero
+  - Nimble
+  - Quick
   - R.swift
 
 SPEC REPOS:
   trunk:
+    - Hero
+    - Nimble
+    - Quick
     - R.swift
     - R.swift.Library
 
 SPEC CHECKSUMS:
+  Hero: 215865ba3ae41dd9bb08cd6c60a645529c6fc94b
+  Nimble: 4f4a345c80b503b3ea13606a4f98405974ee4d0b
+  Quick: 6473349e43b9271a8d43839d9ba1c442ed1b7ac4
   R.swift: c533450b0f7dc494e0993f5f1a1db925d84c3006
   R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
 
-PODFILE CHECKSUM: 169be0d06304fd87f84f5cdc8fdf38af5ccf9816
+PODFILE CHECKSUM: e127f26b066a696ef0c8539251770bd9b01b8030
 
 COCOAPODS: 1.10.0

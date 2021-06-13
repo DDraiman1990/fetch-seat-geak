@@ -40,7 +40,7 @@ final class StamViewController: UIViewController {
             .sinkToResult { result in
                 switch result {
                 case .success(let networkResult):
-                    print(networkResult.httpStatusCode ?? -1)
+                    print(networkResult.response?.statusCode ?? -1)
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
