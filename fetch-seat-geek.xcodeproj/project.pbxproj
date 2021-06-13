@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6440B6EA267551920087987F /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440B6E9267551920087987F /* MainTabController.swift */; };
 		6440B6EF267558140087987F /* Combine+SinkToResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440B6EE267558140087987F /* Combine+SinkToResult.swift */; };
 		6440B6FA26755EA20087987F /* Dictionary+Merge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440B6F926755EA20087987F /* Dictionary+Merge.swift */; };
 		6440B7002675B2B30087987F /* APIKeysManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440B6FF2675B2B30087987F /* APIKeysManager.swift */; };
@@ -80,7 +79,6 @@
 		5111C3FD2CD01E6AB313D685 /* Pods_fetch_seat_geekUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fetch_seat_geekUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59965EF54F73FD3B84CD2FD3 /* Pods-fetch-seat-geekTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fetch-seat-geekTests.release.xcconfig"; path = "Target Support Files/Pods-fetch-seat-geekTests/Pods-fetch-seat-geekTests.release.xcconfig"; sourceTree = "<group>"; };
 		6435935857E5A5FA497E6DD2 /* Pods-fetch-seat-geek.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fetch-seat-geek.debug.xcconfig"; path = "Target Support Files/Pods-fetch-seat-geek/Pods-fetch-seat-geek.debug.xcconfig"; sourceTree = "<group>"; };
-		6440B6E9267551920087987F /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
 		6440B6EE267558140087987F /* Combine+SinkToResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+SinkToResult.swift"; sourceTree = "<group>"; };
 		6440B6F926755EA20087987F /* Dictionary+Merge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Merge.swift"; sourceTree = "<group>"; };
 		6440B6FF2675B2B30087987F /* APIKeysManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeysManager.swift; sourceTree = "<group>"; };
@@ -376,7 +374,6 @@
 		64E6E9442672F5AE00BDE2E6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				6440B6E9267551920087987F /* MainTabController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -780,7 +777,6 @@
 				6440B6FA26755EA20087987F /* Dictionary+Merge.swift in Sources */,
 				64E6E90F2672F59100BDE2E6 /* AppDelegate.swift in Sources */,
 				64C7A3AD2673F5DB00951930 /* ViewModeled.swift in Sources */,
-				6440B6EA267551920087987F /* MainTabController.swift in Sources */,
 				6440B7542676711E0087987F /* Headers.swift in Sources */,
 				64C7A3BC2673F65B00951930 /* UIView+Anchor.swift in Sources */,
 				64E6E9112672F59100BDE2E6 /* SceneDelegate.swift in Sources */,
