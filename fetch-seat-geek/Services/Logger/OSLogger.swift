@@ -10,11 +10,10 @@ import Foundation
 
 /// System logging for Swift using Apple's recommended log levels.
 /// This logger is based on os_log.
-///
-/// - Note
 public final class OSLogger {
     
     // MARK: - Properties | Dependecies
+    
     private var log: OSLog
     private var crashReporter: CrashReporter? = nil
     
@@ -26,16 +25,6 @@ public final class OSLogger {
     /// Configures which metadata will be formatted into the log string.
     private var logFormat = LogFormat()
     
-    // MARK: - Properties | Testing & Debug
-    
-    internal var lastLog: LogMetadata?
-    internal var lastLogFormattedString: String?
-    internal var lastIconString: String?
-    internal var lastFileString: String?
-    internal var lastLineString: String?
-    internal var lastColumnString: String?
-    internal var lastFunctionString: String?
-    
     // MARK: - Lifecycle
     
     public init(category: String,
@@ -46,7 +35,7 @@ public final class OSLogger {
         self.crashReporter = crashReporter
     }
     
-    // MARK: - Logging
+    // MARK: - Methods | Logging
     
     /// Logs messages to logging targets
     ///
@@ -58,12 +47,12 @@ public final class OSLogger {
     ///   - column: column number, in file, the logging was called from.
     ///   - function: name of function, in file, the logging was called from.
     private func log(_ metadata: LogMetadata) {
-        lastLog = metadata
         let formattedObject = format(with: metadata)
-        os_log("%@",
-               log: log,
-               type: metadata.logLevel.osLogLevel,
-               formattedObject)
+        os_log(
+            "%@",
+            log: log,
+            type: metadata.logLevel.osLogLevel,
+            formattedObject)
         logToCrashReporterIfNeeded(
             "%@",
             formattedObject,
@@ -96,18 +85,10 @@ public final class OSLogger {
             "[\(metadata.function)]" : ""
         let metadataString = "\(iconString)\(fileString)\(lineColumnString)\(functionString)"
         let formattedString = "\(metadataString.isEmpty ? "" : metadataString + ": ")\(metadata.object)"
-        
-        lastIconString = iconString
-        lastFileString = fileString
-        lastLineString = lineString
-        lastColumnString = columnString
-        lastFunctionString = functionString
-        lastLogFormattedString = formattedString
-        
         return formattedString
     }
     
-    // MARK: Private helpers
+    // MARK: Methods | Helpers
     
     /// Extract the file name from the file path
     ///
@@ -123,9 +104,10 @@ public final class OSLogger {
     /// - Parameters:
     ///   - msg: message format to log.
     ///   - args: objects to be formatted into the message.
-    private func logToCrashReporterIfNeeded(_ msg: StaticString,
-                                            _ formattedString: String,
-                                            logLevel: LogLevel) {
+    private func logToCrashReporterIfNeeded(
+        _ msg: StaticString,
+        _ formattedString: String,
+        logLevel: LogLevel) {
         if crashReporting {
             switch logLevel {
             case .default, .info:
@@ -150,8 +132,6 @@ public final class OSLogger {
             crashReporter?.recordError(error)
         }
     }
-    
-    public static let stub: Logger = OSLogger(category: "stub")
 }
 
 // MARK: - OSLogger + Logger
@@ -169,11 +149,12 @@ extension OSLogger: Logger {
         self.logFormat = format
     }
     
-    public func error(_ object: Any,
-               filename: String = #file,
-               line: Int = #line,
-               column: Int = #column,
-               function: String = #function) {
+    public func error(
+        _ object: Any,
+        filename: String = #file,
+        line: Int = #line,
+        column: Int = #column,
+        function: String = #function) {
         let metadata = LogMetadata(
             object: object,
             logLevel: .error,
@@ -184,7 +165,12 @@ extension OSLogger: Logger {
         log(metadata)
     }
     
-    public func error(_ error: Error, filename: String = #file, line: Int = #line, column: Int = #column, function: String = #function) {
+    public func error(
+        _ error: Error,
+        filename: String = #file,
+        line: Int = #line,
+        column: Int = #column,
+        function: String = #function) {
         recordError(error)
         let metadata = LogMetadata(
             object: error.localizedDescription,
@@ -195,11 +181,12 @@ extension OSLogger: Logger {
             function: function)
         log(metadata)
     }
-    public func info(_ object: Any,
-              filename: String = #file,
-              line: Int = #line,
-              column: Int = #column,
-              function: String = #function) {
+    public func info(
+        _ object: Any,
+        filename: String = #file,
+        line: Int = #line,
+        column: Int = #column,
+        function: String = #function) {
         let metadata = LogMetadata(
             object: object,
             logLevel: .info,
@@ -209,11 +196,12 @@ extension OSLogger: Logger {
             function: function)
         log(metadata)
     }
-    public func debug(_ object: Any,
-               filename: String = #file,
-               line: Int = #line,
-               column: Int = #column,
-               function: String = #function) {
+    public func debug(
+        _ object: Any,
+        filename: String = #file,
+        line: Int = #line,
+        column: Int = #column,
+        function: String = #function) {
         let metadata = LogMetadata(
             object: object,
             logLevel: .debug,
@@ -223,11 +211,12 @@ extension OSLogger: Logger {
             function: function)
         log(metadata)
     }
-    public func fault(_ object: Any,
-               filename: String = #file,
-               line: Int = #line,
-               column: Int = #column,
-               function: String = #function) {
+    public func fault(
+        _ object: Any,
+        filename: String = #file,
+        line: Int = #line,
+        column: Int = #column,
+        function: String = #function) {
         let metadata = LogMetadata(
             object: object,
             logLevel: .fault,
@@ -237,11 +226,12 @@ extension OSLogger: Logger {
             function: function)
         log(metadata)
     }
-    public func `default`(_ object: Any,
-                   filename: String = #file,
-                   line: Int = #line,
-                   column: Int = #column,
-                   function: String = #function) {
+    public func `default`(
+        _ object: Any,
+        filename: String = #file,
+        line: Int = #line,
+        column: Int = #column,
+        function: String = #function) {
         let metadata = LogMetadata(
             object: object,
             logLevel: .default,

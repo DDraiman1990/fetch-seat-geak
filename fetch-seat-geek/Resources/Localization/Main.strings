@@ -6,4 +6,8 @@
   
 */
 
-"test" = "test";
+"app_name" = "Fetch Seat Geak";
+
+"tab_events_title" = "Events";
+"tab_performers_title" = "Performers";
+"tab_venues_title" = "Venues";

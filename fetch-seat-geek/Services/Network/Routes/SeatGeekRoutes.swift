@@ -7,40 +7,19 @@
 
 import UIKit
 
-enum NetworkConstants {
-    enum Headers {
-        static let json = ["Content-Type": "application/json"]
-    }
-}
-
-enum HTTPMethod: String {
-    case options = "OPTIONS"
-    case get     = "GET"
-    case head    = "HEAD"
-    case post    = "POST"
-    case put     = "PUT"
-    case patch   = "PATCH"
-    case delete  = "DELETE"
-    case trace   = "TRACE"
-    case connect = "CONNECT"
-}
-
-protocol Route {
-    var path: String { get }
-    var method: HTTPMethod { get }
-    var headers: [String: String]? { get }
-}
-
 enum SeatGeekRoutes: Route {
+    private static var basePath: String {
+        "https://api.seatgeek.com/2"
+    }
+    
     var path: String {
-        let base = "https://api.seatgeek.com/2"
         switch self {
         case .events(let request):
-            return "\(base)/\(request.path)"
+            return request.path
         case .performers(let request):
-            return "\(base)/\(request.path)"
+            return request.path
         case .venues(let request):
-            return "\(base)/\(request.path)"
+            return request.path
         }
     }
     
@@ -55,7 +34,7 @@ enum SeatGeekRoutes: Route {
         }
     }
     
-    var headers: [String : String]? {
+    var headers: [URLQueryItem]? {
         switch self {
         case .events(let request):
             return request.headers
@@ -66,13 +45,46 @@ enum SeatGeekRoutes: Route {
         }
     }
     
+    var urlRequest: URLRequest {
+        switch self {
+        case .events(let request):
+            return request.urlRequest
+        case .performers(let request):
+            return request.urlRequest
+        case .venues(let request):
+            return request.urlRequest
+        }
+    }
+    
+    var body: Data? {
+        switch self {
+        case .events(let request):
+            return request.body
+        case .performers(let request):
+            return request.body
+        case .venues(let request):
+            return request.body
+        }
+    }
+    
+    var parameters: [String : String]? {
+        switch self {
+        case .events(let request):
+            return request.parameters
+        case .performers(let request):
+            return request.parameters
+        case .venues(let request):
+            return request.parameters
+        }
+    }
+    
     case events(request: EventsRequest)
     case performers(request: PerformersRequest)
     case venues(request: VenuesRequest)
     
     enum EventsRequest: Route {
         var path: String {
-            let base = "events"
+            let base = "\(basePath)/events"
             switch self {
             case .all:
                 return base
@@ -85,8 +97,16 @@ enum SeatGeekRoutes: Route {
             return .get
         }
         
-        var headers: [String : String]? {
-            return NetworkConstants.Headers.json
+        var headers: [URLQueryItem]? {
+            return [Headers.json]
+        }
+        
+        var body: Data? {
+            return nil
+        }
+        
+        var parameters: [String : String]? {
+            return nil
         }
         
         case all
@@ -94,7 +114,7 @@ enum SeatGeekRoutes: Route {
     }
     enum PerformersRequest: Route {
         var path: String {
-            let base = "performers"
+            let base = "\(basePath)/performers"
             switch self {
             case .all:
                 return base
@@ -107,8 +127,16 @@ enum SeatGeekRoutes: Route {
             return .get
         }
         
-        var headers: [String : String]? {
-            return NetworkConstants.Headers.json
+        var headers: [URLQueryItem]? {
+            return [Headers.json]
+        }
+        
+        var body: Data? {
+            return nil
+        }
+        
+        var parameters: [String : String]? {
+            return nil
         }
         
         case all
@@ -116,7 +144,7 @@ enum SeatGeekRoutes: Route {
     }
     enum VenuesRequest: Route {
         var path: String {
-            let base = "venues"
+            let base = "\(basePath)/venues"
             switch self {
             case .all:
                 return base
@@ -129,8 +157,16 @@ enum SeatGeekRoutes: Route {
             return .get
         }
         
-        var headers: [String : String]? {
-            return NetworkConstants.Headers.json
+        var headers: [URLQueryItem]? {
+            return [Headers.json]
+        }
+        
+        var body: Data? {
+            return nil
+        }
+        
+        var parameters: [String : String]? {
+            return nil
         }
         
         case all
