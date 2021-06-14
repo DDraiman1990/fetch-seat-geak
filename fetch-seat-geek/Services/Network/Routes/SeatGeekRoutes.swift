@@ -106,10 +106,18 @@ enum SeatGeekRoutes: Route {
         }
         
         var parameters: [String : String]? {
-            return nil
+            switch self {
+            case .all(let perPage, let page):
+                return [
+                    "per_page": "\(perPage)",
+                    "page": "\(page)"
+                ]
+            default:
+                return nil
+            }
         }
         
-        case all
+        case all(perPage: Int, page: Int)
         case get(id: String)
     }
     enum PerformersRequest: Route {
@@ -136,10 +144,18 @@ enum SeatGeekRoutes: Route {
         }
         
         var parameters: [String : String]? {
-            return nil
+            switch self {
+            case .all(let perPage, let page):
+                return [
+                    "per_page": "\(perPage)",
+                    "page": "\(page)"
+                ]
+            default:
+                return nil
+            }
         }
         
-        case all
+        case all(perPage: Int, page: Int)
         case get(id: String)
     }
     enum VenuesRequest: Route {
@@ -166,10 +182,18 @@ enum SeatGeekRoutes: Route {
         }
         
         var parameters: [String : String]? {
-            return nil
+            switch self {
+            case .all(let perPage, let page):
+                return [
+                    "per_page": "\(perPage)",
+                    "page": "\(page)"
+                ]
+            default:
+                return nil
+            }
         }
         
-        case all
+        case all(perPage: Int, page: Int)
         case get(id: String)
     }
 }

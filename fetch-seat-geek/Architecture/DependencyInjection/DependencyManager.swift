@@ -21,11 +21,15 @@ final class DependencyManager: DependencyManaging {
                     value: apiKeysManager.values[AppConstants.Keys.seatGeekStoredClientId] ?? "")),
             NetworkLoggerPlugin(logger: _logger)
         ])
+    private lazy var _seatGeekInteractor = SeatGeekInteractor(
+        networkService: _networkService,
+        logger: _logger)
         
     init() {
         let resolver = DependencyResolver.shared
         resolver.add(_logger)
         resolver.add(_networkService)
+        resolver.add(_seatGeekInteractor)
     }
 }
 

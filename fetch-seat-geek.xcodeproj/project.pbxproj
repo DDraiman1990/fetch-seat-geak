@@ -27,6 +27,16 @@
 		6440B7AA267676180087987F /* LoggerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440B7A9267676180087987F /* LoggerMock.swift */; };
 		6440B7AF2676864D0087987F /* NetworkPluginMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440B7AE2676864D0087987F /* NetworkPluginMock.swift */; };
 		6440B7B4267687710087987F /* RouteMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440B7B3267687710087987F /* RouteMock.swift */; };
+		6440B7D9267696710087987F /* SeatGeekInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440B7D8267696710087987F /* SeatGeekInteractor.swift */; };
+		6440B7E12676C94A0087987F /* SeatGeekEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440B7E02676C94A0087987F /* SeatGeekEvent.swift */; };
+		6440B7E62676C9560087987F /* SeatGeekPerformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440B7E52676C9560087987F /* SeatGeekPerformer.swift */; };
+		6440B7EB2676C9610087987F /* SeatGeekVenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440B7EA2676C9610087987F /* SeatGeekVenue.swift */; };
+		64B05E672676D5FD00CFBEA4 /* Services.strings in Resources */ = {isa = PBXBuildFile; fileRef = 64B05E662676D5FD00CFBEA4 /* Services.strings */; };
+		64B05E6D2676E23C00CFBEA4 /* EventStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B05E6C2676E23C00CFBEA4 /* EventStub.swift */; };
+		64B05E752676E25300CFBEA4 /* PerformerStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B05E742676E25300CFBEA4 /* PerformerStub.swift */; };
+		64B05E7A2676E25900CFBEA4 /* VenueStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B05E792676E25900CFBEA4 /* VenueStub.swift */; };
+		64B05E7F2676E27C00CFBEA4 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B05E7E2676E27C00CFBEA4 /* TestViewController.swift */; };
+		64B18BA72676D21B002924C8 /* SeatGeekResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B18BA62676D21B002924C8 /* SeatGeekResponses.swift */; };
 		64C7A3932673DF0400951930 /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = 64C7A3922673DF0400951930 /* Main.strings */; };
 		64C7A3A02673F59500951930 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C7A39F2673F59500951930 /* ViewModel.swift */; };
 		64C7A3A82673F5A600951930 /* ViewModel+TypeErasure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C7A3A72673F5A600951930 /* ViewModel+TypeErasure.swift */; };
@@ -99,6 +109,16 @@
 		6440B7A9267676180087987F /* LoggerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerMock.swift; sourceTree = "<group>"; };
 		6440B7AE2676864D0087987F /* NetworkPluginMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkPluginMock.swift; sourceTree = "<group>"; };
 		6440B7B3267687710087987F /* RouteMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteMock.swift; sourceTree = "<group>"; };
+		6440B7D8267696710087987F /* SeatGeekInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatGeekInteractor.swift; sourceTree = "<group>"; };
+		6440B7E02676C94A0087987F /* SeatGeekEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatGeekEvent.swift; sourceTree = "<group>"; };
+		6440B7E52676C9560087987F /* SeatGeekPerformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatGeekPerformer.swift; sourceTree = "<group>"; };
+		6440B7EA2676C9610087987F /* SeatGeekVenue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatGeekVenue.swift; sourceTree = "<group>"; };
+		64B05E662676D5FD00CFBEA4 /* Services.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Services.strings; sourceTree = "<group>"; };
+		64B05E6C2676E23C00CFBEA4 /* EventStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventStub.swift; sourceTree = "<group>"; };
+		64B05E742676E25300CFBEA4 /* PerformerStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformerStub.swift; sourceTree = "<group>"; };
+		64B05E792676E25900CFBEA4 /* VenueStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueStub.swift; sourceTree = "<group>"; };
+		64B05E7E2676E27C00CFBEA4 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		64B18BA62676D21B002924C8 /* SeatGeekResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatGeekResponses.swift; sourceTree = "<group>"; };
 		64C7A3922673DF0400951930 /* Main.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Main.strings; sourceTree = "<group>"; };
 		64C7A39F2673F59500951930 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		64C7A3A72673F5A600951930 /* ViewModel+TypeErasure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModel+TypeErasure.swift"; sourceTree = "<group>"; };
@@ -236,10 +256,29 @@
 			path = NetworkService;
 			sourceTree = "<group>";
 		};
+		6440B7D52676964F0087987F /* SeatGeek */ = {
+			isa = PBXGroup;
+			children = (
+				6440B7D8267696710087987F /* SeatGeekInteractor.swift */,
+			);
+			path = SeatGeek;
+			sourceTree = "<group>";
+		};
+		64B05E6B2676E1F100CFBEA4 /* Stubs */ = {
+			isa = PBXGroup;
+			children = (
+				64B05E6C2676E23C00CFBEA4 /* EventStub.swift */,
+				64B05E742676E25300CFBEA4 /* PerformerStub.swift */,
+				64B05E792676E25900CFBEA4 /* VenueStub.swift */,
+			);
+			path = Stubs;
+			sourceTree = "<group>";
+		};
 		64C7A3912673DE8D00951930 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
 				64C7A3922673DF0400951930 /* Main.strings */,
+				64B05E662676D5FD00CFBEA4 /* Services.strings */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -325,6 +364,7 @@
 		64E6E9242672F59300BDE2E6 /* fetch-seat-geekTests */ = {
 			isa = PBXGroup;
 			children = (
+				64B05E6B2676E1F100CFBEA4 /* Stubs */,
 				6440B763267671B70087987F /* NetworkService */,
 				6440B762267671B40087987F /* Mocks */,
 				64E6E9272672F59300BDE2E6 /* Info.plist */,
@@ -374,6 +414,7 @@
 		64E6E9442672F5AE00BDE2E6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				64B05E7E2676E27C00CFBEA4 /* TestViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -381,6 +422,10 @@
 		64E6E9452672F5B300BDE2E6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				6440B7E02676C94A0087987F /* SeatGeekEvent.swift */,
+				6440B7E52676C9560087987F /* SeatGeekPerformer.swift */,
+				6440B7EA2676C9610087987F /* SeatGeekVenue.swift */,
+				64B18BA62676D21B002924C8 /* SeatGeekResponses.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -403,6 +448,7 @@
 		64E6E94E2672F73E00BDE2E6 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				6440B7D52676964F0087987F /* SeatGeek */,
 				6440B6FE2675B2A70087987F /* APIKeys */,
 				64E6E9B32672FBAF00BDE2E6 /* Network */,
 				64E6E9A02672FA2300BDE2E6 /* Logger */,
@@ -589,6 +635,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				64C7A3932673DF0400951930 /* Main.strings in Resources */,
+				64B05E672676D5FD00CFBEA4 /* Services.strings in Resources */,
 				64E6E91B2672F59300BDE2E6 /* LaunchScreen.storyboard in Resources */,
 				64E6E9182672F59300BDE2E6 /* Assets.xcassets in Resources */,
 				6440B71426766C7F0087987F /* api-keys.plist in Resources */,
@@ -783,6 +830,7 @@
 				64E6E9AB2672FA2300BDE2E6 /* CrashReporter.swift in Sources */,
 				64E6E99B2672F9CE00BDE2E6 /* DependencyManager.swift in Sources */,
 				6440B75E267671420087987F /* Route.swift in Sources */,
+				6440B7E62676C9560087987F /* SeatGeekPerformer.swift in Sources */,
 				64C7A3B22673F60600951930 /* ModelUpdate.swift in Sources */,
 				6440B6EF267558140087987F /* Combine+SinkToResult.swift in Sources */,
 				64E6E9AA2672FA2300BDE2E6 /* LogLevel.swift in Sources */,
@@ -790,6 +838,7 @@
 				64C7A3B72673F63100951930 /* Combine+CancelBag.swift in Sources */,
 				6440B759267671270087987F /* HTTPMethod.swift in Sources */,
 				6440B7402676701A0087987F /* NetworkLoggerPlugin.swift in Sources */,
+				6440B7EB2676C9610087987F /* SeatGeekVenue.swift in Sources */,
 				64E6E9A72672FA2300BDE2E6 /* LogMetadata.swift in Sources */,
 				64C7A3A02673F59500951930 /* ViewModel.swift in Sources */,
 				6440B7332676700B0087987F /* NetworkAuthMethod.swift in Sources */,
@@ -800,11 +849,15 @@
 				6440B73B267670130087987F /* NetworkPlugin.swift in Sources */,
 				64E6E9B52672FBB900BDE2E6 /* SeatGeekRoutes.swift in Sources */,
 				6440B71A26766CD80087987F /* AppConstants.swift in Sources */,
+				6440B7D9267696710087987F /* SeatGeekInteractor.swift in Sources */,
 				6440B74F267670330087987F /* NetworkResult.swift in Sources */,
 				6440B745267670210087987F /* NetworkAuthPlugin.swift in Sources */,
+				64B05E7F2676E27C00CFBEA4 /* TestViewController.swift in Sources */,
 				64E6E99C2672F9CE00BDE2E6 /* DependencyResolver.swift in Sources */,
+				6440B7E12676C94A0087987F /* SeatGeekEvent.swift in Sources */,
 				64E6E96B2672F90000BDE2E6 /* R.generated.swift in Sources */,
 				64E6E9A92672FA2300BDE2E6 /* LogFormat.swift in Sources */,
+				64B18BA72676D21B002924C8 /* SeatGeekResponses.swift in Sources */,
 				64E6E9A82672FA2300BDE2E6 /* Logger.swift in Sources */,
 				6440B74A2676702C0087987F /* NetworkServicing.swift in Sources */,
 			);
@@ -814,8 +867,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64B05E6D2676E23C00CFBEA4 /* EventStub.swift in Sources */,
 				6440B7A5267675920087987F /* URLSessionMock.swift in Sources */,
 				6440B7AF2676864D0087987F /* NetworkPluginMock.swift in Sources */,
+				64B05E7A2676E25900CFBEA4 /* VenueStub.swift in Sources */,
+				64B05E752676E25300CFBEA4 /* PerformerStub.swift in Sources */,
 				6440B7B4267687710087987F /* RouteMock.swift in Sources */,
 				6440B76B267672660087987F /* NetworkServiceTests.swift in Sources */,
 				6440B7AA267676180087987F /* LoggerMock.swift in Sources */,

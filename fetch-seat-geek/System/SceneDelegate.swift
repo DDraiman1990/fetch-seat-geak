@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             fatalError("Unexpected scene type")
         }
         self.window = UIWindow(windowScene: scene)
-        setRoot(viewController: UIViewController())
+        setRoot(viewController: TestViewController(resolver: DependencyResolver.shared))
     }
     
     private func setRoot(
