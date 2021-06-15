@@ -50,6 +50,7 @@
 		6440B7E12676C94A0087987F /* SGEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440B7E02676C94A0087987F /* SGEvent.swift */; };
 		6440B7E62676C9560087987F /* SGPerformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440B7E52676C9560087987F /* SGPerformer.swift */; };
 		6440B7EB2676C9610087987F /* SGVenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440B7EA2676C9610087987F /* SGVenue.swift */; };
+		64A32BF32678E00300EEE8BF /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A32BF22678E00300EEE8BF /* TabController.swift */; };
 		64B05E672676D5FD00CFBEA4 /* Services.strings in Resources */ = {isa = PBXBuildFile; fileRef = 64B05E662676D5FD00CFBEA4 /* Services.strings */; };
 		64B05E6D2676E23C00CFBEA4 /* EventStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B05E6C2676E23C00CFBEA4 /* EventStub.swift */; };
 		64B05E752676E25300CFBEA4 /* PerformerStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B05E742676E25300CFBEA4 /* PerformerStub.swift */; };
@@ -150,6 +151,7 @@
 		6440B7E02676C94A0087987F /* SGEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGEvent.swift; sourceTree = "<group>"; };
 		6440B7E52676C9560087987F /* SGPerformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGPerformer.swift; sourceTree = "<group>"; };
 		6440B7EA2676C9610087987F /* SGVenue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGVenue.swift; sourceTree = "<group>"; };
+		64A32BF22678E00300EEE8BF /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		64B05E662676D5FD00CFBEA4 /* Services.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Services.strings; sourceTree = "<group>"; };
 		64B05E6C2676E23C00CFBEA4 /* EventStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventStub.swift; sourceTree = "<group>"; };
 		64B05E742676E25300CFBEA4 /* PerformerStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformerStub.swift; sourceTree = "<group>"; };
@@ -487,6 +489,7 @@
 		64E6E9442672F5AE00BDE2E6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				64A32BF22678E00300EEE8BF /* TabController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -938,6 +941,7 @@
 				6440B745267670210087987F /* NetworkAuthPlugin.swift in Sources */,
 				64E6E99C2672F9CE00BDE2E6 /* DependencyResolver.swift in Sources */,
 				6440B7E12676C94A0087987F /* SGEvent.swift in Sources */,
+				64A32BF32678E00300EEE8BF /* TabController.swift in Sources */,
 				64E6E96B2672F90000BDE2E6 /* R.generated.swift in Sources */,
 				64E6E9A92672FA2300BDE2E6 /* LogFormat.swift in Sources */,
 				64B18BA72676D21B002924C8 /* SGResponses.swift in Sources */,
