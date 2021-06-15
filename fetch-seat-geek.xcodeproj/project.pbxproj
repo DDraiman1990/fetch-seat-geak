@@ -22,7 +22,7 @@
 		640F87BD26783EEF0055C4A4 /* GetVenueResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 640F87B726783EEF0055C4A4 /* GetVenueResponse.json */; };
 		640F87BE26783EEF0055C4A4 /* EventsResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 640F87B826783EEF0055C4A4 /* EventsResponse.json */; };
 		640F87BF26783EEF0055C4A4 /* PerformersResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 640F87B926783EEF0055C4A4 /* PerformersResponse.json */; };
-		640F87C026783EEF0055C4A4 /* VenueResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 640F87BA26783EEF0055C4A4 /* VenueResponse.json */; };
+		640F87C026783EEF0055C4A4 /* VenuesResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 640F87BA26783EEF0055C4A4 /* VenuesResponse.json */; };
 		640F87C826783F0C0055C4A4 /* SeatGeekInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640F87C726783F0C0055C4A4 /* SeatGeekInteractorTests.swift */; };
 		640F87CD26783F7A0055C4A4 /* NetworkServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640F87CC26783F7A0055C4A4 /* NetworkServiceMock.swift */; };
 		640F87D3267840E30055C4A4 /* NetworkResultBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640F87D2267840E30055C4A4 /* NetworkResultBuilder.swift */; };
@@ -54,7 +54,6 @@
 		64B05E6D2676E23C00CFBEA4 /* EventStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B05E6C2676E23C00CFBEA4 /* EventStub.swift */; };
 		64B05E752676E25300CFBEA4 /* PerformerStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B05E742676E25300CFBEA4 /* PerformerStub.swift */; };
 		64B05E7A2676E25900CFBEA4 /* VenueStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B05E792676E25900CFBEA4 /* VenueStub.swift */; };
-		64B05E7F2676E27C00CFBEA4 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B05E7E2676E27C00CFBEA4 /* TestViewController.swift */; };
 		64B18BA72676D21B002924C8 /* SGResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B18BA62676D21B002924C8 /* SGResponses.swift */; };
 		64C7A3932673DF0400951930 /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = 64C7A3922673DF0400951930 /* Main.strings */; };
 		64C7A3A02673F59500951930 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C7A39F2673F59500951930 /* ViewModel.swift */; };
@@ -122,7 +121,7 @@
 		640F87B726783EEF0055C4A4 /* GetVenueResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetVenueResponse.json; sourceTree = "<group>"; };
 		640F87B826783EEF0055C4A4 /* EventsResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = EventsResponse.json; sourceTree = "<group>"; };
 		640F87B926783EEF0055C4A4 /* PerformersResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PerformersResponse.json; sourceTree = "<group>"; };
-		640F87BA26783EEF0055C4A4 /* VenueResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = VenueResponse.json; sourceTree = "<group>"; };
+		640F87BA26783EEF0055C4A4 /* VenuesResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = VenuesResponse.json; sourceTree = "<group>"; };
 		640F87C726783F0C0055C4A4 /* SeatGeekInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatGeekInteractorTests.swift; sourceTree = "<group>"; };
 		640F87CC26783F7A0055C4A4 /* NetworkServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceMock.swift; sourceTree = "<group>"; };
 		640F87D2267840E30055C4A4 /* NetworkResultBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResultBuilder.swift; sourceTree = "<group>"; };
@@ -155,7 +154,6 @@
 		64B05E6C2676E23C00CFBEA4 /* EventStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventStub.swift; sourceTree = "<group>"; };
 		64B05E742676E25300CFBEA4 /* PerformerStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformerStub.swift; sourceTree = "<group>"; };
 		64B05E792676E25900CFBEA4 /* VenueStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueStub.swift; sourceTree = "<group>"; };
-		64B05E7E2676E27C00CFBEA4 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		64B18BA62676D21B002924C8 /* SGResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGResponses.swift; sourceTree = "<group>"; };
 		64C7A3922673DF0400951930 /* Main.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Main.strings; sourceTree = "<group>"; };
 		64C7A39F2673F59500951930 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -340,7 +338,7 @@
 				640F87B626783EEF0055C4A4 /* GetPerformerResponse.json */,
 				640F87B726783EEF0055C4A4 /* GetVenueResponse.json */,
 				640F87B926783EEF0055C4A4 /* PerformersResponse.json */,
-				640F87BA26783EEF0055C4A4 /* VenueResponse.json */,
+				640F87BA26783EEF0055C4A4 /* VenuesResponse.json */,
 				64B05E6C2676E23C00CFBEA4 /* EventStub.swift */,
 				64B05E742676E25300CFBEA4 /* PerformerStub.swift */,
 				64B05E792676E25900CFBEA4 /* VenueStub.swift */,
@@ -489,7 +487,6 @@
 		64E6E9442672F5AE00BDE2E6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				64B05E7E2676E27C00CFBEA4 /* TestViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -723,7 +720,7 @@
 				640F87BC26783EEF0055C4A4 /* GetPerformerResponse.json in Resources */,
 				640F87BB26783EEF0055C4A4 /* GetEventResponse.json in Resources */,
 				640F87BF26783EEF0055C4A4 /* PerformersResponse.json in Resources */,
-				640F87C026783EEF0055C4A4 /* VenueResponse.json in Resources */,
+				640F87C026783EEF0055C4A4 /* VenuesResponse.json in Resources */,
 				640F87BE26783EEF0055C4A4 /* EventsResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -939,7 +936,6 @@
 				6440B74F267670330087987F /* NetworkResult.swift in Sources */,
 				640F878D267839170055C4A4 /* SGGenre.swift in Sources */,
 				6440B745267670210087987F /* NetworkAuthPlugin.swift in Sources */,
-				64B05E7F2676E27C00CFBEA4 /* TestViewController.swift in Sources */,
 				64E6E99C2672F9CE00BDE2E6 /* DependencyResolver.swift in Sources */,
 				6440B7E12676C94A0087987F /* SGEvent.swift in Sources */,
 				64E6E96B2672F90000BDE2E6 /* R.generated.swift in Sources */,
