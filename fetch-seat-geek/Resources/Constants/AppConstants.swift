@@ -12,4 +12,9 @@ enum AppConstants {
         static let seatGeekStoredClientId = "seat-geek-client"
         static let seatGeekClientIdParamName = "client_id"
     }
+    
+    enum Logs {
+        static let category = "fetch-seat-geak"
+        static let logFormat = LogFormat()
+    }
 }

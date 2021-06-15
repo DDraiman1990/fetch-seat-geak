@@ -1,0 +1,547 @@
+{
+  "performers": [
+      {
+          "type": "nfl",
+          "name": "Super Bowl",
+          "image": "https://seatgeek.com/images/performers-landscape/super-bowl-e0465e/11591/huge.jpg",
+          "id": 11591,
+          "images": {
+              "huge": "https://seatgeek.com/images/performers-landscape/super-bowl-e0465e/11591/huge.jpg"
+          },
+          "divisions": null,
+          "links": [],
+          "has_upcoming_events": false,
+          "primary": true,
+          "stats": {
+              "event_count": 0
+          },
+          "taxonomies": [
+              {
+                  "id": 1000000,
+                  "name": "sports",
+                  "parent_id": null,
+                  "rank": 0
+              },
+              {
+                  "id": 1020000,
+                  "name": "football",
+                  "parent_id": 1000000,
+                  "rank": 0
+              },
+              {
+                  "id": 1020100,
+                  "name": "nfl",
+                  "parent_id": 1020000,
+                  "rank": 0
+              }
+          ],
+          "image_attribution": "SG",
+          "url": "https://seatgeek.com/super-bowl-tickets",
+          "score": 1,
+          "slug": "super-bowl",
+          "home_venue_id": null,
+          "short_name": "Super Bowl",
+          "num_upcoming_events": 0,
+          "colors": {
+              "all": [
+                  "#1673E6",
+                  "#191919",
+                  "#1673E6"
+              ],
+              "iconic": "#1673E6",
+              "primary": [
+                  "#1673E6",
+                  "#191919"
+              ]
+          },
+          "image_license": "SG",
+          "popularity": 0,
+          "location": null,
+          "themes": [],
+          "domain_information": []
+      },
+      {
+          "type": "ncaa_football",
+          "name": "College Football Playoff National Championship Game",
+          "image": "https://seatgeek.com/images/performers-landscape/college-football-playoff-national-championship-game-630987/12007/huge.jpg",
+          "id": 12007,
+          "images": {
+              "huge": "https://seatgeek.com/images/performers-landscape/college-football-playoff-national-championship-game-630987/12007/huge.jpg"
+          },
+          "divisions": null,
+          "links": [],
+          "has_upcoming_events": false,
+          "primary": true,
+          "stats": {
+              "event_count": 0
+          },
+          "taxonomies": [
+              {
+                  "id": 1000000,
+                  "name": "sports",
+                  "parent_id": null,
+                  "rank": 0
+              },
+              {
+                  "id": 1020000,
+                  "name": "football",
+                  "parent_id": 1000000,
+                  "rank": 0
+              },
+              {
+                  "id": 1020200,
+                  "name": "ncaa_football",
+                  "parent_id": 1020000,
+                  "rank": 13
+              }
+          ],
+          "image_attribution": "https://www.flickr.com/photos/usarmyband/27973894899/in/photolist-22aYpaJ-hYzZag-22aYopq-Jj13xk-TC9C8Q-hYAgTL-23fCWpM-hYA8iS-DAQdb4-hYA26E-hYAbzP-hYzPxv-hYBBrw-22aYnc5-JBXxUK-hYBtvm-21Ts5k6-23vZJ5A-JBXwKa-22coWtT-22coWbZ-22coW6i-JBXws6-JBXxXv-JBXxdK-JBXw14-JBXxsc-JBXx2T-JBXxKX-JBXw6K-JBXwUZ-JBXx5D-22coWkM-JBXxGF-DUPDu4-22coWyH-JBXy66-22coWgP-JBXxfD-JBXwyt-JBXxbv-JBXy8k-JBXwmK-JBXwRH-JBXwYM-JBXxip-JBXx9g-22u8G73-JBXxmv-JBXwXe",
+          "url": "https://seatgeek.com/college-football-playoff-national-championship-game-tickets",
+          "score": 1,
+          "slug": "college-football-playoff-national-championship-game",
+          "home_venue_id": null,
+          "short_name": "College Football Playoff National Championship Game",
+          "num_upcoming_events": 0,
+          "colors": null,
+          "image_license": "https://creativecommons.org/licenses/by/2.0/",
+          "popularity": 0,
+          "location": null,
+          "themes": [],
+          "domain_information": []
+      },
+      {
+          "type": "ncaa_womens_basketball",
+          "name": "Central Michigan Chippewas Womens Basketball",
+          "image": "https://seatgeek.com/images/performers-landscape/central-michigan-chippewas-womens-basketball-6a69c3/13089/huge.jpg",
+          "id": 13089,
+          "images": {
+              "huge": "https://seatgeek.com/images/performers-landscape/central-michigan-chippewas-womens-basketball-6a69c3/13089/huge.jpg"
+          },
+          "divisions": [
+              {
+                  "taxonomy_id": 1030300,
+                  "short_name": null,
+                  "display_name": "Division I",
+                  "display_type": "Division",
+                  "division_level": 1,
+                  "slug": null
+              },
+              {
+                  "taxonomy_id": 1030300,
+                  "short_name": "MAC",
+                  "display_name": "Mid-American",
+                  "display_type": "Conference",
+                  "division_level": 2,
+                  "slug": "mid-american"
+              }
+          ],
+          "links": [],
+          "has_upcoming_events": true,
+          "primary": true,
+          "stats": {
+              "event_count": 3
+          },
+          "taxonomies": [
+              {
+                  "id": 1000000,
+                  "name": "sports",
+                  "parent_id": null,
+                  "rank": 0
+              },
+              {
+                  "id": 1030000,
+                  "name": "basketball",
+                  "parent_id": 1000000,
+                  "rank": 0
+              },
+              {
+                  "id": 1030300,
+                  "name": "ncaa_womens_basketball",
+                  "parent_id": 1030000,
+                  "rank": 0
+              }
+          ],
+          "image_attribution": "null",
+          "url": "https://seatgeek.com/central-michigan-chippewas-womens-basketball-tickets",
+          "score": 0.96,
+          "slug": "central-michigan-chippewas-womens-basketball",
+          "home_venue_id": null,
+          "short_name": "Central Michigan (Women)",
+          "num_upcoming_events": 3,
+          "colors": null,
+          "image_license": "null",
+          "popularity": 0,
+          "location": null,
+          "themes": [],
+          "domain_information": []
+      },
+      {
+          "type": "band",
+          "name": "L'homme PAILLE - Officiel",
+          "image": "https://seatgeek.com/images/performers-landscape/generic-concerts-0bd3dc/677165/21732/huge.jpg",
+          "id": 579874,
+          "images": {
+              "huge": "https://seatgeek.com/images/performers-landscape/generic-concerts-0bd3dc/677165/21732/huge.jpg"
+          },
+          "divisions": null,
+          "links": [],
+          "has_upcoming_events": false,
+          "primary": true,
+          "stats": {
+              "event_count": 0
+          },
+          "taxonomies": [
+              {
+                  "id": 2000000,
+                  "name": "concerts",
+                  "parent_id": null,
+                  "rank": 1
+              }
+          ],
+          "image_attribution": null,
+          "url": "https://seatgeek.com/l-homme-paille-officiel-tickets",
+          "score": 0.93,
+          "slug": "l-homme-paille-officiel",
+          "home_venue_id": null,
+          "short_name": "L'homme PAILLE - Officiel",
+          "num_upcoming_events": 0,
+          "colors": null,
+          "image_license": null,
+          "popularity": 0,
+          "location": null,
+          "themes": [],
+          "domain_information": []
+      },
+      {
+          "type": "band",
+          "name": "Bad Bunny",
+          "image": "https://seatgeek.com/images/performers-landscape/bad-bunny-7b9cd4/616548/huge.jpg",
+          "id": 616548,
+          "images": {
+              "huge": "https://seatgeek.com/images/performers-landscape/bad-bunny-7b9cd4/616548/huge.jpg"
+          },
+          "divisions": null,
+          "links": [],
+          "has_upcoming_events": true,
+          "primary": true,
+          "stats": {
+              "event_count": 35
+          },
+          "taxonomies": [
+              {
+                  "id": 2000000,
+                  "name": "concerts",
+                  "parent_id": null,
+                  "rank": 1
+              }
+          ],
+          "image_attribution": "CBS Photo Archive / CBS / Getty Images",
+          "url": "https://seatgeek.com/bad-bunny-tickets",
+          "score": 0.92,
+          "slug": "bad-bunny",
+          "home_venue_id": null,
+          "short_name": "Bad Bunny",
+          "num_upcoming_events": 35,
+          "colors": null,
+          "image_license": "rightsmanaged",
+          "genres": [
+              {
+                  "id": 491,
+                  "name": "Hip-Hop",
+                  "slug": "hip-hop",
+                  "primary": true,
+                  "images": {
+                      "1200x525": "https://seatgeek.com/images/performers-landscape/the-weeknd-9d6525/13733/1200x525.jpg",
+                      "1200x627": "https://seatgeek.com/images/performers-landscape/the-weeknd-5549b2/13733/1200x627.jpg",
+                      "136x136": "https://seatgeek.com/images/performers-landscape/the-weeknd-4e9a29/13733/136x136.jpg",
+                      "500_700": "https://seatgeek.com/images/performers-landscape/the-weeknd-c92389/13733/500_700.jpg",
+                      "800x320": "https://seatgeek.com/images/performers-landscape/the-weeknd-d5e2bf/13733/800x320.jpg",
+                      "banner": "https://seatgeek.com/images/performers-landscape/the-weeknd-39f83a/13733/banner.jpg",
+                      "block": "https://seatgeek.com/images/performers-landscape/the-weeknd-6b1134/13733/block.jpg",
+                      "criteo_130_160": "https://seatgeek.com/images/performers-landscape/the-weeknd-39d8d9/13733/criteo_130_160.jpg",
+                      "criteo_170_235": "https://seatgeek.com/images/performers-landscape/the-weeknd-db1826/13733/criteo_170_235.jpg",
+                      "criteo_205_100": "https://seatgeek.com/images/performers-landscape/the-weeknd-67fdb0/13733/criteo_205_100.jpg",
+                      "criteo_400_300": "https://seatgeek.com/images/performers-landscape/the-weeknd-5ef169/13733/criteo_400_300.jpg",
+                      "fb_100x72": "https://seatgeek.com/images/performers-landscape/the-weeknd-ed127d/13733/fb_100x72.jpg",
+                      "fb_600_315": "https://seatgeek.com/images/performers-landscape/the-weeknd-a93370/13733/fb_600_315.jpg",
+                      "huge": "https://seatgeek.com/images/performers-landscape/the-weeknd-85c84c/13733/huge.jpg",
+                      "ipad_event_modal": "https://seatgeek.com/images/performers-landscape/the-weeknd-86470e/13733/ipad_event_modal.jpg",
+                      "ipad_header": "https://seatgeek.com/images/performers-landscape/the-weeknd-356f78/13733/ipad_header.jpg",
+                      "ipad_mini_explore": "https://seatgeek.com/images/performers-landscape/the-weeknd-9f4d18/13733/ipad_mini_explore.jpg",
+                      "mongo": "https://seatgeek.com/images/performers-landscape/the-weeknd-bd6c9c/13733/mongo.jpg",
+                      "square_mid": "https://seatgeek.com/images/performers-landscape/the-weeknd-13e222/13733/square_mid.jpg",
+                      "triggit_fb_ad": "https://seatgeek.com/images/performers-landscape/the-weeknd-a2b170/13733/triggit_fb_ad.jpg"
+                  },
+                  "image": "https://seatgeek.com/images/performers-landscape/the-weeknd-85c84c/13733/huge.jpg"
+              },
+              {
+                  "id": 493,
+                  "name": "Rap",
+                  "slug": "rap",
+                  "primary": false,
+                  "images": {
+                      "1200x525": "https://seatgeek.com/images/performers-landscape/blackbear-485e7e/33454/1200x525.jpg",
+                      "1200x627": "https://seatgeek.com/images/performers-landscape/blackbear-9b2566/33454/1200x627.jpg",
+                      "136x136": "https://seatgeek.com/images/performers-landscape/blackbear-e8fbef/33454/136x136.jpg",
+                      "500_700": "https://seatgeek.com/images/performers-landscape/blackbear-fa8fbf/33454/500_700.jpg",
+                      "800x320": "https://seatgeek.com/images/performers-landscape/blackbear-a19e33/33454/800x320.jpg",
+                      "banner": "https://seatgeek.com/images/performers-landscape/blackbear-91d605/33454/banner.jpg",
+                      "block": "https://seatgeek.com/images/performers-landscape/blackbear-f5c228/33454/block.jpg",
+                      "criteo_130_160": "https://seatgeek.com/images/performers-landscape/blackbear-fca572/33454/criteo_130_160.jpg",
+                      "criteo_170_235": "https://seatgeek.com/images/performers-landscape/blackbear-8881bc/33454/criteo_170_235.jpg",
+                      "criteo_205_100": "https://seatgeek.com/images/performers-landscape/blackbear-bcfd2c/33454/criteo_205_100.jpg",
+                      "criteo_400_300": "https://seatgeek.com/images/performers-landscape/blackbear-c98bba/33454/criteo_400_300.jpg",
+                      "fb_100x72": "https://seatgeek.com/images/performers-landscape/blackbear-4f9a0a/33454/fb_100x72.jpg",
+                      "fb_600_315": "https://seatgeek.com/images/performers-landscape/blackbear-1e44d9/33454/fb_600_315.jpg",
+                      "huge": "https://seatgeek.com/images/performers-landscape/blackbear-6bbc0c/33454/huge.jpg",
+                      "ipad_event_modal": "https://seatgeek.com/images/performers-landscape/blackbear-c7a47d/33454/ipad_event_modal.jpg",
+                      "ipad_header": "https://seatgeek.com/images/performers-landscape/blackbear-84904a/33454/ipad_header.jpg",
+                      "ipad_mini_explore": "https://seatgeek.com/images/performers-landscape/blackbear-347e87/33454/ipad_mini_explore.jpg",
+                      "mongo": "https://seatgeek.com/images/performers-landscape/blackbear-ae1031/33454/mongo.jpg",
+                      "square_mid": "https://seatgeek.com/images/performers-landscape/blackbear-5c83ff/33454/square_mid.jpg",
+                      "triggit_fb_ad": "https://seatgeek.com/images/performers-landscape/blackbear-6fbfab/33454/triggit_fb_ad.jpg"
+                  },
+                  "image": "https://seatgeek.com/images/performers-landscape/blackbear-6bbc0c/33454/huge.jpg"
+              }
+          ],
+          "popularity": 0,
+          "location": null,
+          "themes": [],
+          "domain_information": []
+      },
+      {
+          "type": "ncaa_football",
+          "name": "Red River Shootout",
+          "image": "https://seatgeek.com/images/performers-landscape/generic-college-football-b74c72/677208/27795/huge.jpg",
+          "id": 9148,
+          "images": {
+              "huge": "https://seatgeek.com/images/performers-landscape/generic-college-football-b74c72/677208/27795/huge.jpg"
+          },
+          "divisions": null,
+          "links": [],
+          "has_upcoming_events": false,
+          "primary": true,
+          "stats": {
+              "event_count": 0
+          },
+          "taxonomies": [
+              {
+                  "id": 1000000,
+                  "name": "sports",
+                  "parent_id": null,
+                  "rank": 0
+              },
+              {
+                  "id": 1020000,
+                  "name": "football",
+                  "parent_id": 1000000,
+                  "rank": 0
+              },
+              {
+                  "id": 1020200,
+                  "name": "ncaa_football",
+                  "parent_id": 1020000,
+                  "rank": 7
+              }
+          ],
+          "image_attribution": null,
+          "url": "https://seatgeek.com/red-river-shootout-tickets",
+          "score": 0.9,
+          "slug": "red-river-shootout",
+          "home_venue_id": null,
+          "short_name": "Red River",
+          "num_upcoming_events": 0,
+          "colors": null,
+          "image_license": null,
+          "popularity": 0,
+          "location": null,
+          "themes": [],
+          "domain_information": []
+      },
+      {
+          "type": "sports",
+          "name": "Confederations Cup",
+          "image": "https://seatgeek.com/images/performers-landscape/generic-sports-da7275/677214/21974/huge.jpg",
+          "id": 317164,
+          "images": {
+              "huge": "https://seatgeek.com/images/performers-landscape/generic-sports-da7275/677214/21974/huge.jpg"
+          },
+          "divisions": null,
+          "links": [],
+          "has_upcoming_events": false,
+          "primary": true,
+          "stats": {
+              "event_count": 0
+          },
+          "taxonomies": [
+              {
+                  "id": 1000000,
+                  "name": "sports",
+                  "parent_id": null,
+                  "rank": 0
+              }
+          ],
+          "image_attribution": null,
+          "url": "https://seatgeek.com/confederations-cup-tickets",
+          "score": 0.89,
+          "slug": "confederations-cup",
+          "home_venue_id": null,
+          "short_name": "Confederations Cup",
+          "num_upcoming_events": 0,
+          "colors": null,
+          "image_license": null,
+          "popularity": 0,
+          "location": null,
+          "themes": [],
+          "domain_information": []
+      },
+      {
+          "type": "music_festival",
+          "name": "12.12.12 - The Concert For Sandy Relief",
+          "image": "https://seatgeek.com/images/performers-landscape/12-12-12-the-concert-for-sandy-relief-840567/86772/huge.jpg",
+          "id": 86772,
+          "images": {
+              "huge": "https://seatgeek.com/images/performers-landscape/12-12-12-the-concert-for-sandy-relief-840567/86772/huge.jpg"
+          },
+          "divisions": null,
+          "links": [],
+          "has_upcoming_events": false,
+          "primary": true,
+          "stats": {
+              "event_count": 0
+          },
+          "taxonomies": [
+              {
+                  "id": 2000000,
+                  "name": "concerts",
+                  "parent_id": null,
+                  "rank": 0
+              },
+              {
+                  "id": 2010000,
+                  "name": "music_festival",
+                  "parent_id": 2000000,
+                  "rank": 0
+              }
+          ],
+          "image_attribution": null,
+          "url": "https://seatgeek.com/12-12-12-the-concert-for-sandy-relief-tickets",
+          "score": 0.88905,
+          "slug": "12-12-12-the-concert-for-sandy-relief",
+          "home_venue_id": null,
+          "short_name": "12.12.12 - The Concert For Sandy Relief",
+          "num_upcoming_events": 0,
+          "colors": null,
+          "image_license": null,
+          "popularity": 0,
+          "location": null,
+          "themes": [],
+          "domain_information": []
+      },
+      {
+          "type": "nfl",
+          "name": "NFC Championship",
+          "image": "https://seatgeek.com/images/performers-landscape/nfc-championship-9970a5/13474/huge.jpg",
+          "id": 13474,
+          "images": {
+              "huge": "https://seatgeek.com/images/performers-landscape/nfc-championship-9970a5/13474/huge.jpg"
+          },
+          "divisions": null,
+          "links": [],
+          "has_upcoming_events": false,
+          "primary": true,
+          "stats": {
+              "event_count": 0
+          },
+          "taxonomies": [
+              {
+                  "id": 1000000,
+                  "name": "sports",
+                  "parent_id": null,
+                  "rank": 0
+              },
+              {
+                  "id": 1020000,
+                  "name": "football",
+                  "parent_id": 1000000,
+                  "rank": 0
+              },
+              {
+                  "id": 1020100,
+                  "name": "nfl",
+                  "parent_id": 1020000,
+                  "rank": 12
+              }
+          ],
+          "image_attribution": null,
+          "url": "https://seatgeek.com/nfc-championship-tickets",
+          "score": 0.88,
+          "slug": "nfc-championship",
+          "home_venue_id": null,
+          "short_name": "NFC Championship",
+          "num_upcoming_events": 0,
+          "colors": null,
+          "image_license": null,
+          "popularity": 0,
+          "location": null,
+          "themes": [],
+          "domain_information": []
+      },
+      {
+          "type": "nba",
+          "name": "NBA All Star Weekend",
+          "image": "https://seatgeek.com/images/performers-landscape/generic-nba-basketball-c0a777/677206/32402/huge.jpg",
+          "id": 693482,
+          "images": {
+              "huge": "https://seatgeek.com/images/performers-landscape/generic-nba-basketball-c0a777/677206/32402/huge.jpg"
+          },
+          "divisions": null,
+          "links": [],
+          "has_upcoming_events": false,
+          "primary": true,
+          "stats": {
+              "event_count": 0
+          },
+          "taxonomies": [
+              {
+                  "id": 1000000,
+                  "name": "sports",
+                  "parent_id": null,
+                  "rank": 0
+              },
+              {
+                  "id": 1030000,
+                  "name": "basketball",
+                  "parent_id": 1000000,
+                  "rank": 0
+              },
+              {
+                  "id": 1030100,
+                  "name": "nba",
+                  "parent_id": 1030000,
+                  "rank": 4
+              }
+          ],
+          "image_attribution": null,
+          "url": "https://seatgeek.com/nba-all-star-weekend-1-tickets",
+          "score": 0.88,
+          "slug": "nba-all-star-weekend-1",
+          "home_venue_id": null,
+          "short_name": "NBA All Star Weekend",
+          "num_upcoming_events": 0,
+          "colors": null,
+          "image_license": null,
+          "popularity": 0,
+          "location": null,
+          "themes": [],
+          "domain_information": []
+      }
+  ],
+  "meta": {
+      "total": 394799,
+      "took": 6,
+      "page": 1,
+      "per_page": 10,
+      "geolocation": null
+  }
+}

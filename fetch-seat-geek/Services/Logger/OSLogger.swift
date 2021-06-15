@@ -14,7 +14,7 @@ public final class OSLogger {
     
     // MARK: - Properties | Dependecies
     
-    private var log: OSLog
+    private var core: CoreLogger
     private var crashReporter: CrashReporter? = nil
     
     // MARK: - Properties | Configuration
@@ -27,11 +27,10 @@ public final class OSLogger {
     
     // MARK: - Lifecycle
     
-    public init(category: String,
-         crashReporter: CrashReporter? = nil) {
-        let subsystem = Bundle.main.bundleIdentifier
-            ?? "General Subsystem"
-        log = OSLog(subsystem: subsystem, category: category)
+    public init(
+        core: CoreLogger,
+        crashReporter: CrashReporter? = nil) {
+        self.core = core
         self.crashReporter = crashReporter
     }
     
@@ -48,11 +47,7 @@ public final class OSLogger {
     ///   - function: name of function, in file, the logging was called from.
     private func log(_ metadata: LogMetadata) {
         let formattedObject = format(with: metadata)
-        os_log(
-            "%@",
-            log: log,
-            type: metadata.logLevel.osLogLevel,
-            formattedObject)
+        core.log(formattedObject, logLevel: metadata.logLevel)
         logToCrashReporterIfNeeded(
             "%@",
             formattedObject,

@@ -1,0 +1,60 @@
+{
+  "type": "nfl",
+  "name": "Super Bowl",
+  "image": "https://seatgeek.com/images/performers-landscape/super-bowl-e0465e/11591/huge.jpg",
+  "id": 11591,
+  "images": {
+      "huge": "https://seatgeek.com/images/performers-landscape/super-bowl-e0465e/11591/huge.jpg"
+  },
+  "divisions": null,
+  "links": [],
+  "has_upcoming_events": false,
+  "primary": true,
+  "stats": {
+      "event_count": 0
+  },
+  "taxonomies": [
+      {
+          "id": 1000000,
+          "name": "sports",
+          "parent_id": null,
+          "rank": 0
+      },
+      {
+          "id": 1020000,
+          "name": "football",
+          "parent_id": 1000000,
+          "rank": 0
+      },
+      {
+          "id": 1020100,
+          "name": "nfl",
+          "parent_id": 1020000,
+          "rank": 0
+      }
+  ],
+  "image_attribution": "SG",
+  "url": "https://seatgeek.com/super-bowl-tickets",
+  "score": 1,
+  "slug": "super-bowl",
+  "home_venue_id": null,
+  "short_name": "Super Bowl",
+  "num_upcoming_events": 0,
+  "colors": {
+      "all": [
+          "#1673E6",
+          "#191919",
+          "#1673E6"
+      ],
+      "iconic": "#1673E6",
+      "primary": [
+          "#1673E6",
+          "#191919"
+      ]
+  },
+  "image_license": "SG",
+  "popularity": 0,
+  "location": null,
+  "themes": [],
+  "domain_information": []
+}

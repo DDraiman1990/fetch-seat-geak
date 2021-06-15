@@ -41,13 +41,39 @@ final class NetworkService: NetworkServicing {
                     promise(.failure(error))
                 } else {
                     let status = response as? HTTPURLResponse
-                    let result = NetworkResult(response: status,
-                                               data: data)
-                    promise(.success(result))
+                    if let status = status,
+                       !status.isSuccessful {
+                        promise(.failure(NetworkError.statusCode(code: status.statusCode)))
+                    } else {
+                        
+                        let result = NetworkResult(response: status,
+                                                   data: data)
+                        promise(.success(result))
+                    }
                 }
             }
             .resume()
         }
         .eraseToAnyPublisher()
+    }
+}
+
+private extension HTTPURLResponse {
+    var isSuccessful: Bool {
+        return 200...299 ~= statusCode
+    }
+}
+
+enum NetworkError: LocalizedError {
+    case statusCode(code: Int)
+    case decodingError
+    
+    var errorDescription: String? {
+        switch self {
+        case .statusCode(let code):
+            return R.string.services.http_error("\(code)")
+        case .decodingError:
+            return R.string.services.decoding_error()
+        }
     }
 }
