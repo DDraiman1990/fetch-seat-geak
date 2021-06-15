@@ -1,5 +1,5 @@
 //
-//  SeatGeekFacade.swift
+//  SeatGeekInteractor.swift
 //  fetch-seat-geek
 //
 //  Created by Dan Draiman on 6/13/21.
@@ -12,19 +12,19 @@ protocol SeatGeekInteracting {
     func getAllEvents(
         page: Int,
         perPage: Int
-    ) -> AnyPublisher<SeatGeekEventsResponse, Error>
+    ) -> AnyPublisher<SGEventsResponse, Error>
     
-    func getEvent(id: String) -> AnyPublisher<SeatGeekEvent, Error>
+    func getEvent(id: String) -> AnyPublisher<SGEvent, Error>
     func getAllPerformers(
         page: Int,
         perPage: Int
-    ) -> AnyPublisher<SeatGeekPerformersResponse, Error>
-    func getPerformer(id: String) -> AnyPublisher<SeatGeekPerformer, Error>
+    ) -> AnyPublisher<SGPerformersResponse, Error>
+    func getPerformer(id: String) -> AnyPublisher<SGPerformer, Error>
     func getAllVenues(
         page: Int,
         perPage: Int
-    ) -> AnyPublisher<SeatGeekVenuesResponse, Error>
-    func getVenue(id: String) -> AnyPublisher<SeatGeekVenue, Error>
+    ) -> AnyPublisher<SGVenuesResponse, Error>
+    func getVenue(id: String) -> AnyPublisher<SGVenue, Error>
 }
 
 class SeatGeekInteractor: SeatGeekInteracting {
@@ -83,42 +83,42 @@ class SeatGeekInteractor: SeatGeekInteracting {
     func getAllEvents(
         page: Int,
         perPage: Int
-    ) -> AnyPublisher<SeatGeekEventsResponse, Error> {
+    ) -> AnyPublisher<SGEventsResponse, Error> {
         return request(route: SeatGeekRoutes
                         .events(request: .all(
                                         perPage: perPage,
                                         page: page)))
     }
     
-    func getEvent(id: String) -> AnyPublisher<SeatGeekEvent, Error> {
+    func getEvent(id: String) -> AnyPublisher<SGEvent, Error> {
         return request(route: SeatGeekRoutes.events(request: .get(id: id)))
     }
     
     func getAllPerformers(
         page: Int,
         perPage: Int
-    ) -> AnyPublisher<SeatGeekPerformersResponse, Error> {
+    ) -> AnyPublisher<SGPerformersResponse, Error> {
         return request(route: SeatGeekRoutes
                         .performers(request: .all(
                                         perPage: perPage,
                                         page: page)))
     }
     
-    func getPerformer(id: String) -> AnyPublisher<SeatGeekPerformer, Error> {
+    func getPerformer(id: String) -> AnyPublisher<SGPerformer, Error> {
         return request(route: SeatGeekRoutes.performers(request: .get(id: id)))
     }
     
     func getAllVenues(
         page: Int,
         perPage: Int
-    ) -> AnyPublisher<SeatGeekVenuesResponse, Error> {
+    ) -> AnyPublisher<SGVenuesResponse, Error> {
         return request(route: SeatGeekRoutes
                         .venues(request: .all(
                                         perPage: perPage,
                                         page: page)))
     }
     
-    func getVenue(id: String) -> AnyPublisher<SeatGeekVenue, Error> {
+    func getVenue(id: String) -> AnyPublisher<SGVenue, Error> {
         return request(route: SeatGeekRoutes.venues(request: .get(id: id)))
     }
 }

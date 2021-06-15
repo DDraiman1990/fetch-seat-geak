@@ -1,0 +1,347 @@
+{
+  "venues": [
+      {
+          "state": "TX",
+          "name_v2": "AT&T Stadium",
+          "postal_code": "76011",
+          "name": "AT&T Stadium",
+          "links": [],
+          "timezone": "America/Chicago",
+          "url": "https://seatgeek.com/venues/at-t-stadium/tickets",
+          "score": 0.975141,
+          "location": {
+              "lat": 32.7473,
+              "lon": -97.0945
+          },
+          "address": "1 AT&T Way",
+          "country": "US",
+          "has_upcoming_events": true,
+          "num_upcoming_events": 26,
+          "city": "Arlington",
+          "slug": "at-t-stadium",
+          "extended_address": "Arlington, TX 76011",
+          "stats": {
+              "event_count": 26
+          },
+          "id": 4965,
+          "popularity": 0,
+          "access_method": {
+              "method": "QRCODE",
+              "created_at": "2019-05-06T17:03:30Z",
+              "employee_only": false
+          },
+          "metro_code": 623,
+          "capacity": 80000,
+          "display_location": "Arlington, TX"
+      },
+      {
+          "state": "CA",
+          "name_v2": "Levi's Stadium",
+          "postal_code": "95054",
+          "name": "Levi's Stadium",
+          "links": [],
+          "timezone": "America/Los_Angeles",
+          "url": "https://seatgeek.com/venues/levi-s-stadium/tickets",
+          "score": 0.957688,
+          "location": {
+              "lat": 37.4023,
+              "lon": -121.969
+          },
+          "address": "4900 Marie P DeBartolo Way",
+          "country": "US",
+          "has_upcoming_events": true,
+          "num_upcoming_events": 12,
+          "city": "Santa Clara",
+          "slug": "levi-s-stadium",
+          "extended_address": "Santa Clara, CA 95054",
+          "stats": {
+              "event_count": 12
+          },
+          "id": 58670,
+          "popularity": 0,
+          "access_method": {
+              "method": "QRCODE_TM",
+              "created_at": "2015-07-10T00:00:00Z",
+              "employee_only": false
+          },
+          "metro_code": 807,
+          "capacity": 68500,
+          "display_location": "Santa Clara, CA"
+      },
+      {
+          "state": "CA",
+          "name_v2": "Candlestick Park",
+          "postal_code": "94124",
+          "name": "Candlestick Park",
+          "links": [],
+          "timezone": "America/Los_Angeles",
+          "url": "https://seatgeek.com/venues/candlestick-park/tickets",
+          "score": 0.950707,
+          "location": {
+              "lat": 37.711,
+              "lon": -122.386
+          },
+          "address": "490 Jamestown Ave",
+          "country": "US",
+          "has_upcoming_events": false,
+          "num_upcoming_events": 0,
+          "city": "San Francisco",
+          "slug": "candlestick-park",
+          "extended_address": "San Francisco, CA 94124",
+          "stats": {
+              "event_count": 0
+          },
+          "id": 1132,
+          "popularity": 0,
+          "access_method": null,
+          "metro_code": 807,
+          "capacity": 0,
+          "display_location": "San Francisco, CA"
+      },
+      {
+          "state": "NJ",
+          "name_v2": "MetLife Stadium",
+          "postal_code": "07073",
+          "name": "MetLife Stadium",
+          "links": [],
+          "timezone": "America/New_York",
+          "url": "https://seatgeek.com/venues/metlife-stadium/tickets",
+          "score": 0.948735,
+          "location": {
+              "lat": 40.8142,
+              "lon": -74.0737
+          },
+          "address": "1 MetLife Stadium Drive",
+          "country": "US",
+          "has_upcoming_events": true,
+          "num_upcoming_events": 30,
+          "city": "East Rutherford",
+          "slug": "metlife-stadium",
+          "extended_address": "East Rutherford, NJ 07073",
+          "stats": {
+              "event_count": 30
+          },
+          "id": 1587,
+          "popularity": 0,
+          "access_method": {
+              "method": "QRCODE_TM",
+              "created_at": "2015-09-12T14:14:07Z",
+              "employee_only": false
+          },
+          "metro_code": 501,
+          "capacity": 82500,
+          "display_location": "East Rutherford, NJ"
+      },
+      {
+          "state": "IL",
+          "name_v2": "Soldier Field",
+          "postal_code": "60605",
+          "name": "Soldier Field",
+          "links": [],
+          "timezone": "America/Chicago",
+          "url": "https://seatgeek.com/venues/soldier-field/tickets",
+          "score": 0.940013,
+          "location": {
+              "lat": 41.8623,
+              "lon": -87.6159
+          },
+          "address": "1410 S. Museum Campus Drive",
+          "country": "US",
+          "has_upcoming_events": true,
+          "num_upcoming_events": 30,
+          "city": "Chicago",
+          "slug": "soldier-field",
+          "extended_address": "Chicago, IL 60605",
+          "stats": {
+              "event_count": 30
+          },
+          "id": 31,
+          "popularity": 0,
+          "access_method": {
+              "method": "NONE",
+              "created_at": "2018-06-02T00:44:08Z",
+              "employee_only": false
+          },
+          "metro_code": 602,
+          "capacity": 61500,
+          "display_location": "Chicago, IL"
+      },
+      {
+          "state": "AZ",
+          "name_v2": "State Farm Stadium",
+          "postal_code": "85305",
+          "name": "State Farm Stadium",
+          "links": [],
+          "timezone": "America/Phoenix",
+          "url": "https://seatgeek.com/venues/state-farm-stadium/tickets",
+          "score": 0.934027,
+          "location": {
+              "lat": 33.5276,
+              "lon": -112.263
+          },
+          "address": "1 Cardinals Dr",
+          "country": "US",
+          "has_upcoming_events": true,
+          "num_upcoming_events": 13,
+          "city": "Glendale",
+          "slug": "state-farm-stadium",
+          "extended_address": "Glendale, AZ 85305",
+          "stats": {
+              "event_count": 13
+          },
+          "id": 43,
+          "popularity": 0,
+          "access_method": {
+              "method": "QRCODE",
+              "created_at": "2020-03-17T20:30:31Z",
+              "employee_only": false
+          },
+          "metro_code": 753,
+          "capacity": 63400,
+          "display_location": "Glendale, AZ"
+      },
+      {
+          "state": "MD",
+          "name_v2": "FedEx Field",
+          "postal_code": "20785",
+          "name": "FedEx Field",
+          "links": [],
+          "timezone": "America/New_York",
+          "url": "https://seatgeek.com/venues/fedex-field/tickets",
+          "score": 0.933344,
+          "location": {
+              "lat": 38.9076,
+              "lon": -76.8645
+          },
+          "address": "1600 FedEx Way",
+          "country": "US",
+          "has_upcoming_events": true,
+          "num_upcoming_events": 11,
+          "city": "Landover",
+          "slug": "fedex-field",
+          "extended_address": "Landover, MD 20785",
+          "stats": {
+              "event_count": 11
+          },
+          "id": 35,
+          "popularity": 0,
+          "access_method": {
+              "method": "QRCODE_TM",
+              "created_at": "2015-09-12T14:13:58Z",
+              "employee_only": false
+          },
+          "metro_code": 511,
+          "capacity": 91704,
+          "display_location": "Landover, MD"
+      },
+      {
+          "state": "AL",
+          "name_v2": "Bryant-Denny Stadium",
+          "postal_code": "35401",
+          "name": "Bryant-Denny Stadium",
+          "links": [],
+          "timezone": "America/Chicago",
+          "url": "https://seatgeek.com/venues/bryant-denny-stadium/tickets",
+          "score": 0.932378,
+          "location": {
+              "lat": 33.2083,
+              "lon": -87.5504
+          },
+          "address": "920 Paul W Bryant Drive",
+          "country": "US",
+          "has_upcoming_events": true,
+          "num_upcoming_events": 8,
+          "city": "Tuscaloosa",
+          "slug": "bryant-denny-stadium",
+          "extended_address": "Tuscaloosa, AL 35401",
+          "stats": {
+              "event_count": 8
+          },
+          "id": 2755,
+          "popularity": 0,
+          "access_method": {
+              "method": "NONE",
+              "created_at": "2015-11-11T16:28:23Z",
+              "employee_only": false
+          },
+          "metro_code": 630,
+          "capacity": 101821,
+          "display_location": "Tuscaloosa, AL"
+      },
+      {
+          "state": "MI",
+          "name_v2": "Michigan Stadium",
+          "postal_code": "48104",
+          "name": "Michigan Stadium",
+          "links": [],
+          "timezone": "America/Detroit",
+          "url": "https://seatgeek.com/venues/michigan-stadium/tickets",
+          "score": 0.932234,
+          "location": {
+              "lat": 42.2657,
+              "lon": -83.7495
+          },
+          "address": "1201 South Main Street",
+          "country": "US",
+          "has_upcoming_events": true,
+          "num_upcoming_events": 8,
+          "city": "Ann Arbor",
+          "slug": "michigan-stadium",
+          "extended_address": "Ann Arbor, MI 48104",
+          "stats": {
+              "event_count": 8
+          },
+          "id": 2782,
+          "popularity": 0,
+          "access_method": {
+              "method": "QRCODE",
+              "created_at": "2015-09-11T20:05:42Z",
+              "employee_only": false
+          },
+          "metro_code": 505,
+          "capacity": 107601,
+          "display_location": "Ann Arbor, MI"
+      },
+      {
+          "state": "WI",
+          "name_v2": "Lambeau Field",
+          "postal_code": "54304",
+          "name": "Lambeau Field",
+          "links": [],
+          "timezone": "America/Chicago",
+          "url": "https://seatgeek.com/venues/lambeau-field/tickets",
+          "score": 0.929094,
+          "location": {
+              "lat": 44.5013,
+              "lon": -88.0622
+          },
+          "address": "1265 Lombardi Avenue",
+          "country": "US",
+          "has_upcoming_events": true,
+          "num_upcoming_events": 10,
+          "city": "Green Bay",
+          "slug": "lambeau-field",
+          "extended_address": "Green Bay, WI 54304",
+          "stats": {
+              "event_count": 10
+          },
+          "id": 1125,
+          "popularity": 0,
+          "access_method": {
+              "method": "QRCODE_TM",
+              "created_at": "2015-09-02T22:43:34Z",
+              "employee_only": false
+          },
+          "metro_code": 658,
+          "capacity": 80735,
+          "display_location": "Green Bay, WI"
+      }
+  ],
+  "meta": {
+      "total": 441534,
+      "took": 9,
+      "page": 1,
+      "per_page": 10,
+      "geolocation": null
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "type": "theater",
+  "id": 5176112,
+  "datetime_utc": "2021-06-14T07:30:00",
+  "venue": {
+      "state": "MA",
+      "name_v2": "Charles Playhouse",
+      "postal_code": "02116",
+      "name": "Charles Playhouse",
+      "links": [],
+      "timezone": "America/New_York",
+      "url": "https://seatgeek.com/venues/charles-playhouse/tickets",
+      "score": 0.419845,
+      "location": {
+          "lat": 42.3503,
+          "lon": -71.066
+      },
+      "address": "74 Warrenton Street",
+      "country": "US",
+      "has_upcoming_events": true,
+      "num_upcoming_events": 67,
+      "city": "Boston",
+      "slug": "charles-playhouse",
+      "extended_address": "Boston, MA 02116",
+      "id": 3188,
+      "popularity": 0,
+      "access_method": null,
+      "metro_code": 506,
+      "capacity": 525,
+      "display_location": "Boston, MA"
+  },
+  "datetime_tbd": true,
+  "performers": [
+      {
+          "type": "theater",
+          "name": "Blue Man Group",
+          "image": "https://seatgeek.com/images/performers-landscape/blue-man-group-685ab4/5194/huge.jpg",
+          "id": 5194,
+          "images": {
+              "huge": "https://seatgeek.com/images/performers-landscape/blue-man-group-685ab4/5194/huge.jpg"
+          },
+          "divisions": null,
+          "has_upcoming_events": true,
+          "primary": true,
+          "stats": {
+              "event_count": 411
+          },
+          "taxonomies": [
+              {
+                  "id": 3000000,
+                  "name": "theater",
+                  "parent_id": null,
+                  "document_source": {
+                      "source_type": "ELASTIC",
+                      "generation_type": "FULL"
+                  },
+                  "rank": 6
+              }
+          ],
+          "image_attribution": null,
+          "url": "https://seatgeek.com/blue-man-group-tickets",
+          "score": 0.44,
+          "slug": "blue-man-group",
+          "home_venue_id": null,
+          "short_name": "Blue Man Group",
+          "num_upcoming_events": 411,
+          "colors": null,
+          "image_license": null,
+          "popularity": 0,
+          "location": null
+      }
+  ],
+  "is_open": false,
+  "links": [],
+  "datetime_local": "2021-06-14T03:30:00",
+  "time_tbd": true,
+  "short_title": "Blue Man Group - Boston",
+  "visible_until_utc": "2021-06-15T04:00:00",
+  "stats": {
+      "listing_count": null,
+      "average_price": null,
+      "lowest_price_good_deals": null,
+      "lowest_price": null,
+      "highest_price": null,
+      "visible_listing_count": null,
+      "dq_bucket_counts": null,
+      "median_price": null,
+      "lowest_sg_base_price": null,
+      "lowest_sg_base_price_good_deals": null
+  },
+  "taxonomies": [
+      {
+          "id": 3000000,
+          "name": "theater",
+          "parent_id": null,
+          "rank": 6
+      }
+  ],
+  "url": "https://seatgeek.com/blue-man-group-boston-tickets/theater/2021-06-14-3-30-am/5176112",
+  "score": 0.458,
+  "announce_date": "2020-01-07T00:00:00",
+  "created_at": "2020-01-07T16:08:19",
+  "date_tbd": true,
+  "title": "Blue Man Group - Boston",
+  "popularity": 0.615,
+  "description": "",
+  "status": "normal",
+  "access_method": null,
+  "event_promotion": null,
+  "announcements": {},
+  "conditional": false,
+  "enddatetime_utc": null,
+  "in_hand": {},
+  "themes": [],
+  "domain_information": []
+}

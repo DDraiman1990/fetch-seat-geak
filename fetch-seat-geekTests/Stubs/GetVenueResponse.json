@@ -1,0 +1,34 @@
+{
+  "state": "TX",
+  "name_v2": "AT&T Stadium",
+  "postal_code": "76011",
+  "name": "AT&T Stadium",
+  "links": [],
+  "timezone": "America/Chicago",
+  "url": "https://seatgeek.com/venues/at-t-stadium/tickets",
+  "score": 0.975141,
+  "location": {
+      "lat": 32.7473,
+      "lon": -97.0945
+  },
+  "address": "1 AT&T Way",
+  "country": "US",
+  "has_upcoming_events": true,
+  "num_upcoming_events": 26,
+  "city": "Arlington",
+  "slug": "at-t-stadium",
+  "extended_address": "Arlington, TX 76011",
+  "stats": {
+      "event_count": 26
+  },
+  "id": 4965,
+  "popularity": 0,
+  "access_method": {
+      "method": "QRCODE",
+      "created_at": "2019-05-06T17:03:30Z",
+      "employee_only": false
+  },
+  "metro_code": 623,
+  "capacity": 80000,
+  "display_location": "Arlington, TX"
+}

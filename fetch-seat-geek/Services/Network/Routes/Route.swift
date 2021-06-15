@@ -18,8 +18,13 @@ protocol Route {
 
 extension Route {
     var urlRequest: URLRequest {
-        let url = URL(string: path)!
-        var request = URLRequest(url: url)
+        var components = URLComponents(string: path)
+        components?.queryItems = parameters?.map {
+            let (key, value) = $0
+            return URLQueryItem(name: key, value: value)
+        }
+        let url = components?.url
+        var request = URLRequest(url: url!)
         request.httpMethod = method.rawValue
         request.httpBody = body
         headers?.forEach {

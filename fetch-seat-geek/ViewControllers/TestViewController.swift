@@ -104,9 +104,9 @@ final class TestViewController: UIViewController {
             .store(in: &subscriptions)
     }
     
-    var allEventsPage: Int = 0
-    var allPerformersPage: Int = 0
-    var allVenuesPage: Int = 0
+    var allEventsPage: Int = 1
+    var allPerformersPage: Int = 1
+    var allVenuesPage: Int = 1
     
     @objc private func onAllEventsTapped() {
         seatGeekInteractor

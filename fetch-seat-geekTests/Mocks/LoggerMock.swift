@@ -140,7 +140,7 @@ class CrashReporterMock: CrashReporter {
     
     func crashLog(_ message: StaticString,
                   _ args: CVarArg...) {
-        argCrashesLogged.append(.init(message: message, args: args))
+        crashesLogged.append(String(format: "\(message)", arguments: args))
     }
 
     func crashLog(_ message: String) {

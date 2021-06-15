@@ -1,0 +1,1652 @@
+{
+  "events": [
+      {
+          "type": "theater",
+          "id": 5176112,
+          "datetime_utc": "2021-06-14T07:30:00",
+          "venue": {
+              "state": "MA",
+              "name_v2": "Charles Playhouse",
+              "postal_code": "02116",
+              "name": "Charles Playhouse",
+              "links": [],
+              "timezone": "America/New_York",
+              "url": "https://seatgeek.com/venues/charles-playhouse/tickets",
+              "score": 0.419845,
+              "location": {
+                  "lat": 42.3503,
+                  "lon": -71.066
+              },
+              "address": "74 Warrenton Street",
+              "country": "US",
+              "has_upcoming_events": true,
+              "num_upcoming_events": 67,
+              "city": "Boston",
+              "slug": "charles-playhouse",
+              "extended_address": "Boston, MA 02116",
+              "id": 3188,
+              "popularity": 0,
+              "access_method": null,
+              "metro_code": 506,
+              "capacity": 525,
+              "display_location": "Boston, MA"
+          },
+          "datetime_tbd": true,
+          "performers": [
+              {
+                  "type": "theater",
+                  "name": "Blue Man Group",
+                  "image": "https://seatgeek.com/images/performers-landscape/blue-man-group-685ab4/5194/huge.jpg",
+                  "id": 5194,
+                  "images": {
+                      "huge": "https://seatgeek.com/images/performers-landscape/blue-man-group-685ab4/5194/huge.jpg"
+                  },
+                  "divisions": null,
+                  "has_upcoming_events": true,
+                  "primary": true,
+                  "stats": {
+                      "event_count": 411
+                  },
+                  "taxonomies": [
+                      {
+                          "id": 3000000,
+                          "name": "theater",
+                          "parent_id": null,
+                          "document_source": {
+                              "source_type": "ELASTIC",
+                              "generation_type": "FULL"
+                          },
+                          "rank": 6
+                      }
+                  ],
+                  "image_attribution": null,
+                  "url": "https://seatgeek.com/blue-man-group-tickets",
+                  "score": 0.44,
+                  "slug": "blue-man-group",
+                  "home_venue_id": null,
+                  "short_name": "Blue Man Group",
+                  "num_upcoming_events": 411,
+                  "colors": null,
+                  "image_license": null,
+                  "popularity": 0,
+                  "location": null
+              }
+          ],
+          "is_open": false,
+          "links": [],
+          "datetime_local": "2021-06-14T03:30:00",
+          "time_tbd": true,
+          "short_title": "Blue Man Group - Boston",
+          "visible_until_utc": "2021-06-15T04:00:00",
+          "stats": {
+              "listing_count": null,
+              "average_price": null,
+              "lowest_price_good_deals": null,
+              "lowest_price": null,
+              "highest_price": null,
+              "visible_listing_count": null,
+              "dq_bucket_counts": null,
+              "median_price": null,
+              "lowest_sg_base_price": null,
+              "lowest_sg_base_price_good_deals": null
+          },
+          "taxonomies": [
+              {
+                  "id": 3000000,
+                  "name": "theater",
+                  "parent_id": null,
+                  "rank": 6
+              }
+          ],
+          "url": "https://seatgeek.com/blue-man-group-boston-tickets/theater/2021-06-14-3-30-am/5176112",
+          "score": 0.458,
+          "announce_date": "2020-01-07T00:00:00",
+          "created_at": "2020-01-07T16:08:19",
+          "date_tbd": true,
+          "title": "Blue Man Group - Boston",
+          "popularity": 0.615,
+          "description": "",
+          "status": "normal",
+          "access_method": null,
+          "event_promotion": null,
+          "announcements": {},
+          "conditional": false,
+          "enddatetime_utc": null,
+          "themes": [],
+          "domain_information": []
+      },
+      {
+          "type": "concert",
+          "id": 5229019,
+          "datetime_utc": "2021-06-14T07:30:00",
+          "venue": {
+              "state": "FL",
+              "name_v2": "Revolution Live",
+              "postal_code": "33312",
+              "name": "Revolution Live",
+              "links": [],
+              "timezone": "America/New_York",
+              "url": "https://seatgeek.com/venues/revolution-live/tickets",
+              "score": 0.500864,
+              "location": {
+                  "lat": 26.1211,
+                  "lon": -80.1462
+              },
+              "address": "200 West Broward Blvd",
+              "country": "US",
+              "has_upcoming_events": true,
+              "num_upcoming_events": 18,
+              "city": "Fort Lauderdale",
+              "slug": "revolution-live",
+              "extended_address": "Fort Lauderdale, FL 33312",
+              "id": 563,
+              "popularity": 0,
+              "access_method": null,
+              "metro_code": 528,
+              "capacity": 3100,
+              "display_location": "Fort Lauderdale, FL"
+          },
+          "datetime_tbd": true,
+          "performers": [
+              {
+                  "type": "band",
+                  "name": "Brown Sabbath",
+                  "image": "https://seatgeek.com/images/performers-landscape/brown-sabbath-5caea0/278036/huge.jpg",
+                  "id": 278036,
+                  "images": {
+                      "huge": "https://seatgeek.com/images/performers-landscape/brown-sabbath-5caea0/278036/huge.jpg"
+                  },
+                  "divisions": null,
+                  "has_upcoming_events": false,
+                  "primary": true,
+                  "stats": {
+                      "event_count": 0
+                  },
+                  "taxonomies": [
+                      {
+                          "id": 2000000,
+                          "name": "concerts",
+                          "parent_id": null,
+                          "document_source": {
+                              "source_type": "ELASTIC",
+                              "generation_type": "FULL"
+                          },
+                          "rank": 1
+                      }
+                  ],
+                  "image_attribution": "https://www.flickr.com/photos/arekolek/7847640482/",
+                  "url": "https://seatgeek.com/brown-sabbath-tickets",
+                  "score": 0.43,
+                  "slug": "brown-sabbath",
+                  "home_venue_id": null,
+                  "short_name": "Brown Sabbath",
+                  "num_upcoming_events": 0,
+                  "colors": null,
+                  "image_license": "https://creativecommons.org/licenses/by/2.0/",
+                  "genres": [
+                      {
+                          "id": 456,
+                          "name": "Rock",
+                          "slug": "rock",
+                          "primary": false,
+                          "images": {
+                              "1200x525": "https://seatgeek.com/images/performers-landscape/foo-fighters-b7b761/744/1200x525.jpg",
+                              "1200x627": "https://seatgeek.com/images/performers-landscape/foo-fighters-ed5e2e/744/1200x627.jpg",
+                              "136x136": "https://seatgeek.com/images/performers-landscape/foo-fighters-00ae49/744/136x136.jpg",
+                              "500_700": "https://seatgeek.com/images/performers-landscape/foo-fighters-82fcee/744/500_700.jpg",
+                              "800x320": "https://seatgeek.com/images/performers-landscape/foo-fighters-37ed5d/744/800x320.jpg",
+                              "banner": "https://seatgeek.com/images/performers-landscape/foo-fighters-2029bd/744/banner.jpg",
+                              "block": "https://seatgeek.com/images/performers-landscape/foo-fighters-f8443e/744/block.jpg",
+                              "criteo_130_160": "https://seatgeek.com/images/performers-landscape/foo-fighters-516446/744/criteo_130_160.jpg",
+                              "criteo_170_235": "https://seatgeek.com/images/performers-landscape/foo-fighters-105190/744/criteo_170_235.jpg",
+                              "criteo_205_100": "https://seatgeek.com/images/performers-landscape/foo-fighters-232596/744/criteo_205_100.jpg",
+                              "criteo_400_300": "https://seatgeek.com/images/performers-landscape/foo-fighters-46a1f7/744/criteo_400_300.jpg",
+                              "fb_100x72": "https://seatgeek.com/images/performers-landscape/foo-fighters-306741/744/fb_100x72.jpg",
+                              "fb_600_315": "https://seatgeek.com/images/performers-landscape/foo-fighters-11053a/744/fb_600_315.jpg",
+                              "huge": "https://seatgeek.com/images/performers-landscape/foo-fighters-9b79ae/744/huge.jpg",
+                              "ipad_event_modal": "https://seatgeek.com/images/performers-landscape/foo-fighters-023509/744/ipad_event_modal.jpg",
+                              "ipad_header": "https://seatgeek.com/images/performers-landscape/foo-fighters-5bb63a/744/ipad_header.jpg",
+                              "ipad_mini_explore": "https://seatgeek.com/images/performers-landscape/foo-fighters-b6eacd/744/ipad_mini_explore.jpg",
+                              "mongo": "https://seatgeek.com/images/performers-landscape/foo-fighters-bf5a09/744/mongo.jpg",
+                              "square_mid": "https://seatgeek.com/images/performers-landscape/foo-fighters-dc2c98/744/square_mid.jpg",
+                              "triggit_fb_ad": "https://seatgeek.com/images/performers-landscape/foo-fighters-4afe8a/744/triggit_fb_ad.jpg"
+                          },
+                          "image": "https://seatgeek.com/images/performers-landscape/foo-fighters-9b79ae/744/huge.jpg",
+                          "document_source": {
+                              "source_type": "ELASTIC",
+                              "generation_type": "FULL"
+                          }
+                      },
+                      {
+                          "id": 473,
+                          "name": "Hard Rock",
+                          "slug": "hard-rock",
+                          "primary": true,
+                          "images": {
+                              "1200x525": "https://seatgeek.com/images/performers-landscape/backstreet-boys-cc2121/249/1200x525.jpg",
+                              "1200x627": "https://seatgeek.com/images/performers-landscape/backstreet-boys-7a06b6/249/1200x627.jpg",
+                              "136x136": "https://seatgeek.com/images/performers-landscape/backstreet-boys-f2c473/249/136x136.jpg",
+                              "500_700": "https://seatgeek.com/images/performers-landscape/backstreet-boys-657b7e/249/500_700.jpg",
+                              "800x320": "https://seatgeek.com/images/performers-landscape/backstreet-boys-d5ca19/249/800x320.jpg",
+                              "banner": "https://seatgeek.com/images/performers-landscape/backstreet-boys-5a7117/249/banner.jpg",
+                              "block": "https://seatgeek.com/images/performers-landscape/backstreet-boys-4a09ce/249/block.jpg",
+                              "criteo_130_160": "https://seatgeek.com/images/performers-landscape/backstreet-boys-740b7b/249/criteo_130_160.jpg",
+                              "criteo_170_235": "https://seatgeek.com/images/performers-landscape/backstreet-boys-22fc27/249/criteo_170_235.jpg",
+                              "criteo_205_100": "https://seatgeek.com/images/performers-landscape/backstreet-boys-2fa7e9/249/criteo_205_100.jpg",
+                              "criteo_400_300": "https://seatgeek.com/images/performers-landscape/backstreet-boys-7e9747/249/criteo_400_300.jpg",
+                              "fb_100x72": "https://seatgeek.com/images/performers-landscape/backstreet-boys-500061/249/fb_100x72.jpg",
+                              "fb_600_315": "https://seatgeek.com/images/performers-landscape/backstreet-boys-efd934/249/fb_600_315.jpg",
+                              "huge": "https://seatgeek.com/images/performers-landscape/backstreet-boys-a3ba5f/249/huge.jpg",
+                              "ipad_event_modal": "https://seatgeek.com/images/performers-landscape/backstreet-boys-42feb0/249/ipad_event_modal.jpg",
+                              "ipad_header": "https://seatgeek.com/images/performers-landscape/backstreet-boys-ba1d71/249/ipad_header.jpg",
+                              "ipad_mini_explore": "https://seatgeek.com/images/performers-landscape/backstreet-boys-a592a3/249/ipad_mini_explore.jpg",
+                              "mongo": "https://seatgeek.com/images/performers-landscape/backstreet-boys-0ae723/249/mongo.jpg",
+                              "square_mid": "https://seatgeek.com/images/performers-landscape/backstreet-boys-e6778e/249/square_mid.jpg",
+                              "triggit_fb_ad": "https://seatgeek.com/images/performers-landscape/backstreet-boys-ea7e0f/249/triggit_fb_ad.jpg"
+                          },
+                          "image": "https://seatgeek.com/images/performers-landscape/backstreet-boys-a3ba5f/249/huge.jpg",
+                          "document_source": {
+                              "source_type": "ELASTIC",
+                              "generation_type": "FULL"
+                          }
+                      }
+                  ],
+                  "popularity": 0,
+                  "location": null
+              }
+          ],
+          "is_open": false,
+          "links": [],
+          "datetime_local": "2021-06-14T03:30:00",
+          "time_tbd": true,
+          "short_title": "Brown Sabbath - Black Sabbath Tribute",
+          "visible_until_utc": "2021-06-15T04:00:00",
+          "stats": {
+              "listing_count": null,
+              "average_price": null,
+              "lowest_price_good_deals": null,
+              "lowest_price": null,
+              "highest_price": null,
+              "visible_listing_count": null,
+              "dq_bucket_counts": null,
+              "median_price": null,
+              "lowest_sg_base_price": null,
+              "lowest_sg_base_price_good_deals": null
+          },
+          "taxonomies": [
+              {
+                  "id": 2000000,
+                  "name": "concert",
+                  "parent_id": null,
+                  "rank": 1
+              }
+          ],
+          "url": "https://seatgeek.com/brown-sabbath-black-sabbath-tribute-tickets/fort-lauderdale-florida-revolution-live-2021-06-14-3-30-am/concert/5229019",
+          "score": 0.474,
+          "announce_date": "2020-03-03T00:00:00",
+          "created_at": "2020-03-03T16:06:04",
+          "date_tbd": true,
+          "title": "Brown Sabbath - Black Sabbath Tribute",
+          "popularity": 0.657,
+          "description": "",
+          "status": "normal",
+          "access_method": null,
+          "event_promotion": null,
+          "announcements": {},
+          "conditional": false,
+          "enddatetime_utc": null,
+          "themes": [],
+          "domain_information": []
+      },
+      {
+          "type": "broadway_tickets_national",
+          "id": 5065516,
+          "datetime_utc": "2021-06-14T07:30:00",
+          "venue": {
+              "state": "NY",
+              "name_v2": "Smith Theatre",
+              "postal_code": "14215",
+              "name": "Smith Theatre",
+              "links": [],
+              "timezone": "America/New_York",
+              "url": "https://seatgeek.com/venues/smith-theatre/tickets",
+              "score": 0,
+              "location": {
+                  "lat": 42.8918,
+                  "lon": -78.8727
+              },
+              "address": "660 Main Street",
+              "country": "US",
+              "has_upcoming_events": true,
+              "num_upcoming_events": 1,
+              "city": "Buffalo",
+              "slug": "smith-theatre",
+              "extended_address": "Buffalo, NY 14215",
+              "id": 4590,
+              "popularity": 0,
+              "access_method": null,
+              "metro_code": 514,
+              "capacity": 0,
+              "display_location": "Buffalo, NY"
+          },
+          "datetime_tbd": true,
+          "performers": [
+              {
+                  "type": "theater_broadway_national_tours",
+                  "name": "Cabaret",
+                  "image": "https://seatgeek.com/images/performers-landscape/cabaret-a66157/8407/huge.jpg",
+                  "id": 8407,
+                  "images": {
+                      "huge": "https://seatgeek.com/images/performers-landscape/cabaret-a66157/8407/huge.jpg"
+                  },
+                  "divisions": null,
+                  "has_upcoming_events": true,
+                  "primary": true,
+                  "stats": {
+                      "event_count": 14
+                  },
+                  "taxonomies": [
+                      {
+                          "id": 3000000,
+                          "name": "theater",
+                          "parent_id": null,
+                          "document_source": {
+                              "source_type": "ELASTIC",
+                              "generation_type": "FULL"
+                          },
+                          "rank": 6
+                      },
+                      {
+                          "id": 3030000,
+                          "name": "broadway_tickets_national",
+                          "parent_id": 3000000,
+                          "document_source": {
+                              "source_type": "ELASTIC",
+                              "generation_type": "FULL"
+                          },
+                          "rank": 0
+                      }
+                  ],
+                  "image_attribution": "http://www.hornetbuzz.org/wp-content/uploads/2011/01/Cabaret-photo-2010.jpg",
+                  "url": "https://seatgeek.com/cabaret-tickets",
+                  "score": 0.43,
+                  "slug": "cabaret",
+                  "home_venue_id": null,
+                  "short_name": "Cabaret",
+                  "num_upcoming_events": 14,
+                  "colors": null,
+                  "image_license": null,
+                  "popularity": 0,
+                  "location": null
+              }
+          ],
+          "is_open": false,
+          "links": [],
+          "datetime_local": "2021-06-14T03:30:00",
+          "time_tbd": true,
+          "short_title": "Cabaret - Buffalo",
+          "visible_until_utc": "2021-06-15T04:00:00",
+          "stats": {
+              "listing_count": null,
+              "average_price": null,
+              "lowest_price_good_deals": null,
+              "lowest_price": null,
+              "highest_price": null,
+              "visible_listing_count": null,
+              "dq_bucket_counts": null,
+              "median_price": null,
+              "lowest_sg_base_price": null,
+              "lowest_sg_base_price_good_deals": null
+          },
+          "taxonomies": [
+              {
+                  "id": 3000000,
+                  "name": "theater",
+                  "parent_id": null,
+                  "rank": 6
+              },
+              {
+                  "id": 3030000,
+                  "name": "broadway_tickets_national",
+                  "parent_id": 3000000,
+                  "rank": 0
+              }
+          ],
+          "url": "https://seatgeek.com/cabaret-buffalo-tickets/smith-theatre-2021-06-14-3-30-am/broadway/5065516",
+          "score": 0,
+          "announce_date": "2019-10-22T00:00:00",
+          "created_at": "2019-10-22T17:52:08",
+          "date_tbd": true,
+          "title": "Cabaret - Buffalo",
+          "popularity": 0,
+          "description": "",
+          "status": "normal",
+          "access_method": null,
+          "event_promotion": null,
+          "announcements": {
+              "checkout_disclosures": {
+                  "messages": [
+                      {
+                          "text": "All purchases are 100% guaranteed. Prices set by the seller may be above or below face value."
+                      }
+                  ]
+              }
+          },
+          "conditional": false,
+          "enddatetime_utc": null,
+          "themes": [],
+          "domain_information": []
+      },
+      {
+          "type": "minor_league_hockey",
+          "id": 5419358,
+          "datetime_utc": "2021-06-14T07:30:00",
+          "venue": {
+              "state": "FL",
+              "name_v2": "Hertz Arena",
+              "postal_code": "33928",
+              "name": "Hertz Arena",
+              "links": [],
+              "timezone": "America/New_York",
+              "url": "https://seatgeek.com/venues/hertz-arena/tickets",
+              "score": 0.610449,
+              "location": {
+                  "lat": 26.4413,
+                  "lon": -81.7768
+              },
+              "address": "11000 Everblades Parkway",
+              "country": "US",
+              "has_upcoming_events": true,
+              "num_upcoming_events": 19,
+              "city": "Estero",
+              "slug": "hertz-arena",
+              "extended_address": "Estero, FL 33928",
+              "id": 951,
+              "popularity": 0,
+              "access_method": null,
+              "metro_code": 571,
+              "capacity": 7128,
+              "display_location": "Estero, FL"
+          },
+          "datetime_tbd": true,
+          "performers": [
+              {
+                  "type": "minor_league_hockey",
+                  "name": "Florida Everblades",
+                  "image": "https://seatgeek.com/images/performers-landscape/florida-everblades-5505b3/9357/huge.jpg",
+                  "id": 9357,
+                  "images": {
+                      "huge": "https://seatgeek.com/images/performers-landscape/florida-everblades-5505b3/9357/huge.jpg"
+                  },
+                  "divisions": null,
+                  "has_upcoming_events": false,
+                  "primary": true,
+                  "stats": {
+                      "event_count": 0
+                  },
+                  "taxonomies": [
+                      {
+                          "id": 1000000,
+                          "name": "sports",
+                          "parent_id": null,
+                          "document_source": {
+                              "source_type": "ELASTIC",
+                              "generation_type": "FULL"
+                          },
+                          "rank": 0
+                      },
+                      {
+                          "id": 1040000,
+                          "name": "hockey",
+                          "parent_id": 1000000,
+                          "document_source": {
+                              "source_type": "ELASTIC",
+                              "generation_type": "FULL"
+                          },
+                          "rank": 0
+                      },
+                      {
+                          "id": 1040300,
+                          "name": "minor_league_hockey",
+                          "parent_id": 1040000,
+                          "document_source": {
+                              "source_type": "ELASTIC",
+                              "generation_type": "FULL"
+                          },
+                          "rank": 0
+                      }
+                  ],
+                  "image_attribution": null,
+                  "url": "https://seatgeek.com/florida-everblades-tickets",
+                  "score": 0.37,
+                  "slug": "florida-everblades",
+                  "home_venue_id": 951,
+                  "short_name": "Florida Everblades",
+                  "num_upcoming_events": 0,
+                  "colors": null,
+                  "image_license": null,
+                  "popularity": 0,
+                  "home_team": true,
+                  "location": {
+                      "lat": 26.4413,
+                      "lon": -81.7768
+                  }
+              },
+              {
+                  "type": "minor_league_hockey",
+                  "name": "South Carolina Stingrays",
+                  "image": "https://seatgeek.com/images/performers-landscape/south-carolina-stingrays-546736/9358/huge.jpg",
+                  "id": 9358,
+                  "images": {
+                      "huge": "https://seatgeek.com/images/performers-landscape/south-carolina-stingrays-546736/9358/huge.jpg"
+                  },
+                  "divisions": null,
+                  "has_upcoming_events": false,
+                  "stats": {
+                      "event_count": 0
+                  },
+                  "taxonomies": [
+                      {
+                          "id": 1000000,
+                          "name": "sports",
+                          "parent_id": null,
+                          "document_source": {
+                              "source_type": "ELASTIC",
+                              "generation_type": "FULL"
+                          },
+                          "rank": 0
+                      },
+                      {
+                          "id": 1040000,
+                          "name": "hockey",
+                          "parent_id": 1000000,
+                          "document_source": {
+                              "source_type": "ELASTIC",
+                              "generation_type": "FULL"
+                          },
+                          "rank": 0
+                      },
+                      {
+                          "id": 1040300,
+                          "name": "minor_league_hockey",
+                          "parent_id": 1040000,
+                          "document_source": {
+                              "source_type": "ELASTIC",
+                              "generation_type": "FULL"
+                          },
+                          "rank": 0
+                      }
+                  ],
+                  "image_attribution": "http://www.postandcourier.com/storyimage/CP/20131031/PC20/131039869/AR/0/AR-131039869.jpg",
+                  "url": "https://seatgeek.com/south-carolina-stingrays-tickets",
+                  "score": 0.38,
+                  "slug": "south-carolina-stingrays",
+                  "home_venue_id": 355,
+                  "short_name": "South Carolina Stingrays",
+                  "num_upcoming_events": 0,
+                  "colors": null,
+                  "image_license": null,
+                  "popularity": 0,
+                  "away_team": true,
+                  "location": {
+                      "lat": 32.8669,
+                      "lon": -80.0213
+                  }
+              }
+          ],
+          "is_open": false,
+          "links": [],
+          "datetime_local": "2021-06-14T03:30:00",
+          "time_tbd": true,
+          "short_title": "South Carolina Stingrays at Florida Everblades",
+          "visible_until_utc": "2021-06-15T04:00:00",
+          "stats": {
+              "listing_count": null,
+              "average_price": null,
+              "lowest_price_good_deals": null,
+              "lowest_price": null,
+              "highest_price": null,
+              "visible_listing_count": null,
+              "dq_bucket_counts": null,
+              "median_price": null,
+              "lowest_sg_base_price": null,
+              "lowest_sg_base_price_good_deals": null
+          },
+          "taxonomies": [
+              {
+                  "id": 1000000,
+                  "name": "sports",
+                  "parent_id": null,
+                  "rank": 0
+              },
+              {
+                  "id": 1040000,
+                  "name": "hockey",
+                  "parent_id": 1000000,
+                  "rank": 0
+              },
+              {
+                  "id": 1040300,
+                  "name": "minor_league_hockey",
+                  "parent_id": 1040000,
+                  "rank": 0
+              }
+          ],
+          "url": "https://seatgeek.com/south-carolina-stingrays-at-florida-everblades-tickets/minor-league-hockey/2021-06-14-3-30-am/5419358",
+          "score": 0.323,
+          "announce_date": "2021-06-09T00:00:00",
+          "created_at": "2021-06-09T16:00:11",
+          "date_tbd": true,
+          "title": "South Carolina Stingrays at Florida Everblades",
+          "popularity": 0.492,
+          "description": "",
+          "status": "normal",
+          "access_method": null,
+          "event_promotion": null,
+          "announcements": {},
+          "conditional": false,
+          "enddatetime_utc": null,
+          "themes": [],
+          "domain_information": []
+      },
+      {
+          "type": "concert",
+          "id": 5234577,
+          "datetime_utc": "2021-06-14T07:30:00",
+          "venue": {
+              "state": "MA",
+              "name_v2": "Cape Cod Melody Tent",
+              "postal_code": "02601",
+              "name": "Cape Cod Melody Tent",
+              "links": [],
+              "timezone": "America/New_York",
+              "url": "https://seatgeek.com/venues/cape-cod-melody-tent/tickets",
+              "score": 0.550437,
+              "location": {
+                  "lat": 41.6472,
+                  "lon": -70.2985
+              },
+              "address": "21 West Main Street",
+              "country": "US",
+              "has_upcoming_events": true,
+              "num_upcoming_events": 24,
+              "city": "Hyannis",
+              "slug": "cape-cod-melody-tent",
+              "extended_address": "Hyannis, MA 02601",
+              "id": 345,
+              "popularity": 0,
+              "access_method": null,
+              "metro_code": 506,
+              "capacity": 2250,
+              "display_location": "Hyannis, MA"
+          },
+          "datetime_tbd": true,
+          "performers": [
+              {
+                  "type": "band",
+                  "name": "Dark Desert Eagles - A Tribute to The Eagles",
+                  "image": "https://seatgeek.com/images/performers-landscape/dark-desert-eagles-a-tribute-to-the-eagles-5f8aae/625311/huge.jpg",
+                  "id": 625311,
+                  "images": {
+                      "huge": "https://seatgeek.com/images/performers-landscape/dark-desert-eagles-a-tribute-to-the-eagles-5f8aae/625311/huge.jpg"
+                  },
+                  "divisions": null,
+                  "has_upcoming_events": true,
+                  "primary": true,
+                  "stats": {
+                      "event_count": 5
+                  },
+                  "taxonomies": [
+                      {
+                          "id": 2000000,
+                          "name": "concerts",
+                          "parent_id": null,
+                          "document_source": {
+                              "source_type": "ELASTIC",
+                              "generation_type": "FULL"
+                          },
+                          "rank": 1
+                      }
+                  ],
+                  "image_attribution": "https://www.flickr.com/photos/121469396@N08/13716648473/in/photolist-mU6pHc-XinP59-ah2DFq-cCR6Q3-5LfBz5-4MQA9v-jwEM3u-he8k9g-4MVgJu-npg33s-2wyyax-a3Dg2g-3dcpi2-fRZZVc-egfAbC-pnDcuW-ZE4RYw-gAivat-5FXCNV-4MR7nT-fP44Km-hPUHG8-717gPz-a2n8sH-7GjrBP-c4B8zf-3dgREL-8phstY-cxJbim-exQwJV-d66KJL-K7hTme-Vg9WY7-SFpkk3-K7hVET-V5T6yR-Xnnmf2-Gw2gwJ-EMY5WP-4MQcZ4-ksz5n-hPVzcD-bAT76q-4MQvVX-R4qMap-fNLwJi-7N5pdF-4MVfV7-5YdjHK-i7Cvsj",
+                  "url": "https://seatgeek.com/dark-desert-eagles-a-tribute-to-the-eagles-tickets",
+                  "score": 0.41,
+                  "slug": "dark-desert-eagles-a-tribute-to-the-eagles",
+                  "home_venue_id": null,
+                  "short_name": "Dark Desert Eagles - A Tribute to The Eagles",
+                  "num_upcoming_events": 5,
+                  "colors": null,
+                  "image_license": "https://creativecommons.org/licenses/by-sa/2.0/",
+                  "popularity": 0,
+                  "location": null
+              }
+          ],
+          "is_open": false,
+          "links": [],
+          "datetime_local": "2021-06-14T03:30:00",
+          "time_tbd": true,
+          "short_title": "Dark Desert Eagles - Eagles Tribute",
+          "visible_until_utc": "2021-06-15T04:00:00",
+          "stats": {
+              "listing_count": null,
+              "average_price": null,
+              "lowest_price_good_deals": null,
+              "lowest_price": null,
+              "highest_price": null,
+              "visible_listing_count": null,
+              "dq_bucket_counts": null,
+              "median_price": null,
+              "lowest_sg_base_price": null,
+              "lowest_sg_base_price_good_deals": null
+          },
+          "taxonomies": [
+              {
+                  "id": 2000000,
+                  "name": "concert",
+                  "parent_id": null,
+                  "rank": 1
+              }
+          ],
+          "url": "https://seatgeek.com/dark-desert-eagles-eagles-tribute-tickets/hyannis-massachusetts-cape-cod-melody-tent-2021-06-14-3-30-am/concert/5234577",
+          "score": 0.465,
+          "announce_date": "2020-03-10T00:00:00",
+          "created_at": "2020-03-10T16:02:22",
+          "date_tbd": true,
+          "title": "Dark Desert Eagles - Eagles Tribute",
+          "popularity": 0.642,
+          "description": "",
+          "status": "normal",
+          "access_method": null,
+          "event_promotion": null,
+          "announcements": {},
+          "conditional": false,
+          "enddatetime_utc": null,
+          "themes": [],
+          "domain_information": []
+      },
+      {
+          "type": "f1",
+          "id": 5050617,
+          "datetime_utc": "2021-06-14T07:30:00",
+          "venue": {
+              "state": "QC",
+              "name_v2": "Gilles Villeneuve Circuit",
+              "postal_code": "H3C 6A1",
+              "name": "Gilles Villeneuve Circuit",
+              "links": [],
+              "timezone": "America/Toronto",
+              "url": "https://seatgeek.com/venues/gilles-villeneuve-circuit/tickets",
+              "score": 0.718008,
+              "location": {
+                  "lat": 45.5037,
+                  "lon": -73.5291
+              },
+              "address": "1 Gilles Villeneuve Circuit",
+              "country": "Canada",
+              "has_upcoming_events": false,
+              "num_upcoming_events": 0,
+              "city": "Montreal",
+              "slug": "gilles-villeneuve-circuit",
+              "extended_address": "Montreal, Canada",
+              "id": 1644,
+              "popularity": 0,
+              "access_method": null,
+              "metro_code": 0,
+              "capacity": 100000,
+              "display_location": "Montreal, Canada"
+          },
+          "datetime_tbd": true,
+          "performers": [
+              {
+                  "type": "f1",
+                  "name": "Canadian Grand Prix",
+                  "image": "https://seatgeek.com/images/performers-landscape/canadian-grand-prix-274211/9815/huge.jpg",
+                  "id": 9815,
+                  "images": {
+                      "huge": "https://seatgeek.com/images/performers-landscape/canadian-grand-prix-274211/9815/huge.jpg"
+                  },
+                  "divisions": null,
+                  "has_upcoming_events": false,
+                  "primary": true,
+                  "stats": {
+                      "event_count": 0
+                  },
+                  "taxonomies": [
+                      {
+                          "id": 1000000,
+                          "name": "sports",
+                          "parent_id": null,
+                          "document_source": {
+                              "source_type": "ELASTIC",
+                              "generation_type": "FULL"
+                          },
+                          "rank": 0
+                      },
+                      {
+                          "id": 1060000,
+                          "name": "auto_racing",
+                          "parent_id": 1000000,
+                          "document_source": {
+                              "source_type": "ELASTIC",
+                              "generation_type": "FULL"
+                          },
+                          "rank": 0
+                      },
+                      {
+                          "id": 1060300,
+                          "name": "f1",
+                          "parent_id": 1060000,
+                          "document_source": {
+                              "source_type": "ELASTIC",
+                              "generation_type": "FULL"
+                          },
+                          "rank": 0
+                      }
+                  ],
+                  "image_attribution": null,
+                  "url": "https://seatgeek.com/canadian-grand-prix-tickets",
+                  "score": 0.59,
+                  "slug": "canadian-grand-prix",
+                  "home_venue_id": null,
+                  "short_name": "Canadian Grand Prix",
+                  "num_upcoming_events": 0,
+                  "colors": null,
+                  "image_license": null,
+                  "popularity": 0,
+                  "location": null
+              }
+          ],
+          "is_open": false,
+          "links": [],
+          "datetime_local": "2021-06-14T03:30:00",
+          "time_tbd": true,
+          "short_title": "2020 Canada Formula 1 Grand Prix - Sunday",
+          "visible_until_utc": "2021-06-15T04:00:00",
+          "stats": {
+              "listing_count": null,
+              "average_price": null,
+              "lowest_price_good_deals": null,
+              "lowest_price": null,
+              "highest_price": null,
+              "visible_listing_count": null,
+              "dq_bucket_counts": null,
+              "median_price": null,
+              "lowest_sg_base_price": null,
+              "lowest_sg_base_price_good_deals": null
+          },
+          "taxonomies": [
+              {
+                  "id": 1000000,
+                  "name": "sports",
+                  "parent_id": null,
+                  "rank": 0
+              },
+              {
+                  "id": 1060000,
+                  "name": "auto_racing",
+                  "parent_id": 1000000,
+                  "rank": 0
+              },
+              {
+                  "id": 1060300,
+                  "name": "f1",
+                  "parent_id": 1060000,
+                  "rank": 0
+              }
+          ],
+          "url": "https://seatgeek.com/2020-canada-formula-1-grand-prix-sunday-tickets/f1/2021-06-14-3-30-am/5050617",
+          "score": 0.706,
+          "announce_date": "2019-10-22T00:00:00",
+          "created_at": "2019-10-22T16:03:10",
+          "date_tbd": true,
+          "title": "2020 Canada Formula 1 Grand Prix - Sunday",
+          "popularity": 0.836,
+          "description": "",
+          "status": "normal",
+          "access_method": null,
+          "event_promotion": null,
+          "announcements": {},
+          "conditional": false,
+          "enddatetime_utc": null,
+          "themes": [],
+          "domain_information": []
+      },
+      {
+          "type": "broadway_tickets_national",
+          "id": 4940177,
+          "datetime_utc": "2021-06-14T07:30:00",
+          "venue": {
+              "state": "NY",
+              "name_v2": "Astor Place",
+              "postal_code": "10003",
+              "name": "Astor Place",
+              "links": [],
+              "timezone": "America/New_York",
+              "url": "https://seatgeek.com/venues/astor-place/tickets",
+              "score": 0.428024,
+              "location": {
+                  "lat": 40.7301,
+                  "lon": -73.9926
+              },
+              "address": "434 Lafayette Street",
+              "country": "US",
+              "has_upcoming_events": true,
+              "num_upcoming_events": 59,
+              "city": "New York",
+              "slug": "astor-place",
+              "extended_address": "New York, NY 10003",
+              "id": 3883,
+              "popularity": 0,
+              "access_method": {
+                  "method": "NONE",
+                  "created_at": "2018-07-20T00:13:17Z",
+                  "employee_only": false
+              },
+              "metro_code": 501,
+              "capacity": 300,
+              "display_location": "New York, NY"
+          },
+          "datetime_tbd": true,
+          "performers": [
+              {
+                  "type": "theater",
+                  "name": "Blue Man Group",
+                  "image": "https://seatgeek.com/images/performers-landscape/blue-man-group-685ab4/5194/huge.jpg",
+                  "id": 5194,
+                  "images": {
+                      "huge": "https://seatgeek.com/images/performers-landscape/blue-man-group-685ab4/5194/huge.jpg"
+                  },
+                  "divisions": null,
+                  "has_upcoming_events": true,
+                  "primary": true,
+                  "stats": {
+                      "event_count": 411
+                  },
+                  "taxonomies": [
+                      {
+                          "id": 3000000,
+                          "name": "theater",
+                          "parent_id": null,
+                          "document_source": {
+                              "source_type": "ELASTIC",
+                              "generation_type": "FULL"
+                          },
+                          "rank": 6
+                      }
+                  ],
+                  "image_attribution": null,
+                  "url": "https://seatgeek.com/blue-man-group-tickets",
+                  "score": 0.44,
+                  "slug": "blue-man-group",
+                  "home_venue_id": null,
+                  "short_name": "Blue Man Group",
+                  "num_upcoming_events": 411,
+                  "colors": null,
+                  "image_license": null,
+                  "popularity": 0,
+                  "location": null
+              }
+          ],
+          "is_open": false,
+          "links": [],
+          "datetime_local": "2021-06-14T03:30:00",
+          "time_tbd": true,
+          "short_title": "Blue Man Group - New York",
+          "visible_until_utc": "2021-06-15T04:00:00",
+          "stats": {
+              "listing_count": null,
+              "average_price": null,
+              "lowest_price_good_deals": null,
+              "lowest_price": null,
+              "highest_price": null,
+              "visible_listing_count": null,
+              "dq_bucket_counts": null,
+              "median_price": null,
+              "lowest_sg_base_price": null,
+              "lowest_sg_base_price_good_deals": null
+          },
+          "taxonomies": [
+              {
+                  "id": 3000000,
+                  "name": "theater",
+                  "parent_id": null,
+                  "rank": 6
+              },
+              {
+                  "id": 3030000,
+                  "name": "broadway_tickets_national",
+                  "parent_id": 3000000,
+                  "rank": 0
+              }
+          ],
+          "url": "https://seatgeek.com/blue-man-group-new-york-tickets/astor-place-2021-06-14-3-30-am/broadway/4940177",
+          "score": 0.487,
+          "announce_date": "2019-07-27T00:00:00",
+          "created_at": "2019-07-27T16:10:53",
+          "date_tbd": true,
+          "title": "Blue Man Group - New York",
+          "popularity": 0.605,
+          "description": "",
+          "status": "normal",
+          "access_method": {
+              "method": "NONE",
+              "created_at": "2018-07-20T00:13:17Z",
+              "employee_only": false
+          },
+          "event_promotion": null,
+          "announcements": {
+              "checkout_disclosures": {
+                  "messages": [
+                      {
+                          "text": "All purchases are 100% guaranteed. Prices set by the seller may be above or below face value."
+                      }
+                  ]
+              }
+          },
+          "conditional": false,
+          "enddatetime_utc": null,
+          "themes": [],
+          "domain_information": []
+      },
+      {
+          "type": "concert",
+          "id": 5203642,
+          "datetime_utc": "2021-06-14T07:30:00",
+          "venue": {
+              "state": "NY",
+              "name_v2": "BrownstoneJAZZ",
+              "postal_code": "11216",
+              "name": "BrownstoneJAZZ",
+              "links": [],
+              "timezone": "America/New_York",
+              "url": "https://seatgeek.com/venues/brownstonejazz/tickets",
+              "score": 0,
+              "location": {
+                  "lat": 40.6816,
+                  "lon": -73.947
+              },
+              "address": "107 Macon Street",
+              "country": "US",
+              "has_upcoming_events": true,
+              "num_upcoming_events": 67,
+              "city": "Brooklyn",
+              "slug": "brownstonejazz",
+              "extended_address": "Brooklyn, NY 11216",
+              "id": 77759,
+              "popularity": 0,
+              "access_method": null,
+              "metro_code": 501,
+              "capacity": 0,
+              "display_location": "Brooklyn, NY"
+          },
+          "datetime_tbd": true,
+          "performers": [
+              {
+                  "type": "band",
+                  "name": "BrownstoneJAZZ Concert Series: Fish Fry & Open Mic",
+                  "image": "https://seatgeek.com/images/performers-landscape/brownstonejazz-concert-series-fish-fry-open-mic-b78bed/746533/huge.jpg",
+                  "id": 746533,
+                  "images": {
+                      "huge": "https://seatgeek.com/images/performers-landscape/brownstonejazz-concert-series-fish-fry-open-mic-b78bed/746533/huge.jpg"
+                  },
+                  "divisions": null,
+                  "has_upcoming_events": true,
+                  "primary": true,
+                  "stats": {
+                      "event_count": 67
+                  },
+                  "taxonomies": [
+                      {
+                          "id": 2000000,
+                          "name": "concerts",
+                          "parent_id": null,
+                          "document_source": {
+                              "source_type": "ELASTIC",
+                              "generation_type": "FULL"
+                          },
+                          "rank": 1
+                      }
+                  ],
+                  "image_attribution": "https://www.flickr.com/photos/arekolek/7847640482/",
+                  "url": "https://seatgeek.com/brownstonejazz-concert-series-fish-fry-open-mic-tickets",
+                  "score": 0,
+                  "slug": "brownstonejazz-concert-series-fish-fry-open-mic",
+                  "home_venue_id": null,
+                  "short_name": "BrownstoneJAZZ Concert Series: Fish Fry & Open Mic",
+                  "num_upcoming_events": 67,
+                  "colors": null,
+                  "image_license": "https://creativecommons.org/licenses/by/2.0/",
+                  "popularity": 0,
+                  "location": null
+              }
+          ],
+          "is_open": false,
+          "links": [],
+          "datetime_local": "2021-06-14T03:30:00",
+          "time_tbd": true,
+          "short_title": "BrownstoneJAZZ Concert Series: Fish Fry & Open Mic",
+          "visible_until_utc": "2021-06-15T04:00:00",
+          "stats": {
+              "listing_count": null,
+              "average_price": null,
+              "lowest_price_good_deals": null,
+              "lowest_price": null,
+              "highest_price": null,
+              "visible_listing_count": null,
+              "dq_bucket_counts": null,
+              "median_price": null,
+              "lowest_sg_base_price": null,
+              "lowest_sg_base_price_good_deals": null
+          },
+          "taxonomies": [
+              {
+                  "id": 2000000,
+                  "name": "concert",
+                  "parent_id": null,
+                  "rank": 1
+              }
+          ],
+          "url": "https://seatgeek.com/brownstonejazz-concert-series-fish-fry-and-open-mic-tickets/brooklyn-new-york-brownstonejazz-2021-06-14-3-30-am/concert/5203642",
+          "score": 0,
+          "announce_date": "2020-02-05T00:00:00",
+          "created_at": "2020-02-05T16:05:46",
+          "date_tbd": true,
+          "title": "BrownstoneJAZZ Concert Series: Fish Fry & Open Mic",
+          "popularity": 0,
+          "description": "",
+          "status": "normal",
+          "access_method": null,
+          "event_promotion": null,
+          "announcements": {
+              "checkout_disclosures": {
+                  "messages": [
+                      {
+                          "text": "All purchases are 100% guaranteed. Prices set by the seller may be above or below face value."
+                      }
+                  ]
+              }
+          },
+          "conditional": false,
+          "enddatetime_utc": null,
+          "themes": [],
+          "domain_information": []
+      },
+      {
+          "type": "ncaa_baseball",
+          "id": 5419324,
+          "datetime_utc": "2021-06-14T07:30:00",
+          "venue": {
+              "state": "SC",
+              "name_v2": "Founders Park",
+              "postal_code": "29201",
+              "name": "Founders Park",
+              "links": [],
+              "timezone": "America/New_York",
+              "url": "https://seatgeek.com/venues/founders-park-4/tickets",
+              "score": 0,
+              "location": {
+                  "lat": 33.9862,
+                  "lon": -81.0428
+              },
+              "address": "431 Williams St.",
+              "country": "US",
+              "has_upcoming_events": true,
+              "num_upcoming_events": 2,
+              "city": "Columbia",
+              "slug": "founders-park-4",
+              "extended_address": "Columbia, SC 29201",
+              "id": 52710,
+              "popularity": 0,
+              "access_method": null,
+              "metro_code": 546,
+              "capacity": 0,
+              "display_location": "Columbia, SC"
+          },
+          "datetime_tbd": true,
+          "performers": [
+              {
+                  "type": "ncaa_baseball",
+                  "name": "Virginia Cavaliers Baseball",
+                  "image": "https://seatgeek.com/images/performers-landscape/virginia-cavaliers-baseball-b639f6/9519/huge.jpg",
+                  "id": 9519,
+                  "images": {
+                      "huge": "https://seatgeek.com/images/performers-landscape/virginia-cavaliers-baseball-b639f6/9519/huge.jpg"
+                  },
+                  "divisions": null,
+                  "has_upcoming_events": true,
+                  "primary": true,
+                  "stats": {
+                      "event_count": 5
+                  },
+                  "taxonomies": [
+                      {
+                          "id": 1000000,
+                          "name": "sports",
+                          "parent_id": null,
+                          "document_source": {
+                              "source_type": "ELASTIC",
+                              "generation_type": "FULL"
+                          },
+                          "rank": 0
+                      },
+                      {
+                          "id": 1010000,
+                          "name": "baseball",
+                          "parent_id": 1000000,
+                          "document_source": {
+                              "source_type": "ELASTIC",
+                              "generation_type": "FULL"
+                          },
+                          "rank": 0
+                      },
+                      {
+                          "id": 1010200,
+                          "name": "ncaa_baseball",
+                          "parent_id": 1010000,
+                          "document_source": {
+                              "source_type": "ELASTIC",
+                              "generation_type": "FULL"
+                          },
+                          "rank": 0
+                      }
+                  ],
+                  "image_attribution": "SG",
+                  "url": "https://seatgeek.com/virginia-cavaliers-baseball-tickets",
+                  "score": 0.36,
+                  "slug": "virginia-cavaliers-baseball",
+                  "home_venue_id": 5367,
+                  "short_name": "UVA",
+                  "num_upcoming_events": 5,
+                  "colors": null,
+                  "image_license": "SG",
+                  "popularity": 0,
+                  "home_team": true,
+                  "location": {
+                      "lat": 38.03,
+                      "lon": -78.48
+                  }
+              },
+              {
+                  "type": "ncaa_baseball",
+                  "name": "Dallas Baptist Patriots Baseball",
+                  "image": "https://seatgeek.com/images/performers-landscape/dallas-baptist-patriots-baseball-043826/15581/huge.jpg",
+                  "id": 15581,
+                  "images": {
+                      "huge": "https://seatgeek.com/images/performers-landscape/dallas-baptist-patriots-baseball-043826/15581/huge.jpg"
+                  },
+                  "divisions": null,
+                  "has_upcoming_events": true,
+                  "stats": {
+                      "event_count": 2
+                  },
+                  "taxonomies": [
+                      {
+                          "id": 1000000,
+                          "name": "sports",
+                          "parent_id": null,
+                          "document_source": {
+                              "source_type": "ELASTIC",
+                              "generation_type": "FULL"
+                          },
+                          "rank": 0
+                      },
+                      {
+                          "id": 1010000,
+                          "name": "baseball",
+                          "parent_id": 1000000,
+                          "document_source": {
+                              "source_type": "ELASTIC",
+                              "generation_type": "FULL"
+                          },
+                          "rank": 0
+                      },
+                      {
+                          "id": 1010200,
+                          "name": "ncaa_baseball",
+                          "parent_id": 1010000,
+                          "document_source": {
+                              "source_type": "ELASTIC",
+                              "generation_type": "FULL"
+                          },
+                          "rank": 0
+                      }
+                  ],
+                  "image_attribution": "SG",
+                  "url": "https://seatgeek.com/dallas-baptist-patriots-baseball-tickets",
+                  "score": 0.36,
+                  "slug": "dallas-baptist-patriots-baseball",
+                  "home_venue_id": 78640,
+                  "short_name": "Dallas Baptist Patriots Baseball",
+                  "num_upcoming_events": 2,
+                  "colors": null,
+                  "image_license": "SG",
+                  "popularity": 0,
+                  "away_team": true,
+                  "location": {
+                      "lat": 32.7086,
+                      "lon": -96.9474
+                  }
+              }
+          ],
+          "is_open": false,
+          "links": [],
+          "datetime_local": "2021-06-14T03:30:00",
+          "time_tbd": true,
+          "short_title": "NCAA Baseball Columbia Super Regional Game 3 (If Necessary)",
+          "visible_until_utc": "2021-06-15T04:00:00",
+          "stats": {
+              "listing_count": null,
+              "average_price": null,
+              "lowest_price_good_deals": null,
+              "lowest_price": null,
+              "highest_price": null,
+              "visible_listing_count": null,
+              "dq_bucket_counts": null,
+              "median_price": null,
+              "lowest_sg_base_price": null,
+              "lowest_sg_base_price_good_deals": null
+          },
+          "taxonomies": [
+              {
+                  "id": 1000000,
+                  "name": "sports",
+                  "parent_id": null,
+                  "rank": 0
+              },
+              {
+                  "id": 1010000,
+                  "name": "baseball",
+                  "parent_id": 1000000,
+                  "rank": 0
+              },
+              {
+                  "id": 1010200,
+                  "name": "ncaa_baseball",
+                  "parent_id": 1010000,
+                  "rank": 0
+              }
+          ],
+          "url": "https://seatgeek.com/ncaa-baseball-columbia-super-regional-game-3-if-necessary-tickets/ncaa-baseball/2021-06-14-3-30-am/5419324",
+          "score": 0.328,
+          "announce_date": "2021-06-09T00:00:00",
+          "created_at": "2021-06-09T16:00:06",
+          "date_tbd": true,
+          "title": "NCAA Baseball Columbia Super Regional Game 3 (If Necessary)",
+          "popularity": 0.519,
+          "description": "",
+          "status": "normal",
+          "access_method": null,
+          "event_promotion": null,
+          "announcements": {},
+          "conditional": false,
+          "enddatetime_utc": null,
+          "themes": [],
+          "domain_information": []
+      },
+      {
+          "type": "concert",
+          "id": 5255717,
+          "datetime_utc": "2021-06-14T07:30:00",
+          "venue": {
+              "state": "NC",
+              "name_v2": "Coastal Credit Union Music Park at Walnut Creek",
+              "postal_code": "27610",
+              "name": "Coastal Credit Union Music Park at Walnut Creek",
+              "links": [],
+              "timezone": "America/New_York",
+              "url": "https://seatgeek.com/venues/coastal-credit-union-music-park-at-walnut-creek/tickets",
+              "score": 0.723921,
+              "location": {
+                  "lat": 35.7456,
+                  "lon": -78.584
+              },
+              "address": "3801 Rock Quarry Road",
+              "country": "US",
+              "has_upcoming_events": true,
+              "num_upcoming_events": 25,
+              "city": "Raleigh",
+              "slug": "coastal-credit-union-music-park-at-walnut-creek",
+              "extended_address": "Raleigh, NC 27610",
+              "id": 61,
+              "popularity": 0,
+              "access_method": {
+                  "method": "QRCODE_TM",
+                  "created_at": "2015-10-17T20:02:51Z",
+                  "employee_only": false
+              },
+              "metro_code": 560,
+              "capacity": 20000,
+              "display_location": "Raleigh, NC"
+          },
+          "datetime_tbd": true,
+          "performers": [
+              {
+                  "type": "band",
+                  "name": "Jimmy Buffett",
+                  "image": "https://seatgeek.com/images/performers-landscape/generic-concerts-9d2fc5/677165/27810/huge.jpg",
+                  "id": 34,
+                  "images": {
+                      "huge": "https://seatgeek.com/images/performers-landscape/generic-concerts-9d2fc5/677165/27810/huge.jpg"
+                  },
+                  "divisions": null,
+                  "has_upcoming_events": true,
+                  "primary": true,
+                  "stats": {
+                      "event_count": 18
+                  },
+                  "taxonomies": [
+                      {
+                          "id": 2000000,
+                          "name": "concerts",
+                          "parent_id": null,
+                          "document_source": {
+                              "source_type": "ELASTIC",
+                              "generation_type": "FULL"
+                          },
+                          "rank": 1
+                      }
+                  ],
+                  "image_attribution": "C Flanigan / WireImage / Getty Images",
+                  "url": "https://seatgeek.com/jimmy-buffett-tickets",
+                  "score": 0.62,
+                  "slug": "jimmy-buffett",
+                  "home_venue_id": null,
+                  "short_name": "Jimmy Buffett",
+                  "num_upcoming_events": 18,
+                  "colors": null,
+                  "image_license": "rightsmanaged",
+                  "genres": [
+                      {
+                          "id": 456,
+                          "name": "Rock",
+                          "slug": "rock",
+                          "primary": true,
+                          "images": {
+                              "1200x525": "https://seatgeek.com/images/performers-landscape/foo-fighters-b7b761/744/1200x525.jpg",
+                              "1200x627": "https://seatgeek.com/images/performers-landscape/foo-fighters-ed5e2e/744/1200x627.jpg",
+                              "136x136": "https://seatgeek.com/images/performers-landscape/foo-fighters-00ae49/744/136x136.jpg",
+                              "500_700": "https://seatgeek.com/images/performers-landscape/foo-fighters-82fcee/744/500_700.jpg",
+                              "800x320": "https://seatgeek.com/images/performers-landscape/foo-fighters-37ed5d/744/800x320.jpg",
+                              "banner": "https://seatgeek.com/images/performers-landscape/foo-fighters-2029bd/744/banner.jpg",
+                              "block": "https://seatgeek.com/images/performers-landscape/foo-fighters-f8443e/744/block.jpg",
+                              "criteo_130_160": "https://seatgeek.com/images/performers-landscape/foo-fighters-516446/744/criteo_130_160.jpg",
+                              "criteo_170_235": "https://seatgeek.com/images/performers-landscape/foo-fighters-105190/744/criteo_170_235.jpg",
+                              "criteo_205_100": "https://seatgeek.com/images/performers-landscape/foo-fighters-232596/744/criteo_205_100.jpg",
+                              "criteo_400_300": "https://seatgeek.com/images/performers-landscape/foo-fighters-46a1f7/744/criteo_400_300.jpg",
+                              "fb_100x72": "https://seatgeek.com/images/performers-landscape/foo-fighters-306741/744/fb_100x72.jpg",
+                              "fb_600_315": "https://seatgeek.com/images/performers-landscape/foo-fighters-11053a/744/fb_600_315.jpg",
+                              "huge": "https://seatgeek.com/images/performers-landscape/foo-fighters-9b79ae/744/huge.jpg",
+                              "ipad_event_modal": "https://seatgeek.com/images/performers-landscape/foo-fighters-023509/744/ipad_event_modal.jpg",
+                              "ipad_header": "https://seatgeek.com/images/performers-landscape/foo-fighters-5bb63a/744/ipad_header.jpg",
+                              "ipad_mini_explore": "https://seatgeek.com/images/performers-landscape/foo-fighters-b6eacd/744/ipad_mini_explore.jpg",
+                              "mongo": "https://seatgeek.com/images/performers-landscape/foo-fighters-bf5a09/744/mongo.jpg",
+                              "square_mid": "https://seatgeek.com/images/performers-landscape/foo-fighters-dc2c98/744/square_mid.jpg",
+                              "triggit_fb_ad": "https://seatgeek.com/images/performers-landscape/foo-fighters-4afe8a/744/triggit_fb_ad.jpg"
+                          },
+                          "image": "https://seatgeek.com/images/performers-landscape/foo-fighters-9b79ae/744/huge.jpg",
+                          "document_source": {
+                              "source_type": "ELASTIC",
+                              "generation_type": "FULL"
+                          }
+                      },
+                      {
+                          "id": 452,
+                          "name": "Pop",
+                          "slug": "pop",
+                          "primary": false,
+                          "images": {
+                              "1200x525": "https://seatgeek.com/images/performers-landscape/justin-bieber-f77fc9/2446/1200x525.jpg",
+                              "1200x627": "https://seatgeek.com/images/performers-landscape/justin-bieber-e9c276/2446/1200x627.jpg",
+                              "136x136": "https://seatgeek.com/images/performers-landscape/justin-bieber-d3542f/2446/136x136.jpg",
+                              "500_700": "https://seatgeek.com/images/performers-landscape/justin-bieber-91f53a/2446/500_700.jpg",
+                              "800x320": "https://seatgeek.com/images/performers-landscape/justin-bieber-441798/2446/800x320.jpg",
+                              "banner": "https://seatgeek.com/images/performers-landscape/justin-bieber-fdb110/2446/banner.jpg",
+                              "block": "https://seatgeek.com/images/performers-landscape/justin-bieber-3a5bca/2446/block.jpg",
+                              "criteo_130_160": "https://seatgeek.com/images/performers-landscape/justin-bieber-d6d547/2446/criteo_130_160.jpg",
+                              "criteo_170_235": "https://seatgeek.com/images/performers-landscape/justin-bieber-5ac351/2446/criteo_170_235.jpg",
+                              "criteo_205_100": "https://seatgeek.com/images/performers-landscape/justin-bieber-fa1c93/2446/criteo_205_100.jpg",
+                              "criteo_400_300": "https://seatgeek.com/images/performers-landscape/justin-bieber-725946/2446/criteo_400_300.jpg",
+                              "fb_100x72": "https://seatgeek.com/images/performers-landscape/justin-bieber-bdf72d/2446/fb_100x72.jpg",
+                              "fb_600_315": "https://seatgeek.com/images/performers-landscape/justin-bieber-444868/2446/fb_600_315.jpg",
+                              "huge": "https://seatgeek.com/images/performers-landscape/justin-bieber-787108/2446/huge.jpg",
+                              "ipad_event_modal": "https://seatgeek.com/images/performers-landscape/justin-bieber-99f1d2/2446/ipad_event_modal.jpg",
+                              "ipad_header": "https://seatgeek.com/images/performers-landscape/justin-bieber-ac9305/2446/ipad_header.jpg",
+                              "ipad_mini_explore": "https://seatgeek.com/images/performers-landscape/justin-bieber-6c8bb1/2446/ipad_mini_explore.jpg",
+                              "mongo": "https://seatgeek.com/images/performers-landscape/justin-bieber-1a7876/2446/mongo.jpg",
+                              "square_mid": "https://seatgeek.com/images/performers-landscape/justin-bieber-e60f26/2446/square_mid.jpg",
+                              "triggit_fb_ad": "https://seatgeek.com/images/performers-landscape/justin-bieber-f3cbc8/2446/triggit_fb_ad.jpg"
+                          },
+                          "image": "https://seatgeek.com/images/performers-landscape/justin-bieber-787108/2446/huge.jpg",
+                          "document_source": {
+                              "source_type": "ELASTIC",
+                              "generation_type": "FULL"
+                          }
+                      },
+                      {
+                          "id": 450,
+                          "name": "Country",
+                          "slug": "country",
+                          "primary": false,
+                          "images": {
+                              "1200x525": "https://seatgeek.com/images/performers-landscape/kelsea-ballerini-1a4903/303729/1200x525.jpg",
+                              "1200x627": "https://seatgeek.com/images/performers-landscape/kelsea-ballerini-5ac8d0/303729/1200x627.jpg",
+                              "136x136": "https://seatgeek.com/images/performers-landscape/kelsea-ballerini-bfa6e4/303729/136x136.jpg",
+                              "500_700": "https://seatgeek.com/images/performers-landscape/kelsea-ballerini-d5a257/303729/500_700.jpg",
+                              "800x320": "https://seatgeek.com/images/performers-landscape/kelsea-ballerini-25c4d5/303729/800x320.jpg",
+                              "banner": "https://seatgeek.com/images/performers-landscape/kelsea-ballerini-216add/303729/banner.jpg",
+                              "block": "https://seatgeek.com/images/performers-landscape/kelsea-ballerini-30ada7/303729/block.jpg",
+                              "criteo_130_160": "https://seatgeek.com/images/performers-landscape/kelsea-ballerini-8c3ff8/303729/criteo_130_160.jpg",
+                              "criteo_170_235": "https://seatgeek.com/images/performers-landscape/kelsea-ballerini-006372/303729/criteo_170_235.jpg",
+                              "criteo_205_100": "https://seatgeek.com/images/performers-landscape/kelsea-ballerini-2d7962/303729/criteo_205_100.jpg",
+                              "criteo_400_300": "https://seatgeek.com/images/performers-landscape/kelsea-ballerini-db6f94/303729/criteo_400_300.jpg",
+                              "fb_100x72": "https://seatgeek.com/images/performers-landscape/kelsea-ballerini-777cd8/303729/fb_100x72.jpg",
+                              "fb_600_315": "https://seatgeek.com/images/performers-landscape/kelsea-ballerini-0e5158/303729/fb_600_315.jpg",
+                              "huge": "https://seatgeek.com/images/performers-landscape/kelsea-ballerini-349c3e/303729/huge.jpg",
+                              "ipad_event_modal": "https://seatgeek.com/images/performers-landscape/kelsea-ballerini-679383/303729/ipad_event_modal.jpg",
+                              "ipad_header": "https://seatgeek.com/images/performers-landscape/kelsea-ballerini-a2508c/303729/ipad_header.jpg",
+                              "ipad_mini_explore": "https://seatgeek.com/images/performers-landscape/kelsea-ballerini-5855e4/303729/ipad_mini_explore.jpg",
+                              "mongo": "https://seatgeek.com/images/performers-landscape/kelsea-ballerini-886d08/303729/mongo.jpg",
+                              "square_mid": "https://seatgeek.com/images/performers-landscape/kelsea-ballerini-357519/303729/square_mid.jpg",
+                              "triggit_fb_ad": "https://seatgeek.com/images/performers-landscape/kelsea-ballerini-0eb01c/303729/triggit_fb_ad.jpg"
+                          },
+                          "image": "https://seatgeek.com/images/performers-landscape/kelsea-ballerini-349c3e/303729/huge.jpg",
+                          "document_source": {
+                              "source_type": "ELASTIC",
+                              "generation_type": "FULL"
+                          }
+                      },
+                      {
+                          "id": 467,
+                          "name": "Folk",
+                          "slug": "folk",
+                          "primary": false,
+                          "images": {
+                              "1200x525": "https://seatgeek.com/images/performers-landscape/the-avett-brothers-99f3eb/1768/1200x525.jpg",
+                              "1200x627": "https://seatgeek.com/images/performers-landscape/the-avett-brothers-3d20a2/1768/1200x627.jpg",
+                              "136x136": "https://seatgeek.com/images/performers-landscape/the-avett-brothers-ba913c/1768/136x136.jpg",
+                              "500_700": "https://seatgeek.com/images/performers-landscape/the-avett-brothers-1aaf69/1768/500_700.jpg",
+                              "800x320": "https://seatgeek.com/images/performers-landscape/the-avett-brothers-2e102c/1768/800x320.jpg",
+                              "banner": "https://seatgeek.com/images/performers-landscape/the-avett-brothers-25a6e0/1768/banner.jpg",
+                              "block": "https://seatgeek.com/images/performers-landscape/the-avett-brothers-298284/1768/block.jpg",
+                              "criteo_130_160": "https://seatgeek.com/images/performers-landscape/the-avett-brothers-6eed71/1768/criteo_130_160.jpg",
+                              "criteo_170_235": "https://seatgeek.com/images/performers-landscape/the-avett-brothers-52c298/1768/criteo_170_235.jpg",
+                              "criteo_205_100": "https://seatgeek.com/images/performers-landscape/the-avett-brothers-5ef38d/1768/criteo_205_100.jpg",
+                              "criteo_400_300": "https://seatgeek.com/images/performers-landscape/the-avett-brothers-666741/1768/criteo_400_300.jpg",
+                              "fb_100x72": "https://seatgeek.com/images/performers-landscape/the-avett-brothers-63e6eb/1768/fb_100x72.jpg",
+                              "fb_600_315": "https://seatgeek.com/images/performers-landscape/the-avett-brothers-f90223/1768/fb_600_315.jpg",
+                              "huge": "https://seatgeek.com/images/performers-landscape/the-avett-brothers-2c7d3f/1768/huge.jpg",
+                              "ipad_event_modal": "https://seatgeek.com/images/performers-landscape/the-avett-brothers-03591b/1768/ipad_event_modal.jpg",
+                              "ipad_header": "https://seatgeek.com/images/performers-landscape/the-avett-brothers-3bb6ef/1768/ipad_header.jpg",
+                              "ipad_mini_explore": "https://seatgeek.com/images/performers-landscape/the-avett-brothers-be6d5c/1768/ipad_mini_explore.jpg",
+                              "mongo": "https://seatgeek.com/images/performers-landscape/the-avett-brothers-ea261b/1768/mongo.jpg",
+                              "square_mid": "https://seatgeek.com/images/performers-landscape/the-avett-brothers-b6f8e6/1768/square_mid.jpg",
+                              "triggit_fb_ad": "https://seatgeek.com/images/performers-landscape/the-avett-brothers-195438/1768/triggit_fb_ad.jpg"
+                          },
+                          "image": "https://seatgeek.com/images/performers-landscape/the-avett-brothers-2c7d3f/1768/huge.jpg",
+                          "document_source": {
+                              "source_type": "ELASTIC",
+                              "generation_type": "FULL"
+                          }
+                      }
+                  ],
+                  "popularity": 0,
+                  "location": null
+              }
+          ],
+          "is_open": false,
+          "links": [],
+          "datetime_local": "2021-06-14T03:30:00",
+          "time_tbd": true,
+          "short_title": "Jimmy Buffett",
+          "visible_until_utc": "2021-06-15T04:00:00",
+          "stats": {
+              "listing_count": null,
+              "average_price": null,
+              "lowest_price_good_deals": null,
+              "lowest_price": null,
+              "highest_price": null,
+              "visible_listing_count": null,
+              "dq_bucket_counts": null,
+              "median_price": null,
+              "lowest_sg_base_price": null,
+              "lowest_sg_base_price_good_deals": null
+          },
+          "taxonomies": [
+              {
+                  "id": 2000000,
+                  "name": "concert",
+                  "parent_id": null,
+                  "rank": 1
+              }
+          ],
+          "url": "https://seatgeek.com/jimmy-buffett-tickets/raleigh-north-carolina-coastal-credit-union-music-park-at-walnut-creek-2021-06-14-3-30-am/concert/5255717",
+          "score": 0.642,
+          "announce_date": "2020-03-19T00:00:00",
+          "created_at": "2020-03-19T16:03:32",
+          "date_tbd": true,
+          "title": "Jimmy Buffett",
+          "popularity": 0.778,
+          "description": "",
+          "status": "normal",
+          "access_method": {
+              "method": "QRCODE_TM",
+              "created_at": "2015-10-17T20:02:51Z",
+              "employee_only": false
+          },
+          "event_promotion": null,
+          "announcements": {},
+          "conditional": false,
+          "enddatetime_utc": null,
+          "themes": [],
+          "domain_information": []
+      }
+  ],
+  "meta": {
+      "total": 52840,
+      "took": 8,
+      "page": 1,
+      "per_page": 10,
+      "geolocation": null
+  },
+  "in_hand": {}
+}

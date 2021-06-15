@@ -23,6 +23,14 @@ public struct LogFormat {
         self.showFunction = showFunction
     }
     
+    public init(allAs value: Bool) {
+        self.showIcons = value
+        self.showLine = value
+        self.showFilename = value
+        self.showColumn = value
+        self.showFunction = value
+    }
+    
     var showIcons: Bool
     var showFilename: Bool
     var showLine: Bool

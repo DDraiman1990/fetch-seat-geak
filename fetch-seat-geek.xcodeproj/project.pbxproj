@@ -7,6 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		640F875A2678155F0055C4A4 /* LoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640F87592678155F0055C4A4 /* LoggerTests.swift */; };
+		640F8762267826070055C4A4 /* CoreLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640F8761267826070055C4A4 /* CoreLogger.swift */; };
+		640F8767267827200055C4A4 /* MockCoreLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640F8766267827200055C4A4 /* MockCoreLogger.swift */; };
+		640F876C267831440055C4A4 /* SGLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640F876B267831440055C4A4 /* SGLocation.swift */; };
+		640F87712678314A0055C4A4 /* SGLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640F87702678314A0055C4A4 /* SGLink.swift */; };
+		640F8776267831510055C4A4 /* SGPerformerImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640F8775267831510055C4A4 /* SGPerformerImages.swift */; };
+		640F877B267831580055C4A4 /* SGEventStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640F877A267831580055C4A4 /* SGEventStats.swift */; };
+		640F87802678315F0055C4A4 /* SGTaxonomy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640F877F2678315F0055C4A4 /* SGTaxonomy.swift */; };
+		640F878D267839170055C4A4 /* SGGenre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640F878C267839170055C4A4 /* SGGenre.swift */; };
+		640F879526783C940055C4A4 /* SGMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640F879426783C940055C4A4 /* SGMetadata.swift */; };
+		640F87BB26783EEF0055C4A4 /* GetEventResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 640F87B526783EEF0055C4A4 /* GetEventResponse.json */; };
+		640F87BC26783EEF0055C4A4 /* GetPerformerResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 640F87B626783EEF0055C4A4 /* GetPerformerResponse.json */; };
+		640F87BD26783EEF0055C4A4 /* GetVenueResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 640F87B726783EEF0055C4A4 /* GetVenueResponse.json */; };
+		640F87BE26783EEF0055C4A4 /* EventsResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 640F87B826783EEF0055C4A4 /* EventsResponse.json */; };
+		640F87BF26783EEF0055C4A4 /* PerformersResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 640F87B926783EEF0055C4A4 /* PerformersResponse.json */; };
+		640F87C026783EEF0055C4A4 /* VenueResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 640F87BA26783EEF0055C4A4 /* VenueResponse.json */; };
+		640F87C826783F0C0055C4A4 /* SeatGeekInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640F87C726783F0C0055C4A4 /* SeatGeekInteractorTests.swift */; };
+		640F87CD26783F7A0055C4A4 /* NetworkServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640F87CC26783F7A0055C4A4 /* NetworkServiceMock.swift */; };
+		640F87D3267840E30055C4A4 /* NetworkResultBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640F87D2267840E30055C4A4 /* NetworkResultBuilder.swift */; };
 		6440B6EF267558140087987F /* Combine+SinkToResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440B6EE267558140087987F /* Combine+SinkToResult.swift */; };
 		6440B6FA26755EA20087987F /* Dictionary+Merge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440B6F926755EA20087987F /* Dictionary+Merge.swift */; };
 		6440B7002675B2B30087987F /* APIKeysManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440B6FF2675B2B30087987F /* APIKeysManager.swift */; };
@@ -28,15 +47,15 @@
 		6440B7AF2676864D0087987F /* NetworkPluginMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440B7AE2676864D0087987F /* NetworkPluginMock.swift */; };
 		6440B7B4267687710087987F /* RouteMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440B7B3267687710087987F /* RouteMock.swift */; };
 		6440B7D9267696710087987F /* SeatGeekInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440B7D8267696710087987F /* SeatGeekInteractor.swift */; };
-		6440B7E12676C94A0087987F /* SeatGeekEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440B7E02676C94A0087987F /* SeatGeekEvent.swift */; };
-		6440B7E62676C9560087987F /* SeatGeekPerformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440B7E52676C9560087987F /* SeatGeekPerformer.swift */; };
-		6440B7EB2676C9610087987F /* SeatGeekVenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440B7EA2676C9610087987F /* SeatGeekVenue.swift */; };
+		6440B7E12676C94A0087987F /* SGEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440B7E02676C94A0087987F /* SGEvent.swift */; };
+		6440B7E62676C9560087987F /* SGPerformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440B7E52676C9560087987F /* SGPerformer.swift */; };
+		6440B7EB2676C9610087987F /* SGVenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6440B7EA2676C9610087987F /* SGVenue.swift */; };
 		64B05E672676D5FD00CFBEA4 /* Services.strings in Resources */ = {isa = PBXBuildFile; fileRef = 64B05E662676D5FD00CFBEA4 /* Services.strings */; };
 		64B05E6D2676E23C00CFBEA4 /* EventStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B05E6C2676E23C00CFBEA4 /* EventStub.swift */; };
 		64B05E752676E25300CFBEA4 /* PerformerStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B05E742676E25300CFBEA4 /* PerformerStub.swift */; };
 		64B05E7A2676E25900CFBEA4 /* VenueStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B05E792676E25900CFBEA4 /* VenueStub.swift */; };
 		64B05E7F2676E27C00CFBEA4 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B05E7E2676E27C00CFBEA4 /* TestViewController.swift */; };
-		64B18BA72676D21B002924C8 /* SeatGeekResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B18BA62676D21B002924C8 /* SeatGeekResponses.swift */; };
+		64B18BA72676D21B002924C8 /* SGResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B18BA62676D21B002924C8 /* SGResponses.swift */; };
 		64C7A3932673DF0400951930 /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = 64C7A3922673DF0400951930 /* Main.strings */; };
 		64C7A3A02673F59500951930 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C7A39F2673F59500951930 /* ViewModel.swift */; };
 		64C7A3A82673F5A600951930 /* ViewModel+TypeErasure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C7A3A72673F5A600951930 /* ViewModel+TypeErasure.swift */; };
@@ -88,6 +107,25 @@
 		4A1CC6BBA1FA661F4BA8EA8C /* Pods_fetch_seat_geek.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fetch_seat_geek.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5111C3FD2CD01E6AB313D685 /* Pods_fetch_seat_geekUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fetch_seat_geekUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59965EF54F73FD3B84CD2FD3 /* Pods-fetch-seat-geekTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fetch-seat-geekTests.release.xcconfig"; path = "Target Support Files/Pods-fetch-seat-geekTests/Pods-fetch-seat-geekTests.release.xcconfig"; sourceTree = "<group>"; };
+		640F87592678155F0055C4A4 /* LoggerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerTests.swift; sourceTree = "<group>"; };
+		640F8761267826070055C4A4 /* CoreLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLogger.swift; sourceTree = "<group>"; };
+		640F8766267827200055C4A4 /* MockCoreLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCoreLogger.swift; sourceTree = "<group>"; };
+		640F876B267831440055C4A4 /* SGLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGLocation.swift; sourceTree = "<group>"; };
+		640F87702678314A0055C4A4 /* SGLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGLink.swift; sourceTree = "<group>"; };
+		640F8775267831510055C4A4 /* SGPerformerImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGPerformerImages.swift; sourceTree = "<group>"; };
+		640F877A267831580055C4A4 /* SGEventStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGEventStats.swift; sourceTree = "<group>"; };
+		640F877F2678315F0055C4A4 /* SGTaxonomy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGTaxonomy.swift; sourceTree = "<group>"; };
+		640F878C267839170055C4A4 /* SGGenre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGGenre.swift; sourceTree = "<group>"; };
+		640F879426783C940055C4A4 /* SGMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGMetadata.swift; sourceTree = "<group>"; };
+		640F87B526783EEF0055C4A4 /* GetEventResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetEventResponse.json; sourceTree = "<group>"; };
+		640F87B626783EEF0055C4A4 /* GetPerformerResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetPerformerResponse.json; sourceTree = "<group>"; };
+		640F87B726783EEF0055C4A4 /* GetVenueResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetVenueResponse.json; sourceTree = "<group>"; };
+		640F87B826783EEF0055C4A4 /* EventsResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = EventsResponse.json; sourceTree = "<group>"; };
+		640F87B926783EEF0055C4A4 /* PerformersResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PerformersResponse.json; sourceTree = "<group>"; };
+		640F87BA26783EEF0055C4A4 /* VenueResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = VenueResponse.json; sourceTree = "<group>"; };
+		640F87C726783F0C0055C4A4 /* SeatGeekInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatGeekInteractorTests.swift; sourceTree = "<group>"; };
+		640F87CC26783F7A0055C4A4 /* NetworkServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceMock.swift; sourceTree = "<group>"; };
+		640F87D2267840E30055C4A4 /* NetworkResultBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResultBuilder.swift; sourceTree = "<group>"; };
 		6435935857E5A5FA497E6DD2 /* Pods-fetch-seat-geek.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fetch-seat-geek.debug.xcconfig"; path = "Target Support Files/Pods-fetch-seat-geek/Pods-fetch-seat-geek.debug.xcconfig"; sourceTree = "<group>"; };
 		6440B6EE267558140087987F /* Combine+SinkToResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+SinkToResult.swift"; sourceTree = "<group>"; };
 		6440B6F926755EA20087987F /* Dictionary+Merge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Merge.swift"; sourceTree = "<group>"; };
@@ -110,15 +148,15 @@
 		6440B7AE2676864D0087987F /* NetworkPluginMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkPluginMock.swift; sourceTree = "<group>"; };
 		6440B7B3267687710087987F /* RouteMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteMock.swift; sourceTree = "<group>"; };
 		6440B7D8267696710087987F /* SeatGeekInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatGeekInteractor.swift; sourceTree = "<group>"; };
-		6440B7E02676C94A0087987F /* SeatGeekEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatGeekEvent.swift; sourceTree = "<group>"; };
-		6440B7E52676C9560087987F /* SeatGeekPerformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatGeekPerformer.swift; sourceTree = "<group>"; };
-		6440B7EA2676C9610087987F /* SeatGeekVenue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatGeekVenue.swift; sourceTree = "<group>"; };
+		6440B7E02676C94A0087987F /* SGEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGEvent.swift; sourceTree = "<group>"; };
+		6440B7E52676C9560087987F /* SGPerformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGPerformer.swift; sourceTree = "<group>"; };
+		6440B7EA2676C9610087987F /* SGVenue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGVenue.swift; sourceTree = "<group>"; };
 		64B05E662676D5FD00CFBEA4 /* Services.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Services.strings; sourceTree = "<group>"; };
 		64B05E6C2676E23C00CFBEA4 /* EventStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventStub.swift; sourceTree = "<group>"; };
 		64B05E742676E25300CFBEA4 /* PerformerStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformerStub.swift; sourceTree = "<group>"; };
 		64B05E792676E25900CFBEA4 /* VenueStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueStub.swift; sourceTree = "<group>"; };
 		64B05E7E2676E27C00CFBEA4 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
-		64B18BA62676D21B002924C8 /* SeatGeekResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatGeekResponses.swift; sourceTree = "<group>"; };
+		64B18BA62676D21B002924C8 /* SGResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SGResponses.swift; sourceTree = "<group>"; };
 		64C7A3922673DF0400951930 /* Main.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Main.strings; sourceTree = "<group>"; };
 		64C7A39F2673F59500951930 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		64C7A3A72673F5A600951930 /* ViewModel+TypeErasure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModel+TypeErasure.swift"; sourceTree = "<group>"; };
@@ -193,6 +231,42 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		640F8758267815470055C4A4 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				6440B76A267672660087987F /* NetworkServiceTests.swift */,
+				640F87592678155F0055C4A4 /* LoggerTests.swift */,
+				640F87C726783F0C0055C4A4 /* SeatGeekInteractorTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		640F87B426783D680055C4A4 /* SeatGeek */ = {
+			isa = PBXGroup;
+			children = (
+				6440B7E02676C94A0087987F /* SGEvent.swift */,
+				6440B7E52676C9560087987F /* SGPerformer.swift */,
+				6440B7EA2676C9610087987F /* SGVenue.swift */,
+				64B18BA62676D21B002924C8 /* SGResponses.swift */,
+				640F876B267831440055C4A4 /* SGLocation.swift */,
+				640F87702678314A0055C4A4 /* SGLink.swift */,
+				640F8775267831510055C4A4 /* SGPerformerImages.swift */,
+				640F877A267831580055C4A4 /* SGEventStats.swift */,
+				640F877F2678315F0055C4A4 /* SGTaxonomy.swift */,
+				640F878C267839170055C4A4 /* SGGenre.swift */,
+				640F879426783C940055C4A4 /* SGMetadata.swift */,
+			);
+			path = SeatGeek;
+			sourceTree = "<group>";
+		};
+		640F87D1267840D60055C4A4 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				640F87D2267840E30055C4A4 /* NetworkResultBuilder.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		6440B6F326755CDC0087987F /* APIKeys */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,16 +318,10 @@
 				6440B7A9267676180087987F /* LoggerMock.swift */,
 				6440B7AE2676864D0087987F /* NetworkPluginMock.swift */,
 				6440B7B3267687710087987F /* RouteMock.swift */,
+				640F8766267827200055C4A4 /* MockCoreLogger.swift */,
+				640F87CC26783F7A0055C4A4 /* NetworkServiceMock.swift */,
 			);
 			path = Mocks;
-			sourceTree = "<group>";
-		};
-		6440B763267671B70087987F /* NetworkService */ = {
-			isa = PBXGroup;
-			children = (
-				6440B76A267672660087987F /* NetworkServiceTests.swift */,
-			);
-			path = NetworkService;
 			sourceTree = "<group>";
 		};
 		6440B7D52676964F0087987F /* SeatGeek */ = {
@@ -267,6 +335,12 @@
 		64B05E6B2676E1F100CFBEA4 /* Stubs */ = {
 			isa = PBXGroup;
 			children = (
+				640F87B826783EEF0055C4A4 /* EventsResponse.json */,
+				640F87B526783EEF0055C4A4 /* GetEventResponse.json */,
+				640F87B626783EEF0055C4A4 /* GetPerformerResponse.json */,
+				640F87B726783EEF0055C4A4 /* GetVenueResponse.json */,
+				640F87B926783EEF0055C4A4 /* PerformersResponse.json */,
+				640F87BA26783EEF0055C4A4 /* VenueResponse.json */,
 				64B05E6C2676E23C00CFBEA4 /* EventStub.swift */,
 				64B05E742676E25300CFBEA4 /* PerformerStub.swift */,
 				64B05E792676E25900CFBEA4 /* VenueStub.swift */,
@@ -364,8 +438,9 @@
 		64E6E9242672F59300BDE2E6 /* fetch-seat-geekTests */ = {
 			isa = PBXGroup;
 			children = (
+				640F87D1267840D60055C4A4 /* Utilities */,
+				640F8758267815470055C4A4 /* Tests */,
 				64B05E6B2676E1F100CFBEA4 /* Stubs */,
-				6440B763267671B70087987F /* NetworkService */,
 				6440B762267671B40087987F /* Mocks */,
 				64E6E9272672F59300BDE2E6 /* Info.plist */,
 			);
@@ -422,10 +497,7 @@
 		64E6E9452672F5B300BDE2E6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				6440B7E02676C94A0087987F /* SeatGeekEvent.swift */,
-				6440B7E52676C9560087987F /* SeatGeekPerformer.swift */,
-				6440B7EA2676C9610087987F /* SeatGeekVenue.swift */,
-				64B18BA62676D21B002924C8 /* SeatGeekResponses.swift */,
+				640F87B426783D680055C4A4 /* SeatGeek */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -482,6 +554,7 @@
 				64E6E9A42672FA2300BDE2E6 /* LogLevel.swift */,
 				64E6E9A52672FA2300BDE2E6 /* CrashReporter.swift */,
 				64E6E9A62672FA2300BDE2E6 /* OSLogger.swift */,
+				640F8761267826070055C4A4 /* CoreLogger.swift */,
 			);
 			path = Logger;
 			sourceTree = "<group>";
@@ -646,6 +719,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				640F87BD26783EEF0055C4A4 /* GetVenueResponse.json in Resources */,
+				640F87BC26783EEF0055C4A4 /* GetPerformerResponse.json in Resources */,
+				640F87BB26783EEF0055C4A4 /* GetEventResponse.json in Resources */,
+				640F87BF26783EEF0055C4A4 /* PerformersResponse.json in Resources */,
+				640F87C026783EEF0055C4A4 /* VenueResponse.json in Resources */,
+				640F87BE26783EEF0055C4A4 /* EventsResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -825,20 +904,26 @@
 				64E6E90F2672F59100BDE2E6 /* AppDelegate.swift in Sources */,
 				64C7A3AD2673F5DB00951930 /* ViewModeled.swift in Sources */,
 				6440B7542676711E0087987F /* Headers.swift in Sources */,
+				640F87712678314A0055C4A4 /* SGLink.swift in Sources */,
+				640F8762267826070055C4A4 /* CoreLogger.swift in Sources */,
+				640F879526783C940055C4A4 /* SGMetadata.swift in Sources */,
 				64C7A3BC2673F65B00951930 /* UIView+Anchor.swift in Sources */,
 				64E6E9112672F59100BDE2E6 /* SceneDelegate.swift in Sources */,
 				64E6E9AB2672FA2300BDE2E6 /* CrashReporter.swift in Sources */,
 				64E6E99B2672F9CE00BDE2E6 /* DependencyManager.swift in Sources */,
 				6440B75E267671420087987F /* Route.swift in Sources */,
-				6440B7E62676C9560087987F /* SeatGeekPerformer.swift in Sources */,
+				640F87802678315F0055C4A4 /* SGTaxonomy.swift in Sources */,
+				6440B7E62676C9560087987F /* SGPerformer.swift in Sources */,
+				640F8776267831510055C4A4 /* SGPerformerImages.swift in Sources */,
 				64C7A3B22673F60600951930 /* ModelUpdate.swift in Sources */,
 				6440B6EF267558140087987F /* Combine+SinkToResult.swift in Sources */,
 				64E6E9AA2672FA2300BDE2E6 /* LogLevel.swift in Sources */,
+				640F877B267831580055C4A4 /* SGEventStats.swift in Sources */,
 				64C7A3A82673F5A600951930 /* ViewModel+TypeErasure.swift in Sources */,
 				64C7A3B72673F63100951930 /* Combine+CancelBag.swift in Sources */,
 				6440B759267671270087987F /* HTTPMethod.swift in Sources */,
 				6440B7402676701A0087987F /* NetworkLoggerPlugin.swift in Sources */,
-				6440B7EB2676C9610087987F /* SeatGeekVenue.swift in Sources */,
+				6440B7EB2676C9610087987F /* SGVenue.swift in Sources */,
 				64E6E9A72672FA2300BDE2E6 /* LogMetadata.swift in Sources */,
 				64C7A3A02673F59500951930 /* ViewModel.swift in Sources */,
 				6440B7332676700B0087987F /* NetworkAuthMethod.swift in Sources */,
@@ -850,14 +935,16 @@
 				64E6E9B52672FBB900BDE2E6 /* SeatGeekRoutes.swift in Sources */,
 				6440B71A26766CD80087987F /* AppConstants.swift in Sources */,
 				6440B7D9267696710087987F /* SeatGeekInteractor.swift in Sources */,
+				640F876C267831440055C4A4 /* SGLocation.swift in Sources */,
 				6440B74F267670330087987F /* NetworkResult.swift in Sources */,
+				640F878D267839170055C4A4 /* SGGenre.swift in Sources */,
 				6440B745267670210087987F /* NetworkAuthPlugin.swift in Sources */,
 				64B05E7F2676E27C00CFBEA4 /* TestViewController.swift in Sources */,
 				64E6E99C2672F9CE00BDE2E6 /* DependencyResolver.swift in Sources */,
-				6440B7E12676C94A0087987F /* SeatGeekEvent.swift in Sources */,
+				6440B7E12676C94A0087987F /* SGEvent.swift in Sources */,
 				64E6E96B2672F90000BDE2E6 /* R.generated.swift in Sources */,
 				64E6E9A92672FA2300BDE2E6 /* LogFormat.swift in Sources */,
-				64B18BA72676D21B002924C8 /* SeatGeekResponses.swift in Sources */,
+				64B18BA72676D21B002924C8 /* SGResponses.swift in Sources */,
 				64E6E9A82672FA2300BDE2E6 /* Logger.swift in Sources */,
 				6440B74A2676702C0087987F /* NetworkServicing.swift in Sources */,
 			);
@@ -869,11 +956,16 @@
 			files = (
 				64B05E6D2676E23C00CFBEA4 /* EventStub.swift in Sources */,
 				6440B7A5267675920087987F /* URLSessionMock.swift in Sources */,
+				640F87C826783F0C0055C4A4 /* SeatGeekInteractorTests.swift in Sources */,
 				6440B7AF2676864D0087987F /* NetworkPluginMock.swift in Sources */,
 				64B05E7A2676E25900CFBEA4 /* VenueStub.swift in Sources */,
 				64B05E752676E25300CFBEA4 /* PerformerStub.swift in Sources */,
 				6440B7B4267687710087987F /* RouteMock.swift in Sources */,
 				6440B76B267672660087987F /* NetworkServiceTests.swift in Sources */,
+				640F87CD26783F7A0055C4A4 /* NetworkServiceMock.swift in Sources */,
+				640F875A2678155F0055C4A4 /* LoggerTests.swift in Sources */,
+				640F87D3267840E30055C4A4 /* NetworkResultBuilder.swift in Sources */,
+				640F8767267827200055C4A4 /* MockCoreLogger.swift in Sources */,
 				6440B7AA267676180087987F /* LoggerMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

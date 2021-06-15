@@ -6,11 +6,21 @@
 //
 
 import Foundation
+import OSLog
 
 protocol DependencyManaging {}
 
 final class DependencyManager: DependencyManaging {
-    private let _logger: Logger = OSLogger(category: "fetch-seat-geak")
+    private let _logger: Logger = {
+        let subsystem = Bundle.main.bundleIdentifier
+            ?? "General Subsystem"
+        let osLog = OSLog(
+            subsystem: subsystem,
+            category: AppConstants.Logs.category)
+        let logger = OSLogger(core: osLog)
+        logger.set(format: AppConstants.Logs.logFormat)
+        return logger
+    }()
     private let apiKeysManager = APIKeysManager()
     private lazy var _networkService: NetworkServicing = NetworkService(
         session: .shared,
