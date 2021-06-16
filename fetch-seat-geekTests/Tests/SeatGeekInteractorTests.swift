@@ -36,6 +36,7 @@ class SeatGeekInteractorTests: QuickSpec {
         }
         
         beforeEach {
+            disposeBag = .init()
             resultBuilder = NetworkResultBuilder()
             resultBuilder.url = URL(string: "http://www.test.com")!
             mockNetwork = NetworkServiceMock()
