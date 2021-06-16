@@ -6,25 +6,25 @@
 //
 
 import Foundation
-import Combine
+import RxSwift
 
 protocol SeatGeekInteracting {
     func getAllEvents(
         page: Int,
         perPage: Int
-    ) -> AnyPublisher<SGEventsResponse, Error>
+    ) -> Observable<SGEventsResponse>
     
-    func getEvent(id: String) -> AnyPublisher<SGEvent, Error>
+    func getEvent(id: String) -> Observable<SGEvent>
     func getAllPerformers(
         page: Int,
         perPage: Int
-    ) -> AnyPublisher<SGPerformersResponse, Error>
-    func getPerformer(id: String) -> AnyPublisher<SGPerformer, Error>
+    ) -> Observable<SGPerformersResponse>
+    func getPerformer(id: String) -> Observable<SGPerformer>
     func getAllVenues(
         page: Int,
         perPage: Int
-    ) -> AnyPublisher<SGVenuesResponse, Error>
-    func getVenue(id: String) -> AnyPublisher<SGVenue, Error>
+    ) -> Observable<SGVenuesResponse>
+    func getVenue(id: String) -> Observable<SGVenue>
 }
 
 class SeatGeekInteractor: SeatGeekInteracting {
@@ -65,17 +65,17 @@ class SeatGeekInteractor: SeatGeekInteracting {
     
     // MARK: - Methods | Helpers
     
-    private func request<T: Decodable>(route: Route) -> AnyPublisher<T, Error> {
+    private func request<T: Decodable>(route: Route) -> Observable<T> {
         return networkService
             .makeRequest(route: route)
-            .tryMap { networkResult -> T in
+            .map { networkResult -> T in
                 guard let data = networkResult.data,
                       let model = try? self.decoder.decode(T.self, from: data) else {
                     throw NetworkError.decodingError
                 }
                 return model
             }
-            .eraseToAnyPublisher()
+            .asObservable()
     }
     
     // MARK: - Methods | SeatGeekInteracting
@@ -83,42 +83,42 @@ class SeatGeekInteractor: SeatGeekInteracting {
     func getAllEvents(
         page: Int,
         perPage: Int
-    ) -> AnyPublisher<SGEventsResponse, Error> {
+    ) -> Observable<SGEventsResponse> {
         return request(route: SeatGeekRoutes
                         .events(request: .all(
                                         perPage: perPage,
                                         page: page)))
     }
     
-    func getEvent(id: String) -> AnyPublisher<SGEvent, Error> {
+    func getEvent(id: String) -> Observable<SGEvent> {
         return request(route: SeatGeekRoutes.events(request: .get(id: id)))
     }
     
     func getAllPerformers(
         page: Int,
         perPage: Int
-    ) -> AnyPublisher<SGPerformersResponse, Error> {
+    ) -> Observable<SGPerformersResponse> {
         return request(route: SeatGeekRoutes
                         .performers(request: .all(
                                         perPage: perPage,
                                         page: page)))
     }
     
-    func getPerformer(id: String) -> AnyPublisher<SGPerformer, Error> {
+    func getPerformer(id: String) -> Observable<SGPerformer> {
         return request(route: SeatGeekRoutes.performers(request: .get(id: id)))
     }
     
     func getAllVenues(
         page: Int,
         perPage: Int
-    ) -> AnyPublisher<SGVenuesResponse, Error> {
+    ) -> Observable<SGVenuesResponse> {
         return request(route: SeatGeekRoutes
                         .venues(request: .all(
                                         perPage: perPage,
                                         page: page)))
     }
     
-    func getVenue(id: String) -> AnyPublisher<SGVenue, Error> {
+    func getVenue(id: String) -> Observable<SGVenue> {
         return request(route: SeatGeekRoutes.venues(request: .get(id: id)))
     }
 }

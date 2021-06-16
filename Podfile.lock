@@ -6,6 +6,12 @@ PODS:
   - R.swift (5.4.0):
     - R.swift.Library (~> 5.3.0)
   - R.swift.Library (5.3.0)
+  - RxCocoa (6.2.0):
+    - RxRelay (= 6.2.0)
+    - RxSwift (= 6.2.0)
+  - RxRelay (6.2.0):
+    - RxSwift (= 6.2.0)
+  - RxSwift (6.2.0)
 
 DEPENDENCIES:
   - Hero
@@ -13,6 +19,8 @@ DEPENDENCIES:
   - Nuke (~> 9.0)
   - Quick
   - R.swift
+  - RxCocoa (= 6.2.0)
+  - RxSwift (= 6.2.0)
 
 SPEC REPOS:
   trunk:
@@ -22,6 +30,9 @@ SPEC REPOS:
     - Quick
     - R.swift
     - R.swift.Library
+    - RxCocoa
+    - RxRelay
+    - RxSwift
 
 SPEC CHECKSUMS:
   Hero: 215865ba3ae41dd9bb08cd6c60a645529c6fc94b
@@ -30,7 +41,10 @@ SPEC CHECKSUMS:
   Quick: 6473349e43b9271a8d43839d9ba1c442ed1b7ac4
   R.swift: c533450b0f7dc494e0993f5f1a1db925d84c3006
   R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
+  RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
+  RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
+  RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
 
-PODFILE CHECKSUM: ed50363774b0723ae50481a8a8bbe7b676a73b41
+PODFILE CHECKSUM: 2a8717cbee9b2812231da2150eadc81e59f9a3db
 
 COCOAPODS: 1.10.0

@@ -7,14 +7,14 @@
 
 import Quick
 import Nimble
-import Combine
+import RxSwift
 
 @testable import fetch_seat_geek
 
 class NetworkServiceTests: QuickSpec {
     
     override func spec() {
-        var subscriptions: Set<AnyCancellable> = []
+        var disposeBag = DisposeBag()
         let stubbedRequest = URLRequest(url: URL(string: "http://www.mockrequest.com")!)
         
         func createSut(
@@ -33,7 +33,7 @@ class NetworkServiceTests: QuickSpec {
         
         describe("Network Requests") {
             beforeEach {
-                subscriptions = []
+                disposeBag = .init()
             }
             
             context("Given a request is made via Route") {
@@ -59,8 +59,8 @@ class NetworkServiceTests: QuickSpec {
                     }
                     sut
                         .makeRequest(route: route)
-                        .sinkToResult { _ in }
-                        .store(in: &subscriptions)
+                        .subscribeToResult { _ in }
+                        .disposed(by: disposeBag)
                 }
             }
             
@@ -72,15 +72,15 @@ class NetworkServiceTests: QuickSpec {
                     }
                     sut
                         .makeRequest(request: stubbedRequest)
-                        .sinkToResult { _ in }
-                        .store(in: &subscriptions)
+                        .subscribeToResult { _ in }
+                        .disposed(by: disposeBag)
                 }
                 
                 it("should respond with the same URL") {
                     let sut = createSut(plugins: [])
                     sut
                         .makeRequest(request: stubbedRequest)
-                        .sinkToResult { result in
+                        .subscribeToResult { result in
                             switch result {
                             case .success(let result):
                                 expect(result.response?.url)
@@ -89,12 +89,12 @@ class NetworkServiceTests: QuickSpec {
                                 fail("Request failed")
                             }
                         }
-                        .store(in: &subscriptions)
+                        .disposed(by: disposeBag)
                 }
             }
             context("Given modifer plugin added") {
                 beforeEach {
-                    subscriptions = []
+                    disposeBag = .init()
                 }
                 let modifiedUrl = URLRequest(url: URL(string: "http://www.modified.com/")!)
                 let modifierPlugin = NetworkPluginMock { _ in
@@ -110,15 +110,15 @@ class NetworkServiceTests: QuickSpec {
                     }
                     sut
                         .makeRequest(request: stubbedRequest)
-                        .sinkToResult { _ in }
-                        .store(in: &subscriptions)
+                        .subscribeToResult { _ in }
+                        .disposed(by: disposeBag)
                 }
                 
                 it("should respond with the same URL") {
                     let sut = createSut(plugins: [])
                     sut
                         .makeRequest(request: stubbedRequest)
-                        .sinkToResult { result in
+                        .subscribeToResult { result in
                             switch result {
                             case .success(let result):
                                 expect(result.response?.url)
@@ -127,7 +127,7 @@ class NetworkServiceTests: QuickSpec {
                                 fail("Request failed")
                             }
                         }
-                        .store(in: &subscriptions)
+                        .disposed(by: disposeBag)
                 }
             }
         }

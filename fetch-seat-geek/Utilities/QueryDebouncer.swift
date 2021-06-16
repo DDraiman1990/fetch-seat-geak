@@ -5,7 +5,7 @@
 //  Created by Dan Draiman on 6/15/21.
 //
 
-import Combine
+import RxSwift
 
 /// A simple object to debounce an equatable query.
 ///
@@ -15,34 +15,35 @@ import Combine
 /// // do something with `term`...
 ///}
 ///```
-final class QueryDebouncer<T: Equatable, S: Scheduler> {
+final class QueryDebouncer<T: Equatable, S: SchedulerType> {
     typealias OnValueReceived =  (T) -> Void
-    private var subscriptions = Set<AnyCancellable>()
-    private var debouncer: PassthroughSubject<T, Never> = .init()
+    private let disposeBag = DisposeBag()
+    private var debouncer: PublishSubject<T> = .init()
     
-    init(debounce: S.SchedulerTimeType.Stride,
+    init(debounce: DispatchTimeInterval,
          queue: S,
          removeDups: Bool = true,
          onValueReceived: @escaping OnValueReceived) {
         debouncer(removeDups: removeDups)
-            .debounce(for: debounce, scheduler: queue)
-            .sink(receiveValue: { value in
+            .debounce(debounce, scheduler: queue)
+            .subscribe { value in
                 onValueReceived(value)
-            }).store(in: &subscriptions)
+            }
+            .disposed(by: disposeBag)
     }
     
-    private func debouncer(removeDups: Bool) -> AnyPublisher<T, Never> {
+    private func debouncer(removeDups: Bool) -> Observable<T> {
         if removeDups {
             return debouncer
-                .removeDuplicates()
-                .eraseToAnyPublisher()
+                .distinctUntilChanged()
+                .asObservable()
         }
         return debouncer
-            .eraseToAnyPublisher()
+            .asObservable()
     }
     
     func send(value: T) {
-        debouncer.send(value)
+        debouncer.onNext(value)
     }
 }
 

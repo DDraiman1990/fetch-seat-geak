@@ -1,9 +1,11 @@
-platform :ios, '14.3'
+platform :ios, '12.0'
 
 def appPods
   pod 'R.swift'
   pod 'Hero'
   pod 'Nuke', '~> 9.0'
+  pod 'RxSwift', '6.2.0'
+  pod 'RxCocoa', '6.2.0'
 end
 
 def testPods

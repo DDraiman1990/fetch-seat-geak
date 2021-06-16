@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Combine
+import RxSwift
 @testable import fetch_seat_geek
 
 class NetworkServiceMock: NetworkServicing {
@@ -16,23 +16,20 @@ class NetworkServiceMock: NetworkServicing {
     }
     var responseToSend: FakeResponse = .error(error: NSError())
     
-    private func response() -> AnyPublisher<NetworkResult, Error> {
+    private func response() -> Observable<NetworkResult> {
         switch responseToSend {
         case .error(let error):
-            return Fail(error: error)
-                .eraseToAnyPublisher()
+            return Observable.error(error)
         case .success(let result):
-            return Just(result)
-                .setFailureType(to: Error.self)
-                .eraseToAnyPublisher()
+            return Observable.just(result)
         }
     }
     
-    func makeRequest(request: URLRequest) -> AnyPublisher<NetworkResult, Error> {
+    func makeRequest(request: URLRequest) -> Observable<NetworkResult> {
         response()
     }
     
-    func makeRequest(route: Route) -> AnyPublisher<NetworkResult, Error> {
+    func makeRequest(route: Route) -> Observable<NetworkResult> {
         response()
     }
 }

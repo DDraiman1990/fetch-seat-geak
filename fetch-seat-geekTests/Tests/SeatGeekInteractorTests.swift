@@ -7,13 +7,13 @@
 
 import Quick
 import Nimble
-import Combine
+import RxSwift
 
 @testable import fetch_seat_geek
 
 class SeatGeekInteractorTests: QuickSpec {
     override func spec() {
-        var subscriptions = Set<AnyCancellable>()
+        var disposeBag = DisposeBag()
         var resultBuilder: NetworkResultBuilder!
         var mockNetwork: NetworkServiceMock!
         var mockLogger: LoggerMock!
@@ -51,7 +51,7 @@ class SeatGeekInteractorTests: QuickSpec {
                     mockNetwork.responseToSend = .success(result: resultBuilder.build()!)
                     sut
                         .getEvent(id: "")
-                        .sinkToResult { result in
+                        .subscribeToResult { result in
                             switch result {
                             case .success(let event):
                                 expect(event.id)
@@ -62,7 +62,7 @@ class SeatGeekInteractorTests: QuickSpec {
                                 fail()
                             }
                         }
-                        .store(in: &subscriptions)
+                        .disposed(by: disposeBag)
                 }
             }
             describe("Given a valid allEvents response") {
@@ -71,7 +71,7 @@ class SeatGeekInteractorTests: QuickSpec {
                     mockNetwork.responseToSend = .success(result: resultBuilder.build()!)
                     sut
                         .getAllEvents(page: 1, perPage: 10)
-                        .sinkToResult { result in
+                        .subscribeToResult { result in
                             switch result {
                             case .success(let events):
                                 print()
@@ -79,7 +79,7 @@ class SeatGeekInteractorTests: QuickSpec {
                                 fail()
                             }
                         }
-                        .store(in: &subscriptions)
+                        .disposed(by: disposeBag)
                 }
             }
             describe("Given a valid getPerformer response") {
@@ -88,7 +88,7 @@ class SeatGeekInteractorTests: QuickSpec {
                     mockNetwork.responseToSend = .success(result: resultBuilder.build()!)
                     sut
                         .getPerformer(id: "")
-                        .sinkToResult { result in
+                        .subscribeToResult { result in
                             switch result {
                             case .success(let performer):
                                 expect(performer.id)
@@ -99,7 +99,7 @@ class SeatGeekInteractorTests: QuickSpec {
                                 fail()
                             }
                         }
-                        .store(in: &subscriptions)
+                        .disposed(by: disposeBag)
                 }
             }
             describe("Given a valid allPerformers response") {
@@ -108,7 +108,7 @@ class SeatGeekInteractorTests: QuickSpec {
                     mockNetwork.responseToSend = .success(result: resultBuilder.build()!)
                     sut
                         .getAllPerformers(page: 1, perPage: 10)
-                        .sinkToResult { result in
+                        .subscribeToResult { result in
                             switch result {
                             case .success(let performers):
                                 print()
@@ -116,7 +116,7 @@ class SeatGeekInteractorTests: QuickSpec {
                                 fail()
                             }
                         }
-                        .store(in: &subscriptions)
+                        .disposed(by: disposeBag)
                 }
             }
             describe("Given a valid getVenue response") {
@@ -125,7 +125,7 @@ class SeatGeekInteractorTests: QuickSpec {
                     mockNetwork.responseToSend = .success(result: resultBuilder.build()!)
                     sut
                         .getVenue(id: "")
-                        .sinkToResult { result in
+                        .subscribeToResult { result in
                             switch result {
                             case .success(let venue):
                                 expect(venue.id)
@@ -136,7 +136,7 @@ class SeatGeekInteractorTests: QuickSpec {
                                 fail()
                             }
                         }
-                        .store(in: &subscriptions)
+                        .disposed(by: disposeBag)
                 }
             }
             describe("Given a valid allVenues response") {
@@ -145,7 +145,7 @@ class SeatGeekInteractorTests: QuickSpec {
                     mockNetwork.responseToSend = .success(result: resultBuilder.build()!)
                     sut
                         .getAllVenues(page: 1, perPage: 10)
-                        .sinkToResult { result in
+                        .subscribeToResult { result in
                             switch result {
                             case .success(let venues):
                                 print()
@@ -153,7 +153,7 @@ class SeatGeekInteractorTests: QuickSpec {
                                 fail()
                             }
                         }
-                        .store(in: &subscriptions)
+                        .disposed(by: disposeBag)
                 }
             }
         }
