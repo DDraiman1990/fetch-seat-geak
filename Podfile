@@ -3,6 +3,7 @@ platform :ios, '14.3'
 def appPods
   pod 'R.swift'
   pod 'Hero'
+  pod 'Nuke', '~> 9.0'
 end
 
 def testPods

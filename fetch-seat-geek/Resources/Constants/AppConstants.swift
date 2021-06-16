@@ -17,4 +17,11 @@ enum AppConstants {
         static let category = "fetch-seat-geak"
         static let logFormat = LogFormat()
     }
+    
+    enum Dates {
+        enum Formats {
+            static let dayWithShortSlashDate = "EEE, M/d"
+            static let shortDate = "MMM d"
+        }
+    }
 }
