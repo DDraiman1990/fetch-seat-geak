@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Combine
+import RxSwift
 
 /// Simple networking service based on the most basic URLSession data tasks.
 final class NetworkService: NetworkServicing {
@@ -26,35 +26,36 @@ final class NetworkService: NetworkServicing {
     
     // MARK: - Methods | Networking
     
-    func makeRequest(route: Route) -> AnyPublisher<NetworkResult, Error> {
+    func makeRequest(route: Route) -> Observable<NetworkResult> {
         return makeRequest(request: route.urlRequest)
     }
     
-    func makeRequest(request: URLRequest) -> AnyPublisher<NetworkResult, Error> {
+    func makeRequest(request: URLRequest) -> Observable<NetworkResult> {
         var request = request
         plugins.forEach {
             request = $0.respond(to: request)
         }
-        return Future<NetworkResult, Error> { [weak self] promise in
+        return Single.create(subscribe: { [weak self] single in
             self?.session.dataTask(with: request) { data, response, error in
                 if let error = error {
-                    promise(.failure(error))
+                    single(.failure(error))
                 } else {
                     let status = response as? HTTPURLResponse
                     if let status = status,
                        !status.isSuccessful {
-                        promise(.failure(NetworkError.statusCode(code: status.statusCode)))
+                        single(.failure(NetworkError.statusCode(code: status.statusCode)))
                     } else {
                         
                         let result = NetworkResult(response: status,
                                                    data: data)
-                        promise(.success(result))
+                        single(.success(result))
                     }
                 }
             }
             .resume()
-        }
-        .eraseToAnyPublisher()
+            return Disposables.create()
+        })
+        .asObservable()
     }
 }
 

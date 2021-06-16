@@ -8,8 +8,8 @@
 import UIKit
 
 final class HeartButton: UIButton {
-    private let activeIcon = UIImage(systemName: "suit.heart.fill", withConfiguration: UIImage.SymbolConfiguration(weight: .regular))
-    private let inactiveIcon = UIImage(systemName: "suit.heart", withConfiguration: UIImage.SymbolConfiguration(weight: .regular))
+    private let activeIcon = R.image.suitHeartFill()
+    private let inactiveIcon = R.image.heart()
     
     var isActive: Bool = false {
         didSet {
@@ -29,5 +29,6 @@ final class HeartButton: UIButton {
     
     private func onStateChanged() {
         setImage(isActive ? activeIcon : inactiveIcon, for: .normal)
+        imageView?.tintColor = isActive ? R.color.heartRed() : .white
     }
 }

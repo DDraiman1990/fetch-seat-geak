@@ -7,7 +7,7 @@
 
 import Quick
 import Nimble
-import Combine
+import RxSwift
 
 @testable import fetch_seat_geek
 

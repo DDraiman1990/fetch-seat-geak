@@ -6,10 +6,10 @@
 //
 
 import Foundation
-import Combine
+import RxSwift
 
 /// Service capable of making network requests.
 protocol NetworkServicing {
-    func makeRequest(request: URLRequest) -> AnyPublisher<NetworkResult, Error>
-    func makeRequest(route: Route) -> AnyPublisher<NetworkResult, Error>
+    func makeRequest(request: URLRequest) -> Observable<NetworkResult>
+    func makeRequest(route: Route) -> Observable<NetworkResult>
 }

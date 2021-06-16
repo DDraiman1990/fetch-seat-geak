@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Combine
+import RxSwift
 import UIKit
 
 // MARK: - Type Erasure
@@ -16,16 +16,16 @@ class _AnyViewModelBase<Consumer: ViewModeled>: ViewModel {
         return .init()
     }
     
-    var valuePublisher: AnyPublisher<ModelUpdate<Consumer.Model>, Never> {
-        return Just(ModelUpdate(oldValue: nil, newValue: .init())).eraseToAnyPublisher()
+    var valuePublisher: Observable<ModelUpdate<Consumer.Model>> {
+        return Observable.empty()
     }
     
-    var updatePublisher: AnyPublisher<Consumer.Update, Never> {
-        return Future<Consumer.Update, Never>({ _ in }).eraseToAnyPublisher()
+    var updatePublisher: Observable<Consumer.Update> {
+        return Observable.empty()
     }
     
-    var presentPublisher: AnyPublisher<UIViewController, Never> {
-        return Just(UIViewController()).eraseToAnyPublisher()
+    var presentPublisher: Observable<UIViewController> {
+        return Observable.empty()
     }
     
     func send(_ interaction: Consumer.Interaction) {
@@ -48,15 +48,15 @@ class _AnyViewModelWrapper<VM: ViewModel>: _AnyViewModelBase<VM.Consumer> {
         return wrappedInstance.value
     }
     
-    override var valuePublisher: AnyPublisher<ModelUpdate<Consumer.Model>, Never> {
+    override var valuePublisher: Observable<ModelUpdate<Consumer.Model>> {
         return wrappedInstance.valuePublisher
     }
     
-    override var updatePublisher: AnyPublisher<Consumer.Update, Never> {
+    override var updatePublisher: Observable<Consumer.Update> {
         return wrappedInstance.updatePublisher
     }
     
-    override var presentPublisher: AnyPublisher<UIViewController, Never> {
+    override var presentPublisher: Observable<UIViewController> {
         return wrappedInstance.presentPublisher
     }
     
@@ -78,15 +78,15 @@ final class AnyViewModel<Consumer: ViewModeled>: ViewModel {
         base.value
     }
     
-    var valuePublisher: AnyPublisher<ModelUpdate<Consumer.Model>, Never> {
+    var valuePublisher: Observable<ModelUpdate<Consumer.Model>> {
         base.valuePublisher
     }
     
-    var updatePublisher: AnyPublisher<Consumer.Update, Never> {
+    var updatePublisher: Observable<Consumer.Update> {
         base.updatePublisher
     }
     
-    var presentPublisher: AnyPublisher<UIViewController, Never> {
+    var presentPublisher: Observable<UIViewController> {
         base.presentPublisher
     }
     

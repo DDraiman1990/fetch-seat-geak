@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Combine
+import RxSwift
 import UIKit
 
 /// Any change to the model will invoke this update.
@@ -15,16 +15,14 @@ struct ModelUpdate<T: DataModel>: Equatable {
     var newValue: T
 }
 
-extension Publisher where Output: DataModel, Failure == Never {
-    func toModelUpdate() -> AnyPublisher<ModelUpdate<Output>, Never> {
+extension Observable where Element: DataModel {
+    func toModelUpdate() -> Observable<ModelUpdate<Element>> {
         return self
-            .removeDuplicates()
-            .scan((nil, Output())) {
-                ($0.1, $1)
+            .distinctUntilChanged()
+            .scan((nil, Element())) { ($0.1, $1) }
+            .map {
+                return ModelUpdate(oldValue: $0.0, newValue: $0.1)
             }
-            .map { tuple in
-                return ModelUpdate(oldValue: tuple.0, newValue: tuple.1)
-            }
-            .eraseToAnyPublisher()
+            .asObservable()
     }
 }

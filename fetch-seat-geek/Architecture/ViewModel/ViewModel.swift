@@ -6,8 +6,8 @@
 //
 
 import Foundation
-import Combine
 import UIKit
+import RxSwift
 
 
 /// Responsible for receiving interactions from a ViewModeled consumer
@@ -23,20 +23,20 @@ import UIKit
 protocol ViewModel {
     associatedtype Consumer: ViewModeled
     var value: Consumer.Model { get }
-    var valuePublisher: AnyPublisher<ModelUpdate<Consumer.Model>, Never> { get }
-    var updatePublisher: AnyPublisher<Consumer.Update, Never> { get }
-    var presentPublisher: AnyPublisher<UIViewController, Never> { get }
+    var valuePublisher: Observable<ModelUpdate<Consumer.Model>> { get }
+    var updatePublisher: Observable<Consumer.Update> { get }
+    var presentPublisher: Observable<UIViewController> { get }
     func send(_ interaction: Consumer.Interaction)
 }
 
 // MARK: - Default Implementations
 
 extension ViewModel {
-    var updatePublisher: AnyPublisher<Consumer.Update, Never> {
-        return Future<Consumer.Update, Never>({ _ in }).eraseToAnyPublisher()
+    var updatePublisher: Observable<Consumer.Update> {
+        return Observable.empty()
     }
-    var presentPublisher: AnyPublisher<UIViewController, Never> {
-        return Just(UIViewController()).eraseToAnyPublisher()
+    var presentPublisher: Observable<UIViewController> {
+        return Observable.empty()
     }
     func eraseToAnyViewModel() -> AnyViewModel<Consumer> {
         return AnyViewModel<Consumer>(self)
