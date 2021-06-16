@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SGPerformerImages: Decodable {
+struct SGPerformerImages: Decodable, Hashable {
     var large: String?
     var huge: String?
     var small: String?

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SGPerformer: Decodable {
+struct SGPerformer: Decodable, Hashable {
     var name: String
     var shortName: String
     var url: String

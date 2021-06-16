@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SGLink: Decodable {
+struct SGLink: Decodable, Hashable {
     var id: Int?
     var provider: String
     var url: String

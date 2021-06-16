@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SGEventStats: Decodable {
+struct SGEventStats: Decodable, Hashable {
     var listingCount: Int?
     var averagePrice: Int?
     var lowestPrice: Int?

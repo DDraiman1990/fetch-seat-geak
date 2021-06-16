@@ -8,7 +8,7 @@
 import Foundation
 import CoreLocation
 
-struct SGLocation: Decodable {
+struct SGLocation: Decodable, Hashable {
     var lat: Double
     var lon: Double
     

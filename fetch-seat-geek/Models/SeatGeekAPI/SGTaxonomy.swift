@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SGTaxonomy: Decodable {
+struct SGTaxonomy: Decodable, Hashable {
     var name: String
     var id: Int?
     var parentId: Int?

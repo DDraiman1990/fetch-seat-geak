@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SGEvent: Decodable {
+struct SGEvent: Decodable, Hashable {
     var stats: SGEventStats
     var title: String
     var url: String
