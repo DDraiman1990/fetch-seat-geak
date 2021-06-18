@@ -22,7 +22,7 @@ class AppDelegate : UIResponder, UIApplicationDelegate, WindowManaging {
                 self.window = UIWindow()
                 let vc = ViewController()
                 vc.view.backgroundColor = .red
-                setRoot(viewController: vc)
+                setRoot(viewController: TestViewController())
             }
             return true
     }
