@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct SGEventSummary: Equatable {
+struct SGEventSummary: IdentifiableItem {
     var id: Int
     var banner: SGBanner?
     var title: String
@@ -20,7 +20,7 @@ struct SGEventSummary: Equatable {
     var imageUrl: String
 }
 
-struct SGBanner: Equatable {
+struct SGBanner: Hashable {
     var text: String
     var textColor: UIColor
     var backgroundColor: UIColor

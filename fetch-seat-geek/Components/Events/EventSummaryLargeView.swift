@@ -17,10 +17,11 @@ final class EventSummaryLargeView: UIView {
     private let heartButton = HeartButton(isActive: false)
     private let titleLabel = UILabel().styled(with: .largeEventTitle)
     private let subtitleLabel = UILabel().styled(with: .largeEventSubtitle)
-    private let backgroundImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
+    private let backgroundImageView: TintedImageView = {
+        let imageView = TintedImageView()
+        imageView.layer.cornerRadius = 6
         imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
@@ -44,24 +45,11 @@ final class EventSummaryLargeView: UIView {
         return formatter
     }()
     
-    private lazy var imageWrapperView: UIView = {
-        let view = UIView()
-        view.layer.cornerRadius = 6
-        view.clipsToBounds = true
-        let darkenView = UIView()
-        darkenView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
-        view.addSubview(backgroundImageView)
-        view.addSubview(darkenView)
-        backgroundImageView.anchor(in: view)
-        darkenView.anchor(in: backgroundImageView)
-        return view
-    }()
-    
     // MARK: - Lifecycle
     
-    init(event: SGEventSummary) {
+    init(event: SGEventSummary? = nil) {
         super.init(frame: .zero)
-        addSubview(imageWrapperView)
+        addSubview(backgroundImageView)
         addSubview(infoStack)
         addSubview(bannerView)
         addSubview(heartButton)
@@ -83,13 +71,11 @@ final class EventSummaryLargeView: UIView {
             padding: .init(constant: 12))
         heartButton.aspectRatioSquare()
         heartButton.height(multiplier: 0.1, relativeTo: self)
-        imageWrapperView.anchor(in: self)
+        backgroundImageView.anchor(in: self)
         
-        setup(using: event)
-        
-        Nuke.loadImage(
-            with: URL(string: event.imageUrl)!,
-            into: backgroundImageView)
+        if let event = event {
+            setup(using: event)
+        }
     }
     
     @available(*, unavailable)
@@ -105,6 +91,9 @@ final class EventSummaryLargeView: UIView {
         setupSubtitle(from: event)
         priceTagView.set(price: event.ticketPrice)
         titleLabel.text = event.title
+        Nuke.loadImage(
+            with: URL(string: event.imageUrl)!,
+            into: backgroundImageView)
     }
     
     private func setupSubtitle(from event: SGEventSummary) {

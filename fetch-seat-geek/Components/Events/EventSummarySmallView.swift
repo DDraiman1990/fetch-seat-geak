@@ -17,10 +17,9 @@ final class EventSummarySmallView: UIView {
     private let heartButton = HeartButton(isActive: false)
     private let titleLabel = UILabel().styled(with: .smallEventTitle)
     private let subtitleLabel = UILabel().styled(with: .smallEventSubtitle)
-    private let backgroundImageView: UIImageView = {
-        let imageView = UIImageView()
+    private let backgroundImageView: TintedImageView = {
+        let imageView = TintedImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
         return imageView
     }()
     
@@ -50,16 +49,12 @@ final class EventSummarySmallView: UIView {
         let view = UIView()
         view.layer.cornerRadius = 6
         view.clipsToBounds = true
-        let darkenView = UIView()
-        darkenView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
         view.addSubview(backgroundImageView)
-        view.addSubview(darkenView)
         view.addSubview(bannerView)
         view.addSubview(heartButton)
         view.addSubview(priceTagView)
         
         backgroundImageView.anchor(in: view)
-        darkenView.anchor(in: backgroundImageView)
         bannerView.anchor(
             in: view,
             to: [.left(), .top()],
@@ -88,16 +83,14 @@ final class EventSummarySmallView: UIView {
 
     // MARK: - Lifecycle
     
-    init(event: SGEventSummary) {
+    init(event: SGEventSummary? = nil) {
         super.init(frame: .zero)
         addSubview(contentStack)
         contentStack.anchor(in: self, padding: .init(constant: 8))
         
-        setup(using: event)
-        
-        Nuke.loadImage(
-            with: URL(string: event.imageUrl)!,
-            into: backgroundImageView)
+        if let event = event {
+            setup(using: event)
+        }
     }
     
     @available(*, unavailable)
@@ -113,6 +106,9 @@ final class EventSummarySmallView: UIView {
         setupSubtitle(from: event)
         priceTagView.set(price: event.ticketPrice)
         titleLabel.text = event.title
+        Nuke.loadImage(
+            with: URL(string: event.imageUrl)!,
+            into: backgroundImageView)
     }
     
     private func setupSubtitle(from event: SGEventSummary) {

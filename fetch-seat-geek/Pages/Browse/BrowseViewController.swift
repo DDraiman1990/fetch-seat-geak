@@ -10,6 +10,19 @@ import RxSwift
 
 final class BrowseViewController: UIViewController, ViewModeled {
     private let disposeBag = DisposeBag()
+    struct TableRow<T: IdentifiableItem> {
+        enum CollectionType {
+            case featured
+            case eventSummaries
+            case genres
+            case trendingEvents
+        }
+        
+        var header: String?
+        var data: [T]
+        var collectionType: CollectionType
+    }
+    
     enum Row: Equatable {
         case featured
         case justForYou
@@ -60,8 +73,14 @@ final class BrowseViewController: UIViewController, ViewModeled {
         let table = UITableView()
         table.backgroundView = UIView()
         table.register(
-            TitledCell.self,
-            forCellReuseIdentifier: TitledCell.cellId)
+            FeaturedInnerCollectionCell.self,
+            forCellReuseIdentifier: FeaturedInnerCollectionCell.cellId)
+        table.register(
+            GenresInnerCollectionCell.self,
+            forCellReuseIdentifier: GenresInnerCollectionCell.cellId)
+        table.register(
+            EventsInnerCollectionCell.self,
+            forCellReuseIdentifier: EventsInnerCollectionCell.cellId)
         table.register(
             ViewAllHeaderCell.self,
             forCellReuseIdentifier: ViewAllHeaderCell.cellId)
@@ -154,13 +173,12 @@ extension BrowseViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
         let cell = tableView.dequeueReusableCell(
-            withIdentifier: TitledCell.cellId,
-            for: indexPath)
+            withIdentifier: "",
+                for: indexPath)
         let row = section.data
         if !section.separator {
             cell.hideSeparator()
         }
-        (cell as? TitledCell)?.setup(title: row.title ?? "N/A")
         return cell
     }
     

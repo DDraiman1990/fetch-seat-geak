@@ -9,8 +9,7 @@ import Foundation
 import Combine
 import UIKit
 
-class CollectionView<ItemCell: IdentifiableCollectionCell,
-                     SectionModel: Hashable,
+class CollectionView<SectionModel: Hashable,
                      ItemModel: IdentifiableItem>:
     UIView,
     UICollectionViewDelegate,
@@ -19,15 +18,27 @@ class CollectionView<ItemCell: IdentifiableCollectionCell,
     
     // MARK: - Internal Types
     
+    struct DiffableCellRegistration {
+        var reuseId: String
+        var type: CellType
+        
+        enum CellType {
+            case fromNib(nib: UINib?)
+            case fromClass(type: AnyClass)
+        }
+    }
+    
     typealias CellDequeue = (UICollectionViewCell, IndexPath, ItemModel) -> UICollectionViewCell
     typealias SizeForItem = ((ItemModel, IndexPath) -> CGSize)
     typealias DidSelectItem = ((ItemModel, IndexPath) -> Void)
     typealias DidSnapToItem = ((ItemModel, IndexPath) -> Void)
     typealias RefreshRequest = ((@escaping () -> Void) -> Void)
+    typealias CellTypeForModel = (ItemModel) -> DiffableCellRegistration
     
     // MARK: - Callbacks
     
     private var onDequeueCell: CellDequeue
+    private var cellTypeForModel: CellTypeForModel
     var sizeForItem: SizeForItem?
     var didSelectItem: DidSelectItem?
     var didSnapToItem: DidSnapToItem?
@@ -79,6 +90,15 @@ class CollectionView<ItemCell: IdentifiableCollectionCell,
     }
    
     private var items: [[ItemModel]] = []
+    
+    var isPagingEnabled: Bool {
+        get {
+            return collection.isPagingEnabled
+        }
+        set {
+            collection.isPagingEnabled = newValue
+        }
+    }
 
     /// Whether or not the cell will snap on scroll.
     /// - Warning: will set decelerationRate to fast if snaps and normal if not.
@@ -120,13 +140,13 @@ class CollectionView<ItemCell: IdentifiableCollectionCell,
     init(layout: UICollectionViewLayout,
          inverted: Bool = false,
          sizeForItem: @escaping SizeForItem,
+         cellTypeForModel: @escaping CellTypeForModel,
          onDequeuedCell: @escaping CellDequeue) {
         self.inverted = inverted
+        self.cellTypeForModel = cellTypeForModel
         self.onDequeueCell = onDequeuedCell
         self.sizeForItem = sizeForItem
         super.init(frame: .zero)
-        collection.register(ItemCell.self,
-                            forCellWithReuseIdentifier: ItemCell.cellId)
         collection.setCollectionViewLayout(layout, animated: false)
         if inverted {
             collection.transform = CGAffineTransform(scaleX: 1, y: -1)
@@ -149,11 +169,25 @@ class CollectionView<ItemCell: IdentifiableCollectionCell,
         })
     }
     
+    private func registerIfNeeded(registration: DiffableCellRegistration) {
+        guard !registeredCells.contains(registration.reuseId) else {
+            return
+        }
+        switch registration.type {
+        case .fromClass(let type):
+            collection.register(type, forCellWithReuseIdentifier: registration.reuseId)
+        case .fromNib(let nib):
+            collection.register(nib, forCellWithReuseIdentifier: registration.reuseId)
+        }
+    }
+    
     private func dequeueCell(collectionView: UICollectionView,
                              indexPath: IndexPath,
                              item: ItemModel) -> UICollectionViewCell {
+        let cellRegData = cellTypeForModel(item)
+        registerIfNeeded(registration: cellRegData)
         let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: ItemCell.cellId,
+            withReuseIdentifier: cellRegData.reuseId,
             for: indexPath)
         if inverted {
             cell.transform = CGAffineTransform(scaleX: 1, y: -1)

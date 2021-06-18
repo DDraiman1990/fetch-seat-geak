@@ -55,6 +55,14 @@ enum LabelsStylesheet {
             break
         case .searchResultSubtitle:
             break
+        case .featuredPerformerTitle:
+            label.textAlignment = .center
+            label.font = R.font.proximaNovaBold(size: 32)
+            label.textColor = UIColor.white
+        case .featuredSportsTeamTitle:
+            label.textAlignment = .center
+            label.font = R.font.proximaNovaBold(size: 26)
+            label.textColor = UIColor.white
         }
     }
 }
@@ -75,6 +83,8 @@ enum LabelStyle {
     case navBarCompactSubtitle
     case viewMoreHeaderTitle
     case viewMoreHeaderAction
+    case featuredPerformerTitle
+    case featuredSportsTeamTitle
 }
 
 extension UILabel {

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SGGenre: Decodable, Hashable {
+struct SGGenre: Decodable, IdentifiableItem {
     var id: Int
     var name: String?
     var slug: String
