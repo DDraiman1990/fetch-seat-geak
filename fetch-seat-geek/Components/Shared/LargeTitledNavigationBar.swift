@@ -22,6 +22,7 @@ final class LargeTitledNavigationBar: UIView {
     var onActionButtonTapped: (() -> Void)?
     private let barHeight: CGFloat
     private var heightConstraint: NSLayoutConstraint!
+    private var separatorConstraint: NSLayoutConstraint!
     
     struct ButtonStyle {
         var color: UIColor = .blue
@@ -35,7 +36,12 @@ final class LargeTitledNavigationBar: UIView {
     
     private let largeTitlesTapRecognizer = UITapGestureRecognizer()
     private let compactTitlesTapRecognizer = UITapGestureRecognizer()
-    
+    private let separatorView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.1)
+        view.anchor(height: 1)
+        return view
+    }()
     private let largeTitleLabel: UILabel = UILabel()
         .styled(with: .navBarLargeTitle)
     private let largeSubtitleLabel: UILabel = UILabel()
@@ -81,6 +87,9 @@ final class LargeTitledNavigationBar: UIView {
         height: CGFloat) {
         self.barHeight = height
         super.init(frame: .zero)
+        addSubview(separatorView)
+        separatorView.anchor(in: self, to: [.bottom()])
+        separatorView.centerX(in: self)
         addSubview(actionButton)
         actionButton.width(multiplier: 0.1, relativeTo: self)
         
@@ -122,6 +131,8 @@ final class LargeTitledNavigationBar: UIView {
         
         heightConstraint = heightAnchor.constraint(equalToConstant: barHeight)
         heightConstraint.isActive = true
+        separatorConstraint = separatorView.widthAnchor.constraint(equalToConstant: frame.width)
+        separatorConstraint.isActive = true
     }
     
     func set(title: String) {
@@ -160,11 +171,11 @@ final class LargeTitledNavigationBar: UIView {
     private func stateChanged(from: NavigationBarMode, to: NavigationBarMode) {
         switch state {
         case .compact:
-            UIView.animate(withDuration: 0.66) {
+            UIView.animate(withDuration: 0.33) {
                 self.showCompact()
             }
         case .large:
-            UIView.animate(withDuration: 0.66) {
+            UIView.animate(withDuration: 0.33) {
                 self.showLarge()
             }
         }
@@ -183,14 +194,39 @@ final class LargeTitledNavigationBar: UIView {
         onTitlesTapped?()
     }
     
-    func onScrollOffsetChanged(_ offset: CGPoint) {
-        let constant = (barHeight - offset.y)
+    var minWidth: CGFloat {
+        frame.width - 50
+    }
+    
+    func setOffset(amount: CGFloat) {
+        let heightConstant = (barHeight - amount)
             .clamp(lower: 50, upper: barHeight)
-        heightConstraint.constant = constant
-        if heightConstraint.constant >= barHeight - 10 {
+        let widthConstant = (minWidth + amount).clamp(lower: minWidth, upper: frame.width)
+        heightConstraint.constant = heightConstant
+        separatorConstraint.constant = widthConstant
+    }
+    
+    private func determineState() {
+        if heightConstraint.constant >= barHeight - 15 {
             state = .large
         } else {
             state = .compact
+        }
+    }
+}
+
+extension LargeTitledNavigationBar: ScrollAware {
+    func onScrolling(contentOffset: CGPoint, contentInset: UIEdgeInsets) {
+        setOffset(amount: contentOffset.y)
+        determineState()
+    }
+    
+    func onScrollingStopped(contentOffset: CGPoint, contentInset: UIEdgeInsets) {
+        switch state {
+        case .compact:
+            setOffset(amount: 100)
+        case .large:
+            setOffset(amount: 0)
         }
     }
 }

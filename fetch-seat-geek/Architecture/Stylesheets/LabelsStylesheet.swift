@@ -30,10 +30,10 @@ enum LabelsStylesheet {
             label.font = R.font.proximaNovaSemibold(size: 13)
             label.textColor = UIColor.white
         case .navBarLargeTitle:
-            label.font = R.font.proximaNovaBold(size: 20)
+            label.font = R.font.proximaNovaBold(size: 26)
             label.textColor = UIColor.black
         case .navBarLargeSubtitle:
-            label.font = R.font.proximaNovaSemibold(size: 16)
+            label.font = R.font.proximaNovaSemibold(size: 18)
             label.textColor = UIColor.black.withAlphaComponent(0.6)
         case .navBarCompactTitle:
             label.textAlignment = .center
@@ -43,6 +43,12 @@ enum LabelsStylesheet {
             label.textAlignment = .center
             label.font = R.font.proximaNovaRegular(size: 13)
             label.textColor = UIColor.black.withAlphaComponent(0.6)
+        case .viewMoreHeaderTitle:
+            label.font = R.font.proximaNovaSemibold(size: 16)
+            label.textColor = UIColor.black
+        case .viewMoreHeaderAction:
+            label.font = R.font.proximaNovaRegular(size: 14)
+            label.textColor = UIColor.black.withAlphaComponent(0.4)
         case .genreTitle:
             break
         case .searchResultTitle:
@@ -67,6 +73,8 @@ enum LabelStyle {
     case navBarLargeSubtitle
     case navBarCompactTitle
     case navBarCompactSubtitle
+    case viewMoreHeaderTitle
+    case viewMoreHeaderAction
 }
 
 extension UILabel {

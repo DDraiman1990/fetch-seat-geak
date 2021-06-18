@@ -63,6 +63,8 @@
 		644AF5E626797B4200E62181 /* PriceTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644AF5E526797B4200E62181 /* PriceTagView.swift */; };
 		645D684F267CFFCB005C3D97 /* ApplicationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645D684E267CFFCB005C3D97 /* ApplicationManager.swift */; };
 		645D6854267D0E97005C3D97 /* LargeTitledNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645D6853267D0E97005C3D97 /* LargeTitledNavigationBar.swift */; };
+		645D685A267D2508005C3D97 /* ViewMoreHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645D6859267D2508005C3D97 /* ViewMoreHeaderView.swift */; };
+		645D685F267D2701005C3D97 /* Array+ValidIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645D685E267D2701005C3D97 /* Array+ValidIndex.swift */; };
 		646E1BDD26798D2D009BF8E1 /* ProximaNova-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 646E1BD326798D2C009BF8E1 /* ProximaNova-Bold.otf */; };
 		646E1BDE26798D2D009BF8E1 /* ProximaNova-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 646E1BD426798D2C009BF8E1 /* ProximaNova-SemiboldItalic.otf */; };
 		646E1BDF26798D2D009BF8E1 /* ProximaNova-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 646E1BD526798D2C009BF8E1 /* ProximaNova-Regular.otf */; };
@@ -198,6 +200,8 @@
 		644AF5E526797B4200E62181 /* PriceTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTagView.swift; sourceTree = "<group>"; };
 		645D684E267CFFCB005C3D97 /* ApplicationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationManager.swift; sourceTree = "<group>"; };
 		645D6853267D0E97005C3D97 /* LargeTitledNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeTitledNavigationBar.swift; sourceTree = "<group>"; };
+		645D6859267D2508005C3D97 /* ViewMoreHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMoreHeaderView.swift; sourceTree = "<group>"; };
+		645D685E267D2701005C3D97 /* Array+ValidIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+ValidIndex.swift"; sourceTree = "<group>"; };
 		646E1BD326798D2C009BF8E1 /* ProximaNova-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Bold.otf"; sourceTree = "<group>"; };
 		646E1BD426798D2C009BF8E1 /* ProximaNova-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-SemiboldItalic.otf"; sourceTree = "<group>"; };
 		646E1BD526798D2C009BF8E1 /* ProximaNova-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Regular.otf"; sourceTree = "<group>"; };
@@ -506,6 +510,7 @@
 				644AF5A12679048400E62181 /* UICollectionView+NearestCell.swift */,
 				64A03764267BF66900A27D5E /* Int?+Add+Subtract.swift */,
 				64A03777267C344100A27D5E /* Array+Chunked.swift */,
+				645D685E267D2701005C3D97 /* Array+ValidIndex.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -663,6 +668,7 @@
 				64B8A4CF267A77B000B5F5A1 /* CollectionView.swift */,
 				64B8A4D4267A77C800B5F5A1 /* TableView.swift */,
 				645D6853267D0E97005C3D97 /* LargeTitledNavigationBar.swift */,
+				645D6859267D2508005C3D97 /* ViewMoreHeaderView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -1078,6 +1084,7 @@
 				64E6E99B2672F9CE00BDE2E6 /* DependencyManager.swift in Sources */,
 				6440B75E267671420087987F /* Route.swift in Sources */,
 				644AF5E626797B4200E62181 /* PriceTagView.swift in Sources */,
+				645D685A267D2508005C3D97 /* ViewMoreHeaderView.swift in Sources */,
 				64A32BFE2678EC5600EEE8BF /* EventSummaryLargeView.swift in Sources */,
 				640F87802678315F0055C4A4 /* SGTaxonomy.swift in Sources */,
 				6440B7E62676C9560087987F /* SGPerformer.swift in Sources */,
@@ -1095,6 +1102,7 @@
 				6440B7402676701A0087987F /* NetworkLoggerPlugin.swift in Sources */,
 				6440B7EB2676C9610087987F /* SGVenue.swift in Sources */,
 				64A037A1267C360000A27D5E /* BrowseViewController.swift in Sources */,
+				645D685F267D2701005C3D97 /* Array+ValidIndex.swift in Sources */,
 				645D684F267CFFCB005C3D97 /* ApplicationManager.swift in Sources */,
 				64E6E9A72672FA2300BDE2E6 /* LogMetadata.swift in Sources */,
 				64C7A3A02673F59500951930 /* ViewModel.swift in Sources */,

@@ -28,17 +28,17 @@ final class BrowseViewModel: ViewModel {
     
     init() {
         valueRelay.accept(.init(sections: [
-            [.featured],
-            [.justForYou],
-            [.trendingEvents],
-            [.recentlyViewed],
-            [.browseCategories],
-            [.justAnnounced],
-            [.category(named: "Sports")],
-            [.category(named: "Concerts")],
-            [.category(named: "Broadway Shows")],
-            [.category(named: "Comedy")],
-            [.category(named: "Music Festivals")]
+            .init(header: nil, data: .featured, separator: false),
+            .init(header: Consumer.Row.justForYou.title, data: .justForYou),
+            .init(header: Consumer.Row.trendingEvents.title, data: .trendingEvents),
+            .init(header: Consumer.Row.recentlyViewed.title, data: .recentlyViewed),
+            .init(header: Consumer.Row.browseCategories.title, data: .browseCategories),
+            .init(header: Consumer.Row.justAnnounced.title, data: .justAnnounced),
+            .init(header: "Sports", data: .category(named: "Sports")),
+            .init(header: "Concerts", data: .category(named: "Concerts")),
+            .init(header: "Broadway Shows", data: .category(named: "Broadway Shows")),
+            .init(header: "Comedy", data: .category(named: "Comedy")),
+            .init(header: "Music Festivals", data: .category(named: "Music Festivals"))
         ]))
     }
     
