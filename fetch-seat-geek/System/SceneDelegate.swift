@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, WindowManaging {
         self.window = UIWindow(windowScene: scene)
         let vc = UIViewController()
         vc.view.backgroundColor = .blue
-        setRoot(viewController: TestViewController())
+        setRoot(viewController: vc)
     }
 }
 
