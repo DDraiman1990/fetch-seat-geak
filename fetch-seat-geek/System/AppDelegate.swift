@@ -9,7 +9,10 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate : UIResponder, UIApplicationDelegate, WindowManaging {
-    private let dependencyManager: DependencyManaging = DependencyManager()
+    private lazy var _appManager = ApplicationManager(windowManager: self)
+    var appManager: ApplicationManager {
+        return _appManager
+    }
     
     var window : UIWindow?
     func application(_ application: UIApplication,
@@ -20,9 +23,7 @@ class AppDelegate : UIResponder, UIApplicationDelegate, WindowManaging {
                 // Any initialization before SceneDelegate
             } else {
                 self.window = UIWindow()
-                let vc = ViewController()
-                vc.view.backgroundColor = .red
-                setRoot(viewController: vc)
+                appManager.presentRequiredPage()
             }
             return true
     }

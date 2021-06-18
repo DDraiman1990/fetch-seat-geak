@@ -15,4 +15,10 @@ extension Observable {
             result(.failure(error))
         }
     }
+    
+    func subscribeToValue(_ result: @escaping (Element) -> Void) -> Disposable {
+        return subscribe { element in
+            result(element)
+        }
+    }
 }
