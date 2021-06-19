@@ -10,8 +10,9 @@ import UIKit
 final class EventsCollectionView: UIView {
     private lazy var collection: CollectionView<Int, SGEventSummary> = .init(
         layout: AppConstants.Collections.Layouts.basicHorizontal()) { _, _ -> CGSize in
-            let dim = min(self.frame.width, self.frame.height) - 10
-            return .init(width: dim, height: dim)
+            let height = self.frame.height - 20
+            let width = self.frame.width * 0.4
+            return .init(width: width, height: height)
         } cellTypeForModel: { data in
             return .init(
                 reuseId: EventSummarySmallCell.cellId,
@@ -20,7 +21,21 @@ final class EventsCollectionView: UIView {
             (cell as? EventSummarySmallCell)?.setup(event: data)
             return cell
         }
-
+    
+    init() {
+        super.init(frame: .zero)
+        addSubview(collection)
+        collection.anchor(in: self)
+        collection.isPagingEnabled = true
+        collection.showsVerticalScrollIndicator = false
+        collection.showsHorizontalScrollIndicator = false
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     func set(data: [SGEventSummary]) {
         collection.set(sections: [
             .init(section: 0, items: data)

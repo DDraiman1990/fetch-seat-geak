@@ -87,7 +87,7 @@ final class EventSummarySmallView: UIView {
         super.init(frame: .zero)
         addSubview(contentStack)
         contentStack.anchor(in: self, padding: .init(constant: 8))
-        
+        backgroundImageView.height(multiplier: 0.6, relativeTo: contentStack)
         if let event = event {
             setup(using: event)
         }

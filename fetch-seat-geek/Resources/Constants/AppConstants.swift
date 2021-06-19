@@ -27,10 +27,10 @@ enum AppConstants {
     
     enum Collections {
         enum Layouts {
-            static func basicHorizontal() -> UICollectionViewLayout {
+            static func basicHorizontal(spacing: CGFloat = 0) -> UICollectionViewLayout {
                 let flowlayout = UICollectionViewFlowLayout()
                 flowlayout.minimumInteritemSpacing = 0
-                flowlayout.minimumLineSpacing = 0
+                flowlayout.minimumLineSpacing = spacing
                 flowlayout.scrollDirection = .horizontal
                 return flowlayout
             }

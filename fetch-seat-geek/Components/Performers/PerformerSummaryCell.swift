@@ -26,7 +26,7 @@ final class PerformerSummaryCell: IdentifiableCollectionCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(performer: SGPerformer) {
+    func setup(performer: SGPerformerSummary) {
         view.setup(performer: performer)
     }
 }

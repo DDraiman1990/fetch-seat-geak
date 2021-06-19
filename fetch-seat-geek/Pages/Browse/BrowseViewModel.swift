@@ -27,19 +27,31 @@ final class BrowseViewModel: ViewModel {
     // MARK: - Lifecycle
     
     init() {
-        valueRelay.accept(.init(sections: [
-            .init(header: nil, data: .featured, separator: false),
-            .init(header: Consumer.Row.justForYou.title, data: .justForYou),
-            .init(header: Consumer.Row.trendingEvents.title, data: .trendingEvents),
-            .init(header: Consumer.Row.recentlyViewed.title, data: .recentlyViewed),
-            .init(header: Consumer.Row.browseCategories.title, data: .browseCategories),
-            .init(header: Consumer.Row.justAnnounced.title, data: .justAnnounced),
-            .init(header: "Sports", data: .category(named: "Sports")),
-            .init(header: "Concerts", data: .category(named: "Concerts")),
-            .init(header: "Broadway Shows", data: .category(named: "Broadway Shows")),
-            .init(header: "Comedy", data: .category(named: "Comedy")),
-            .init(header: "Music Festivals", data: .category(named: "Music Festivals"))
-        ]))
+        let featuredData: [FeaturedInnerCollectionView.FeaturedData] = [
+            FeaturedInnerCollectionView.FeaturedData.event(summary: .stub()),
+            FeaturedInnerCollectionView.FeaturedData.event(summary: .stub()),
+            FeaturedInnerCollectionView.FeaturedData.performer(performer: .stub()),
+            FeaturedInnerCollectionView.FeaturedData.performer(performer: .stub())
+        ]
+        let justForYouEvents: [SGEventSummary] = [SGEventSummary](repeating: .stub(), count: Int.random(in: 1...4))
+        let trendingEvents: [SGEventSummary] = [SGEventSummary](repeating: .stub(), count: Int.random(in: 1...4))
+        let recentlyViewed: [SGEventSummary] = [SGEventSummary](repeating: .stub(), count: Int.random(in: 1...4))
+        let browseCategories: [SGGenre] = [SGGenre](repeating: .stub(), count: Int.random(in: 3...10))
+        let justAnnounced: [SGEventSummary] = [SGEventSummary](repeating: .stub(), count: Int.random(in: 1...4))
+        let sections: [BrowseSection] = [
+            .featured(data: featuredData),
+            .justForYou(data: justForYouEvents),
+//            .trendingEvents(data: trendingEvents),
+            .recentlyViewed(data: recentlyViewed),
+            .browseCategories(data: browseCategories),
+            .justAnnounced(data: justAnnounced),
+            .category(genre: .stub(), data: [.stub(), .stub(), .stub(), .stub()]),
+            .category(genre: .stub(), data: [.stub(), .stub(), .stub(), .stub()]),
+            .category(genre: .stub(), data: [.stub(), .stub(), .stub(), .stub()]),
+            .category(genre: .stub(), data: [.stub(), .stub(), .stub(), .stub()]),
+            .category(genre: .stub(), data: [.stub(), .stub(), .stub(), .stub()])
+        ]
+        valueRelay.accept(.init(sections: sections))
     }
     
     // MARK: - Methods | ViewModel

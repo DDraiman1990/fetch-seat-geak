@@ -167,7 +167,9 @@ class DiffableDataSource<Section: Hashable, Item: IdentifiableItem>: NSObject, U
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let item = data[indexPath.section].items[indexPath.row]
+        guard let item = data.elementIfExists(index: indexPath.section)?.items.elementIfExists(index: indexPath.row) else {
+            return UICollectionViewCell()
+        }
         return cellProvider(collectionView, indexPath, item) ?? UICollectionViewCell()
     }
     

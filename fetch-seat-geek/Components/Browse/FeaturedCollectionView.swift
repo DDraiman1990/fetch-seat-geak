@@ -17,14 +17,15 @@ final class FeaturedInnerCollectionView: UIView {
                 return performer.id
             }
         }
-        case performer(performer: SGPerformer)
+        case performer(performer: SGPerformerSummary)
         case event(summary: SGEventSummary)
     }
     
     private lazy var collection: CollectionView<Int, FeaturedData> = .init(
-        layout: AppConstants.Collections.Layouts.basicHorizontal()) { _, _ -> CGSize in
-            let dim = min(self.frame.width, self.frame.height) - 10
-            return .init(width: dim, height: dim)
+        layout: AppConstants.Collections.Layouts.basicHorizontal(spacing: 12)) { _, _ -> CGSize in
+            let width = self.frame.width - 20
+            let height = self.frame.height - 20
+            return .init(width: width, height: height)
         } cellTypeForModel: { data -> CollectionView<Int, FeaturedData>.DiffableCellRegistration in
             switch data {
             case .event:
@@ -45,7 +46,21 @@ final class FeaturedInnerCollectionView: UIView {
             }
             return cell
         }
-
+    
+    init() {
+        super.init(frame: .zero)
+        addSubview(collection)
+        collection.anchor(in: self)
+        collection.isPagingEnabled = true
+        collection.showsVerticalScrollIndicator = false
+        collection.showsHorizontalScrollIndicator = false
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     func set(data: [FeaturedData]) {
         collection.set(sections: [
             .init(section: 0, items: data)

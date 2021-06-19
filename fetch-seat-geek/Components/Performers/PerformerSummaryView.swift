@@ -16,7 +16,7 @@ final class PerformerSummaryView: UIView {
         return imageView
     }()
     
-    init(performer: SGPerformer? = nil) {
+    init(performer: SGPerformerSummary? = nil) {
         super.init(frame: .zero)
         addSubview(backgroundImage)
         addSubview(titleLabel)
@@ -37,7 +37,7 @@ final class PerformerSummaryView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(performer: SGPerformer) {
+    func setup(performer: SGPerformerSummary) {
         self.titleLabel.text = performer.name
         if let url = URL(string: performer.image) {
             Nuke.loadImage(with: url, into: backgroundImage)

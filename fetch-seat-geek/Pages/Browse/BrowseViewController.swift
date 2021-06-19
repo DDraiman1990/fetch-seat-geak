@@ -10,59 +10,9 @@ import RxSwift
 
 final class BrowseViewController: UIViewController, ViewModeled {
     private let disposeBag = DisposeBag()
-    struct TableRow<T: IdentifiableItem> {
-        enum CollectionType {
-            case featured
-            case eventSummaries
-            case genres
-            case trendingEvents
-        }
-        
-        var header: String?
-        var data: [T]
-        var collectionType: CollectionType
-    }
-    
-    enum Row: Equatable {
-        case featured
-        case justForYou
-        case trendingEvents
-        case recentlyViewed
-        case browseCategories
-        case justAnnounced
-        case category(named: String)
-        
-        var title: String? {
-            switch self {
-            case .featured:
-                return "Featured"//nil
-            case .justForYou:
-                return "Just for you"
-            case .trendingEvents:
-                return "Trending events"
-            case .recentlyViewed:
-                return "Recently viewed events"
-            case .browseCategories:
-                return "Browse by category"
-            case .justAnnounced:
-                return "Just announced"
-            case .category(let named):
-                return named
-            }
-        }
-    }
-    
-    struct SectionData: Equatable {
-        var header: String?
-        var data: Row
-        var separator: Bool = true
-        var numOfRows: Int {
-            return header == nil ? 1 : 2
-        }
-    }
     
     struct Model: DataModel {
-        var sections: [SectionData] = []
+        var sections: [BrowseSection] = []
     }
     
     enum Interaction {
@@ -72,18 +22,6 @@ final class BrowseViewController: UIViewController, ViewModeled {
     private lazy var table: UITableView = {
         let table = UITableView()
         table.backgroundView = UIView()
-        table.register(
-            FeaturedInnerCollectionCell.self,
-            forCellReuseIdentifier: FeaturedInnerCollectionCell.cellId)
-        table.register(
-            GenresInnerCollectionCell.self,
-            forCellReuseIdentifier: GenresInnerCollectionCell.cellId)
-        table.register(
-            EventsInnerCollectionCell.self,
-            forCellReuseIdentifier: EventsInnerCollectionCell.cellId)
-        table.register(
-            ViewAllHeaderCell.self,
-            forCellReuseIdentifier: ViewAllHeaderCell.cellId)
         table.delegate = self
         table.dataSource = self
         return table
@@ -161,23 +99,9 @@ extension BrowseViewController: UITableViewDelegate, UITableViewDataSource {
             assertionFailure("Failed to dequeue")
             return UITableViewCell()
         }
-        if let header = section.header, indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(
-                withIdentifier: ViewAllHeaderCell.cellId,
-                for: indexPath)
-            cell.hideSeparator()
-            (cell as? ViewAllHeaderCell)?.setup(title: header)
-            (cell as? ViewAllHeaderCell)?.onActionTapped = {
-                print("Tapped \(header)")
-            }
-            return cell
-        }
-        let cell = tableView.dequeueReusableCell(
-            withIdentifier: "",
-                for: indexPath)
-        let row = section.data
-        if !section.separator {
-            cell.hideSeparator()
+        let cell = section.dequeue(from: table, indexPath: indexPath)
+        (cell as? ViewAllHeaderCell)?.onActionTapped = {
+            print("Tapped \(section.header ?? "Unknown Header")")
         }
         return cell
     }
@@ -187,56 +111,7 @@ extension BrowseViewController: UITableViewDelegate, UITableViewDataSource {
             assertionFailure("Failed to dequeue")
             return 0
         }
-        if section.header != nil, indexPath.row == 0 {
-            return 60
-        }
-        return 100
-    }
-}
-
-extension UINavigationItem {
-    func setTitle(_ title: String, subtitle: String) {
-        let titleLabel = UILabel()
-        titleLabel.text = title
-        titleLabel.font = .systemFont(ofSize: 17.0)
-        titleLabel.textColor = .black
-
-        let subtitleLabel = UILabel()
-        subtitleLabel.text = subtitle
-        subtitleLabel.font = .systemFont(ofSize: 12.0)
-        subtitleLabel.textColor = .gray
-
-        let stackView = UIStackView(arrangedSubviews: [titleLabel, subtitleLabel])
-        stackView.distribution = .equalCentering
-        stackView.alignment = .center
-        stackView.axis = .vertical
-
-        self.titleView = stackView
-    }
-}
-
-final class TitledCell: UITableViewCell {
-    public static let cellId = "TitledCell"
-    
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = UIColor.black
-        label.numberOfLines = 1
-        return label
-    }()
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.addSubview(titleLabel)
-        titleLabel.anchor(in: contentView, padding: .init(horizontal: 16, vertical: 6))
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func setup(title: String) {
-        titleLabel.text = title
+        return section.cellHeight(indexPath: indexPath)
     }
 }
 

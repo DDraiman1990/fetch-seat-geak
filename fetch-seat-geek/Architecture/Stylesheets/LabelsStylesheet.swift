@@ -18,9 +18,13 @@ enum LabelsStylesheet {
             label.font = R.font.proximaNovaRegular(size: 14)
             label.textColor = UIColor.white.withAlphaComponent(0.8)
         case .smallEventTitle:
+            label.numberOfLines = 2
+            label.lineBreakMode = .byWordWrapping
             label.font = R.font.proximaNovaRegular(size: 16)
             label.textColor = UIColor.black
         case .smallEventSubtitle:
+            label.numberOfLines = 2
+            label.lineBreakMode = .byWordWrapping
             label.font = R.font.proximaNovaRegular(size: 14)
             label.textColor = UIColor.black.withAlphaComponent(0.55)
         case .eventSummaryBanner:
@@ -50,7 +54,8 @@ enum LabelsStylesheet {
             label.font = R.font.proximaNovaRegular(size: 14)
             label.textColor = UIColor.black.withAlphaComponent(0.4)
         case .genreTitle:
-            break
+            label.font = R.font.proximaNovaSemibold(size: 15)
+            label.textColor = UIColor.white
         case .searchResultTitle:
             break
         case .searchResultSubtitle:
