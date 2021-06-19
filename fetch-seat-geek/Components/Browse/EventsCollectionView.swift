@@ -9,8 +9,8 @@ import UIKit
 
 final class EventsCollectionView: UIView {
     private lazy var collection: CollectionView<Int, SGEventSummary> = .init(
-        layout: AppConstants.Collections.Layouts.basicHorizontal()) { _, _ -> CGSize in
-            let height = self.frame.height - 20
+        layout: AppConstants.Collections.Layouts.basicHorizontal(spacing: 8)) { _, _ -> CGSize in
+            let height = self.frame.height - 8
             let width = self.frame.width * 0.4
             return .init(width: width, height: height)
         } cellTypeForModel: { data in
@@ -28,6 +28,9 @@ final class EventsCollectionView: UIView {
         collection.anchor(in: self)
         collection.isPagingEnabled = true
         collection.showsVerticalScrollIndicator = false
+        collection.insetForSection = { _ in
+            return .init(top: 0, left: 20, bottom: 0, right: 0)
+        }
         collection.showsHorizontalScrollIndicator = false
     }
     

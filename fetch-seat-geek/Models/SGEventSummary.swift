@@ -22,10 +22,10 @@ struct SGEventSummary: IdentifiableItem {
     static func stub() -> SGEventSummary {
         return .init(id: Int.random(in: 1...100000),
                      banner: Bool.random() ? nil : SGBanner.stub(),
-                     title: "Some Event \(Int.random(in: 0...100000))",
+                     title: "Some Event \(Int.random(in: 0...100000000000000))",
                      date: Date().addingTimeInterval(Double.random(in: 1...100000)),
                      venueName: "Venue \(Int.random(in: 0...1000))",
-                     venueLocation: "Neverland, IL",
+                     venueLocation: "Neverland, \(Int.random(in: 0...100000000000))",
                      ticketPrice: "\(Int.random(in: 1...300))+",
                      isTracked: Bool.random(),
                      canBeTracked: Bool.random(),

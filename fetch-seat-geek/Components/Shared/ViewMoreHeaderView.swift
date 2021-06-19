@@ -27,6 +27,7 @@ final class ViewMoreHeaderView: UIView {
         stack.spacing = 4
         stack.addArrangedSubview(actionLabel)
         stack.addArrangedSubview(actionImageView)
+        stack.anchor(height: 16)
         return stack
     }()
     
@@ -34,6 +35,7 @@ final class ViewMoreHeaderView: UIView {
         let stack = UIStackView()
         stack.axis = .horizontal
         stack.spacing = 8
+        stack.alignment = .center
         stack.addArrangedSubview(titleLabel)
         stack.addArrangedSubview(actionStack)
         return stack

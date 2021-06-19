@@ -22,8 +22,8 @@ final class FeaturedInnerCollectionView: UIView {
     }
     
     private lazy var collection: CollectionView<Int, FeaturedData> = .init(
-        layout: AppConstants.Collections.Layouts.basicHorizontal(spacing: 12)) { _, _ -> CGSize in
-            let width = self.frame.width - 20
+        layout: AppConstants.Collections.Layouts.horizontalSnap()) { _, _ -> CGSize in
+            let width = self.frame.width - 40
             let height = self.frame.height - 20
             return .init(width: width, height: height)
         } cellTypeForModel: { data -> CollectionView<Int, FeaturedData>.DiffableCellRegistration in
@@ -51,9 +51,15 @@ final class FeaturedInnerCollectionView: UIView {
         super.init(frame: .zero)
         addSubview(collection)
         collection.anchor(in: self)
-        collection.isPagingEnabled = true
+        collection.insetForSection = { _ in
+            return .init(horizontal: 20, vertical: 0)
+        }
         collection.showsVerticalScrollIndicator = false
         collection.showsHorizontalScrollIndicator = false
+        
+//        Timer.scheduledTimer(withTimeInterval: 6, repeats: true) { _ in
+//
+//        }
     }
     
     @available(*, unavailable)

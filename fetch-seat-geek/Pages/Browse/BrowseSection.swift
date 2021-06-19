@@ -123,13 +123,13 @@ enum BrowseSection: Equatable {
     func cellHeight(indexPath: IndexPath) -> CGFloat {
         let isHeader = indexPath.row == 0 && hasHeader
         if isHeader {
-            return 60
+            return 42
         }
         switch self {
         case .featured:
             return 230
         case .justForYou, .recentlyViewed, .justAnnounced, .category:
-            return 230
+            return 246
         case .trendingEvents:
             //TODO: implement TrendingCollectionView and cell
 //                table.register(

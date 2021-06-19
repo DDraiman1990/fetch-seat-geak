@@ -28,7 +28,7 @@ final class EventSummarySmallView: UIView {
         stack.axis = .vertical
         stack.alignment = .leading
         stack.distribution = .fill
-        stack.spacing = 6
+        stack.spacing = 2
         stack.addArrangedSubview(titleLabel)
         stack.addArrangedSubview(subtitleLabel)
         return stack
@@ -39,7 +39,7 @@ final class EventSummarySmallView: UIView {
         stack.axis = .vertical
         stack.alignment = .fill
         stack.distribution = .fill
-        stack.spacing = 16
+        stack.spacing = 14
         stack.addArrangedSubview(topSectionView)
         stack.addArrangedSubview(infoStack)
         return stack
@@ -86,8 +86,10 @@ final class EventSummarySmallView: UIView {
     init(event: SGEventSummary? = nil) {
         super.init(frame: .zero)
         addSubview(contentStack)
-        contentStack.anchor(in: self, padding: .init(constant: 8))
-        backgroundImageView.height(multiplier: 0.6, relativeTo: contentStack)
+        contentStack.anchor(in: self,
+                            to: [.top(), .right(), .left(), .ltBottom()],
+                            padding: .init(top: 0, left: 0, bottom: 12, right: 0))
+        backgroundImageView.height(multiplier: 0.55, relativeTo: self)
         if let event = event {
             setup(using: event)
         }

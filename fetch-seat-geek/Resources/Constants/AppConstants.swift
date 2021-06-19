@@ -34,6 +34,10 @@ enum AppConstants {
                 flowlayout.scrollDirection = .horizontal
                 return flowlayout
             }
+            
+            static func horizontalSnap() -> UICollectionViewLayout {
+                return ZoomAndSnapFlowLayout()
+            }
         }
     }
 }

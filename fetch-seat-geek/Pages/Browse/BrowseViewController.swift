@@ -24,6 +24,8 @@ final class BrowseViewController: UIViewController, ViewModeled {
         table.backgroundView = UIView()
         table.delegate = self
         table.dataSource = self
+        table.showsVerticalScrollIndicator = false
+        table.showsHorizontalScrollIndicator = false
         return table
     }()
     

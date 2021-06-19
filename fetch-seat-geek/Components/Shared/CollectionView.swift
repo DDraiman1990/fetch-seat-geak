@@ -28,6 +28,7 @@ class CollectionView<SectionModel: Hashable,
         }
     }
     
+    typealias InsetForSection = (Int) -> UIEdgeInsets
     typealias CellDequeue = (UICollectionViewCell, IndexPath, ItemModel) -> UICollectionViewCell
     typealias SizeForItem = ((ItemModel, IndexPath) -> CGSize)
     typealias DidSelectItem = ((ItemModel, IndexPath) -> Void)
@@ -39,6 +40,7 @@ class CollectionView<SectionModel: Hashable,
     
     private var onDequeueCell: CellDequeue
     private var cellTypeForModel: CellTypeForModel
+    var insetForSection: InsetForSection?
     var sizeForItem: SizeForItem?
     var didSelectItem: DidSelectItem?
     var didSnapToItem: DidSnapToItem?
@@ -77,6 +79,8 @@ class CollectionView<SectionModel: Hashable,
             collection.bounces = newValue
         }
     }
+    
+    var infiniteScrollable: Bool = false
     
     // MARK: - Properties | Private
     
@@ -304,5 +308,9 @@ class CollectionView<SectionModel: Hashable,
     
     func getData() -> [DiffableDataSource<SectionModel, ItemModel>.SectionEntry] {
         return dataSource.data
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return insetForSection?(section) ?? .init(constant: 0)
     }
 }

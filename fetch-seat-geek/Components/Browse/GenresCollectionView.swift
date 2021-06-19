@@ -10,7 +10,7 @@ import UIKit
 final class GenresCollectionView: UIView {
     private lazy var collection: CollectionView<Int, SGGenre> = .init(
         layout: AppConstants.Collections.Layouts.basicHorizontal(spacing: 12)) { _, _ -> CGSize in
-            let height = self.frame.height - 20
+            let height = self.frame.height - 8
             let width = self.frame.width * 0.35
             return .init(width: width, height: height)
         } cellTypeForModel: { data in
@@ -27,6 +27,9 @@ final class GenresCollectionView: UIView {
         addSubview(collection)
         collection.anchor(in: self)
         collection.isPagingEnabled = true
+        collection.insetForSection = { _ in
+            return .init(top: 0, left: 20, bottom: 0, right: 0)
+        }
         collection.showsVerticalScrollIndicator = false
         collection.showsHorizontalScrollIndicator = false
     }

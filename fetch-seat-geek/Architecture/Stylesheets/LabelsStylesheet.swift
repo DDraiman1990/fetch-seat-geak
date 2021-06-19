@@ -64,10 +64,12 @@ enum LabelsStylesheet {
             label.textAlignment = .center
             label.font = R.font.proximaNovaBold(size: 32)
             label.textColor = UIColor.white
+            label.numberOfLines = 2
         case .featuredSportsTeamTitle:
             label.textAlignment = .center
             label.font = R.font.proximaNovaBold(size: 26)
             label.textColor = UIColor.white
+            label.numberOfLines = 2
         }
     }
 }
