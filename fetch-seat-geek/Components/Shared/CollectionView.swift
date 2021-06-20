@@ -80,7 +80,14 @@ class CollectionView<SectionModel: Hashable,
         }
     }
     
-    var infiniteScrollable: Bool = false
+    var infiniteScrollable: Bool {
+        get {
+            dataSource.infiniteScrollable
+        }
+        set {
+            dataSource.infiniteScrollable = newValue
+        }
+    }
     
     // MARK: - Properties | Private
     
@@ -203,7 +210,41 @@ class CollectionView<SectionModel: Hashable,
         sections: [DiffableDataSource<SectionModel, ItemModel>.SectionEntry],
         animated: Bool = false,
         completion: (() -> Void)? = nil) {
-        self.dataSource.set(data: sections)
+        self.dataSource.set(
+            data: sections,
+            animated: animated,
+            completion: completion)
+    }
+    
+    func scrollToNextCell(animated: Bool) {
+        guard let nearest = collection.nearestCellToCenter() else {
+            return
+        }
+        let nextIndex = IndexPath(item: nearest.row + 1, section: nearest.section)
+        if infiniteScrollable {
+            guard self.dataSource.isValid(indexPath: nextIndex) else {
+                return
+            }
+        } else {
+            guard self.dataSource.data.isValidIndex(nextIndex.section),
+                  self.dataSource.data[nextIndex.section].items.isValidIndex(nextIndex.row) else {
+                return
+            }
+        }
+        
+        self.collection
+            .scrollToItem(at: nextIndex,
+                          at: .centeredHorizontally,
+                          animated: animated)
+    }
+    
+    func scrollToFirst(animated: Bool) {
+        let firstRow = dataSource.firstRow
+        let indexPath = IndexPath(item: firstRow, section: 0)
+        collection.scrollToItem(
+            at: indexPath,
+            at: .centeredHorizontally,
+            animated: animated)
     }
     
     // MARK: - Public API
@@ -293,6 +334,11 @@ class CollectionView<SectionModel: Hashable,
         snapToNearestCellIfNeeded()
     }
 
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        //TODO: Handle getting close to the end of the infinite scrolling and
+        // make sure to scroll back to the current cell - modifier.
+    }
+    
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if !decelerate {
             snapToNearestCellIfNeeded()

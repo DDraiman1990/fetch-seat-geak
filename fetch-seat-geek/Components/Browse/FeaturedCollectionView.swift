@@ -56,10 +56,10 @@ final class FeaturedInnerCollectionView: UIView {
         }
         collection.showsVerticalScrollIndicator = false
         collection.showsHorizontalScrollIndicator = false
-        
-//        Timer.scheduledTimer(withTimeInterval: 6, repeats: true) { _ in
-//
-//        }
+        collection.infiniteScrollable = true
+        Timer.scheduledTimer(withTimeInterval: 6, repeats: true) { _ in
+            self.collection.scrollToNextCell(animated: true)
+        }
     }
     
     @available(*, unavailable)
@@ -70,6 +70,9 @@ final class FeaturedInnerCollectionView: UIView {
     func set(data: [FeaturedData]) {
         collection.set(sections: [
             .init(section: 0, items: data)
-        ])
+        ]) { [weak self] in
+            //To ensure always at the middle of the infinite scroll
+            self?.collection.scrollToFirst(animated: false)
+        }
     }
 }

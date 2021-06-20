@@ -26,6 +26,16 @@ class DiffableDataSource<Section: Hashable, Item: IdentifiableItem>: NSObject, U
     private weak var collection: UICollectionView?
     private let cellProvider: (UICollectionView, IndexPath, Item) -> UICollectionViewCell?
     private var sectionCount: Int = 0
+    var firstRow: Int {
+        if infiniteScrollable {
+            return (data.count * infiniteModifier) - data.count
+        }
+        return 0
+    }
+    //To allow "infinite" cyclic scrolling we have to multiply rows by this modifier.
+    let infiniteModifier = 30
+    
+    var infiniteScrollable: Bool = false
     
     init(collectionView: UICollectionView, cellProvider: @escaping (UICollectionView, IndexPath, Item) -> UICollectionViewCell?) {
         self.collection = collectionView
@@ -65,8 +75,7 @@ class DiffableDataSource<Section: Hashable, Item: IdentifiableItem>: NSObject, U
         }
     }
     
-    func getItemActions(newData: [SectionEntry]) -> [Update<IndexPath>] {
-        let diff = state(from: newData)
+    func getItemActions(newData: [SectionEntry], newDataState: DataState) -> [Update<IndexPath>] {
         let last = lastState
         let allNewItems = newData.flatMap { $0.items }.map { $0.id }
         let allItems = data.flatMap { $0.items }.map { $0.id }
@@ -78,7 +87,7 @@ class DiffableDataSource<Section: Hashable, Item: IdentifiableItem>: NSObject, U
         }
         var actions: [Update<IndexPath>] = toRemove
         for id in allNewItems {
-            if let info = diff[id] {
+            if let info = newDataState[id] {
                 if let oldInfo = last[id] {
                     if info.0 == oldInfo.0 {
                         if info.1 != oldInfo.1 {
@@ -94,7 +103,6 @@ class DiffableDataSource<Section: Hashable, Item: IdentifiableItem>: NSObject, U
             }
         }
 
-        self.lastState = diff
         return actions
     }
     
@@ -113,11 +121,17 @@ class DiffableDataSource<Section: Hashable, Item: IdentifiableItem>: NSObject, U
         }
     }
     
-    func set(data: [SectionEntry]) {
-        let actions = getItemActions(newData: data)
-        let sectionActions = getSectionActions(newData: data)
-        
-        self.data = data
+    private func animateChanges(
+        newData: [SectionEntry],
+        newDataState: DataState,
+        completion: (() -> Void)? = nil) {
+        let actions = getItemActions(
+            newData: newData,
+            newDataState: newDataState)
+        let sectionActions = getSectionActions(newData: newData)
+
+        self.lastState = newDataState
+        self.data = newData
         DispatchQueue.main.async {
             self.collection?.performBatchUpdates {
                 sectionActions.forEach {
@@ -153,7 +167,26 @@ class DiffableDataSource<Section: Hashable, Item: IdentifiableItem>: NSObject, U
                     }
                 }
             } completion: { _ in
-                print("Diff resolved")
+                completion?()
+            }
+        }
+    }
+    
+    func set(
+        data: [SectionEntry],
+        animated: Bool = true,
+        completion: (() -> Void)? = nil) {
+        let diff = state(from: data)
+        if animated {
+            animateChanges(
+                newData: data,
+                newDataState: diff,
+                completion: completion)
+        } else {
+            self.lastState = diff
+            self.data = data
+            DispatchQueue.main.async {
+                self.collection?.reloadData()
             }
         }
     }
@@ -163,11 +196,26 @@ class DiffableDataSource<Section: Hashable, Item: IdentifiableItem>: NSObject, U
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return itemCount[section] ?? 0
+        return (itemCount[section] ?? 0) * (infiniteScrollable ? infiniteModifier : 1)
+    }
+    
+    func isValid(indexPath: IndexPath) -> Bool {
+        guard let section = data.elementIfExists(index: indexPath.section) else {
+            return false
+        }
+        if infiniteScrollable {
+            let validRowRange = 0..<(section.items.count * infiniteModifier)
+            return validRowRange ~= indexPath.row
+        }
+        return section.items.isValidIndex(indexPath.row)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let item = data.elementIfExists(index: indexPath.section)?.items.elementIfExists(index: indexPath.row) else {
+        guard let section = data.elementIfExists(index: indexPath.section) else {
+            return UICollectionViewCell()
+        }
+        let modifiedRow = indexPath.row % section.items.count
+        guard let item = section.items.elementIfExists(index: modifiedRow) else {
             return UICollectionViewCell()
         }
         return cellProvider(collectionView, indexPath, item) ?? UICollectionViewCell()
@@ -178,11 +226,11 @@ class DiffableDataSource<Section: Hashable, Item: IdentifiableItem>: NSObject, U
     }
     
     func item(for indexPath: IndexPath) -> Item? {
-        guard data.indices ~= indexPath.section,
-              data[indexPath.section].items.indices ~= indexPath.row else {
+        guard let section = data.elementIfExists(index: indexPath.section) else {
             return nil
         }
-        return data[indexPath.section].items[indexPath.row]
+        let modifiedRow = indexPath.row % section.items.count
+        return section.items.elementIfExists(index: modifiedRow)
     }
     
     var isEmpty: Bool {
