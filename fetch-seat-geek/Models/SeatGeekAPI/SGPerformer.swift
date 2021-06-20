@@ -45,4 +45,13 @@ struct SGPerformer: Decodable, Hashable {
         case shortName = "short_name"
         case hasUpcomingEvents = "has_upcoming_events"
     }
+    
+    var toSummary: SGPerformerSummary {
+        return .init(
+            id: id,
+            name: name,
+            shortName: shortName,
+            image: image,
+            hasUpcomingEvents: hasUpcomingEvents)
+    }
 }

@@ -14,7 +14,7 @@ enum BrowseSection: Equatable {
     case recentlyViewed(data: [SGEventSummary])
     case browseCategories(data: [SGGenre])
     case justAnnounced(data: [SGEventSummary])
-    case category(genre: SGGenre, data: [SGEventSummary])
+    case category(name: String, data: [SGEventSummary])
     
     var header: String? {
         switch self {
@@ -30,8 +30,8 @@ enum BrowseSection: Equatable {
             return "Browse by category"
         case .justAnnounced:
             return "Just announced"
-        case .category(let genre, _):
-            return genre.name.capitalized
+        case .category(let name, _):
+            return name.capitalized
         }
     }
     

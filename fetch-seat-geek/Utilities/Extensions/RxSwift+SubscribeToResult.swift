@@ -6,6 +6,7 @@
 //
 
 import RxSwift
+import RxCocoa
 
 extension Observable {
     func subscribeToResult(_ result: @escaping (Result<Element, Error>) -> Void) -> Disposable {
@@ -19,6 +20,17 @@ extension Observable {
     func subscribeToValue(_ result: @escaping (Element) -> Void) -> Disposable {
         return subscribe { element in
             result(element)
+        }
+    }
+}
+
+extension BehaviorRelay {
+    var mutableValue: Element {
+        get {
+            value
+        }
+        set {
+            accept(newValue)
         }
     }
 }

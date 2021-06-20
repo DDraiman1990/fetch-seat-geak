@@ -20,4 +20,11 @@ struct SGVenuesResponse: Decodable {
     var meta: SGMetadata
 }
 
+struct SGGenresResponse: Decodable {
+    var genres: [SGGenre]
+    var meta: SGMetadata
+}
 
+struct SGBrowseGenresResponse {
+    var genres: [(String, [SGEvent])]
+}

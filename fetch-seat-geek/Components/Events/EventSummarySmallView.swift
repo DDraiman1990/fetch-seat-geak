@@ -106,7 +106,10 @@ final class EventSummarySmallView: UIView {
         setupBanner(by: event.banner)
         setupHeartButton(by: event)
         setupSubtitle(from: event)
-        priceTagView.set(price: event.ticketPrice)
+        if let ticketPrice = event.ticketPrice {
+            priceTagView.set(price: ticketPrice)
+        }
+        priceTagView.isHidden = event.ticketPrice == nil
         titleLabel.text = event.title
         Nuke.loadImage(
             with: URL(string: event.imageUrl)!,

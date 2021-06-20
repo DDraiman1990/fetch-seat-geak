@@ -36,4 +36,22 @@ struct SGEvent: Decodable, Hashable {
         case timeTbd = "time_tbd"
         case dateTbd = "date_tbd"
     }
+    
+    var toSummary: SGEventSummary {
+        var priceTag: String?
+        if let lowest = stats.lowestPrice {
+            priceTag = "\(lowest)+"
+        }
+        return .init(
+            id: id,
+            banner: nil,
+            title: title,
+            date: datetimeUtc,
+            venueName: venue.name,
+            venueLocation: venue.displayLocation,
+            ticketPrice: priceTag,
+            isTracked: false,
+            canBeTracked: true,
+            imageUrl: self.performers.first?.image ?? "")
+    }
 }

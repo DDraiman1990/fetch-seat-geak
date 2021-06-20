@@ -12,11 +12,14 @@ final class BrowseViewController: UIViewController, ViewModeled {
     private let disposeBag = DisposeBag()
     
     struct Model: DataModel {
+        var location: String = ""
+        var dates: String = ""
         var sections: [BrowseSection] = []
     }
     
     enum Interaction {
-        
+        case viewLoaded
+        case viewAppeared
     }
     
     private lazy var table: UITableView = {
@@ -42,7 +45,7 @@ final class BrowseViewController: UIViewController, ViewModeled {
     
     private let viewModel: AnyViewModel<BrowseViewController>
     private let navBar: LargeTitledNavigationBar = {
-        let bar = LargeTitledNavigationBar(title: "Joliet, IL", subtitle: "Any Date", buttonStyle: .init(color: .blue, type: .icon(image: R.image.hamburgerMenu())), height: 80)
+        let bar = LargeTitledNavigationBar(title: "", subtitle: "", buttonStyle: .init(color: .blue, type: .icon(image: R.image.hamburgerMenu())), height: 80)
         return bar
     }()
     
@@ -52,7 +55,6 @@ final class BrowseViewController: UIViewController, ViewModeled {
         view.backgroundColor = .white
         view.addSubview(contentStack)
         contentStack.anchorInSafeArea(of: view)
-        setupNavigationBar()
         bindViewModel()
         
         navBar.onActionButtonTapped = {
@@ -63,17 +65,19 @@ final class BrowseViewController: UIViewController, ViewModeled {
         }
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        viewModel.send(.viewLoaded)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
+        viewModel.send(.viewAppeared)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setupNavigationBar() {
-        title = "Joliet, IL"
     }
     
     private func bindViewModel() {
@@ -81,9 +85,15 @@ final class BrowseViewController: UIViewController, ViewModeled {
             .valuePublisher
             .observe(on: MainScheduler.instance)
             .subscribeToValue { [weak self] model in
-            self?.table.reloadData()
+                self?.onModelChanged(model: model.newValue)
         }
         .disposed(by: disposeBag)
+    }
+    
+    private func onModelChanged(model: Model) {
+        navBar.set(title: model.location)
+        navBar.set(subtitle: model.dates)
+        table.reloadData()
     }
 }
 

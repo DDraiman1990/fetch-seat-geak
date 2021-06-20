@@ -14,7 +14,7 @@ struct SGEventSummary: IdentifiableItem {
     var date: Date
     var venueName: String
     var venueLocation: String
-    var ticketPrice: String
+    var ticketPrice: String?
     var isTracked: Bool
     var canBeTracked: Bool
     var imageUrl: String
