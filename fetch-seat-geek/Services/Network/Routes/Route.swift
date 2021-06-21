@@ -13,15 +13,19 @@ protocol Route {
     var body: Data? { get }
     var headers: [URLQueryItem]? { get }
     var urlRequest: URLRequest { get }
-    var parameters: [String: String]? { get }
+    var parameters: [RouteParameter]? { get }
+}
+
+struct RouteParameter: Equatable {
+    var name: String
+    var value: String
 }
 
 extension Route {
     var urlRequest: URLRequest {
         var components = URLComponents(string: path)
         components?.queryItems = parameters?.map {
-            let (key, value) = $0
-            return URLQueryItem(name: key, value: value)
+            return URLQueryItem(name: $0.name, value: $0.value)
         }
         let url = components?.url
         var request = URLRequest(url: url!)

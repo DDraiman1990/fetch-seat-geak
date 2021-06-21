@@ -9,8 +9,7 @@ import Foundation
 import Combine
 import UIKit
 
-class CollectionView<ItemCell: IdentifiableCollectionCell,
-                     SectionModel: Hashable,
+class CollectionView<SectionModel: Hashable,
                      ItemModel: IdentifiableItem>:
     UIView,
     UICollectionViewDelegate,
@@ -19,15 +18,29 @@ class CollectionView<ItemCell: IdentifiableCollectionCell,
     
     // MARK: - Internal Types
     
+    struct DiffableCellRegistration {
+        var reuseId: String
+        var type: CellType
+        
+        enum CellType {
+            case fromNib(nib: UINib?)
+            case fromClass(type: AnyClass)
+        }
+    }
+    
+    typealias InsetForSection = (Int) -> UIEdgeInsets
     typealias CellDequeue = (UICollectionViewCell, IndexPath, ItemModel) -> UICollectionViewCell
     typealias SizeForItem = ((ItemModel, IndexPath) -> CGSize)
     typealias DidSelectItem = ((ItemModel, IndexPath) -> Void)
     typealias DidSnapToItem = ((ItemModel, IndexPath) -> Void)
     typealias RefreshRequest = ((@escaping () -> Void) -> Void)
+    typealias CellTypeForModel = (ItemModel) -> DiffableCellRegistration
     
     // MARK: - Callbacks
     
     private var onDequeueCell: CellDequeue
+    private var cellTypeForModel: CellTypeForModel
+    var insetForSection: InsetForSection?
     var sizeForItem: SizeForItem?
     var didSelectItem: DidSelectItem?
     var didSnapToItem: DidSnapToItem?
@@ -67,6 +80,15 @@ class CollectionView<ItemCell: IdentifiableCollectionCell,
         }
     }
     
+    var infiniteScrollable: Bool {
+        get {
+            dataSource.infiniteScrollable
+        }
+        set {
+            dataSource.infiniteScrollable = newValue
+        }
+    }
+    
     // MARK: - Properties | Private
     
     override var backgroundColor: UIColor? {
@@ -79,6 +101,15 @@ class CollectionView<ItemCell: IdentifiableCollectionCell,
     }
    
     private var items: [[ItemModel]] = []
+    
+    var isPagingEnabled: Bool {
+        get {
+            return collection.isPagingEnabled
+        }
+        set {
+            collection.isPagingEnabled = newValue
+        }
+    }
 
     /// Whether or not the cell will snap on scroll.
     /// - Warning: will set decelerationRate to fast if snaps and normal if not.
@@ -120,13 +151,13 @@ class CollectionView<ItemCell: IdentifiableCollectionCell,
     init(layout: UICollectionViewLayout,
          inverted: Bool = false,
          sizeForItem: @escaping SizeForItem,
+         cellTypeForModel: @escaping CellTypeForModel,
          onDequeuedCell: @escaping CellDequeue) {
         self.inverted = inverted
+        self.cellTypeForModel = cellTypeForModel
         self.onDequeueCell = onDequeuedCell
         self.sizeForItem = sizeForItem
         super.init(frame: .zero)
-        collection.register(ItemCell.self,
-                            forCellWithReuseIdentifier: ItemCell.cellId)
         collection.setCollectionViewLayout(layout, animated: false)
         if inverted {
             collection.transform = CGAffineTransform(scaleX: 1, y: -1)
@@ -149,11 +180,25 @@ class CollectionView<ItemCell: IdentifiableCollectionCell,
         })
     }
     
+    private func registerIfNeeded(registration: DiffableCellRegistration) {
+        guard !registeredCells.contains(registration.reuseId) else {
+            return
+        }
+        switch registration.type {
+        case .fromClass(let type):
+            collection.register(type, forCellWithReuseIdentifier: registration.reuseId)
+        case .fromNib(let nib):
+            collection.register(nib, forCellWithReuseIdentifier: registration.reuseId)
+        }
+    }
+    
     private func dequeueCell(collectionView: UICollectionView,
                              indexPath: IndexPath,
                              item: ItemModel) -> UICollectionViewCell {
+        let cellRegData = cellTypeForModel(item)
+        registerIfNeeded(registration: cellRegData)
         let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: ItemCell.cellId,
+            withReuseIdentifier: cellRegData.reuseId,
             for: indexPath)
         if inverted {
             cell.transform = CGAffineTransform(scaleX: 1, y: -1)
@@ -165,7 +210,41 @@ class CollectionView<ItemCell: IdentifiableCollectionCell,
         sections: [DiffableDataSource<SectionModel, ItemModel>.SectionEntry],
         animated: Bool = false,
         completion: (() -> Void)? = nil) {
-        self.dataSource.set(data: sections)
+        self.dataSource.set(
+            data: sections,
+            animated: animated,
+            completion: completion)
+    }
+    
+    func scrollToNextCell(animated: Bool) {
+        guard let nearest = collection.nearestCellToCenter() else {
+            return
+        }
+        let nextIndex = IndexPath(item: nearest.row + 1, section: nearest.section)
+        if infiniteScrollable {
+            guard self.dataSource.isValid(indexPath: nextIndex) else {
+                return
+            }
+        } else {
+            guard self.dataSource.data.isValidIndex(nextIndex.section),
+                  self.dataSource.data[nextIndex.section].items.isValidIndex(nextIndex.row) else {
+                return
+            }
+        }
+        
+        self.collection
+            .scrollToItem(at: nextIndex,
+                          at: .centeredHorizontally,
+                          animated: animated)
+    }
+    
+    func scrollToFirst(animated: Bool) {
+        let firstRow = dataSource.firstRow
+        let indexPath = IndexPath(item: firstRow, section: 0)
+        collection.scrollToItem(
+            at: indexPath,
+            at: .centeredHorizontally,
+            animated: animated)
     }
     
     // MARK: - Public API
@@ -255,6 +334,11 @@ class CollectionView<ItemCell: IdentifiableCollectionCell,
         snapToNearestCellIfNeeded()
     }
 
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        //TODO: Handle getting close to the end of the infinite scrolling and
+        // make sure to scroll back to the current cell - modifier.
+    }
+    
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if !decelerate {
             snapToNearestCellIfNeeded()
@@ -270,5 +354,9 @@ class CollectionView<ItemCell: IdentifiableCollectionCell,
     
     func getData() -> [DiffableDataSource<SectionModel, ItemModel>.SectionEntry] {
         return dataSource.data
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return insetForSection?(section) ?? .init(constant: 0)
     }
 }

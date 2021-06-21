@@ -17,10 +17,9 @@ final class EventSummarySmallView: UIView {
     private let heartButton = HeartButton(isActive: false)
     private let titleLabel = UILabel().styled(with: .smallEventTitle)
     private let subtitleLabel = UILabel().styled(with: .smallEventSubtitle)
-    private let backgroundImageView: UIImageView = {
-        let imageView = UIImageView()
+    private let backgroundImageView: TintedImageView = {
+        let imageView = TintedImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
         return imageView
     }()
     
@@ -29,7 +28,7 @@ final class EventSummarySmallView: UIView {
         stack.axis = .vertical
         stack.alignment = .leading
         stack.distribution = .fill
-        stack.spacing = 6
+        stack.spacing = 2
         stack.addArrangedSubview(titleLabel)
         stack.addArrangedSubview(subtitleLabel)
         return stack
@@ -40,7 +39,7 @@ final class EventSummarySmallView: UIView {
         stack.axis = .vertical
         stack.alignment = .fill
         stack.distribution = .fill
-        stack.spacing = 16
+        stack.spacing = 14
         stack.addArrangedSubview(topSectionView)
         stack.addArrangedSubview(infoStack)
         return stack
@@ -50,16 +49,12 @@ final class EventSummarySmallView: UIView {
         let view = UIView()
         view.layer.cornerRadius = 6
         view.clipsToBounds = true
-        let darkenView = UIView()
-        darkenView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
         view.addSubview(backgroundImageView)
-        view.addSubview(darkenView)
         view.addSubview(bannerView)
         view.addSubview(heartButton)
         view.addSubview(priceTagView)
         
         backgroundImageView.anchor(in: view)
-        darkenView.anchor(in: backgroundImageView)
         bannerView.anchor(
             in: view,
             to: [.left(), .top()],
@@ -88,16 +83,16 @@ final class EventSummarySmallView: UIView {
 
     // MARK: - Lifecycle
     
-    init(event: SGEventSummary) {
+    init(event: SGEventSummary? = nil) {
         super.init(frame: .zero)
         addSubview(contentStack)
-        contentStack.anchor(in: self, padding: .init(constant: 8))
-        
-        setup(using: event)
-        
-        Nuke.loadImage(
-            with: URL(string: event.imageUrl)!,
-            into: backgroundImageView)
+        contentStack.anchor(in: self,
+                            to: [.top(), .right(), .left(), .ltBottom()],
+                            padding: .init(top: 0, left: 0, bottom: 12, right: 0))
+        backgroundImageView.height(multiplier: 0.55, relativeTo: self)
+        if let event = event {
+            setup(using: event)
+        }
     }
     
     @available(*, unavailable)
@@ -111,8 +106,14 @@ final class EventSummarySmallView: UIView {
         setupBanner(by: event.banner)
         setupHeartButton(by: event)
         setupSubtitle(from: event)
-        priceTagView.set(price: event.ticketPrice)
+        if let ticketPrice = event.ticketPrice {
+            priceTagView.set(price: ticketPrice)
+        }
+        priceTagView.isHidden = event.ticketPrice == nil
         titleLabel.text = event.title
+        Nuke.loadImage(
+            with: URL(string: event.imageUrl)!,
+            into: backgroundImageView)
     }
     
     private func setupSubtitle(from event: SGEventSummary) {

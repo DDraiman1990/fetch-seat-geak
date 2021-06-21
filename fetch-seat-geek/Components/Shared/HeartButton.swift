@@ -19,6 +19,7 @@ final class HeartButton: UIButton {
     
     init(isActive: Bool) {
         super.init(frame: .zero)
+        imageView?.contentMode = .scaleAspectFit
         onStateChanged()
     }
     

@@ -10,15 +10,6 @@ import UIKit
 final class SearchResultsViewController: UIViewController {
     private var category: ResultCategory
     
-    private lazy var collectionView: CollectionView<SearchResultCell, String, SearchResultEntry>
-        = .init(layout: UICollectionViewFlowLayout()) { entry, indexPath in
-            return .init(width: 100, height: 100)
-        } onDequeuedCell: { [weak self] cell, _, entry in
-            return self?.setup(cell: cell, entry: entry) ?? cell
-        }
-
-
-    
     init(category: ResultCategory) {
         self.category = category
         super.init(nibName: nil, bundle: nil)

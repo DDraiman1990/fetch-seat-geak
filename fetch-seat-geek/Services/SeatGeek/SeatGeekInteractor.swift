@@ -9,22 +9,24 @@ import Foundation
 import RxSwift
 
 protocol SeatGeekInteracting {
-    func getAllEvents(
-        page: Int,
-        perPage: Int
-    ) -> Observable<SGEventsResponse>
-    
+    func getAllEvents(queries: [SeatGeekQuery]) -> Observable<SGEventsResponse>
     func getEvent(id: String) -> Observable<SGEvent>
-    func getAllPerformers(
-        page: Int,
-        perPage: Int
-    ) -> Observable<SGPerformersResponse>
+    func getAllPerformers(queries: [SeatGeekQuery]) -> Observable<SGPerformersResponse>
+    func getPerformersWithUpcoming() -> Observable<SGPerformersResponse>
     func getPerformer(id: String) -> Observable<SGPerformer>
-    func getAllVenues(
-        page: Int,
-        perPage: Int
-    ) -> Observable<SGVenuesResponse>
+    func getAllVenues(queries: [SeatGeekQuery]) -> Observable<SGVenuesResponse>
     func getVenue(id: String) -> Observable<SGVenue>
+    func getGenre(id: String) -> Observable<SGGenre>
+    func getAllGenres() -> Observable<SGGenresResponse>
+    func getBrowseCategories() -> Observable<SGBrowseGenresResponse>
+    func recommendedEvents(
+        byEventId: Int,
+        queries: [SeatGeekQuery]
+    ) -> Observable<SGEventsResponse>
+    func recommendedEvents(
+        byPerformersIds: [Int], 
+        queries: [SeatGeekQuery]
+    ) -> Observable<SGEventsResponse>
 }
 
 class SeatGeekInteractor: SeatGeekInteracting {
@@ -80,45 +82,114 @@ class SeatGeekInteractor: SeatGeekInteracting {
     
     // MARK: - Methods | SeatGeekInteracting
     
-    func getAllEvents(
-        page: Int,
-        perPage: Int
-    ) -> Observable<SGEventsResponse> {
-        return request(route: SeatGeekRoutes
-                        .events(request: .all(
-                                        perPage: perPage,
-                                        page: page)))
+    func getAllEvents(queries: [SeatGeekQuery]) -> Observable<SGEventsResponse> {
+        return request(
+            route: SeatGeekRoutes
+                .events(request: .all(queries: queries)))
     }
     
     func getEvent(id: String) -> Observable<SGEvent> {
-        return request(route: SeatGeekRoutes.events(request: .get(id: id)))
+        return request(
+            route: SeatGeekRoutes
+                .events(request: .get(id: id)))
     }
     
-    func getAllPerformers(
-        page: Int,
-        perPage: Int
-    ) -> Observable<SGPerformersResponse> {
-        return request(route: SeatGeekRoutes
-                        .performers(request: .all(
-                                        perPage: perPage,
-                                        page: page)))
+    func getAllPerformers(queries: [SeatGeekQuery]) -> Observable<SGPerformersResponse> {
+        return request(
+            route: SeatGeekRoutes
+                .performers(request: .all(queries: queries)))
     }
     
     func getPerformer(id: String) -> Observable<SGPerformer> {
-        return request(route: SeatGeekRoutes.performers(request: .get(id: id)))
+        return request(
+            route: SeatGeekRoutes
+                .performers(request: .get(id: id)))
     }
     
-    func getAllVenues(
-        page: Int,
-        perPage: Int
-    ) -> Observable<SGVenuesResponse> {
-        return request(route: SeatGeekRoutes
-                        .venues(request: .all(
-                                        perPage: perPage,
-                                        page: page)))
+    func getPerformersWithUpcoming() -> Observable<SGPerformersResponse> {
+        return request(
+            route: SeatGeekRoutes
+                .performers(request: .all(queries: [
+                    .hasUpcomingEvents,
+                    .sort(query: .init(field: .score, direction: .descending)),
+                    .pagination(query: .init(perPage: 4, currentPage: 1))
+                ])))
+    }
+    
+    func getAllVenues(queries: [SeatGeekQuery]) -> Observable<SGVenuesResponse> {
+        return request(
+            route: SeatGeekRoutes
+                .venues(request: .all(queries: queries)))
     }
     
     func getVenue(id: String) -> Observable<SGVenue> {
-        return request(route: SeatGeekRoutes.venues(request: .get(id: id)))
+        return request(
+            route: SeatGeekRoutes
+                .venues(request: .get(id: id)))
+    }
+    
+    func recommendedEvents(
+        byEventId id: Int,
+        queries: [SeatGeekQuery]
+    ) -> Observable<SGEventsResponse> {
+        return request(
+            route: SeatGeekRoutes
+                .recommendations(request: .byEvent(
+                                    eventId: id,
+                                    queries: queries)))
+    }
+    
+    func recommendedEvents(
+        byPerformersIds ids: [Int],
+        queries: [SeatGeekQuery]
+    ) -> Observable<SGEventsResponse> {
+        return request(
+            route: SeatGeekRoutes
+                .recommendations(request: .byPerformers(
+                                    performersIds: ids,
+                                    queries: queries)))
+    }
+    
+    func getAllGenres() -> Observable<SGGenresResponse> {
+        return request(
+            route: SeatGeekRoutes.genres(request: .all))
+    }
+    
+    func getGenre(id: String) -> Observable<SGGenre> {
+        return request(
+            route: SeatGeekRoutes.genres(request: .get(id: id)))
+    }
+    
+    private func categoryRequest(category: String
+    ) -> Observable<SGEventsResponse> {
+        return request(route: SeatGeekRoutes.events(request: .all(queries: [
+            SeatGeekQuery.hasEventType(types: [category]),
+            .sort(query: .init(field: .score, direction: .descending)),
+            .pagination(query: .init(perPage: 10, currentPage: 1))
+        ])))
+    }
+    
+    func getBrowseCategories() -> Observable<SGBrowseGenresResponse> {
+        let broadwayShowsRequest = categoryRequest(category: SeatGeekRoutes.Constants.EventTypes.broadwayShows)
+        let comedyRequest = categoryRequest(category: SeatGeekRoutes.Constants.EventTypes.comedy)
+        let concertsRequest = categoryRequest(category: SeatGeekRoutes.Constants.EventTypes.concerts)
+        let sportsRequest = categoryRequest(category: SeatGeekRoutes.Constants.EventTypes.sports)
+        let musicFestivalsRequest = categoryRequest(category: SeatGeekRoutes.Constants.EventTypes.musicFestivals)
+        return Observable.zip([
+            broadwayShowsRequest,
+            comedyRequest,
+            concertsRequest,
+            sportsRequest,
+            musicFestivalsRequest
+        ])
+        .map { response -> SGBrowseGenresResponse in
+            return SGBrowseGenresResponse.init(genres: [
+                ("Sports", response[0].events),
+                ("Comedy", response[1].events),
+                ("Concerts", response[2].events),
+                ("Music Festivals", response[3].events),
+                ("Broadway Shows", response[4].events)
+            ])
+        }
     }
 }

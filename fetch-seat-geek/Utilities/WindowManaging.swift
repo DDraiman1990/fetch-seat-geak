@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol WindowManaging {
+protocol WindowManaging: class {
     var window: UIWindow? { get set }
 }
 

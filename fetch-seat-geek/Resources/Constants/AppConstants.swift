@@ -5,7 +5,7 @@
 //  Created by Dan Draiman on 6/13/21.
 //
 
-import Foundation
+import UIKit
 
 enum AppConstants {
     enum Keys {
@@ -22,6 +22,22 @@ enum AppConstants {
         enum Formats {
             static let dayWithShortSlashDate = "EEE, M/d"
             static let shortDate = "MMM d"
+        }
+    }
+    
+    enum Collections {
+        enum Layouts {
+            static func basicHorizontal(spacing: CGFloat = 0) -> UICollectionViewLayout {
+                let flowlayout = UICollectionViewFlowLayout()
+                flowlayout.minimumInteritemSpacing = 0
+                flowlayout.minimumLineSpacing = spacing
+                flowlayout.scrollDirection = .horizontal
+                return flowlayout
+            }
+            
+            static func horizontalSnap() -> UICollectionViewLayout {
+                return ZoomAndSnapFlowLayout()
+            }
         }
     }
 }
