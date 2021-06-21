@@ -7,7 +7,9 @@
 
 import UIKit
 
-final class GenresCollectionView: UIView {
+final class GenresCollectionView: UIView, CollectionViewContaining {
+    var onSelectedItem: ((IndexPath) -> Void)?
+    
     private lazy var collection: CollectionView<Int, SGGenre> = .init(
         layout: AppConstants.Collections.Layouts.basicHorizontal(spacing: 12)) { _, _ -> CGSize in
             let height = self.frame.height - 8
@@ -29,6 +31,9 @@ final class GenresCollectionView: UIView {
         collection.isPagingEnabled = true
         collection.insetForSection = { _ in
             return .init(top: 0, left: 20, bottom: 0, right: 0)
+        }
+        collection.didSelectItem = { [weak self] _, ip in
+            self?.onSelectedItem?(ip)
         }
         collection.showsVerticalScrollIndicator = false
         collection.showsHorizontalScrollIndicator = false

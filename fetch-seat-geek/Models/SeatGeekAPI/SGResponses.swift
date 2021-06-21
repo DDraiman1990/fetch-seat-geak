@@ -26,5 +26,11 @@ struct SGGenresResponse: Decodable {
 }
 
 struct SGBrowseGenresResponse {
-    var genres: [(String, [SGEvent])]
+    var genres: [SingleGenreResponse]
+}
+
+struct SingleGenreResponse: Equatable {
+    var name: String
+    var slug: String
+    var evnets: [SGEvent]
 }

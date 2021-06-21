@@ -184,11 +184,21 @@ class SeatGeekInteractor: SeatGeekInteracting {
         ])
         .map { response -> SGBrowseGenresResponse in
             return SGBrowseGenresResponse.init(genres: [
-                ("Sports", response[0].events),
-                ("Comedy", response[1].events),
-                ("Concerts", response[2].events),
-                ("Music Festivals", response[3].events),
-                ("Broadway Shows", response[4].events)
+                .init(name: "Sports",
+                      slug: SeatGeekRoutes.Constants.EventTypes.sports,
+                      evnets: response[0].events),
+                .init(name: "Comedy",
+                      slug: SeatGeekRoutes.Constants.EventTypes.comedy,
+                      evnets: response[1].events),
+                .init(name: "Concerts",
+                      slug: SeatGeekRoutes.Constants.EventTypes.concerts,
+                      evnets: response[2].events),
+                .init(name: "Music Festivals",
+                      slug: SeatGeekRoutes.Constants.EventTypes.musicFestivals,
+                      evnets: response[3].events),
+                .init(name: "Broadway Shows",
+                      slug: SeatGeekRoutes.Constants.EventTypes.broadwayShows,
+                      evnets: response[4].events)
             ])
         }
     }
