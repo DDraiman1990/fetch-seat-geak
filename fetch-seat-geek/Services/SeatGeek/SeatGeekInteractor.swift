@@ -176,11 +176,11 @@ class SeatGeekInteractor: SeatGeekInteracting {
         let sportsRequest = categoryRequest(category: SeatGeekRoutes.Constants.EventTypes.sports)
         let musicFestivalsRequest = categoryRequest(category: SeatGeekRoutes.Constants.EventTypes.musicFestivals)
         return Observable.zip([
-            broadwayShowsRequest,
+            sportsRequest,
             comedyRequest,
             concertsRequest,
-            sportsRequest,
-            musicFestivalsRequest
+            musicFestivalsRequest,
+            broadwayShowsRequest
         ])
         .map { response -> SGBrowseGenresResponse in
             return SGBrowseGenresResponse.init(genres: [
