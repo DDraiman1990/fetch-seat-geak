@@ -8,6 +8,6 @@
 
 "app_name" = "Fetch Seat Geak";
 
-"tab_events_title" = "Events";
-"tab_performers_title" = "Performers";
-"tab_venues_title" = "Venues";
+"tab_browse_title" = "BROWSE";
+"tab_search_title" = "SEARCH";
+"tab_tracking_title" = "TRACKING";

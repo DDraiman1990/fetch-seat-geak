@@ -23,13 +23,13 @@ enum PageFactory {
         return TabController(
             tabs: [
                 .init(viewController: browsePage(),
-                      tabTitle: "BROWSE",
+                      tabTitle: R.string.main.tab_browse_title(),
                       tabDeselectedIcon: R.image.globe()),
                 .init(viewController: fakeVC2,
-                      tabTitle: "SEARCH",
+                      tabTitle: R.string.main.tab_search_title(),
                       tabDeselectedIcon: R.image.magnifyingglass()),
                 .init(viewController: fakeVC3,
-                      tabTitle: "TRACKING",
+                      tabTitle: R.string.main.tab_tracking_title(),
                       tabDeselectedIcon: R.image.heart())
             ],
             style: .init(
