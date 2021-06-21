@@ -9,7 +9,8 @@ import UIKit
 
 final class EventsCollectionView: UIView, CollectionViewContaining {
     var onSelectedItem: ((IndexPath) -> Void)?
-    
+    var trackTapped: ((Int) -> Void)?
+    private var trackedIds: Set<Int> = []
     private lazy var collection: CollectionView<Int, SGEventSummary> = .init(
         layout: AppConstants.Collections.Layouts.basicHorizontal(spacing: 8)) { _, _ -> CGSize in
             let height = self.frame.height - 8
@@ -19,8 +20,14 @@ final class EventsCollectionView: UIView, CollectionViewContaining {
             return .init(
                 reuseId: EventSummarySmallCell.cellId,
                 type: .fromClass(type: EventSummarySmallCell.self))
-        } onDequeuedCell: { cell, indexPath, data -> UICollectionViewCell in
-            (cell as? EventSummarySmallCell)?.setup(event: data)
+        } onDequeuedCell: { [weak self] cell, indexPath, data -> UICollectionViewCell in
+            let summaryCell = cell as? EventSummarySmallCell
+            summaryCell?.setup(event: data)
+            let isTracked = self?.trackedIds.contains(data.id) ?? false
+            summaryCell?.set(isTracked: isTracked)
+            summaryCell?.trackTapped = { [weak self] in
+                self?.trackTapped?(data.id)
+            }
             return cell
         }
     
@@ -48,5 +55,10 @@ final class EventsCollectionView: UIView, CollectionViewContaining {
         collection.set(sections: [
             .init(section: 0, items: data)
         ])
+    }
+    
+    func set(trackedIds: Set<Int>) {
+        self.trackedIds = trackedIds
+        collection.reload(sections: [0])
     }
 }

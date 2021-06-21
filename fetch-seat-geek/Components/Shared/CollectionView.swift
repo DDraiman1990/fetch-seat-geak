@@ -294,9 +294,9 @@ class CollectionView<SectionModel: Hashable,
         return self.collection.cellForItem(at: indexPath)
     }
     
-    func softReload() {
+    func reload(sections: IndexSet) {
         DispatchQueue.main.async {
-            self.collection.performBatchUpdates(nil, completion: nil)
+            self.collection.reloadSections(sections)
         }
     }
         

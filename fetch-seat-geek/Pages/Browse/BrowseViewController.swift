@@ -15,6 +15,7 @@ final class BrowseViewController: UIViewController, ViewModeled {
         var location: String = ""
         var dates: String = ""
         var sections: [BrowseSection] = []
+        var trackedIds: Set<Int> = []
     }
     
     enum Interaction {
@@ -123,14 +124,19 @@ extension BrowseViewController: UITableViewDelegate, UITableViewDataSource {
             assertionFailure("Failed to dequeue")
             return UITableViewCell()
         }
-        let cell = section.dequeue(from: table, indexPath: indexPath)
+        let cell = section.dequeue(
+            from: table,
+            indexPath: indexPath,
+            trackedIds: viewModel.value.trackedIds)
         (cell as? ViewAllHeaderCell)?.onActionTapped = { [weak self] in
             self?.viewModel.send(.tappedViewAll(section: section))
         }
         (cell as? CollectionViewContaining)?.onSelectedItem = { [weak self] ip in
             self?.viewModel.send(.onTapped(row: ip.item, section: section))
         }
-        
+        (cell as? TrackableView)?.trackTapped = { [weak self] id in
+            self?.viewModel.send(.trackTappedFor(id: id))
+        }
         return cell
     }
     

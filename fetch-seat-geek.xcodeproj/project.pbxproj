@@ -126,6 +126,8 @@
 		64B8A4D5267A77C800B5F5A1 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B8A4D4267A77C800B5F5A1 /* TableView.swift */; };
 		64B8A4DA267A79B200B5F5A1 /* IdentifiableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B8A4D9267A79B200B5F5A1 /* IdentifiableCell.swift */; };
 		64B8A4E7267A7DF300B5F5A1 /* DiffableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B8A4E6267A7DF300B5F5A1 /* DiffableDataSource.swift */; };
+		64C2EBAF268131C800936393 /* DatabaseInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C2EBAE268131C800936393 /* DatabaseInteractor.swift */; };
+		64C2EBB5268135E700936393 /* TrackedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C2EBB4268135E700936393 /* TrackedManager.swift */; };
 		64C7A3932673DF0400951930 /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = 64C7A3922673DF0400951930 /* Main.strings */; };
 		64C7A3A02673F59500951930 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C7A39F2673F59500951930 /* ViewModel.swift */; };
 		64C7A3A82673F5A600951930 /* ViewModel+TypeErasure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C7A3A72673F5A600951930 /* ViewModel+TypeErasure.swift */; };
@@ -296,6 +298,8 @@
 		64B8A4D4267A77C800B5F5A1 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		64B8A4D9267A79B200B5F5A1 /* IdentifiableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiableCell.swift; sourceTree = "<group>"; };
 		64B8A4E6267A7DF300B5F5A1 /* DiffableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffableDataSource.swift; sourceTree = "<group>"; };
+		64C2EBAE268131C800936393 /* DatabaseInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseInteractor.swift; sourceTree = "<group>"; };
+		64C2EBB4268135E700936393 /* TrackedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackedManager.swift; sourceTree = "<group>"; };
 		64C7A3922673DF0400951930 /* Main.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Main.strings; sourceTree = "<group>"; };
 		64C7A39F2673F59500951930 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		64C7A3A72673F5A600951930 /* ViewModel+TypeErasure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModel+TypeErasure.swift"; sourceTree = "<group>"; };
@@ -596,6 +600,22 @@
 			path = Stubs;
 			sourceTree = "<group>";
 		};
+		64C2EBAD268131BA00936393 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				64C2EBAE268131C800936393 /* DatabaseInteractor.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		64C2EBB3268135D900936393 /* Tracked */ = {
+			isa = PBXGroup;
+			children = (
+				64C2EBB4268135E700936393 /* TrackedManager.swift */,
+			);
+			path = Tracked;
+			sourceTree = "<group>";
+		};
 		64C7A3912673DE8D00951930 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
@@ -806,6 +826,8 @@
 		64E6E94E2672F73E00BDE2E6 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				64C2EBB3268135D900936393 /* Tracked */,
+				64C2EBAD268131BA00936393 /* Database */,
 				646BED002681138200F82966 /* Share */,
 				6440B7D52676964F0087987F /* SeatGeek */,
 				6440B6FE2675B2A70087987F /* APIKeys */,
@@ -1257,6 +1279,7 @@
 				645D684F267CFFCB005C3D97 /* ApplicationManager.swift in Sources */,
 				64E6E9A72672FA2300BDE2E6 /* LogMetadata.swift in Sources */,
 				64C7A3A02673F59500951930 /* ViewModel.swift in Sources */,
+				64C2EBB5268135E700936393 /* TrackedManager.swift in Sources */,
 				64B8A4D5267A77C800B5F5A1 /* TableView.swift in Sources */,
 				644AF5C42679166000E62181 /* EventSummarySmallView.swift in Sources */,
 				64A037B2267CF2D100A27D5E /* BrowseViewModel.swift in Sources */,
@@ -1293,6 +1316,7 @@
 				644AF5B72679104A00E62181 /* TitledBannerView.swift in Sources */,
 				644AF5DC2679648C00E62181 /* SGEventSummary.swift in Sources */,
 				645D6876267D5087005C3D97 /* FeaturedInnerCollectionCell.swift in Sources */,
+				64C2EBAF268131C800936393 /* DatabaseInteractor.swift in Sources */,
 				64E6E96B2672F90000BDE2E6 /* R.generated.swift in Sources */,
 				64E6E9A92672FA2300BDE2E6 /* LogFormat.swift in Sources */,
 				64B18BA72676D21B002924C8 /* SGResponses.swift in Sources */,

@@ -15,7 +15,6 @@ struct SGEventSummary: IdentifiableItem {
     var venueName: String
     var venueLocation: String
     var ticketPrice: String?
-    var isTracked: Bool
     var canBeTracked: Bool
     var imageUrl: String
     
@@ -27,7 +26,6 @@ struct SGEventSummary: IdentifiableItem {
                      venueName: "Venue \(Int.random(in: 0...1000))",
                      venueLocation: "Neverland, \(Int.random(in: 0...100000000000))",
                      ticketPrice: "\(Int.random(in: 1...300))+",
-                     isTracked: Bool.random(),
                      canBeTracked: Bool.random(),
                      imageUrl: "https://seatgeek.com/images/performers-landscape/canadian-grand-prix-274211/9815/huge.jpg")
     }

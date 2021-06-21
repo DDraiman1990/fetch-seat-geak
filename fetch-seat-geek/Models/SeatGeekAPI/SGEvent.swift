@@ -54,7 +54,6 @@ struct SGEvent: Decodable, Hashable {
             venueName: venue.name,
             venueLocation: venue.displayLocation,
             ticketPrice: priceTag,
-            isTracked: false,
             canBeTracked: true,
             imageUrl: self.performers.first?.image ?? "")
     }

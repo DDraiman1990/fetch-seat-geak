@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class EventsInnerCollectionCell: UITableViewCell, CollectionViewContaining {
+final class EventsInnerCollectionCell: UITableViewCell, CollectionViewContaining, TrackableView {
     public static let cellId = "EventsInnerCollectionCell"
     
     var onSelectedItem: ((IndexPath) -> Void)? {
@@ -16,6 +16,15 @@ final class EventsInnerCollectionCell: UITableViewCell, CollectionViewContaining
         }
         set {
             view.onSelectedItem = newValue
+        }
+    }
+    
+    var trackTapped: ((Int) -> Void)? {
+        get {
+            view.trackTapped
+        }
+        set {
+            view.trackTapped = newValue
         }
     }
     
@@ -37,5 +46,9 @@ final class EventsInnerCollectionCell: UITableViewCell, CollectionViewContaining
     
     func setup(data: [SGEventSummary]) {
         view.set(data: data)
+    }
+    
+    func set(trackdIds: Set<Int>) {
+        view.set(trackedIds: trackdIds)
     }
 }

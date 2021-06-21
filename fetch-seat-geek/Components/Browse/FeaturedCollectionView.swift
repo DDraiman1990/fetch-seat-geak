@@ -7,9 +7,10 @@
 
 import UIKit
 
-final class FeaturedInnerCollectionView: UIView, CollectionViewContaining {
+final class FeaturedInnerCollectionView: UIView, CollectionViewContaining, TrackableView {
     var onSelectedItem: ((IndexPath) -> Void)?
-    
+    var trackTapped: ((Int) -> Void)?
+    private var trackedIds: Set<Int> = []
     private var autoScrollTimer: Timer?
     
     enum FeaturedData: IdentifiableItem {
@@ -41,12 +42,18 @@ final class FeaturedInnerCollectionView: UIView, CollectionViewContaining {
                     reuseId: PerformerSummaryCell.cellId,
                     type: .fromClass(type: PerformerSummaryCell.self))
             }
-        } onDequeuedCell: { cell, indexPath, data -> UICollectionViewCell in
+        } onDequeuedCell: { [weak self] cell, indexPath, data in
             switch data {
             case .performer(let performer):
                 (cell as? PerformerSummaryCell)?.setup(performer: performer)
             case .event(let summary):
-                (cell as? EventSummaryLargeCell)?.setup(event: summary)
+                let summaryCell = cell as? EventSummaryLargeCell
+                summaryCell?.setup(event: summary)
+                let isTracked = self?.trackedIds.contains(summary.id) ?? false
+                summaryCell?.set(isTracked: isTracked)
+                summaryCell?.trackTapped = { [weak self] in
+                    self?.trackTapped?(data.id)
+                }
             }
             return cell
         }
@@ -95,11 +102,20 @@ final class FeaturedInnerCollectionView: UIView, CollectionViewContaining {
     }
     
     func set(data: [FeaturedData]) {
+        // To prevent reloading and reseting to first index
+        guard data != collection.getData().first?.items else {
+            return
+        }
         collection.set(sections: [
             .init(section: 0, items: data)
         ]) { [weak self] in
             //To ensure always at the middle of the infinite scroll
             self?.collection.scrollToFirst(animated: false)
         }
+    }
+    
+    func set(trackedIds: Set<Int>) {
+        self.trackedIds = trackedIds
+        collection.reload(sections: [0])
     }
 }

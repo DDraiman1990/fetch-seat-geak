@@ -9,7 +9,8 @@ import UIKit
 import Nuke
 
 final class EventSummaryLargeView: UIView {
-    
+    var trackTapped: (() -> Void)?
+
     // MARK: - Properties | Components
     
     private let bannerView = TitledBannerView()
@@ -70,8 +71,12 @@ final class EventSummaryLargeView: UIView {
             to: [.right(), .top()],
             padding: .init(constant: 12))
         heartButton.aspectRatioSquare()
-        heartButton.height(multiplier: 0.1, relativeTo: self)
+        heartButton.height(multiplier: 0.2, relativeTo: self)
         backgroundImageView.anchor(in: self)
+        
+        heartButton.addTarget(self,
+                              action: #selector(heartTapped),
+                              for: .touchUpInside)
         
         if let event = event {
             setup(using: event)
@@ -113,7 +118,10 @@ final class EventSummaryLargeView: UIView {
     
     private func setupHeartButton(by event: SGEventSummary) {
         heartButton.isHidden = !event.canBeTracked
-        heartButton.isActive = event.isTracked
+    }
+    
+    func set(isTracked: Bool) {
+        heartButton.isActive = isTracked
     }
     
     private func setupBanner(by banner: SGBanner?) {
@@ -123,5 +131,9 @@ final class EventSummaryLargeView: UIView {
                             titleColor: banner?.textColor ?? .black,
                             font: banner?.font ?? .systemFont(ofSize: 15),
                             backgroundColor: banner?.backgroundColor ?? .clear))
+    }
+    
+    @objc private func heartTapped() {
+        trackTapped?()
     }
 }

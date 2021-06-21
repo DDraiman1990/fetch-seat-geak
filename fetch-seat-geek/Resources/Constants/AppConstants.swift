@@ -8,6 +8,9 @@
 import UIKit
 
 enum AppConstants {
+    enum Database {
+        static let suiteName = "com.nexxmark.fetch-seat-geek"
+    }
     enum Keys {
         static let seatGeekStoredClientId = "seat-geek-client"
         static let seatGeekClientIdParamName = "client_id"

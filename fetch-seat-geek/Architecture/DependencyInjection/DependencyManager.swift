@@ -21,7 +21,10 @@ final class DependencyManager: DependencyManaging {
         logger.set(format: AppConstants.Logs.logFormat)
         return logger
     }()
+    private let _databaseInteractor: DatabaseInteracting = DatabaseInteractor(suiteName: AppConstants.Database.suiteName)
     private let apiKeysManager = APIKeysManager()
+    
+    private lazy var _trackedManager: TrackedManaging = TrackedManager(databaseInteractor: _databaseInteractor)
     private lazy var _networkService: NetworkServicing = NetworkService(
         session: .shared,
         plugins: [
@@ -40,6 +43,8 @@ final class DependencyManager: DependencyManaging {
         resolver.add(_logger)
         resolver.add(_networkService)
         resolver.add(_seatGeekInteractor)
+        resolver.add(_databaseInteractor)
+        resolver.add(_trackedManager)
     }
 }
 
