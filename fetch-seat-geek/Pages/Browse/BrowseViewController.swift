@@ -92,6 +92,14 @@ final class BrowseViewController: UIViewController, ViewModeled {
                 self?.onModelChanged(model: model.newValue)
         }
         .disposed(by: disposeBag)
+        
+        viewModel
+            .presentPublisher
+            .observe(on: MainScheduler.instance)
+            .subscribeToValue { [weak self] vc in
+                self?.push(viewController: vc, animated: true)
+        }
+        .disposed(by: disposeBag)
     }
     
     private func onModelChanged(model: Model) {

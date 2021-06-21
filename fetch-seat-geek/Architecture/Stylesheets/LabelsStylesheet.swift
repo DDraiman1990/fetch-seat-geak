@@ -75,12 +75,16 @@ enum LabelsStylesheet {
             label.textColor = UIColor.white
             label.numberOfLines = 1
         case .eventDetailsTitle:
-            label.font = R.font.proximaNovaBold(size: 30)
+            label.font = R.font.proximaNovaBold(size: 25)
             label.textColor = UIColor.black
         case .eventDetailsSubtitle:
-            label.font = R.font.proximaNovaBold(size: 22)
-            label.textColor = UIColor.black.withAlphaComponent(0.8)
+            label.font = R.font.proximaNovaBold(size: 20)
+            label.numberOfLines = 2
+            label.lineBreakMode = .byWordWrapping
+            label.textColor = UIColor.black.withAlphaComponent(0.7)
         case .travelTimeTitle:
+            label.numberOfLines = 2
+            label.lineBreakMode = .byWordWrapping
             label.font = R.font.proximaNovaRegular(size: 16)
             label.textColor = UIColor.black
         case .travelTimeTime:

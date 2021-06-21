@@ -18,11 +18,11 @@ final class EventDetailsLocationView: UIView {
     private let locationLabel = UILabel().styled(with: .eventDetailsSubtitle)
     private let driveTravelTimeView = TravelTimeView(
         title: R.string.general.drive(),
-        travelTime: "\(Int.random(in: 1...4)), \(Int.random(in: 1...58)) min",
+        travelTime: "",
         icon: R.image.car())
     private let walkTravelTimeView = TravelTimeView(
         title: R.string.general.walk(),
-        travelTime: "\(Int.random(in: 10...40)), \(Int.random(in: 1...58)) min",
+        travelTime: "",
         icon: R.image.pedestrian())
     private let trackingButton = ActionButton(
         title: R.string.general.track(),
@@ -76,7 +76,9 @@ final class EventDetailsLocationView: UIView {
     }()
     
     init(locationName: String,
-         location: String) {
+         location: String,
+         driveTime: String? = nil,
+         walkTime: String? = nil) {
         super.init(frame: .zero)
         addSubview(contentStack)
         contentStack.anchor(
@@ -85,7 +87,8 @@ final class EventDetailsLocationView: UIView {
         titleLabel.text = R.string.general.location()
         set(location: location)
         set(locationName: locationName)
-        
+        set(driveTime: driveTime)
+        set(walkTime: walkTime)
         viewAllView.onTapped = { [weak self] in
             self?.onViewAllTapped?()
         }
@@ -109,6 +112,16 @@ final class EventDetailsLocationView: UIView {
     
     func set(locationName: String) {
         locationNameLabel.text = locationName
+    }
+    
+    func set(driveTime: String?) {
+        driveTravelTimeView.set(travelTime: driveTime ?? "")
+        driveTravelTimeView.isHidden = driveTime == nil
+    }
+    
+    func set(walkTime: String?) {
+        driveTravelTimeView.set(travelTime: walkTime ?? "")
+        driveTravelTimeView.isHidden = walkTime == nil
     }
     
     @objc private func viewAllTapped() {

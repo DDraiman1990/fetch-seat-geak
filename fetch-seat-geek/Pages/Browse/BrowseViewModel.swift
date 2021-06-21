@@ -72,7 +72,12 @@ final class BrowseViewModel: ViewModel {
     }
     
     var valuePublisher: Observable<ModelUpdate<BrowseViewController.Model>> {
-        return valueRelay.asObservable().toModelUpdate()
+        return valueRelay.share().asObservable().toModelUpdate()
+    }
+    
+    private let presentRelay: PublishSubject<UIViewController> = .init()
+    var presentPublisher: Observable<UIViewController> {
+        return presentRelay.share().asObservable()
     }
     
     // MARK: - Properties
@@ -199,6 +204,8 @@ final class BrowseViewModel: ViewModel {
     
     private func onSelected(event: SGEventSummary) {
         print("Selected event \(event.title)")
+        let eventDetails = PageFactory.eventsDetails(eventId: event.id)
+        presentRelay.onNext(eventDetails)
     }
     
     private func onSelected(genre: SGGenre) {

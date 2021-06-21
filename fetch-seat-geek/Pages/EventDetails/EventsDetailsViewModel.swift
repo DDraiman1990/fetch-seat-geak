@@ -71,6 +71,22 @@ final class EventsDetailsViewModel: ViewModel {
     
     private func onFetched(event: SGEvent) {
         self.event = event
-        //TODO: update model
+        //TODO: check TrackedManager for isTracked
+        let subtitle = AppConstants
+            .DateFormatters
+            .fullDateAndTimeFormatter
+            .string(from: event.datetimeLocal)
+        self.valueRelay.accept(.init(
+                                headerImageUrl: event.performers.first?.image,
+                                pageTitle: event.shortTitle,
+                                headerData: .init(
+                                    title: event.title,
+                                    subtitle: subtitle,
+                                    isTracked: false),
+                                locationData: .init(
+                                    locationName: event.venue.name,
+                                    location: event.venue.displayLocation,
+                                    driveTime: "\(Int.random(in: 1...4))h, \(Int.random(in: 1...59)) min",
+                                    walkTime: "\(Int.random(in: 5...40))h, \(Int.random(in: 1...59)) min")))
     }
 }

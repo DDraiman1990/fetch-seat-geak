@@ -25,6 +25,14 @@ enum AppConstants {
         }
     }
     
+    enum DateFormatters {
+        static let fullDateAndTimeFormatter: DateFormatter = {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "E, MMM d, yyyy 'at' h:mm aa"
+            return formatter
+        }()
+    }
+    
     enum Collections {
         enum Layouts {
             static func basicHorizontal(spacing: CGFloat = 0) -> UICollectionViewLayout {

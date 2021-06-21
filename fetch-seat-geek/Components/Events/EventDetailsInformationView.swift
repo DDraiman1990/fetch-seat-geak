@@ -1,5 +1,5 @@
 //
-//  EventDetailsHeader.swift
+//  EventDetailsInformationView.swift
 //  fetch-seat-geek
 //
 //  Created by Dan Draiman on 6/20/21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class EventDetailsHeader: UIView {
+final class EventDetailsInformationView: UIView {
     private let titleLabel = UILabel().styled(with: .eventDetailsTitle)
     private let subtitleLabel = UILabel().styled(with: .eventDetailsSubtitle)
     private let trackingButton = ActionButton(
@@ -22,7 +22,7 @@ final class EventDetailsHeader: UIView {
     private lazy var labelsStack: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
-        stack.spacing = 2
+        stack.spacing = 0
         stack.addArrangedSubview(titleLabel)
         stack.addArrangedSubview(subtitleLabel)
         return stack
@@ -31,7 +31,7 @@ final class EventDetailsHeader: UIView {
     private lazy var buttonsStack: UIStackView = {
         let stack = UIStackView()
         stack.axis = .horizontal
-        stack.alignment = .leading
+        stack.alignment = .fill
         stack.distribution = .fill
         stack.spacing = 8
         stack.addArrangedSubview(trackingButton)
@@ -43,6 +43,7 @@ final class EventDetailsHeader: UIView {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.spacing = 8
+        stack.alignment = .leading
         stack.addArrangedSubview(labelsStack)
         stack.addArrangedSubview(buttonsStack)
         return stack

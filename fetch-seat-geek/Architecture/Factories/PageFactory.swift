@@ -13,8 +13,7 @@ enum PageFactory {
             eventId: eventId,
             resolver: DependencyResolver.shared)
         let vc = EventDetailsViewController(viewModel: vm.eraseToAnyViewModel())
-        let nc = UINavigationController(rootViewController: vc)
-        return nc
+        return vc
     }
     
     static func browsePage() -> UIViewController {
