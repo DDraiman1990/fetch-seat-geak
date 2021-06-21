@@ -16,9 +16,6 @@ final class ApplicationManager {
     }
     
     func presentRequiredPage() {
-        let vm = BrowseViewModel(resolver: DependencyResolver.shared)
-        let vc = BrowseViewController(viewModel: vm.eraseToAnyViewModel())
-        let nc = UINavigationController(rootViewController: vc)
-        windowManager?.setRoot(viewController: nc)
+        windowManager?.setRoot(viewController: PageFactory.tabController())
     }
 }
