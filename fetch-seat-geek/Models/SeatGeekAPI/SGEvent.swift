@@ -37,6 +37,10 @@ struct SGEvent: Decodable, Hashable {
         case dateTbd = "date_tbd"
     }
     
+    var eventImageUrl: String? {
+        return performers.first?.image
+    }
+    
     var toSummary: SGEventSummary {
         var priceTag: String?
         if let lowest = stats.lowestPrice {

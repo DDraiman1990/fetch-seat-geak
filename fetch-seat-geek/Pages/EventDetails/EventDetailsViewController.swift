@@ -31,7 +31,7 @@ final class EventDetailsViewController: UIViewController, ViewModeled {
     }
     
     struct Model: DataModel {
-        var headerImage: UIImage?
+        var headerImageUrl: String?
         var pageTitle: String?
         var headerData: HeaderData?
         var locationData: LocationData?
@@ -195,7 +195,9 @@ final class EventDetailsViewController: UIViewController, ViewModeled {
     
     private func onModelChanged(model: Model) {
         table.reloadData()
-        headerImageView.image = model.headerImage
+        if let url = URL(string: model.headerImageUrl ?? "") {
+            Nuke.loadImage(with: url, into: headerImageView)
+        }
     }
     
     @objc private func backTapped() {

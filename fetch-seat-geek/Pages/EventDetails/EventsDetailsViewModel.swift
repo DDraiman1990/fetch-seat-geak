@@ -90,34 +90,48 @@ final class EventsDetailsViewModel: ViewModel {
         guard let event = self.event else {
             return
         }
-        let builder = ShareActivityBuilder(
-            shareData: SeatGeekShareData.event(
-                event: event,
-                image: self.value.headerImage))
-        let vc = builder.buildActivityViewController { _ in }
-        presentRelay.onNext(vc)
+        downloadEventImage()
+            .subscribe { [weak self] image in
+                let builder = ShareActivityBuilder(
+                    shareData: SeatGeekShareData.event(
+                        event: event,
+                        image: image))
+                let vc = builder.buildActivityViewController { _ in }
+                self?.presentRelay.onNext(vc)
+            } onFailure: { error in
+                print(error)
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    private func downloadEventImage() -> Single<UIImage?> {
+        //Nuke should fetch from cache if already downloaded
+        return Single.create(subscribe: { [weak self] single in
+            guard let url = URL(string: self?.event?.eventImageUrl ?? "") else {
+                single(.failure(NSError()))
+                return Disposables.create()
+            }
+            ImagePipeline.shared.loadImage(with: url) { result in
+                switch result {
+                case .success(let res):
+                    single(.success(res.image))
+                case .failure(let error):
+                    print(error)
+                    single(.failure(error))
+                }
+            }
+            return Disposables.create()
+        })
     }
     
     private func onFetched(event: SGEvent) {
         self.event = event
-        if let url = URL(string: event.performers.first?.image ?? "") {
-            ImagePipeline.shared.loadImage(with: url) { [weak self] result in
-                switch result {
-                case .success(let res):
-                    DispatchQueue.main.async {
-                        self?.valueRelay.mutableValue.headerImage = res.image
-                    }
-                case .failure(let error):
-                    print(error)
-                }
-            }
-        }
         let subtitle = AppConstants
             .DateFormatters
             .fullDateAndTimeFormatter
             .string(from: event.datetimeLocal)
         self.valueRelay.accept(.init(
-                                headerImage: nil,
+                                headerImageUrl: event.eventImageUrl,
                                 pageTitle: event.shortTitle,
                                 headerData: .init(
                                     title: event.title,
