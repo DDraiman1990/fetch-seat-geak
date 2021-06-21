@@ -7,15 +7,16 @@
 
 import UIKit
 
+enum TravelTime {
+    case drive, walk
+}
+
 final class EventDetailsLocationView: UIView {
-    enum TravelTime {
-        case drive, walk
-    }
     var onViewAllTapped: (() -> Void)?
     var onTravelTimeTapped: ((TravelTime) -> Void)?
-    private let titleLabel = UILabel().styled(with: .eventDetailsTitle)
-    private let locationNameLabel = UILabel().styled(with: .eventDetailsSubtitle)
-    private let locationLabel = UILabel().styled(with: .eventDetailsSubtitle)
+    private let titleLabel = UILabel().styled(with: .eventDetailsLocationTitle)
+    private let locationNameLabel = UILabel().styled(with: .eventDetailsLocationName)
+    private let locationLabel = UILabel().styled(with: .eventDetailsLocation)
     private let driveTravelTimeView = TravelTimeView(
         title: R.string.general.drive(),
         travelTime: "",
@@ -49,9 +50,10 @@ final class EventDetailsLocationView: UIView {
         stack.axis = .horizontal
         stack.alignment = .leading
         stack.distribution = .fill
-        stack.spacing = 8
+        stack.spacing = 16
         stack.addArrangedSubview(driveTravelTimeView)
         stack.addArrangedSubview(walkTravelTimeView)
+        stack.anchor(height: 68)
         return stack
     }()
     
@@ -68,6 +70,7 @@ final class EventDetailsLocationView: UIView {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.spacing = 16
+        stack.alignment = .leading
         stack.addArrangedSubview(titleLabel)
         stack.addArrangedSubview(locationStack)
         stack.addArrangedSubview(travelTimeStack)
@@ -99,6 +102,9 @@ final class EventDetailsLocationView: UIView {
         walkTravelTimeView.onTapped = { [weak self] in
             self?.onTravelTimeTapped?(.walk)
         }
+        
+        driveTravelTimeView.width(multiplier: 0.4, relativeTo: self)
+        walkTravelTimeView.width(multiplier: 0.4, relativeTo: self)
     }
     
     @available(*, unavailable)
@@ -112,6 +118,7 @@ final class EventDetailsLocationView: UIView {
     
     func set(locationName: String) {
         locationNameLabel.text = locationName
+        viewAllView.set(title: locationName)
     }
     
     func set(driveTime: String?) {
@@ -120,8 +127,8 @@ final class EventDetailsLocationView: UIView {
     }
     
     func set(walkTime: String?) {
-        driveTravelTimeView.set(travelTime: walkTime ?? "")
-        driveTravelTimeView.isHidden = walkTime == nil
+        walkTravelTimeView.set(travelTime: walkTime ?? "")
+        walkTravelTimeView.isHidden = walkTime == nil
     }
     
     @objc private func viewAllTapped() {

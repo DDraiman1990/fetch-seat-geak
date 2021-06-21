@@ -15,37 +15,61 @@ final class TravelTimeView: UIView {
     private let iconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
+        imageView.clipsToBounds = true
+        imageView.alpha = 0.3
         return imageView
     }()
     
     private lazy var contentStack: UIStackView = {
         let stack = UIStackView()
-        stack.axis = .horizontal
-        stack.spacing = 4
+        stack.axis = .vertical
+        stack.spacing = 0
+        stack.distribution = .fill
         stack.addArrangedSubview(titleLabel)
         stack.addArrangedSubview(timeLabel)
         return stack
+    }()
+    
+    private lazy var wrapper: UIView = {
+        let view = UIView()
+        view.addSubview(contentStack)
+        contentStack.centerY(in: view)
+        contentStack.anchor(
+            in: view,
+            to: [.left(), .right(), .gtTop(), .gtBottom()],
+            padding: .init(constant: 14))
+        view.addSubview(iconImageView)
+        view.clipsToBounds = true
+        iconImageView.width(multiplier: 0.8, relativeTo: view)
+        iconImageView.height(multiplier: 1.0, relativeTo: view)
+        iconImageView
+            .centerYAnchor
+            .constraint(equalTo: view.centerYAnchor,
+                        constant: 16)
+            .isActive = true
+        iconImageView
+            .centerXAnchor
+            .constraint(equalTo: view.trailingAnchor,
+                        constant: -16)
+            .isActive = true
+        return view
     }()
     
     init(title: String,
          travelTime: String,
          icon: UIImage?) {
         super.init(frame: .zero)
-        addSubview(contentStack)
-        contentStack.anchor(in: self, padding: .init(constant: 14))
-        addSubview(iconImageView)
-        iconImageView.anchor(
-            in: self,
-            to: [.top(), .bottom(), .right()],
-            padding: .init(top: -16, left: 0, bottom: -12, right: -12))
+        addSubview(wrapper)
+        wrapper.anchor(in: self)
         set(title: title)
         set(travelTime: travelTime)
         set(icon: icon)
+        backgroundColor = .white
         layer.cornerRadius = 8
         layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOpacity = 0.3
-        layer.shadowRadius = 6
-        layer.shadowOffset = .init(width: 0, height: 3)
+        layer.shadowOpacity = 0.1
+        layer.shadowRadius = 2
+        layer.shadowOffset = .init(width: 0, height: 0)
         addGestureRecognizer(gestureRecognizer)
         gestureRecognizer.addTarget(self, action: #selector(tapped))
     }

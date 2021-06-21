@@ -82,14 +82,29 @@ enum LabelsStylesheet {
             label.numberOfLines = 2
             label.lineBreakMode = .byWordWrapping
             label.textColor = UIColor.black.withAlphaComponent(0.7)
-        case .travelTimeTitle:
+        case .eventDetailsLocationTitle:
+            label.numberOfLines = 1
+            label.font = R.font.proximaNovaSemibold(size: 18)
+            label.textColor = UIColor.black
+        case .eventDetailsLocationName:
             label.numberOfLines = 2
             label.lineBreakMode = .byWordWrapping
             label.font = R.font.proximaNovaRegular(size: 16)
             label.textColor = UIColor.black
+        case .eventDetailsLocation:
+            label.numberOfLines = 2
+            label.lineBreakMode = .byWordWrapping
+            label.font = R.font.proximaNovaRegular(size: 14)
+            label.textColor = UIColor.black.withAlphaComponent(0.5)
+        case .travelTimeTitle:
+            label.numberOfLines = 1
+            label.lineBreakMode = .byWordWrapping
+            label.font = R.font.proximaNovaRegular(size: 16)
+            label.textColor = UIColor.black
         case .travelTimeTime:
-            label.font = R.font.proximaNovaBold(size: 14)
-            label.textColor = UIColor.black.withAlphaComponent(0.65)
+            label.numberOfLines = 1
+            label.font = R.font.proximaNovaRegular(size: 14)
+            label.textColor = UIColor.black.withAlphaComponent(0.4)
         case .seeMoreTitle:
             label.font = R.font.proximaNovaRegular(size: 16)
             label.textColor = R.color.seatGeekBlue()
@@ -118,6 +133,9 @@ enum LabelStyle {
     case actionButton
     case eventDetailsTitle
     case eventDetailsSubtitle
+    case eventDetailsLocationTitle
+    case eventDetailsLocationName
+    case eventDetailsLocation
     case travelTimeTitle
     case travelTimeTime
     case seeMoreTitle

@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Nuke
 
 final class EventsDetailsViewModel: ViewModel {
     typealias Consumer = EventDetailsViewController
@@ -26,6 +27,11 @@ final class EventsDetailsViewModel: ViewModel {
     
     var valuePublisher: Observable<ModelUpdate<Consumer.Model>> {
         return valueRelay.asObservable().toModelUpdate()
+    }
+    
+    private let presentRelay: PublishSubject<UIViewController> = .init()
+    var presentPublisher: Observable<UIViewController> {
+        return presentRelay.share().asObservable()
     }
     
     // MARK: - Properties
@@ -47,6 +53,17 @@ final class EventsDetailsViewModel: ViewModel {
         switch interaction {
         case .viewLoaded:
             fetchEventDetails()
+        case .shareTapped:
+            presentShare()
+        case .trackingTapped:
+            //TODO: tracking logic
+            print("TRACKING")
+        case .travelTimeTapped(method: let method):
+            //TODO: implement simple popup
+            print("Travel TIme")
+        case .viewAllTapped:
+            //TODO: show list of all
+            print("View ALl")
         }
     }
     
@@ -69,15 +86,38 @@ final class EventsDetailsViewModel: ViewModel {
     
     // MARK: - Methods | Helpers
     
+    private func presentShare() {
+        guard let event = self.event else {
+            return
+        }
+        let builder = ShareActivityBuilder(
+            shareData: SeatGeekShareData.event(
+                event: event,
+                image: self.value.headerImage))
+        let vc = builder.buildActivityViewController { _ in }
+        presentRelay.onNext(vc)
+    }
+    
     private func onFetched(event: SGEvent) {
         self.event = event
-        //TODO: check TrackedManager for isTracked
+        if let url = URL(string: event.performers.first?.image ?? "") {
+            ImagePipeline.shared.loadImage(with: url) { [weak self] result in
+                switch result {
+                case .success(let res):
+                    DispatchQueue.main.async {
+                        self?.valueRelay.mutableValue.headerImage = res.image
+                    }
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
         let subtitle = AppConstants
             .DateFormatters
             .fullDateAndTimeFormatter
             .string(from: event.datetimeLocal)
         self.valueRelay.accept(.init(
-                                headerImageUrl: event.performers.first?.image,
+                                headerImage: nil,
                                 pageTitle: event.shortTitle,
                                 headerData: .init(
                                     title: event.title,
@@ -85,7 +125,7 @@ final class EventsDetailsViewModel: ViewModel {
                                     isTracked: false),
                                 locationData: .init(
                                     locationName: event.venue.name,
-                                    location: event.venue.displayLocation,
+                                    location: event.venue.fullAddress,
                                     driveTime: "\(Int.random(in: 1...4))h, \(Int.random(in: 1...59)) min",
                                     walkTime: "\(Int.random(in: 5...40))h, \(Int.random(in: 1...59)) min")))
     }

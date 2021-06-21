@@ -9,7 +9,22 @@ import UIKit
 
 final class EventDetailsLocationCell: UITableViewCell {
     public static let cellId = "EventDetailsLocationCell"
-    
+    var onViewAllTapped: (() -> Void)? {
+        get {
+            view.onViewAllTapped
+        }
+        set {
+            view.onViewAllTapped = newValue
+        }
+    }
+    var onTravelTimeTapped: ((TravelTime) -> Void)? {
+        get {
+            view.onTravelTimeTapped
+        }
+        set {
+            view.onTravelTimeTapped = newValue
+        }
+    }
     private let view: EventDetailsLocationView = {
         let view = EventDetailsLocationView(locationName: "", location: "")
         return view

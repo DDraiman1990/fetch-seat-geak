@@ -31,7 +31,7 @@ final class EventDetailsViewController: UIViewController, ViewModeled {
     }
     
     struct Model: DataModel {
-        var headerImageUrl: String?
+        var headerImage: UIImage?
         var pageTitle: String?
         var headerData: HeaderData?
         var locationData: LocationData?
@@ -39,13 +39,27 @@ final class EventDetailsViewController: UIViewController, ViewModeled {
     
     enum Interaction {
         case viewLoaded
+        case shareTapped
+        case trackingTapped
+        case travelTimeTapped(method: TravelTime)
+        case viewAllTapped
     }
     
     // MARK: - Properties
     
-    private let headerHeight: CGFloat = 140
+    private let headerHeight: CGFloat = 110
     private let disposeBag = DisposeBag()
     private let viewModel: AnyViewModel<EventDetailsViewController>
+    var isHeaderVisible: Bool {
+        let barPosition = topBar.center.y - topBar.frame.height
+        return table.contentOffset.y < barPosition
+    }
+    
+    var isBarTransparent: Bool = false {
+        didSet {
+            setNeedsStatusBarAppearanceUpdate()
+        }
+    }
     
     // MARK: - Properties | UI Components
     private lazy var plainBackBarButton = UIBarButtonItem(image: R.image.chevronLeft(), style: .plain, target: self, action: #selector(backTapped))
@@ -120,18 +134,19 @@ final class EventDetailsViewController: UIViewController, ViewModeled {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.send(.viewLoaded)
+        setTransparentNavigationBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
-//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-//        self.navigationController?.navigationBar.shadowImage = UIImage()
-//        self.navigationController?.navigationBar.isTranslucent = true
-//        self.navigationController?.view.backgroundColor = UIColor.clear
     }
     
     private func setTransparentNavigationBar() {
+        if isBarTransparent {
+            return
+        }
+        isBarTransparent = true
         topBar.backgroundColor = .clear
         topBar.isTranslucent = true
         topBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
@@ -142,11 +157,19 @@ final class EventDetailsViewController: UIViewController, ViewModeled {
     }
     
     private func setVisibleNavigationBar() {
+        if !isBarTransparent {
+            return
+        }
+        isBarTransparent = false
         topBar.items?.first?.title = viewModel.value.pageTitle
         topBar.backgroundColor = .white
         topBar.isTranslucent = false
         topBarSafeAreaCoverView.backgroundColor = topBar.backgroundColor
         topBar.items?.first?.setLeftBarButton(plainBackBarButton, animated: true)
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return isBarTransparent ? .lightContent : .default
     }
     
     // MARK: - Methods | Setup
@@ -159,15 +182,20 @@ final class EventDetailsViewController: UIViewController, ViewModeled {
                 self?.onModelChanged(model: model.newValue)
         }
         .disposed(by: disposeBag)
+        viewModel
+            .presentPublisher
+            .observe(on: MainScheduler.instance)
+            .subscribeToValue { [weak self] vc in
+                self?.present(vc, animated: true, completion: nil)
+        }
+        .disposed(by: disposeBag)
     }
     
     // MARK: - Methods | Helpers
     
     private func onModelChanged(model: Model) {
         table.reloadData()
-        if let url = URL(string: model.headerImageUrl ?? "") {
-            Nuke.loadImage(with: url, into: headerImageView)
-        }
+        headerImageView.image = model.headerImage
     }
     
     @objc private func backTapped() {
@@ -198,8 +226,6 @@ extension EventDetailsViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let barPosition = topBar.center.y - (topBar.frame.height / 2)
-        let isHeaderVisible = scrollView.contentOffset.y < barPosition
         if isHeaderVisible {
             setTransparentNavigationBar()
         } else {
@@ -227,6 +253,14 @@ extension EventDetailsViewController: UITableViewDelegate, UITableViewDataSource
                 title: headerData.title,
                 subtitle: headerData.subtitle,
                 isTracked: headerData.isTracked)
+            cell.selectionStyle = .none
+            cell.onShareTapped = { [weak self] in
+                print("Share")
+                self?.viewModel.send(.shareTapped)
+            }
+            cell.onTrackingTapped = { [weak self] in
+                self?.viewModel.send(.trackingTapped)
+            }
             return cell
         case .location:
             guard let locationData = viewModel.value.locationData,
@@ -240,6 +274,13 @@ extension EventDetailsViewController: UITableViewDelegate, UITableViewDataSource
                        location: locationData.location,
                        driveTime: locationData.driveTime,
                        walkTime: locationData.walkTime)
+            cell.selectionStyle = .none
+            cell.onTravelTimeTapped = { [weak self] method in
+                self?.viewModel.send(.travelTimeTapped(method: method))
+            }
+            cell.onViewAllTapped = { [weak self] in
+                self?.viewModel.send(.viewAllTapped)
+            }
             return cell
         }
     }

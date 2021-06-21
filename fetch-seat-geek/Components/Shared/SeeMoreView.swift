@@ -13,12 +13,14 @@ final class SeeMoreView: UIView {
         let stack = UIStackView()
         stack.axis = .horizontal
         stack.alignment = .fill
-        stack.distribution = .fill
+        stack.distribution = .fillProportionally
         stack.spacing = 8
         stack.addArrangedSubview(titleLabel)
         stack.addArrangedSubview(chevronImageView)
         return stack
     }()
+    
+    private let gestureRecognizer = UITapGestureRecognizer()
     
     private let titleLabel = UILabel().styled(with: .seeMoreTitle)
     private let chevronImageView: UIImageView = {
@@ -26,6 +28,7 @@ final class SeeMoreView: UIView {
         imageView.image = R.image.chevronRight()
         imageView.tintColor = UIColor.black.withAlphaComponent(0.6)
         imageView.contentMode = .scaleAspectFit
+        imageView.anchor(width: 26)
         return imageView
     }()
     
@@ -34,6 +37,8 @@ final class SeeMoreView: UIView {
         addSubview(contentStack)
         contentStack.anchor(in: self, padding: .init(horizontal: 12, vertical: 6))
         set(title: title)
+        gestureRecognizer.addTarget(self, action: #selector(tapped))
+        addGestureRecognizer(gestureRecognizer)
     }
     
     @available(*, unavailable)
@@ -42,7 +47,7 @@ final class SeeMoreView: UIView {
     }
     
     func set(title: String) {
-        titleLabel.text = title
+        titleLabel.text = R.string.main.view_all_in(title)
     }
     
     @objc private func tapped() {

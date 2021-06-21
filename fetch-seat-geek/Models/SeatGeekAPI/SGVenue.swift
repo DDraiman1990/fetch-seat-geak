@@ -28,6 +28,13 @@ struct SGVenue: Decodable, Hashable {
     var popularity: Int
     var capacity: Int
     var displayLocation: String
+    
+    var fullAddress: String {
+        if let extended = self.extendedAddress {
+            return "\(address), \(extended)"
+        }
+        return address
+    }
 
     enum CodingKeys: String, CodingKey {
         case name, address, city, state, country, location, url, score, id

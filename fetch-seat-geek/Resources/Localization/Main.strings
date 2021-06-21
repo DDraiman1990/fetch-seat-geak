@@ -11,3 +11,6 @@
 "tab_browse_title" = "BROWSE";
 "tab_search_title" = "SEARCH";
 "tab_tracking_title" = "TRACKING";
+"view_all_in%@" = "View all events at %@";
+"share_event_title" = "Check out this event!";
+"share_event_body_%@" = "%@ is happening! When? %@. Where? %@. Buy tickets now!";

@@ -10,6 +10,23 @@ import UIKit
 final class EventDetailsInformationCell: UITableViewCell {
     public static let cellId = "EventDetailsInformationCell"
     
+    var onTrackingTapped: (() -> Void)? {
+        get {
+            view.onTrackingTapped
+        }
+        set {
+            view.onTrackingTapped = newValue
+        }
+    }
+    var onShareTapped: (() -> Void)? {
+        get {
+            view.onShareTapped
+        }
+        set {
+            view.onShareTapped = newValue
+        }
+    }
+    
     private let view: EventDetailsInformationView = {
         let view = EventDetailsInformationView(title: "", subtitle: "", isTracked: false)
         return view

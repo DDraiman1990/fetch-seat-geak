@@ -84,6 +84,11 @@
 		646BECF22680EA2000F82966 /* EventDetailsInformationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646BECF12680EA2000F82966 /* EventDetailsInformationCell.swift */; };
 		646BECF72680EA2900F82966 /* EventDetailsLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646BECF62680EA2900F82966 /* EventDetailsLocationCell.swift */; };
 		646BECFC2680F94E00F82966 /* UIViewController+Push.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646BECFB2680F94E00F82966 /* UIViewController+Push.swift */; };
+		646BED072681138200F82966 /* ShareData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646BED022681138200F82966 /* ShareData.swift */; };
+		646BED082681138200F82966 /* ShareActivityBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646BED032681138200F82966 /* ShareActivityBuilder.swift */; };
+		646BED092681138200F82966 /* ShareItemBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646BED042681138200F82966 /* ShareItemBuilder.swift */; };
+		646BED0A2681138200F82966 /* ShareMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646BED052681138200F82966 /* ShareMethod.swift */; };
+		646BED0F2681140A00F82966 /* SeatGeekShareTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646BED0E2681140A00F82966 /* SeatGeekShareTypes.swift */; };
 		646E1BDD26798D2D009BF8E1 /* ProximaNova-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 646E1BD326798D2C009BF8E1 /* ProximaNova-Bold.otf */; };
 		646E1BDE26798D2D009BF8E1 /* ProximaNova-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 646E1BD426798D2C009BF8E1 /* ProximaNova-SemiboldItalic.otf */; };
 		646E1BDF26798D2D009BF8E1 /* ProximaNova-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 646E1BD526798D2C009BF8E1 /* ProximaNova-Regular.otf */; };
@@ -249,6 +254,11 @@
 		646BECF12680EA2000F82966 /* EventDetailsInformationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsInformationCell.swift; sourceTree = "<group>"; };
 		646BECF62680EA2900F82966 /* EventDetailsLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsLocationCell.swift; sourceTree = "<group>"; };
 		646BECFB2680F94E00F82966 /* UIViewController+Push.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Push.swift"; sourceTree = "<group>"; };
+		646BED022681138200F82966 /* ShareData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareData.swift; sourceTree = "<group>"; };
+		646BED032681138200F82966 /* ShareActivityBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareActivityBuilder.swift; sourceTree = "<group>"; };
+		646BED042681138200F82966 /* ShareItemBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareItemBuilder.swift; sourceTree = "<group>"; };
+		646BED052681138200F82966 /* ShareMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareMethod.swift; sourceTree = "<group>"; };
+		646BED0E2681140A00F82966 /* SeatGeekShareTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatGeekShareTypes.swift; sourceTree = "<group>"; };
 		646E1BD326798D2C009BF8E1 /* ProximaNova-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Bold.otf"; sourceTree = "<group>"; };
 		646E1BD426798D2C009BF8E1 /* ProximaNova-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-SemiboldItalic.otf"; sourceTree = "<group>"; };
 		646E1BD526798D2C009BF8E1 /* ProximaNova-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Regular.otf"; sourceTree = "<group>"; };
@@ -455,6 +465,7 @@
 		6440B7D52676964F0087987F /* SeatGeek */ = {
 			isa = PBXGroup;
 			children = (
+				646BED0E2681140A00F82966 /* SeatGeekShareTypes.swift */,
 				6440B7D8267696710087987F /* SeatGeekInteractor.swift */,
 			);
 			path = SeatGeek;
@@ -488,6 +499,17 @@
 				645D68A7267D57B1005C3D97 /* GenreSummaryCell.swift */,
 			);
 			path = Genres;
+			sourceTree = "<group>";
+		};
+		646BED002681138200F82966 /* Share */ = {
+			isa = PBXGroup;
+			children = (
+				646BED022681138200F82966 /* ShareData.swift */,
+				646BED032681138200F82966 /* ShareActivityBuilder.swift */,
+				646BED042681138200F82966 /* ShareItemBuilder.swift */,
+				646BED052681138200F82966 /* ShareMethod.swift */,
+			);
+			path = Share;
 			sourceTree = "<group>";
 		};
 		646E1BD226798D1C009BF8E1 /* Fonts */ = {
@@ -784,6 +806,7 @@
 		64E6E94E2672F73E00BDE2E6 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				646BED002681138200F82966 /* Share */,
 				6440B7D52676964F0087987F /* SeatGeek */,
 				6440B6FE2675B2A70087987F /* APIKeys */,
 				64E6E9B32672FBAF00BDE2E6 /* Network */,
@@ -1200,6 +1223,7 @@
 				64A4D3A32680357A0089386E /* EventDetailsInformationView.swift in Sources */,
 				64E6E99B2672F9CE00BDE2E6 /* DependencyManager.swift in Sources */,
 				6440B75E267671420087987F /* Route.swift in Sources */,
+				646BED0A2681138200F82966 /* ShareMethod.swift in Sources */,
 				644AF5E626797B4200E62181 /* PriceTagView.swift in Sources */,
 				645D685A267D2508005C3D97 /* ViewMoreHeaderView.swift in Sources */,
 				64A32BFE2678EC5600EEE8BF /* EventSummaryLargeView.swift in Sources */,
@@ -1209,6 +1233,7 @@
 				640F87802678315F0055C4A4 /* SGTaxonomy.swift in Sources */,
 				6440B7E62676C9560087987F /* SGPerformer.swift in Sources */,
 				640F8776267831510055C4A4 /* SGPerformerImages.swift in Sources */,
+				646BED092681138200F82966 /* ShareItemBuilder.swift in Sources */,
 				64C7A3B22673F60600951930 /* ModelUpdate.swift in Sources */,
 				644AF5982679018500E62181 /* QueryDebouncer.swift in Sources */,
 				6440B6EF267558140087987F /* RxSwift+SubscribeToResult.swift in Sources */,
@@ -1228,6 +1253,7 @@
 				64A037A1267C360000A27D5E /* BrowseViewController.swift in Sources */,
 				645D685F267D2701005C3D97 /* Array+ValidIndex.swift in Sources */,
 				64A4D399268031D50089386E /* EventsDetailsViewModel.swift in Sources */,
+				646BED0F2681140A00F82966 /* SeatGeekShareTypes.swift in Sources */,
 				645D684F267CFFCB005C3D97 /* ApplicationManager.swift in Sources */,
 				64E6E9A72672FA2300BDE2E6 /* LogMetadata.swift in Sources */,
 				64C7A3A02673F59500951930 /* ViewModel.swift in Sources */,
@@ -1257,6 +1283,7 @@
 				6440B74F267670330087987F /* NetworkResult.swift in Sources */,
 				640F878D267839170055C4A4 /* SGGenre.swift in Sources */,
 				64B8A4DA267A79B200B5F5A1 /* IdentifiableCell.swift in Sources */,
+				646BED072681138200F82966 /* ShareData.swift in Sources */,
 				6440B745267670210087987F /* NetworkAuthPlugin.swift in Sources */,
 				64E6E99C2672F9CE00BDE2E6 /* DependencyResolver.swift in Sources */,
 				6440B7E12676C94A0087987F /* SGEvent.swift in Sources */,
@@ -1269,6 +1296,7 @@
 				64E6E96B2672F90000BDE2E6 /* R.generated.swift in Sources */,
 				64E6E9A92672FA2300BDE2E6 /* LogFormat.swift in Sources */,
 				64B18BA72676D21B002924C8 /* SGResponses.swift in Sources */,
+				646BED082681138200F82966 /* ShareActivityBuilder.swift in Sources */,
 				645D68A3267D5789005C3D97 /* PerformerSummaryCell.swift in Sources */,
 				645D6893267D526A005C3D97 /* GenreSummaryView.swift in Sources */,
 				645D6871267D42F2005C3D97 /* EventSummarySmallCell.swift in Sources */,

@@ -8,16 +8,26 @@
 import UIKit
 
 final class EventDetailsInformationView: UIView {
+    var onTrackingTapped: (() -> Void)?
+    var onShareTapped: (() -> Void)?
     private let titleLabel = UILabel().styled(with: .eventDetailsTitle)
     private let subtitleLabel = UILabel().styled(with: .eventDetailsSubtitle)
-    private let trackingButton = ActionButton(
-        title: R.string.general.track(),
-        icon: R.image.heart(),
-        backgroundColor: R.color.heartRed() ?? .black)
-    private let shareButton = ActionButton(
-        title: R.string.general.share(),
-        icon: R.image.squareAndArrowUp(),
-        backgroundColor: R.color.seatGeekBlue() ?? .black)
+    private lazy var trackingButton: ActionButton = {
+        let button = ActionButton(
+            title: R.string.general.track(),
+            icon: R.image.heart(),
+            backgroundColor: R.color.heartRed() ?? .black)
+        button.addTarget(self, action: #selector(trackingTapped))
+        return button
+    }()
+    private lazy var shareButton: ActionButton = {
+        let button = ActionButton(
+            title: R.string.general.share(),
+            icon: R.image.squareAndArrowUp(),
+            backgroundColor: R.color.seatGeekBlue() ?? .black)
+        button.addTarget(self, action: #selector(shareTapped))
+        return button
+    }()
     
     private lazy var labelsStack: UIStackView = {
         let stack = UIStackView()
@@ -79,5 +89,13 @@ final class EventDetailsInformationView: UIView {
         trackingButton.set(icon: isTracked ?
                             R.image.suitHeartFill() :
                             R.image.heart())
+    }
+    
+    @objc private func shareTapped() {
+        onShareTapped?()
+    }
+    
+    @objc private func trackingTapped() {
+        onTrackingTapped?()
     }
 }
