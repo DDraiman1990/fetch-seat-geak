@@ -160,39 +160,35 @@ class SeatGeekInteractor: SeatGeekInteracting {
             route: SeatGeekRoutes.genres(request: .get(id: id)))
     }
     
-    func getBrowseCategories() -> Observable<SGBrowseGenresResponse> {
-        let eventsRequest: Observable<SGEventsResponse> = request(route: SeatGeekRoutes.events(request: .all(queries: [
-            SeatGeekQuery.hasEventType(types: [
-                SeatGeekRoutes.Constants.EventTypes.broadwayShows,
-                SeatGeekRoutes.Constants.EventTypes.comedy,
-                SeatGeekRoutes.Constants.EventTypes.concerts,
-                SeatGeekRoutes.Constants.EventTypes.sports,
-                SeatGeekRoutes.Constants.EventTypes.musicFestivals
-            ]),
-            .sort(query: .init(field: .score, direction: .descending))
+    private func categoryRequest(category: String
+    ) -> Observable<SGEventsResponse> {
+        return request(route: SeatGeekRoutes.events(request: .all(queries: [
+            SeatGeekQuery.hasEventType(types: [category]),
+            .sort(query: .init(field: .score, direction: .descending)),
+            .pagination(query: .init(perPage: 10, currentPage: 1))
         ])))
-        return eventsRequest.map { response -> SGBrowseGenresResponse in
-            let sports = response.events.filter {
-                return $0.taxonomies.filter { $0.name == SeatGeekRoutes.Constants.EventTypes.sports }.isEmpty
-            }
-            let comedy = response.events.filter {
-                return $0.taxonomies.filter { $0.name == SeatGeekRoutes.Constants.EventTypes.comedy }.isEmpty
-            }
-            let concerts = response.events.filter {
-                return $0.taxonomies.filter { $0.name == SeatGeekRoutes.Constants.EventTypes.concerts }.isEmpty
-            }
-            let musicFestivals = response.events.filter {
-                return $0.taxonomies.filter { $0.name == SeatGeekRoutes.Constants.EventTypes.musicFestivals }.isEmpty
-            }
-            let broadwayShows = response.events.filter {
-                return $0.taxonomies.filter { $0.name == SeatGeekRoutes.Constants.EventTypes.broadwayShows }.isEmpty
-            }
+    }
+    
+    func getBrowseCategories() -> Observable<SGBrowseGenresResponse> {
+        let broadwayShowsRequest = categoryRequest(category: SeatGeekRoutes.Constants.EventTypes.broadwayShows)
+        let comedyRequest = categoryRequest(category: SeatGeekRoutes.Constants.EventTypes.comedy)
+        let concertsRequest = categoryRequest(category: SeatGeekRoutes.Constants.EventTypes.concerts)
+        let sportsRequest = categoryRequest(category: SeatGeekRoutes.Constants.EventTypes.sports)
+        let musicFestivalsRequest = categoryRequest(category: SeatGeekRoutes.Constants.EventTypes.musicFestivals)
+        return Observable.zip([
+            broadwayShowsRequest,
+            comedyRequest,
+            concertsRequest,
+            sportsRequest,
+            musicFestivalsRequest
+        ])
+        .map { response -> SGBrowseGenresResponse in
             return SGBrowseGenresResponse.init(genres: [
-                ("Sports", sports),
-                ("Comedy", comedy),
-                ("Concerts", concerts),
-                ("Music Festivals", musicFestivals),
-                ("Broadway Shows", broadwayShows)
+                ("Sports", response[0].events),
+                ("Comedy", response[1].events),
+                ("Concerts", response[2].events),
+                ("Music Festivals", response[3].events),
+                ("Broadway Shows", response[4].events)
             ])
         }
     }
