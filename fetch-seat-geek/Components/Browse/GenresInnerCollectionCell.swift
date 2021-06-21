@@ -7,8 +7,17 @@
 
 import UIKit
 
-final class GenresInnerCollectionCell: UITableViewCell {
+final class GenresInnerCollectionCell: UITableViewCell, CollectionViewContaining {
     public static let cellId = "GenresInnerCollectionCell"
+    
+    var onSelectedItem: ((IndexPath) -> Void)? {
+        get {
+            view.onSelectedItem
+        }
+        set {
+            view.onSelectedItem = newValue
+        }
+    }
     
     private let view: GenresCollectionView = {
         let view = GenresCollectionView()

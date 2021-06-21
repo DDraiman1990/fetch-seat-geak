@@ -7,8 +7,17 @@
 
 import UIKit
 
-final class EventsInnerCollectionCell: UITableViewCell {
+final class EventsInnerCollectionCell: UITableViewCell, CollectionViewContaining {
     public static let cellId = "EventsInnerCollectionCell"
+    
+    var onSelectedItem: ((IndexPath) -> Void)? {
+        get {
+            view.onSelectedItem
+        }
+        set {
+            view.onSelectedItem = newValue
+        }
+    }
     
     private let view: EventsCollectionView = {
         let view = EventsCollectionView()

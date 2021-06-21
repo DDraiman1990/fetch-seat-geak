@@ -8,6 +8,15 @@
 import UIKit
 
 enum PageFactory {
+    static func eventsDetails(eventId: Int) -> UIViewController {
+        let vm = EventsDetailsViewModel(
+            eventId: eventId,
+            resolver: DependencyResolver.shared)
+        let vc = EventDetailsViewController(viewModel: vm.eraseToAnyViewModel())
+        let nc = UINavigationController(rootViewController: vc)
+        return nc
+    }
+    
     static func browsePage() -> UIViewController {
         let vm = BrowseViewModel(resolver: DependencyResolver.shared)
         let vc = BrowseViewController(viewModel: vm.eraseToAnyViewModel())

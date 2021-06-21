@@ -7,7 +7,11 @@
 
 import UIKit
 
-final class FeaturedInnerCollectionView: UIView {
+final class FeaturedInnerCollectionView: UIView, CollectionViewContaining {
+    var onSelectedItem: ((IndexPath) -> Void)?
+    
+    private var autoScrollTimer: Timer?
+    
     enum FeaturedData: IdentifiableItem {
         var id: Int {
             switch self {
@@ -57,9 +61,32 @@ final class FeaturedInnerCollectionView: UIView {
         collection.showsVerticalScrollIndicator = false
         collection.showsHorizontalScrollIndicator = false
         collection.infiniteScrollable = true
-        Timer.scheduledTimer(withTimeInterval: 6, repeats: true) { _ in
+        collection.didSelectItem = { [weak self] _, ip in
+            self?.onSelectedItem?(ip)
+        }
+        setupAutoScrollTimer()
+    }
+    
+    private func setupAutoScrollTimer() {
+        startAutoScrollTimer()
+        collection.onUserBeginScroll = { [weak self] in
+            self?.stopAutoScrollTimer()
+        }
+        
+        collection.onUserEndScroll = { [weak self] in
+            self?.startAutoScrollTimer()
+        }
+    }
+    
+    private func startAutoScrollTimer() {
+        autoScrollTimer = Timer
+            .scheduledTimer(withTimeInterval: 6, repeats: true) { _ in
             self.collection.scrollToNextCell(animated: true)
         }
+    }
+    
+    private func stopAutoScrollTimer() {
+        autoScrollTimer?.invalidate()
     }
     
     @available(*, unavailable)

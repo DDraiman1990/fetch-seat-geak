@@ -45,6 +45,8 @@ class CollectionView<SectionModel: Hashable,
     var didSelectItem: DidSelectItem?
     var didSnapToItem: DidSnapToItem?
     var lastSnapped: IndexPath?
+    var onUserBeginScroll: (() -> Void)?
+    var onUserEndScroll: (() -> Void)?
     var onRefreshRequested: RefreshRequest? {
         didSet {
             refreshControl = onRefreshRequested != nil ? .init() : nil
@@ -301,10 +303,10 @@ class CollectionView<SectionModel: Hashable,
     // MARK: - UITableViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let item = dataSource.item(for: indexPath) else {
+        guard let data = dataSource.selectionData(for: indexPath) else {
             return
         }
-        didSelectItem?(item, indexPath)
+        didSelectItem?(data.0, data.1)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -339,7 +341,12 @@ class CollectionView<SectionModel: Hashable,
         // make sure to scroll back to the current cell - modifier.
     }
     
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        onUserBeginScroll?()
+    }
+    
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        onUserEndScroll?()
         if !decelerate {
             snapToNearestCellIfNeeded()
         }

@@ -20,6 +20,10 @@ final class BrowseViewController: UIViewController, ViewModeled {
     enum Interaction {
         case viewLoaded
         case viewAppeared
+        case onTapped(row: Int, section: BrowseSection)
+        case trackTappedFor(id: Int)
+        case tappedViewAll(section: BrowseSection)
+        case tappedDateAndLocation
     }
     
     private lazy var table: UITableView = {
@@ -58,10 +62,10 @@ final class BrowseViewController: UIViewController, ViewModeled {
         bindViewModel()
         
         navBar.onActionButtonTapped = {
-            print("Action Tapped")
+            viewModel.send(.tappedDateAndLocation)
         }
         navBar.onTitlesTapped = {
-            print("Titles Tapped")
+            viewModel.send(.tappedDateAndLocation)
         }
     }
     
@@ -112,9 +116,13 @@ extension BrowseViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         let cell = section.dequeue(from: table, indexPath: indexPath)
-        (cell as? ViewAllHeaderCell)?.onActionTapped = {
-            print("Tapped \(section.header ?? "Unknown Header")")
+        (cell as? ViewAllHeaderCell)?.onActionTapped = { [weak self] in
+            self?.viewModel.send(.tappedViewAll(section: section))
         }
+        (cell as? CollectionViewContaining)?.onSelectedItem = { [weak self] ip in
+            self?.viewModel.send(.onTapped(row: ip.item, section: section))
+        }
+        
         return cell
     }
     
@@ -174,6 +182,12 @@ protocol ScrollAware {
     func onScrollingStopped(
         contentOffset: CGPoint,
         contentInset: UIEdgeInsets)
+}
+
+extension ScrollAware {
+    func onScrollingStopped(
+        contentOffset: CGPoint,
+        contentInset: UIEdgeInsets) {}
 }
 
 extension UITableViewCell {

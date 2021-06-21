@@ -14,6 +14,7 @@ final class BrowseViewModel: ViewModel {
     
     private struct GenreSection: Equatable {
         var name: String
+        var slug: String
         var events: [SGEventSummary]
     }
 
@@ -50,6 +51,7 @@ final class BrowseViewModel: ViewModel {
                 return sections + genres.map {
                     BrowseSection.category(
                         name: $0.name,
+                        categorySlug: $0.slug,
                         data: $0.events)
                 }
             }
@@ -94,10 +96,18 @@ final class BrowseViewModel: ViewModel {
     
     func send(_ interaction: Consumer.Interaction) {
         switch interaction {
-        case .viewAppeared:
-            break
         case .viewLoaded:
             fetchBrowseData()
+        case .viewAppeared:
+            break
+        case .onTapped(row: let row, section: let section):
+            onTapped(row: row, section: section)
+        case .trackTappedFor(id: let id):
+            print("Trying to track \(id)")
+        case .tappedViewAll(section: let section):
+            print("Showing more for section \(section.header ?? "N/A")")
+        case .tappedDateAndLocation:
+            print("Showing date selection")
         }
     }
     
@@ -174,8 +184,9 @@ final class BrowseViewModel: ViewModel {
                 case .success(let response):
                     self.tableDataRelay.mutableValue.genres = response.genres.map {
                         return GenreSection(
-                            name: $0.0,
-                            events: $0.1.map { $0.toSummary })
+                            name: $0.name,
+                            slug: $0.slug,
+                            events: $0.evnets.map { $0.toSummary })
                     }
                 case .failure(let error):
                     print(error)
@@ -186,31 +197,57 @@ final class BrowseViewModel: ViewModel {
     
     // MARK: - Methods | Helpers
     
-    private func mockData() {
-        let featuredData: [FeaturedInnerCollectionView.FeaturedData] = [
-            FeaturedInnerCollectionView.FeaturedData.event(summary: .stub()),
-            FeaturedInnerCollectionView.FeaturedData.event(summary: .stub()),
-            FeaturedInnerCollectionView.FeaturedData.performer(performer: .stub()),
-            FeaturedInnerCollectionView.FeaturedData.performer(performer: .stub())
-        ]
-        let justForYouEvents: [SGEventSummary] = [SGEventSummary](repeating: .stub(), count: Int.random(in: 1...4))
-        let trendingEvents: [SGEventSummary] = [SGEventSummary](repeating: .stub(), count: Int.random(in: 1...4))
-        let recentlyViewed: [SGEventSummary] = [SGEventSummary](repeating: .stub(), count: Int.random(in: 1...4))
-        let browseCategories: [SGGenre] = [SGGenre](repeating: .stub(), count: Int.random(in: 3...10))
-        let justAnnounced: [SGEventSummary] = [SGEventSummary](repeating: .stub(), count: Int.random(in: 1...4))
-        let sections: [BrowseSection] = [
-            .featured(data: featuredData),
-            .justForYou(data: justForYouEvents),
-//            .trendingEvents(data: trendingEvents),
-            .recentlyViewed(data: recentlyViewed),
-            .browseCategories(data: browseCategories),
-            .justAnnounced(data: justAnnounced),
-            .category(name: "A", data: [.stub(), .stub(), .stub(), .stub()]),
-            .category(name: "B", data: [.stub(), .stub(), .stub(), .stub()]),
-            .category(name: "C", data: [.stub(), .stub(), .stub(), .stub()]),
-            .category(name: "D", data: [.stub(), .stub(), .stub(), .stub()]),
-            .category(name: "E", data: [.stub(), .stub(), .stub(), .stub()])
-        ]
-        valueRelay.accept(.init(sections: sections))
+    private func onSelected(event: SGEventSummary) {
+        print("Selected event \(event.title)")
+    }
+    
+    private func onSelected(genre: SGGenre) {
+        print("Selected genre \(genre.name)")
+    }
+    
+    private func onSelected(performer: SGPerformerSummary) {
+        print("Selected performer \(performer.name)")
+    }
+    
+    private func onSelected(index: Int, from featured: [FeaturedInnerCollectionView.FeaturedData]) {
+        if let data = featured.elementIfExists(index: index) {
+            switch data {
+            case .event(let summary):
+                onSelected(event: summary)
+            case .performer(let performer):
+                onSelected(performer: performer)
+            }
+        }
+    }
+    
+    private func onSelected(eventIndex: Int, from events: [SGEventSummary]) {
+        if let event = events.elementIfExists(index: eventIndex) {
+            onSelected(event: event)
+        }
+    }
+    
+    private func onSelected(genreIndex: Int, from genres: [SGGenre]) {
+        if let genre = genres.elementIfExists(index: genreIndex) {
+            onSelected(genre: genre)
+        }
+    }
+    
+    private func onTapped(row: Int, section: BrowseSection) {
+        switch section {
+        case .browseCategories(let genres):
+            onSelected(genreIndex: row, from: genres)
+        case .category(_, _, let events):
+            onSelected(eventIndex: row, from: events)
+        case .featured(let featuredData):
+            onSelected(index: row, from: featuredData)
+        case .justAnnounced(let events):
+            onSelected(eventIndex: row, from: events)
+        case .justForYou(let events):
+            onSelected(eventIndex: row, from: events)
+        case .recentlyViewed(let events):
+            onSelected(eventIndex: row, from: events)
+        case .trendingEvents(let events):
+            onSelected(eventIndex: row, from: events)
+        }
     }
 }

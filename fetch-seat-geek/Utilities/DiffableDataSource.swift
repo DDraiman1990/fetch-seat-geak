@@ -205,16 +205,27 @@ class DiffableDataSource<Section: Hashable, Item: IdentifiableItem>: NSObject, U
         }
         if infiniteScrollable {
             let validRowRange = 0..<(section.items.count * infiniteModifier)
-            return validRowRange ~= indexPath.row
+            return validRowRange ~= indexPath.item
         }
-        return section.items.isValidIndex(indexPath.row)
+        return section.items.isValidIndex(indexPath.item)
+    }
+    
+    func selectionData(for indexPath: IndexPath) -> (Item, IndexPath)? {
+        guard let section = data.elementIfExists(index: indexPath.section) else {
+            return nil
+        }
+        let modifiedRow = indexPath.item % section.items.count
+        guard let item = section.items.elementIfExists(index: modifiedRow) else {
+            return nil
+        }
+        return (item, IndexPath(item: modifiedRow, section: indexPath.section))
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let section = data.elementIfExists(index: indexPath.section) else {
             return UICollectionViewCell()
         }
-        let modifiedRow = indexPath.row % section.items.count
+        let modifiedRow = indexPath.item % section.items.count
         guard let item = section.items.elementIfExists(index: modifiedRow) else {
             return UICollectionViewCell()
         }
@@ -229,7 +240,7 @@ class DiffableDataSource<Section: Hashable, Item: IdentifiableItem>: NSObject, U
         guard let section = data.elementIfExists(index: indexPath.section) else {
             return nil
         }
-        let modifiedRow = indexPath.row % section.items.count
+        let modifiedRow = indexPath.item % section.items.count
         return section.items.elementIfExists(index: modifiedRow)
     }
     

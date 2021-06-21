@@ -7,7 +7,9 @@
 
 import UIKit
 
-final class EventsCollectionView: UIView {
+final class EventsCollectionView: UIView, CollectionViewContaining {
+    var onSelectedItem: ((IndexPath) -> Void)?
+    
     private lazy var collection: CollectionView<Int, SGEventSummary> = .init(
         layout: AppConstants.Collections.Layouts.basicHorizontal(spacing: 8)) { _, _ -> CGSize in
             let height = self.frame.height - 8
@@ -30,6 +32,9 @@ final class EventsCollectionView: UIView {
         collection.showsVerticalScrollIndicator = false
         collection.insetForSection = { _ in
             return .init(top: 0, left: 20, bottom: 0, right: 0)
+        }
+        collection.didSelectItem = { [weak self] _, ip in
+            self?.onSelectedItem?(ip)
         }
         collection.showsHorizontalScrollIndicator = false
     }

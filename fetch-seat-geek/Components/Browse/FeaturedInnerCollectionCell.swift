@@ -7,7 +7,16 @@
 
 import UIKit
 
-final class FeaturedInnerCollectionCell: UITableViewCell {
+final class FeaturedInnerCollectionCell: UITableViewCell, CollectionViewContaining {
+    var onSelectedItem: ((IndexPath) -> Void)? {
+        get {
+            view.onSelectedItem
+        }
+        set {
+            view.onSelectedItem = newValue
+        }
+    }
+    
     public static let cellId = "FeaturedInnerCollectionCell"
     
     private let view: FeaturedInnerCollectionView = {
@@ -19,6 +28,7 @@ final class FeaturedInnerCollectionCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(view)
         view.anchor(in: contentView)
+        
     }
     
     @available(*, unavailable)

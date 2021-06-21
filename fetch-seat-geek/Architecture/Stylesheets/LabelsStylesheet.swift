@@ -9,7 +9,6 @@ import UIKit
 
 enum LabelsStylesheet {
     static func style(label: UILabel, with style: LabelStyle) {
-        //TODO: Handle
         switch style {
         case .largeEventTitle:
             label.font = R.font.proximaNovaBold(size: 20)
@@ -70,6 +69,26 @@ enum LabelsStylesheet {
             label.font = R.font.proximaNovaBold(size: 26)
             label.textColor = UIColor.white
             label.numberOfLines = 2
+        case .actionButton:
+            label.textAlignment = .center
+            label.font = R.font.proximaNovaSemibold(size: 16)
+            label.textColor = UIColor.white
+            label.numberOfLines = 1
+        case .eventDetailsTitle:
+            label.font = R.font.proximaNovaBold(size: 30)
+            label.textColor = UIColor.black
+        case .eventDetailsSubtitle:
+            label.font = R.font.proximaNovaBold(size: 22)
+            label.textColor = UIColor.black.withAlphaComponent(0.8)
+        case .travelTimeTitle:
+            label.font = R.font.proximaNovaRegular(size: 16)
+            label.textColor = UIColor.black
+        case .travelTimeTime:
+            label.font = R.font.proximaNovaBold(size: 14)
+            label.textColor = UIColor.black.withAlphaComponent(0.65)
+        case .seeMoreTitle:
+            label.font = R.font.proximaNovaRegular(size: 16)
+            label.textColor = R.color.seatGeekBlue()
         }
     }
 }
@@ -92,6 +111,12 @@ enum LabelStyle {
     case viewMoreHeaderAction
     case featuredPerformerTitle
     case featuredSportsTeamTitle
+    case actionButton
+    case eventDetailsTitle
+    case eventDetailsSubtitle
+    case travelTimeTitle
+    case travelTimeTime
+    case seeMoreTitle
 }
 
 extension UILabel {

@@ -14,7 +14,7 @@ enum BrowseSection: Equatable {
     case recentlyViewed(data: [SGEventSummary])
     case browseCategories(data: [SGGenre])
     case justAnnounced(data: [SGEventSummary])
-    case category(name: String, data: [SGEventSummary])
+    case category(name: String, categorySlug: String, data: [SGEventSummary])
     
     var header: String? {
         switch self {
@@ -30,7 +30,7 @@ enum BrowseSection: Equatable {
             return "Browse by category"
         case .justAnnounced:
             return "Just announced"
-        case .category(let name, _):
+        case .category(let name, _, _):
             return name.capitalized
         }
     }
@@ -62,7 +62,7 @@ enum BrowseSection: Equatable {
             return data.count
         case .justAnnounced(let data):
             return data.count
-        case .category(_, let data):
+        case .category(_, _, let data):
             return data.count
         }
     }
@@ -162,7 +162,7 @@ enum BrowseSection: Equatable {
             (cell as? GenresInnerCollectionCell)?.setup(data: data)
         case .justAnnounced(let data):
             (cell as? EventsInnerCollectionCell)?.setup(data: data)
-        case .category(_, let data):
+        case .category(_, _, let data):
             (cell as? EventsInnerCollectionCell)?.setup(data: data)
         }
         if isHeader || !separator {
