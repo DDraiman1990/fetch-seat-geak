@@ -8,6 +8,12 @@
 import UIKit
 
 enum PageFactory {
+    static func searchPage() -> UIViewController {
+        let vm = SearchViewModel(resolver: DependencyResolver.shared)
+        let vc = SearchViewController(viewModel: vm.eraseToAnyViewModel())
+        let nc = UINavigationController(rootViewController: vc)
+        return nc
+    }
     static func eventsDetails(eventId: Int) -> UIViewController {
         let vm = EventsDetailsViewModel(
             eventId: eventId,
@@ -32,16 +38,12 @@ enum PageFactory {
     }
     
     static func tabController() -> UIViewController {
-        let fakeVC2 = UIViewController()
-        fakeVC2.view.backgroundColor = .red
-        let fakeVC3 = UIViewController()
-        fakeVC3.view.backgroundColor = .blue
         return TabController(
             tabs: [
                 .init(viewController: browsePage(),
                       tabTitle: R.string.main.tab_browse_title(),
                       tabDeselectedIcon: R.image.globe()),
-                .init(viewController: fakeVC2,
+                .init(viewController: searchPage(),
                       tabTitle: R.string.main.tab_search_title(),
                       tabDeselectedIcon: R.image.magnifyingglass()),
                 .init(viewController: trackedEvents(),
