@@ -71,7 +71,7 @@ class SeatGeekInteractorTests: QuickSpec {
                     resultBuilder.responseFileName = Responses.Files.allEvents
                     mockNetwork.responseToSend = .success(result: resultBuilder.build()!)
                     sut
-                        .getAllEvents(page: 1, perPage: 10)
+                        .getAllEvents(queries: [])
                         .subscribeToResult { result in
                             switch result {
                             case .success(let events):
@@ -108,7 +108,7 @@ class SeatGeekInteractorTests: QuickSpec {
                     resultBuilder.responseFileName = Responses.Files.allPerformers
                     mockNetwork.responseToSend = .success(result: resultBuilder.build()!)
                     sut
-                        .getAllPerformers(page: 1, perPage: 10)
+                        .getAllPerformers(queries: [])
                         .subscribeToResult { result in
                             switch result {
                             case .success(let performers):
@@ -145,7 +145,7 @@ class SeatGeekInteractorTests: QuickSpec {
                     resultBuilder.responseFileName = Responses.Files.allVenues
                     mockNetwork.responseToSend = .success(result: resultBuilder.build()!)
                     sut
-                        .getAllVenues(page: 1, perPage: 10)
+                        .getAllVenues(queries: [])
                         .subscribeToResult { result in
                             switch result {
                             case .success(let venues):

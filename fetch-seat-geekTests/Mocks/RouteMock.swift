@@ -13,7 +13,7 @@ struct GenericRoute: Route {
     var method: HTTPMethod
     var body: Data?
     var headers: [URLQueryItem]?
-    var parameters: [String : String]?
+    var parameters: [RouteParameter]?
     
     static var stub: Route {
         return GenericRoute(
