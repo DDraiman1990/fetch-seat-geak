@@ -5,7 +5,6 @@
 //  Created by Dan Draiman on 6/21/21.
 //
 
-
 import UIKit
 
 final class TrackedEntryCell: UITableViewCell {

@@ -117,6 +117,9 @@ enum LabelsStylesheet {
         case .trackedEventPrice:
             label.font = R.font.proximaNovaRegular(size: 16)
             label.textColor = R.color.dollarGreen()
+        case .searchEntryTitle:
+            label.font = R.font.proximaNovaRegular(size: 16)
+            label.textColor = .black
         }
     }
 }
@@ -151,6 +154,7 @@ enum LabelStyle {
     case trackedEventTitle
     case trackedEventSubtitle
     case trackedEventPrice
+    case searchEntryTitle
 }
 
 extension UILabel {
