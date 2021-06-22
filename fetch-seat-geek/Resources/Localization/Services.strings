@@ -8,3 +8,5 @@
 
 "http_error%@" = "HTTP Request failed with status code %@";
 "decoding_error" = "Decoding of data failed";
+"database_error_not_storable" = "Item is not DatabaseStorable";
+"database_error_no_value" = "No value";

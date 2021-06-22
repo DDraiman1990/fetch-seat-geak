@@ -99,6 +99,10 @@
 		646E1BE426798D2D009BF8E1 /* ProximaNova-BoldIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 646E1BDA26798D2D009BF8E1 /* ProximaNova-BoldIt.otf */; };
 		646E1BE526798D2D009BF8E1 /* ProximaNova-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 646E1BDB26798D2D009BF8E1 /* ProximaNova-LightItalic.otf */; };
 		646E1BE626798D2D009BF8E1 /* ProximaNova-Extrabold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 646E1BDC26798D2D009BF8E1 /* ProximaNova-Extrabold.otf */; };
+		647C8DAE26815EAA0088AC5D /* TrackedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647C8DAD26815EAA0088AC5D /* TrackedViewController.swift */; };
+		647C8DB626815EB00088AC5D /* TrackedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647C8DB526815EB00088AC5D /* TrackedViewModel.swift */; };
+		647C8DC4268163310088AC5D /* TrackedEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647C8DC3268163310088AC5D /* TrackedEntryCell.swift */; };
+		647C8DCC268163360088AC5D /* TrackedEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647C8DCB268163360088AC5D /* TrackedEntryView.swift */; };
 		64A03765267BF66900A27D5E /* Int?+Add+Subtract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A03764267BF66900A27D5E /* Int?+Add+Subtract.swift */; };
 		64A0376D267BF8C200A27D5E /* Comparable+Clamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A0376C267BF8C200A27D5E /* Comparable+Clamp.swift */; };
 		64A03778267C344100A27D5E /* Array+Chunked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A03777267C344100A27D5E /* Array+Chunked.swift */; };
@@ -126,6 +130,8 @@
 		64B8A4D5267A77C800B5F5A1 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B8A4D4267A77C800B5F5A1 /* TableView.swift */; };
 		64B8A4DA267A79B200B5F5A1 /* IdentifiableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B8A4D9267A79B200B5F5A1 /* IdentifiableCell.swift */; };
 		64B8A4E7267A7DF300B5F5A1 /* DiffableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B8A4E6267A7DF300B5F5A1 /* DiffableDataSource.swift */; };
+		64C2EBAF268131C800936393 /* DatabaseInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C2EBAE268131C800936393 /* DatabaseInteractor.swift */; };
+		64C2EBB5268135E700936393 /* TrackedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C2EBB4268135E700936393 /* TrackedManager.swift */; };
 		64C7A3932673DF0400951930 /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = 64C7A3922673DF0400951930 /* Main.strings */; };
 		64C7A3A02673F59500951930 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C7A39F2673F59500951930 /* ViewModel.swift */; };
 		64C7A3A82673F5A600951930 /* ViewModel+TypeErasure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C7A3A72673F5A600951930 /* ViewModel+TypeErasure.swift */; };
@@ -269,6 +275,10 @@
 		646E1BDA26798D2D009BF8E1 /* ProximaNova-BoldIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-BoldIt.otf"; sourceTree = "<group>"; };
 		646E1BDB26798D2D009BF8E1 /* ProximaNova-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-LightItalic.otf"; sourceTree = "<group>"; };
 		646E1BDC26798D2D009BF8E1 /* ProximaNova-Extrabold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Extrabold.otf"; sourceTree = "<group>"; };
+		647C8DAD26815EAA0088AC5D /* TrackedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackedViewController.swift; sourceTree = "<group>"; };
+		647C8DB526815EB00088AC5D /* TrackedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackedViewModel.swift; sourceTree = "<group>"; };
+		647C8DC3268163310088AC5D /* TrackedEntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackedEntryCell.swift; sourceTree = "<group>"; };
+		647C8DCB268163360088AC5D /* TrackedEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackedEntryView.swift; sourceTree = "<group>"; };
 		64A03764267BF66900A27D5E /* Int?+Add+Subtract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int?+Add+Subtract.swift"; sourceTree = "<group>"; };
 		64A0376C267BF8C200A27D5E /* Comparable+Clamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Comparable+Clamp.swift"; sourceTree = "<group>"; };
 		64A03777267C344100A27D5E /* Array+Chunked.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Chunked.swift"; sourceTree = "<group>"; };
@@ -296,6 +306,8 @@
 		64B8A4D4267A77C800B5F5A1 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		64B8A4D9267A79B200B5F5A1 /* IdentifiableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiableCell.swift; sourceTree = "<group>"; };
 		64B8A4E6267A7DF300B5F5A1 /* DiffableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffableDataSource.swift; sourceTree = "<group>"; };
+		64C2EBAE268131C800936393 /* DatabaseInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseInteractor.swift; sourceTree = "<group>"; };
+		64C2EBB4268135E700936393 /* TrackedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackedManager.swift; sourceTree = "<group>"; };
 		64C7A3922673DF0400951930 /* Main.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Main.strings; sourceTree = "<group>"; };
 		64C7A39F2673F59500951930 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		64C7A3A72673F5A600951930 /* ViewModel+TypeErasure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModel+TypeErasure.swift"; sourceTree = "<group>"; };
@@ -529,6 +541,24 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		647C8DAC26815E9E0088AC5D /* Tracked */ = {
+			isa = PBXGroup;
+			children = (
+				647C8DAD26815EAA0088AC5D /* TrackedViewController.swift */,
+				647C8DB526815EB00088AC5D /* TrackedViewModel.swift */,
+			);
+			path = Tracked;
+			sourceTree = "<group>";
+		};
+		647C8DC22681632B0088AC5D /* Tracked */ = {
+			isa = PBXGroup;
+			children = (
+				647C8DC3268163310088AC5D /* TrackedEntryCell.swift */,
+				647C8DCB268163360088AC5D /* TrackedEntryView.swift */,
+			);
+			path = Tracked;
+			sourceTree = "<group>";
+		};
 		64A037A5267CF2B400A27D5E /* Browse */ = {
 			isa = PBXGroup;
 			children = (
@@ -594,6 +624,22 @@
 				64B05E792676E25900CFBEA4 /* VenueStub.swift */,
 			);
 			path = Stubs;
+			sourceTree = "<group>";
+		};
+		64C2EBAD268131BA00936393 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				64C2EBAE268131C800936393 /* DatabaseInteractor.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		64C2EBB3268135D900936393 /* Tracked */ = {
+			isa = PBXGroup;
+			children = (
+				64C2EBB4268135E700936393 /* TrackedManager.swift */,
+			);
+			path = Tracked;
 			sourceTree = "<group>";
 		};
 		64C7A3912673DE8D00951930 /* Localization */ = {
@@ -743,6 +789,7 @@
 		64E6E9432672F5AB00BDE2E6 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				647C8DC22681632B0088AC5D /* Tracked */,
 				645D6891267D525F005C3D97 /* Genres */,
 				645D687A267D50AC005C3D97 /* Browse */,
 				64A32BFB2678EC4100EEE8BF /* Performers */,
@@ -755,6 +802,7 @@
 		64E6E9442672F5AE00BDE2E6 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				647C8DAC26815E9E0088AC5D /* Tracked */,
 				64A4D38F268031AD0089386E /* EventDetails */,
 				64A037A5267CF2B400A27D5E /* Browse */,
 				64E6E9462672F5D000BDE2E6 /* Storyboards */,
@@ -806,6 +854,8 @@
 		64E6E94E2672F73E00BDE2E6 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				64C2EBB3268135D900936393 /* Tracked */,
+				64C2EBAD268131BA00936393 /* Database */,
 				646BED002681138200F82966 /* Share */,
 				6440B7D52676964F0087987F /* SeatGeek */,
 				6440B6FE2675B2A70087987F /* APIKeys */,
@@ -1257,7 +1307,9 @@
 				645D684F267CFFCB005C3D97 /* ApplicationManager.swift in Sources */,
 				64E6E9A72672FA2300BDE2E6 /* LogMetadata.swift in Sources */,
 				64C7A3A02673F59500951930 /* ViewModel.swift in Sources */,
+				64C2EBB5268135E700936393 /* TrackedManager.swift in Sources */,
 				64B8A4D5267A77C800B5F5A1 /* TableView.swift in Sources */,
+				647C8DB626815EB00088AC5D /* TrackedViewModel.swift in Sources */,
 				644AF5C42679166000E62181 /* EventSummarySmallView.swift in Sources */,
 				64A037B2267CF2D100A27D5E /* BrowseViewModel.swift in Sources */,
 				645D687C267D50C2005C3D97 /* FeaturedCollectionView.swift in Sources */,
@@ -1282,9 +1334,11 @@
 				644AF5A72679050700E62181 /* SearchResultsViewController.swift in Sources */,
 				6440B74F267670330087987F /* NetworkResult.swift in Sources */,
 				640F878D267839170055C4A4 /* SGGenre.swift in Sources */,
+				647C8DCC268163360088AC5D /* TrackedEntryView.swift in Sources */,
 				64B8A4DA267A79B200B5F5A1 /* IdentifiableCell.swift in Sources */,
 				646BED072681138200F82966 /* ShareData.swift in Sources */,
 				6440B745267670210087987F /* NetworkAuthPlugin.swift in Sources */,
+				647C8DC4268163310088AC5D /* TrackedEntryCell.swift in Sources */,
 				64E6E99C2672F9CE00BDE2E6 /* DependencyResolver.swift in Sources */,
 				6440B7E12676C94A0087987F /* SGEvent.swift in Sources */,
 				64A32BF32678E00300EEE8BF /* TabController.swift in Sources */,
@@ -1293,6 +1347,7 @@
 				644AF5B72679104A00E62181 /* TitledBannerView.swift in Sources */,
 				644AF5DC2679648C00E62181 /* SGEventSummary.swift in Sources */,
 				645D6876267D5087005C3D97 /* FeaturedInnerCollectionCell.swift in Sources */,
+				64C2EBAF268131C800936393 /* DatabaseInteractor.swift in Sources */,
 				64E6E96B2672F90000BDE2E6 /* R.generated.swift in Sources */,
 				64E6E9A92672FA2300BDE2E6 /* LogFormat.swift in Sources */,
 				64B18BA72676D21B002924C8 /* SGResponses.swift in Sources */,
@@ -1303,6 +1358,7 @@
 				64E6E9A82672FA2300BDE2E6 /* Logger.swift in Sources */,
 				644AF5CE26791F4400E62181 /* LabelsStylesheet.swift in Sources */,
 				6440B74A2676702C0087987F /* NetworkServicing.swift in Sources */,
+				647C8DAE26815EAA0088AC5D /* TrackedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

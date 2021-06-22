@@ -10,6 +10,15 @@ import UIKit
 final class EventSummarySmallCell: IdentifiableCollectionCell {
     public static let cellId = "EventSummarySmallCell"
     
+    var trackTapped: (() -> Void)? {
+        get {
+            view.trackTapped
+        }
+        set {
+            view.trackTapped = newValue
+        }
+    }
+    
     private let view: EventSummarySmallView = {
         let view = EventSummarySmallView()
         return view
@@ -28,5 +37,9 @@ final class EventSummarySmallCell: IdentifiableCollectionCell {
     
     func setup(event: SGEventSummary) {
         view.setup(using: event)
+    }
+    
+    func set(isTracked: Bool) {
+        view.set(isTracked: isTracked)
     }
 }

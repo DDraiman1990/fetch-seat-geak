@@ -61,6 +61,7 @@ final class BrowseViewModel: ViewModel {
     // MARK: - Properties | Dependencies
     
     private let seatGeekInteractor: SeatGeekInteracting
+    private let trackedManager: TrackedManaging
     
     // MARK: - Properties | ViewModel
     
@@ -88,11 +89,18 @@ final class BrowseViewModel: ViewModel {
     
     init(resolver: DependencyResolving) {
         self.seatGeekInteractor = resolver.resolve()
+        self.trackedManager = resolver.resolve()
         
         tableDataRelay
             .asObservable()
-            .subscribeToValue { data in
-                self.valueRelay.mutableValue.sections = data.sections
+            .subscribeToValue { [weak self] data in
+                self?.valueRelay.mutableValue.sections = data.sections
+            }
+            .disposed(by: disposeBag)
+        trackedManager
+            .onTrackedChanged
+            .subscribeToValue { [weak self] ids in
+                self?.valueRelay.mutableValue.trackedIds = ids
             }
             .disposed(by: disposeBag)
     }
@@ -108,7 +116,11 @@ final class BrowseViewModel: ViewModel {
         case .onTapped(row: let row, section: let section):
             onTapped(row: row, section: section)
         case .trackTappedFor(id: let id):
-            print("Trying to track \(id)")
+            trackedManager.toggleTracked(id: id)
+                .subscribeToValue { [weak self] isTracked in
+                    print("Id \(id) is now \(isTracked ? "tracked" : "untracked")")
+                }
+                .disposed(by: disposeBag)
         case .tappedViewAll(section: let section):
             print("Showing more for section \(section.header ?? "N/A")")
         case .tappedDateAndLocation:

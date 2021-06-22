@@ -13,9 +13,16 @@ final class ApplicationManager {
     
     init(windowManager: WindowManaging?) {
         self.windowManager = windowManager
+        globalStyling()
     }
     
     func presentRequiredPage() {
         windowManager?.setRoot(viewController: PageFactory.tabController())
+    }
+    
+    private func globalStyling() {
+        UINavigationBar.appearance().titleTextAttributes = [
+            .font: R.font.proximaNovaSemibold(size: 18)
+        ]
     }
 }

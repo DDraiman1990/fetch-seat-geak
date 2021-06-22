@@ -141,7 +141,11 @@ enum BrowseSection: Equatable {
         }
     }
     
-    func dequeue(from table: UITableView, indexPath: IndexPath) -> UITableViewCell {
+    func dequeue(
+        from table: UITableView,
+        indexPath: IndexPath,
+        trackedIds: Set<Int>
+    ) -> UITableViewCell {
         registerCellIfNeeded(table: table)
         let isHeader = indexPath.row == 0 && hasHeader
         let cell = table.dequeueReusableCell(
@@ -150,20 +154,26 @@ enum BrowseSection: Equatable {
         (cell as? ViewAllHeaderCell)?.setup(title: self.header ?? "")
         switch self {
         case .featured(let data):
-            (cell as? FeaturedInnerCollectionCell)?.setup(data: data)
+            let featuredCell = cell as? FeaturedInnerCollectionCell
+            featuredCell?.setup(data: data)
+            featuredCell?.set(trackedIds: trackedIds)
         case .justForYou(let data):
             (cell as? EventsInnerCollectionCell)?.setup(data: data)
-        case .trendingEvents(let data):
-            //                (cell as? FeaturedInnerCollectionCell)?.setup(data: data)
+            (cell as? EventsInnerCollectionCell)?.set(trackdIds: trackedIds)
+        case .trendingEvents:
             break
         case .recentlyViewed(let data):
             (cell as? EventsInnerCollectionCell)?.setup(data: data)
+            (cell as? EventsInnerCollectionCell)?.set(trackdIds: trackedIds)
         case .browseCategories(let data):
             (cell as? GenresInnerCollectionCell)?.setup(data: data)
+            (cell as? EventsInnerCollectionCell)?.set(trackdIds: trackedIds)
         case .justAnnounced(let data):
             (cell as? EventsInnerCollectionCell)?.setup(data: data)
+            (cell as? EventsInnerCollectionCell)?.set(trackdIds: trackedIds)
         case .category(_, _, let data):
             (cell as? EventsInnerCollectionCell)?.setup(data: data)
+            (cell as? EventsInnerCollectionCell)?.set(trackdIds: trackedIds)
         }
         if isHeader || !separator {
             cell.hideSeparator()

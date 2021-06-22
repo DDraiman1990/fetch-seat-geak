@@ -16,6 +16,7 @@ final class EventsDetailsViewModel: ViewModel {
     // MARK: - Properties | Dependencies
     
     private let seatGeekInteractor: SeatGeekInteracting
+    private let trackedManager: TrackedManaging
     
     // MARK: - Properties | ViewModel
     
@@ -45,6 +46,17 @@ final class EventsDetailsViewModel: ViewModel {
          resolver: DependencyResolving) {
         self.eventId = eventId
         self.seatGeekInteractor = resolver.resolve()
+        self.trackedManager = resolver.resolve()
+        
+        trackedManager
+            .onTrackedChanged
+            .subscribeToValue { [weak self] trackedIds in
+                self?.valueRelay
+                    .mutableValue
+                    .headerData?
+                    .isTracked = trackedIds.contains(eventId)
+            }
+            .disposed(by: disposeBag)
     }
     
     // MARK: - Methods | ViewModel
@@ -56,8 +68,17 @@ final class EventsDetailsViewModel: ViewModel {
         case .shareTapped:
             presentShare()
         case .trackingTapped:
-            //TODO: tracking logic
-            print("TRACKING")
+            trackedManager
+                .toggleTracked(id: self.eventId)
+                .subscribeToResult { result in
+                    switch result {
+                    case .success:
+                        print("Success")
+                    case .failure(let error):
+                        print(error)
+                    }
+                }
+                .disposed(by: disposeBag)
         case .travelTimeTapped(method: let method):
             //TODO: implement simple popup
             print("Travel TIme")
@@ -130,13 +151,14 @@ final class EventsDetailsViewModel: ViewModel {
             .DateFormatters
             .fullDateAndTimeFormatter
             .string(from: event.datetimeLocal)
+        let isTracked = trackedManager.trackedIds.contains(event.id)
         self.valueRelay.accept(.init(
                                 headerImageUrl: event.eventImageUrl,
                                 pageTitle: event.shortTitle,
                                 headerData: .init(
                                     title: event.title,
                                     subtitle: subtitle,
-                                    isTracked: false),
+                                    isTracked: isTracked),
                                 locationData: .init(
                                     locationName: event.venue.name,
                                     location: event.venue.fullAddress,

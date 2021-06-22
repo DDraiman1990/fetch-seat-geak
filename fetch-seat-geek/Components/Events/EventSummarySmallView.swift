@@ -9,7 +9,8 @@ import UIKit
 import Nuke
 
 final class EventSummarySmallView: UIView {
-    
+    var trackTapped: (() -> Void)?
+
     // MARK: - Properties | Components
     
     private let bannerView = TitledBannerView()
@@ -65,7 +66,7 @@ final class EventSummarySmallView: UIView {
             to: [.right(), .top()],
             padding: .init(constant: 12))
         heartButton.aspectRatioSquare()
-        heartButton.height(multiplier: 0.125, relativeTo: view)
+        heartButton.height(multiplier: 0.2, relativeTo: view)
         priceTagView.anchor(
             in: view,
             to: [.left(), .bottom()],
@@ -90,6 +91,11 @@ final class EventSummarySmallView: UIView {
                             to: [.top(), .right(), .left(), .ltBottom()],
                             padding: .init(top: 0, left: 0, bottom: 12, right: 0))
         backgroundImageView.height(multiplier: 0.55, relativeTo: self)
+        
+        heartButton.addTarget(self,
+                              action: #selector(heartTapped),
+                              for: .touchUpInside)
+        
         if let event = event {
             setup(using: event)
         }
@@ -130,7 +136,10 @@ final class EventSummarySmallView: UIView {
     
     private func setupHeartButton(by event: SGEventSummary) {
         heartButton.isHidden = !event.canBeTracked
-        heartButton.isActive = event.isTracked
+    }
+    
+    func set(isTracked: Bool) {
+        heartButton.isActive = isTracked
     }
     
     private func setupBanner(by banner: SGBanner?) {
@@ -140,6 +149,10 @@ final class EventSummarySmallView: UIView {
                             titleColor: banner?.textColor ?? .black,
                             font: banner?.font ?? .systemFont(ofSize: 15),
                             backgroundColor: banner?.backgroundColor ?? .clear))
+    }
+    
+    @objc private func heartTapped() {
+        trackTapped?()
     }
 }
 

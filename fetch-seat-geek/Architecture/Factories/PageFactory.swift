@@ -13,7 +13,15 @@ enum PageFactory {
             eventId: eventId,
             resolver: DependencyResolver.shared)
         let vc = EventDetailsViewController(viewModel: vm.eraseToAnyViewModel())
+        vc.modalPresentationStyle = .fullScreen
         return vc
+    }
+    
+    static func trackedEvents() -> UIViewController {
+        let vm = TrackedViewModel(resolver: DependencyResolver.shared)
+        let vc = TrackedViewController(viewModel: vm.eraseToAnyViewModel())
+        let nc = UINavigationController(rootViewController: vc)
+        return nc
     }
     
     static func browsePage() -> UIViewController {
@@ -36,7 +44,7 @@ enum PageFactory {
                 .init(viewController: fakeVC2,
                       tabTitle: R.string.main.tab_search_title(),
                       tabDeselectedIcon: R.image.magnifyingglass()),
-                .init(viewController: fakeVC3,
+                .init(viewController: trackedEvents(),
                       tabTitle: R.string.main.tab_tracking_title(),
                       tabDeselectedIcon: R.image.heart())
             ],

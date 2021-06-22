@@ -7,13 +7,22 @@
 
 import UIKit
 
-final class FeaturedInnerCollectionCell: UITableViewCell, CollectionViewContaining {
+final class FeaturedInnerCollectionCell: UITableViewCell, CollectionViewContaining, TrackableView {
     var onSelectedItem: ((IndexPath) -> Void)? {
         get {
             view.onSelectedItem
         }
         set {
             view.onSelectedItem = newValue
+        }
+    }
+    
+    var trackTapped: ((Int) -> Void)? {
+        get {
+            view.trackTapped
+        }
+        set {
+            view.trackTapped = newValue
         }
     }
     
@@ -38,5 +47,9 @@ final class FeaturedInnerCollectionCell: UITableViewCell, CollectionViewContaini
     
     func setup(data: [FeaturedInnerCollectionView.FeaturedData]) {
         view.set(data: data)
+    }
+    
+    func set(trackedIds: Set<Int>) {
+        view.set(trackedIds: trackedIds)
     }
 }

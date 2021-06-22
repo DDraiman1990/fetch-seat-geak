@@ -8,6 +8,9 @@
 import UIKit
 
 enum AppConstants {
+    enum Database {
+        static let suiteName = "com.nexxmark.fetch-seat-geek"
+    }
     enum Keys {
         static let seatGeekStoredClientId = "seat-geek-client"
         static let seatGeekClientIdParamName = "client_id"
@@ -29,6 +32,12 @@ enum AppConstants {
         static let fullDateAndTimeFormatter: DateFormatter = {
             let formatter = DateFormatter()
             formatter.dateFormat = "E, MMM d, yyyy 'at' h:mm aa"
+            return formatter
+        }()
+        
+        static let shortDateFormatter: DateFormatter = {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "E, MMM d"
             return formatter
         }()
     }
