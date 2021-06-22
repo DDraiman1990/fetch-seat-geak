@@ -84,8 +84,6 @@ enum BrowseSection: Equatable {
         case .justForYou, .recentlyViewed, .justAnnounced, .category:
             return EventsInnerCollectionCell.cellId
         case .trendingEvents:
-            //TODO: implement TrendingCollectionView and cell
-//                return TrendingInnerCollectionCell.cellId
             return ""
         case .browseCategories:
             return GenresInnerCollectionCell.cellId
@@ -108,10 +106,6 @@ enum BrowseSection: Equatable {
                 EventsInnerCollectionCell.self,
                 forCellReuseIdentifier: EventsInnerCollectionCell.cellId)
         case .trendingEvents:
-            //TODO: implement TrendingCollectionView and cell
-//                table.register(
-//                    TrendingInnerCollectionCell.self,
-//                    forCellReuseIdentifier: TrendingInnerCollectionCell.cellId)
             break
         case .browseCategories:
             table.register(
@@ -131,10 +125,6 @@ enum BrowseSection: Equatable {
         case .justForYou, .recentlyViewed, .justAnnounced, .category:
             return 246
         case .trendingEvents:
-            //TODO: implement TrendingCollectionView and cell
-//                table.register(
-//                    TrendingInnerCollectionCell.self,
-//                    forCellReuseIdentifier: TrendingInnerCollectionCell.cellId)
             return 360
         case .browseCategories:
             return 120
