@@ -10,8 +10,8 @@ import RxSwift
 import RxCocoa
 
 protocol TrackedManaging {
-    var trackedIds: Observable<Set<Int>> { get }
-    
+    var onTrackedChanged: Observable<Set<Int>> { get }
+    var trackedIds: Set<Int> { get }
     func addToTracked(id: Int) -> Observable<Void>
     func removeFromTracked(id: Int) -> Observable<Void>
     func toggleTracked(id: Int) -> Observable<Bool>
@@ -27,7 +27,11 @@ final class TrackedManager: TrackedManaging {
         load()
     }
     
-    var trackedIds: Observable<Set<Int>> {
+    var trackedIds: Set<Int> {
+        return tracked.value
+    }
+    
+    var onTrackedChanged: Observable<Set<Int>> {
         return tracked.share().asObservable()
     }
     

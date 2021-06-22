@@ -108,6 +108,15 @@ enum LabelsStylesheet {
         case .seeMoreTitle:
             label.font = R.font.proximaNovaRegular(size: 16)
             label.textColor = R.color.seatGeekBlue()
+        case .trackedEventTitle:
+            label.font = R.font.proximaNovaSemibold(size: 18)
+            label.textColor = .black
+        case .trackedEventSubtitle:
+            label.font = R.font.proximaNovaRegular(size: 16)
+            label.textColor = UIColor.black.withAlphaComponent(0.5)
+        case .trackedEventPrice:
+            label.font = R.font.proximaNovaRegular(size: 16)
+            label.textColor = R.color.dollarGreen()
         }
     }
 }
@@ -139,6 +148,9 @@ enum LabelStyle {
     case travelTimeTitle
     case travelTimeTime
     case seeMoreTitle
+    case trackedEventTitle
+    case trackedEventSubtitle
+    case trackedEventPrice
 }
 
 extension UILabel {

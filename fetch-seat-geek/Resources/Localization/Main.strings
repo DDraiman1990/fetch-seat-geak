@@ -14,3 +14,4 @@
 "view_all_in%@" = "View all events at %@";
 "share_event_title" = "Check out this event!";
 "share_event_body_%@" = "%@ is happening! When? %@. Where? %@. Buy tickets now!";
+"tracked_tab_title" = "Tracked";

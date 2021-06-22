@@ -98,7 +98,7 @@ final class BrowseViewModel: ViewModel {
             }
             .disposed(by: disposeBag)
         trackedManager
-            .trackedIds
+            .onTrackedChanged
             .subscribeToValue { [weak self] ids in
                 self?.valueRelay.mutableValue.trackedIds = ids
             }

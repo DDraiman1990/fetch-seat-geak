@@ -34,6 +34,12 @@ enum AppConstants {
             formatter.dateFormat = "E, MMM d, yyyy 'at' h:mm aa"
             return formatter
         }()
+        
+        static let shortDateFormatter: DateFormatter = {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "E, MMM d"
+            return formatter
+        }()
     }
     
     enum Collections {
