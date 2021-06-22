@@ -11,6 +11,15 @@ import UIKit
 final class TrackedEntryCell: UITableViewCell {
     public static let cellId = "TrackedEntryCell"
     
+    var trackTapped: (() -> Void)? {
+        get {
+            view.trackTapped
+        }
+        set {
+            view.trackTapped = newValue
+        }
+    }
+    
     private let view: TrackedEntryView = {
         let view = TrackedEntryView(
             title: "",

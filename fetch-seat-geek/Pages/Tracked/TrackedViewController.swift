@@ -30,6 +30,7 @@ final class TrackedViewController: UIViewController, ViewModeled {
     enum Interaction {
         case viewLoaded
         case eventTapped(id: Int)
+        case trackTapped(id: Int)
     }
     
     // MARK: - Properties
@@ -131,6 +132,9 @@ extension TrackedViewController: UITableViewDelegate, UITableViewDataSource {
             price: data.price,
             imageUrl: data.imageUrl,
             isTracked: data.isTracked)
+        cell.trackTapped = { [weak self] in
+            self?.viewModel.send(.trackTapped(id: data.id))
+        }
         cell.selectionStyle = .none
         return cell
     }

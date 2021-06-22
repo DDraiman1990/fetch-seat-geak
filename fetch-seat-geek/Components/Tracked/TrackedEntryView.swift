@@ -9,6 +9,8 @@ import UIKit
 import Nuke
 
 final class TrackedEntryView: UIView {
+    var trackTapped: (() -> Void)?
+    
     private lazy var contentStack: UIStackView = {
         let stack = UIStackView()
         stack.axis = .horizontal
@@ -58,6 +60,7 @@ final class TrackedEntryView: UIView {
         
         imageView.width(multiplier: 0.2, relativeTo: self)
         heartButton.width(multiplier: 0.1, relativeTo: self)
+        heartButton.addTarget(self, action: #selector(heartTapped), for: .touchUpInside)
         set(title: title)
         set(subtitle: subtitle)
         set(price: price)
@@ -88,6 +91,10 @@ final class TrackedEntryView: UIView {
     }
     func set(isTracked: Bool) {
         heartButton.isActive = isTracked
+    }
+    
+    @objc private func heartTapped() {
+        trackTapped?()
     }
 }
 

@@ -89,6 +89,9 @@ final class EventDetailsInformationView: UIView {
         trackingButton.set(icon: isTracked ?
                             R.image.suitHeartFill() :
                             R.image.heart())
+        trackingButton.set(title: isTracked ?
+                            R.string.general.tracking():
+                            R.string.general.track())
     }
     
     @objc private func shareTapped() {

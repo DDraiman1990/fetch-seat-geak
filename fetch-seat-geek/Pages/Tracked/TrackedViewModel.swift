@@ -61,6 +61,18 @@ final class TrackedViewModel: ViewModel {
         switch interaction {
         case .viewLoaded:
             fetchTrackedEvents()
+        case .trackTapped(let id):
+            trackedManager
+                .toggleTracked(id: id)
+                .subscribeToResult { result in
+                    switch result {
+                    case .success:
+                        print("Success")
+                    case .failure(let error):
+                        print(error)
+                    }
+                }
+                .disposed(by: disposeBag)
         case .eventTapped(let id):
             let eventDetails = PageFactory.eventsDetails(eventId: id)
             presentRelay.onNext(eventDetails)
