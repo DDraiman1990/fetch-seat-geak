@@ -7,14 +7,6 @@
 
 import Foundation
 
-struct SGPerformerSummary: Hashable, IdentifiableItem {
-    var id: Int
-    var name: String
-    var shortName: String
-    var image: String
-    var hasUpcomingEvents: Bool
-}
-
 struct SGPerformer: Decodable, Hashable {
     var name: String
     var shortName: String
