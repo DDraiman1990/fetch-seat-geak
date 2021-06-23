@@ -44,11 +44,14 @@ If you find bugs or crashes, let's assume this is a feature :D
 - XCode 12.x.x and above.
 - Device/Simulator running iOS 12 and above.
 - the `api-keys.plist` file (ask the developer for the file if one was not included already with a link to this repo).
+- Cocoapods 1.10.0 or above.
 
 ### How to run
 
 - Clone the repository or download the zip.
 - Copy the included `api-keys.plist` to the root folder of the project.
+  - While the point of separating the API keys into a separate file is to avoid commiting the raw keys into the project, for the sake of this exercise and its simplicity, I'll include it right here: [DOWNLOAD](https://drive.google.com/file/d/1Jg_o7dTTqM1Hgp-gieXV8GGc3f8KjCD8/view?usp=sharing)
+- Open the terminal, CD into the project folder and run `pod install`
 - Launch the `fetch-seat-geek.xcworkspace`
 - Build and run the project on a simulator or a connected device.
 

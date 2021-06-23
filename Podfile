@@ -22,9 +22,4 @@ target 'fetch-seat-geek' do
     inherit! :search_paths
     testPods
   end
-  
-  target 'fetch-seat-geekUITests' do
-    inherit! :search_paths
-    testPods
-  end
 end
