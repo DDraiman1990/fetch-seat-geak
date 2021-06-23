@@ -17,6 +17,7 @@ final class EventsDetailsViewModel: ViewModel {
     
     private let seatGeekInteractor: SeatGeekInteracting
     private let trackedManager: TrackedManaging
+    private let logger: Logger
     
     // MARK: - Properties | ViewModel
     
@@ -36,6 +37,7 @@ final class EventsDetailsViewModel: ViewModel {
     }
     
     // MARK: - Properties
+    
     private let eventId: Int
     private var event: SGEvent?
     private let disposeBag = DisposeBag()
@@ -47,6 +49,7 @@ final class EventsDetailsViewModel: ViewModel {
         self.eventId = eventId
         self.seatGeekInteractor = resolver.resolve()
         self.trackedManager = resolver.resolve()
+        self.logger = resolver.resolve()
         
         trackedManager
             .onTrackedChanged
@@ -68,23 +71,24 @@ final class EventsDetailsViewModel: ViewModel {
         case .shareTapped:
             presentShare()
         case .trackingTapped:
+            let id = self.eventId
             trackedManager
-                .toggleTracked(id: self.eventId)
-                .subscribeToResult { result in
+                .toggleTracked(id: id)
+                .subscribeToResult { [weak self] result in
                     switch result {
-                    case .success:
-                        print("Success")
+                    case .success(let tracked):
+                        self?.logger.info("Successfully set ID \(id) to \(tracked ? "tracked" : "untracked")")
                     case .failure(let error):
-                        print(error)
+                        self?.logger.error(error)
                     }
                 }
                 .disposed(by: disposeBag)
-        case .travelTimeTapped(method: let method):
-            //TODO: implement simple popup
-            print("Travel TIme")
+        case .travelTimeTapped(_):
+            //TODO: Implement if you find the time.
+            break
         case .viewAllTapped:
-            //TODO: show list of all
-            print("View ALl")
+            //TODO: Implement if you find the time.
+            break
         }
     }
     
@@ -98,8 +102,8 @@ final class EventsDetailsViewModel: ViewModel {
                 case .success(let event):
                     self?.onFetched(event: event)
                 case .failure(let error):
-                    //TODO: show popup for error
-                    print(error)
+                    //TODO: Show popup and dismiss on approval
+                    self?.logger.error(error)
                 }
             }
             .disposed(by: disposeBag)
@@ -119,8 +123,8 @@ final class EventsDetailsViewModel: ViewModel {
                         image: image))
                 let vc = builder.buildActivityViewController { _ in }
                 self?.presentRelay.onNext(vc)
-            } onFailure: { error in
-                print(error)
+            } onFailure: { [weak self] error in
+                self?.logger.error(error)
             }
             .disposed(by: disposeBag)
     }
@@ -132,12 +136,12 @@ final class EventsDetailsViewModel: ViewModel {
                 single(.failure(NSError()))
                 return Disposables.create()
             }
-            ImagePipeline.shared.loadImage(with: url) { result in
+            ImagePipeline.shared.loadImage(with: url) { [weak self] result in
                 switch result {
                 case .success(let res):
                     single(.success(res.image))
                 case .failure(let error):
-                    print(error)
+                    self?.logger.error(error)
                     single(.failure(error))
                 }
             }
@@ -152,17 +156,20 @@ final class EventsDetailsViewModel: ViewModel {
             .fullDateAndTimeFormatter
             .string(from: event.datetimeLocal)
         let isTracked = trackedManager.trackedIds.contains(event.id)
-        self.valueRelay.accept(.init(
-                                headerImageUrl: event.eventImageUrl,
-                                pageTitle: event.shortTitle,
-                                headerData: .init(
-                                    title: event.title,
-                                    subtitle: subtitle,
-                                    isTracked: isTracked),
-                                locationData: .init(
-                                    locationName: event.venue.name,
-                                    location: event.venue.fullAddress,
-                                    driveTime: "\(Int.random(in: 1...4))h, \(Int.random(in: 1...59)) min",
-                                    walkTime: "\(Int.random(in: 5...40))h, \(Int.random(in: 1...59)) min")))
+        let headerData = Consumer.HeaderData(
+            title: event.title,
+            subtitle: subtitle,
+            isTracked: isTracked)
+        let locationData = Consumer.LocationData(
+            locationName: event.venue.name,
+            location: event.venue.fullAddress,
+            driveTime: "\(Int.random(in: 1...4))h, \(Int.random(in: 1...59)) min",
+            walkTime: "\(Int.random(in: 5...40))h, \(Int.random(in: 1...59)) min")
+        let data = Consumer.Model(
+            headerImageUrl: event.eventImageUrl,
+            pageTitle: event.shortTitle,
+            headerData: headerData,
+            locationData: locationData)
+        self.valueRelay.accept(data)
     }
 }

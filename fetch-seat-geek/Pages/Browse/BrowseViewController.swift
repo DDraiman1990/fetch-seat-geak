@@ -9,8 +9,11 @@ import UIKit
 import RxSwift
 
 final class BrowseViewController: UIViewController, ViewModeled {
-    private let disposeBag = DisposeBag()
     
+    // MARK: - Properties | ViewModel
+    
+    private let viewModel: AnyViewModel<BrowseViewController>
+
     struct Model: DataModel {
         var location: String = ""
         var dates: String = ""
@@ -26,6 +29,8 @@ final class BrowseViewController: UIViewController, ViewModeled {
         case tappedViewAll(section: BrowseSection)
         case tappedDateAndLocation
     }
+    
+    // MARK: - Properties | UI Components
     
     private lazy var table: UITableView = {
         let table = UITableView()
@@ -48,11 +53,16 @@ final class BrowseViewController: UIViewController, ViewModeled {
         return stack
     }()
     
-    private let viewModel: AnyViewModel<BrowseViewController>
     private let navBar: LargeTitledNavigationBar = {
         let bar = LargeTitledNavigationBar(title: "", subtitle: "", buttonStyle: .init(color: .blue, type: .icon(image: R.image.hamburgerMenu())), height: 80)
         return bar
     }()
+    
+    // MARK: - Properties
+    
+    private let disposeBag = DisposeBag()
+    
+    // MARK: - Lifecycle
     
     init(viewModel: AnyViewModel<BrowseViewController>) {
         self.viewModel = viewModel
@@ -81,9 +91,12 @@ final class BrowseViewController: UIViewController, ViewModeled {
         viewModel.send(.viewAppeared)
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Methods | Setup
     
     private func bindViewModel() {
         viewModel
@@ -102,6 +115,8 @@ final class BrowseViewController: UIViewController, ViewModeled {
         }
         .disposed(by: disposeBag)
     }
+    
+    // MARK: - Methods | Helpers
     
     private func onModelChanged(model: Model) {
         navBar.set(title: model.location)
@@ -149,36 +164,6 @@ extension BrowseViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-final class ViewAllHeaderCell: UITableViewCell {
-    public static let cellId = "ViewAllHeaderCell"
-    var onActionTapped: (() -> Void)? {
-        get {
-            view.onActionTapped
-        }
-        set {
-            view.onActionTapped = newValue
-        }
-    }
-    private let view: ViewMoreHeaderView = ViewMoreHeaderView(
-        title: "",
-        actionTitle: "View All")
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.addSubview(view)
-        view.anchor(in: contentView)
-        selectionStyle = .none
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func setup(title: String) {
-        view.set(title: title)
-    }
-}
-
 extension BrowseViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         navBar.onScrolling(contentOffset: scrollView.contentOffset, contentInset: scrollView.contentInset)
@@ -186,26 +171,5 @@ extension BrowseViewController: UIScrollViewDelegate {
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         navBar.onScrollingStopped(contentOffset: scrollView.contentOffset, contentInset: scrollView.contentInset)
-    }
-}
-
-protocol ScrollAware {
-    func onScrolling(
-        contentOffset: CGPoint,
-        contentInset: UIEdgeInsets)
-    func onScrollingStopped(
-        contentOffset: CGPoint,
-        contentInset: UIEdgeInsets)
-}
-
-extension ScrollAware {
-    func onScrollingStopped(
-        contentOffset: CGPoint,
-        contentInset: UIEdgeInsets) {}
-}
-
-extension UITableViewCell {
-    func hideSeparator() {
-        separatorInset = .init(top: 0, left: .infinity, bottom: 0, right: 0)
     }
 }

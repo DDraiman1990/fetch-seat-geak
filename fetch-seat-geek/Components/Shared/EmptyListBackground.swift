@@ -8,6 +8,9 @@
 import UIKit
 
 final class EmptyListBackground: UIView {
+    
+    // MARK: - UI Components
+    
     private lazy var contentStack: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
@@ -54,7 +57,11 @@ final class EmptyListBackground: UIView {
         return imageView
     }()
     
-    init(title: String?, body: String?, image: UIImage?) {
+    // MARK: - Lifecycle
+    
+    init(title: String?,
+         body: String?,
+         image: UIImage?) {
         super.init(frame: .zero)
         addSubview(contentStack)
         contentStack

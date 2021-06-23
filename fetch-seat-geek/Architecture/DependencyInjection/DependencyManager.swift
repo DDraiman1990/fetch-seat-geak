@@ -21,10 +21,14 @@ final class DependencyManager: DependencyManaging {
         logger.set(format: AppConstants.Logs.logFormat)
         return logger
     }()
-    private let _databaseInteractor: DatabaseInteracting = DatabaseInteractor(suiteName: AppConstants.Database.suiteName)
+    private lazy var _databaseInteractor: DatabaseInteracting = DatabaseInteractor(
+        suiteName: AppConstants.Database.suiteName,
+        logger: _logger)
     private let apiKeysManager = APIKeysManager()
     
-    private lazy var _trackedManager: TrackedManaging = TrackedManager(databaseInteractor: _databaseInteractor)
+    private lazy var _trackedManager: TrackedManaging = TrackedManager(
+        databaseInteractor: _databaseInteractor,
+        logger: _logger)
     private lazy var _networkService: NetworkServicing = NetworkService(
         session: .shared,
         plugins: [

@@ -8,8 +8,13 @@
 import UIKit
 
 final class TintedImageView: UIImageView {
+    
+    // MARK: - UI Components
+    
     private let tintView = UIView()
     private let imageView: UIImageView = UIImageView()
+    
+    // MARK: - Properties
     override var contentMode: UIView.ContentMode {
         get {
             imageView.contentMode
@@ -35,6 +40,8 @@ final class TintedImageView: UIImageView {
             imageView.image = newValue
         }
     }
+
+    // MARK: - Lifecycle
     
     init(
         image: UIImage? = nil,

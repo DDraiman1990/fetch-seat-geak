@@ -63,11 +63,13 @@ class SeatGeekInteractor: SeatGeekInteracting {
         logger: Logger) {
         self.networkService = networkService
         self.logger = logger
+        logger.debug("Initialized SeatGeekInteractor")
     }
     
     // MARK: - Methods | Helpers
     
     private func request<T: Decodable>(route: Route) -> Observable<T> {
+        logger.debug("Making request for route \(route.urlRequest.url?.absoluteString ?? "Unknown")")
         return networkService
             .makeRequest(route: route)
             .map { networkResult -> T in
@@ -83,30 +85,35 @@ class SeatGeekInteractor: SeatGeekInteracting {
     // MARK: - Methods | SeatGeekInteracting
     
     func getAllEvents(queries: [SeatGeekQuery]) -> Observable<SGEventsResponse> {
+        logger.debug("Getting all events with queries \(queries)")
         return request(
             route: SeatGeekRoutes
                 .events(request: .all(queries: queries)))
     }
     
     func getEvent(id: String) -> Observable<SGEvent> {
+        logger.debug("Getting event with id \(id)")
         return request(
             route: SeatGeekRoutes
                 .events(request: .get(id: id)))
     }
     
     func getAllPerformers(queries: [SeatGeekQuery]) -> Observable<SGPerformersResponse> {
+        logger.debug("Getting all performers with queries \(queries)")
         return request(
             route: SeatGeekRoutes
                 .performers(request: .all(queries: queries)))
     }
     
     func getPerformer(id: String) -> Observable<SGPerformer> {
+        logger.debug("Getting performer with id \(id)")
         return request(
             route: SeatGeekRoutes
                 .performers(request: .get(id: id)))
     }
     
     func getPerformersWithUpcoming() -> Observable<SGPerformersResponse> {
+        logger.debug("Getting performers with upcoming events")
         return request(
             route: SeatGeekRoutes
                 .performers(request: .all(queries: [
@@ -117,12 +124,14 @@ class SeatGeekInteractor: SeatGeekInteracting {
     }
     
     func getAllVenues(queries: [SeatGeekQuery]) -> Observable<SGVenuesResponse> {
+        logger.debug("Getting all venues with queries \(queries)")
         return request(
             route: SeatGeekRoutes
                 .venues(request: .all(queries: queries)))
     }
     
     func getVenue(id: String) -> Observable<SGVenue> {
+        logger.debug("Getting venue with id \(id)")
         return request(
             route: SeatGeekRoutes
                 .venues(request: .get(id: id)))
@@ -132,6 +141,7 @@ class SeatGeekInteractor: SeatGeekInteracting {
         byEventId id: Int,
         queries: [SeatGeekQuery]
     ) -> Observable<SGEventsResponse> {
+        logger.debug("Getting all recommended events with queries \(queries) and seed event id \(id)")
         return request(
             route: SeatGeekRoutes
                 .recommendations(request: .byEvent(
@@ -143,6 +153,7 @@ class SeatGeekInteractor: SeatGeekInteracting {
         byPerformersIds ids: [Int],
         queries: [SeatGeekQuery]
     ) -> Observable<SGEventsResponse> {
+        logger.debug("Getting all recommended events with queries \(queries) and seed performers ids \(ids)")
         return request(
             route: SeatGeekRoutes
                 .recommendations(request: .byPerformers(
@@ -151,17 +162,20 @@ class SeatGeekInteractor: SeatGeekInteracting {
     }
     
     func getAllGenres() -> Observable<SGGenresResponse> {
+        logger.debug("Getting all genres")
         return request(
             route: SeatGeekRoutes.genres(request: .all))
     }
     
     func getGenre(id: String) -> Observable<SGGenre> {
+        logger.debug("Getting genre with id \(id)")
         return request(
             route: SeatGeekRoutes.genres(request: .get(id: id)))
     }
     
     private func categoryRequest(category: String
     ) -> Observable<SGEventsResponse> {
+        logger.debug("Getting category \(category)")
         return request(route: SeatGeekRoutes.events(request: .all(queries: [
             SeatGeekQuery.hasEventType(types: [category]),
             .sort(query: .init(field: .score, direction: .descending)),
@@ -170,6 +184,7 @@ class SeatGeekInteractor: SeatGeekInteracting {
     }
     
     func getBrowseCategories() -> Observable<SGBrowseGenresResponse> {
+        logger.debug("Getting browse categories")
         let broadwayShowsRequest = categoryRequest(category: SeatGeekRoutes.Constants.EventTypes.broadwayShows)
         let comedyRequest = categoryRequest(category: SeatGeekRoutes.Constants.EventTypes.comedy)
         let concertsRequest = categoryRequest(category: SeatGeekRoutes.Constants.EventTypes.concerts)

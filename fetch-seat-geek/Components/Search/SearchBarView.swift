@@ -8,7 +8,11 @@
 import UIKit
 
 final class SearchBarView: UIView {
+    // MARK: - Properties
     var onTextChanged: ((String?) -> Void)?
+    
+    // MARK: - UI Components
+    
     private lazy var searchWrapper: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -77,6 +81,8 @@ final class SearchBarView: UIView {
         return button
     }()
     
+    // MARK: - Lifecycle
+    
     init() {
         super.init(frame: .zero)
         addSubview(contentStack)
@@ -93,6 +99,8 @@ final class SearchBarView: UIView {
         super.layoutSubviews()
         searchWrapper.layer.cornerRadius = searchWrapper.frame.height / 2
     }
+    
+    // MARK: - Methods | Actions
     
     @objc private func cancelTapped() {
         endEditing(true)

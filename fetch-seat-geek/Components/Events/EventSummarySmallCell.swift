@@ -7,8 +7,10 @@
 
 import UIKit
 
-final class EventSummarySmallCell: IdentifiableCollectionCell {
+final class EventSummarySmallCell: UICollectionViewCell {
     public static let cellId = "EventSummarySmallCell"
+    
+    // MARK: - Properties
     
     var trackTapped: (() -> Void)? {
         get {
@@ -19,10 +21,14 @@ final class EventSummarySmallCell: IdentifiableCollectionCell {
         }
     }
     
+    // MARK: - UI Components
+    
     private let view: EventSummarySmallView = {
         let view = EventSummarySmallView()
         return view
     }()
+    
+    // MARK: - Lifecycle
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -35,6 +41,8 @@ final class EventSummarySmallCell: IdentifiableCollectionCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Methods | Setters
+
     func setup(event: SGEventSummary) {
         view.setup(using: event)
     }

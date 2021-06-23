@@ -8,7 +8,13 @@
 import UIKit
 
 final class ActionButton: UIView {
+    
+    // MARK: - Properties
+    
     private let gestureRecognizer: UITapGestureRecognizer = .init()
+    
+    // MARK: - UI COmponents
+    
     private let titleLabel = UILabel().styled(with: .actionButton)
     private let iconImageView: UIImageView = {
         let imageView = UIImageView()
@@ -25,6 +31,8 @@ final class ActionButton: UIView {
         stack.addArrangedSubview(titleLabel)
         return stack
     }()
+    
+    // MARK: - Lifecycle
     
     init(title: String,
          icon: UIImage?,
@@ -45,6 +53,8 @@ final class ActionButton: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Methods | Setters
     
     func addTarget(_ target: Any, action: Selector) {
         gestureRecognizer.addTarget(target, action: action)

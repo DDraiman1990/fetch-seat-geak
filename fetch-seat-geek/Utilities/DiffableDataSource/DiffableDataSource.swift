@@ -7,52 +7,15 @@
 
 import UIKit
 
-protocol IdentifiableItem: Hashable {
-    associatedtype IDType: Hashable
-    var id: IDType { get }
-}
-
+/// Diffable datasource for collection views that supports iOS 12 or below.
 class DiffableDataSource<Section: Hashable, Item: IdentifiableItem>: NSObject, UICollectionViewDataSource {
     
+    // MARK: - Private Models & Aliases
+    
+    typealias DataState = [Item.IDType: (IndexPath, Item)]
     struct SectionEntry {
         var section: Section
         var items: [Item]
-    }
-    
-    typealias DataState = [Item.IDType: (IndexPath, Item)]
-    private(set) var data: [SectionEntry] = []
-    private lazy var itemCount: [Int: Int] = [:]
-    private var lastState: DataState = [:]
-    private weak var collection: UICollectionView?
-    private let cellProvider: (UICollectionView, IndexPath, Item) -> UICollectionViewCell?
-    private var sectionCount: Int = 0
-    var firstRow: Int {
-        if infiniteScrollable {
-            return (data.count * infiniteModifier) - data.count
-        }
-        return 0
-    }
-    //To allow "infinite" cyclic scrolling we have to multiply rows by this modifier.
-    let infiniteModifier = 30
-    
-    var infiniteScrollable: Bool = false
-    
-    init(collectionView: UICollectionView, cellProvider: @escaping (UICollectionView, IndexPath, Item) -> UICollectionViewCell?) {
-        self.collection = collectionView
-        self.cellProvider = cellProvider
-        super.init()
-        collection?.dataSource = self
-    }
-    
-    func state(from data: [SectionEntry]) -> DataState {
-        var diff: DataState = [:]
-        for section in data.enumerated() {
-            let sectionNum = section.offset
-            section.element.items.enumerated().forEach {
-                diff[$0.element.id] = (IndexPath(item: $0.offset, section: sectionNum), $0.element)
-            }
-        }
-        return diff
     }
     
     enum Update<T>: CustomStringConvertible {
@@ -75,7 +38,60 @@ class DiffableDataSource<Section: Hashable, Item: IdentifiableItem>: NSObject, U
         }
     }
     
-    func getItemActions(newData: [SectionEntry], newDataState: DataState) -> [Update<IndexPath>] {
+    // MARK: - Properties
+    
+    private(set) var data: [SectionEntry] = []
+    private weak var collection: UICollectionView?
+    private let cellProvider: (UICollectionView, IndexPath, Item) -> UICollectionViewCell?
+    var infiniteScrollable: Bool = false
+
+    //State Tracking
+    private var lastState: DataState = [:]
+    private var sectionCount: Int = 0
+    private lazy var itemCount: [Int: Int] = [:]
+
+    // MARK: - Computed Values & Constants
+    
+    var firstRow: Int {
+        if infiniteScrollable {
+            return (data.count * infiniteModifier) - data.count
+        }
+        return 0
+    }
+    
+    var isEmpty: Bool {
+        return data.isEmpty
+    }
+    
+    //To allow "infinite" cyclic scrolling we have to multiply rows by this modifier.
+    let infiniteModifier = 30
+    
+    // MARK: - Lifecycle
+    
+    init(collectionView: UICollectionView, cellProvider: @escaping (UICollectionView, IndexPath, Item) -> UICollectionViewCell?) {
+        self.collection = collectionView
+        self.cellProvider = cellProvider
+        super.init()
+        collection?.dataSource = self
+    }
+    
+    // MARK: - Methods | State Calculations
+    
+    private func state(from data: [SectionEntry]) -> DataState {
+        var diff: DataState = [:]
+        for section in data.enumerated() {
+            let sectionNum = section.offset
+            section.element.items.enumerated().forEach {
+                diff[$0.element.id] = (IndexPath(item: $0.offset, section: sectionNum), $0.element)
+            }
+        }
+        return diff
+    }
+    
+    private func getItemActions(
+        newData: [SectionEntry],
+        newDataState: DataState
+    ) -> [Update<IndexPath>] {
         let last = lastState
         let allNewItems = newData.flatMap { $0.items }.map { $0.id }
         let allItems = data.flatMap { $0.items }.map { $0.id }
@@ -106,9 +122,9 @@ class DiffableDataSource<Section: Hashable, Item: IdentifiableItem>: NSObject, U
         return actions
     }
     
-    func getSectionActions(newData: [SectionEntry]) -> [Update<Int>] {
-        let diffInSections = newData.count - self.data.count
-        let lastSection = self.data.count
+    private func getSectionActions(newData: [SectionEntry]) -> [Update<Int>] {
+        let diffInSections = newData.count - data.count
+        let lastSection = data.count
         switch diffInSections {
         case let x where x < 0:
             return ((lastSection - abs(diffInSections))..<lastSection)
@@ -172,6 +188,8 @@ class DiffableDataSource<Section: Hashable, Item: IdentifiableItem>: NSObject, U
         }
     }
     
+    // MARK: - Methods | Public
+    
     func set(
         data: [SectionEntry],
         animated: Bool = true,
@@ -185,11 +203,17 @@ class DiffableDataSource<Section: Hashable, Item: IdentifiableItem>: NSObject, U
         } else {
             self.lastState = diff
             self.data = data
+            self.sectionCount = data.count
+            data.enumerated().forEach {
+                self.itemCount[$0.offset] = $0.element.items.count
+            }
             DispatchQueue.main.async {
                 self.collection?.reloadData()
             }
         }
     }
+    
+    // MARK: - Methods | Collection View
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return sectionCount
@@ -242,9 +266,5 @@ class DiffableDataSource<Section: Hashable, Item: IdentifiableItem>: NSObject, U
         }
         let modifiedRow = indexPath.item % section.items.count
         return section.items.elementIfExists(index: modifiedRow)
-    }
-    
-    var isEmpty: Bool {
-        return data.isEmpty
     }
 }

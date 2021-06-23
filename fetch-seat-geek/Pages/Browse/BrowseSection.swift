@@ -8,7 +8,7 @@
 import UIKit
 
 enum BrowseSection: Equatable {
-    case featured(data: [FeaturedInnerCollectionView.FeaturedData])
+    case featured(data: [FeaturedData])
     case justForYou(data: [SGEventSummary])
     case trendingEvents(data: [SGEventSummary])
     case recentlyViewed(data: [SGEventSummary])

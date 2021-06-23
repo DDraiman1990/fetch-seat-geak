@@ -8,8 +8,14 @@
 import UIKit
 
 final class ViewMoreHeaderView: UIView {
+    
+    // MARK: - Properties
+    
     var onActionTapped: (() -> Void)?
     private let actionGestureRecognizer = UITapGestureRecognizer()
+    
+    // MARK: - UI Components
+    
     private let titleLabel = UILabel().styled(with: .viewMoreHeaderTitle)
     private let actionLabel = UILabel().styled(with: .viewMoreHeaderAction)
     private lazy var actionImageView: UIImageView = {
@@ -41,6 +47,8 @@ final class ViewMoreHeaderView: UIView {
         return stack
     }()
     
+    // MARK: - Lifecycle
+    
     init(title: String, actionTitle: String) {
         super.init(frame: .zero)
         addSubview(contentStack)
@@ -58,6 +66,8 @@ final class ViewMoreHeaderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Methods | Setters
+    
     func set(title: String) {
         titleLabel.text = title
     }
@@ -65,6 +75,8 @@ final class ViewMoreHeaderView: UIView {
     func set(actionTitle: String) {
         actionLabel.text = actionTitle
     }
+    
+    // MARK: - Methods | Actions
     
     @objc private func actionTapped() {
         onActionTapped?()

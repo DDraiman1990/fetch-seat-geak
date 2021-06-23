@@ -1,21 +1,31 @@
 //
-//  SearchEntryCell.swift
+//  ViewAllHeaderCell.swift
 //  fetch-seat-geek
 //
-//  Created by Dan Draiman on 6/21/21.
+//  Created by Dan Draiman on 6/22/21.
 //
 
 import UIKit
 
-final class SearchEntryCell: UITableViewCell {
-    public static let cellId = "SearchEntryCell"
+final class ViewAllHeaderCell: UITableViewCell {
+    public static let cellId = "ViewAllHeaderCell"
+    
+    // MARK: - Properties
+    
+    var onActionTapped: (() -> Void)? {
+        get {
+            view.onActionTapped
+        }
+        set {
+            view.onActionTapped = newValue
+        }
+    }
     
     // MARK: - UI Components
     
-    private let view: SearchEntryView = {
-        let view = SearchEntryView(title: "", imageUrl: nil)
-        return view
-    }()
+    private let view: ViewMoreHeaderView = ViewMoreHeaderView(
+        title: "",
+        actionTitle: "View All")
     
     // MARK: - Lifecycle
     
@@ -23,6 +33,7 @@ final class SearchEntryCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(view)
         view.anchor(in: contentView)
+        selectionStyle = .none
     }
     
     @available(*, unavailable)
@@ -32,9 +43,7 @@ final class SearchEntryCell: UITableViewCell {
     
     // MARK: - Methods | Setters
     
-    func setup(title: String,
-               imageUrl: String?) {
+    func setup(title: String) {
         view.set(title: title)
-        view.set(imageUrl: imageUrl)
     }
 }

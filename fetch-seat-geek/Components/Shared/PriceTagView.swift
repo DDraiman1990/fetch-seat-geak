@@ -8,9 +8,15 @@
 import UIKit
 
 final class PriceTagView: UIView {
+    
+    // MARK: - UIComponents
+    
     private let priceLabel: UILabel = UILabel().styled(with: .priceBanner)
     private var path: UIBezierPath = .init()
     private let shapeLayer: CAShapeLayer = .init()
+    
+    // MARK: - Lifecycle
+    
     init(
         price: String = "",
         backgroundColor: UIColor = UIColor.black.withAlphaComponent(0.6)) {
@@ -22,10 +28,6 @@ final class PriceTagView: UIView {
         set(price: price)
         shapeLayer.fillColor = backgroundColor.cgColor
         layer.insertSublayer(shapeLayer, at: 0)
-    }
-    
-    func set(price: String) {
-        priceLabel.text = "$\(price)"
     }
     
     @available(*, unavailable)
@@ -40,5 +42,11 @@ final class PriceTagView: UIView {
             byRoundingCorners: [.topLeft, .topRight, .bottomRight],
             cornerRadii: CGSize(width: frame.height / 2, height: frame.height / 2))
             .cgPath
+    }
+    
+    // MARK: - Methods | Setters
+    
+    func set(price: String) {
+        priceLabel.text = "$\(price)"
     }
 }

@@ -10,6 +10,8 @@ import UIKit
 final class TrackedEntryCell: UITableViewCell {
     public static let cellId = "TrackedEntryCell"
     
+    // MARK: - Properties
+    
     var trackTapped: (() -> Void)? {
         get {
             view.trackTapped
@@ -18,6 +20,8 @@ final class TrackedEntryCell: UITableViewCell {
             view.trackTapped = newValue
         }
     }
+    
+    // MARK: - UI Components
     
     private let view: TrackedEntryView = {
         let view = TrackedEntryView(
@@ -29,6 +33,8 @@ final class TrackedEntryCell: UITableViewCell {
         return view
     }()
     
+    // MARK: - Lifecycle
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(view)
@@ -39,6 +45,8 @@ final class TrackedEntryCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Methods | Setters
     
     func setup(title: String,
                subtitle: String,

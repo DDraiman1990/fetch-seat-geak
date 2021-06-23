@@ -8,8 +8,14 @@
 import UIKit
 
 final class TravelTimeView: UIView {
+    
+    // MARK: - Properties
+    
     var onTapped: (() -> Void)?
     private let gestureRecognizer: UITapGestureRecognizer = .init()
+    
+    // MARK: - UI Components
+    
     private let titleLabel = UILabel().styled(with: .travelTimeTitle)
     private let timeLabel = UILabel().styled(with: .travelTimeTime)
     private let iconImageView: UIImageView = {
@@ -55,6 +61,8 @@ final class TravelTimeView: UIView {
         return view
     }()
     
+    // MARK: - Lifecycle
+    
     init(title: String,
          travelTime: String,
          icon: UIImage?) {
@@ -79,9 +87,13 @@ final class TravelTimeView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Methods | Actions
+    
     @objc private func tapped() {
         onTapped?()
     }
+    
+    // MARK: - Methods | Setters
     
     func set(icon: UIImage?) {
         iconImageView.image = icon

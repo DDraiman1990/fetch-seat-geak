@@ -8,23 +8,15 @@
 import UIKit
 
 final class FeaturedInnerCollectionView: UIView, CollectionViewContaining, TrackableView {
+    
+    // MARK: - Properties
+    
     var onSelectedItem: ((IndexPath) -> Void)?
     var trackTapped: ((Int) -> Void)?
     private var trackedIds: Set<Int> = []
     private var autoScrollTimer: Timer?
     
-    enum FeaturedData: IdentifiableItem {
-        var id: Int {
-            switch self {
-            case .event(let summary):
-                return summary.id
-            case .performer(let performer):
-                return performer.id
-            }
-        }
-        case performer(performer: SGPerformerSummary)
-        case event(summary: SGEventSummary)
-    }
+    // MARK: - UI Components
     
     private lazy var collection: CollectionView<Int, FeaturedData> = .init(
         layout: AppConstants.Collections.Layouts.horizontalSnap()) { _, _ -> CGSize in
@@ -58,6 +50,8 @@ final class FeaturedInnerCollectionView: UIView, CollectionViewContaining, Track
             return cell
         }
     
+    // MARK: - Lifecycle
+    
     init() {
         super.init(frame: .zero)
         addSubview(collection)
@@ -74,6 +68,13 @@ final class FeaturedInnerCollectionView: UIView, CollectionViewContaining, Track
         setupAutoScrollTimer()
     }
     
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Methods | Setup
+    
     private func setupAutoScrollTimer() {
         startAutoScrollTimer()
         collection.onUserBeginScroll = { [weak self] in
@@ -85,6 +86,8 @@ final class FeaturedInnerCollectionView: UIView, CollectionViewContaining, Track
         }
     }
     
+    // MARK: - Methods | Timer
+    
     private func startAutoScrollTimer() {
         autoScrollTimer = Timer
             .scheduledTimer(withTimeInterval: 6, repeats: true) { _ in
@@ -95,11 +98,8 @@ final class FeaturedInnerCollectionView: UIView, CollectionViewContaining, Track
     private func stopAutoScrollTimer() {
         autoScrollTimer?.invalidate()
     }
-    
-    @available(*, unavailable)
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+
+    // MARK: - Methods | Setters
     
     func set(data: [FeaturedData]) {
         // To prevent reloading and reseting to first index

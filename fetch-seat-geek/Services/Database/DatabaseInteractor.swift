@@ -14,15 +14,26 @@ protocol DatabaseInteracting {
 
 final class DatabaseInteractor: DatabaseInteracting {
     private let defaults: UserDefaults
+    private let logger: Logger
     
-    init(suiteName: String) {
-        self.defaults = UserDefaults(suiteName: suiteName) ?? .standard
+    init(suiteName: String?,
+         logger: Logger) {
+        self.logger = logger
+        if let name = suiteName,
+           let defaults = UserDefaults(suiteName: name) {
+            logger.debug("Initialized DatabaseInteractor with suiteName \(name)")
+            self.defaults = defaults
+        } else {
+            self.defaults = .standard
+            logger.debug("Initialized DatabaseInteractor with standard")
+        }
     }
     
     func store<T: Codable>(_ value: T, forKey key: String) throws {
         let encoder = JSONEncoder()
         let data = try encoder.encode(value)
         defaults.setValue(data, forKey: key)
+        logger.debug("Stored \(value) for key \(key)")
     }
     
     func get<T: Codable>(key: String) throws -> T {
@@ -33,7 +44,9 @@ final class DatabaseInteractor: DatabaseInteracting {
             throw DatabaseError.loadedItemNotStorable
         }
         let decoder = JSONDecoder()
-        return try decoder.decode(T.self, from: data)
+        let decoded = try decoder.decode(T.self, from: data)
+        logger.debug("Fetched decoded value for key \(key) is \(decoded)")
+        return decoded
     }
 }
 

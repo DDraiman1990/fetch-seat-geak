@@ -8,7 +8,14 @@
 import UIKit
 
 final class SeeMoreView: UIView {
+    
+    // MARK: - Properties
+    
     var onTapped: (() -> Void)?
+    private let gestureRecognizer = UITapGestureRecognizer()
+
+    // MARK: - UI Components
+    
     private lazy var contentStack: UIStackView = {
         let stack = UIStackView()
         stack.axis = .horizontal
@@ -20,8 +27,6 @@ final class SeeMoreView: UIView {
         return stack
     }()
     
-    private let gestureRecognizer = UITapGestureRecognizer()
-    
     private let titleLabel = UILabel().styled(with: .seeMoreTitle)
     private let chevronImageView: UIImageView = {
         let imageView = UIImageView()
@@ -31,6 +36,8 @@ final class SeeMoreView: UIView {
         imageView.anchor(width: 26)
         return imageView
     }()
+    
+    // MARK: - Lifecycle
     
     init(title: String) {
         super.init(frame: .zero)
@@ -46,9 +53,13 @@ final class SeeMoreView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Methods | Setters
+    
     func set(title: String) {
         titleLabel.text = R.string.main.view_all_in(title)
     }
+    
+    // MARK: - Methods | Actions
     
     @objc private func tapped() {
         onTapped?()

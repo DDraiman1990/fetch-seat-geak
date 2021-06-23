@@ -8,9 +8,23 @@
 import UIKit
 
 final class LargeTitledNavigationBar: UIView {
+    // MARK: - Internal Types
+    
     enum NavigationBarMode {
         case large, compact
     }
+    
+    struct ButtonStyle {
+        var color: UIColor = .blue
+        var type: ButtonType
+    }
+    
+    enum ButtonType {
+        case text(title: String, font: UIFont?)
+        case icon(image: UIImage?)
+    }
+    
+    // MARK: - Properties
     
     private var state: NavigationBarMode = .large {
         didSet {
@@ -23,19 +37,14 @@ final class LargeTitledNavigationBar: UIView {
     private let barHeight: CGFloat
     private var heightConstraint: NSLayoutConstraint!
     private var separatorConstraint: NSLayoutConstraint!
-    
-    struct ButtonStyle {
-        var color: UIColor = .blue
-        var type: ButtonType
-    }
-    
-    enum ButtonType {
-        case text(title: String, font: UIFont?)
-        case icon(image: UIImage?)
-    }
-    
     private let largeTitlesTapRecognizer = UITapGestureRecognizer()
     private let compactTitlesTapRecognizer = UITapGestureRecognizer()
+    var minWidth: CGFloat {
+        frame.width - 50
+    }
+    
+    // MARK: - UI Components
+    
     private let separatorView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.black.withAlphaComponent(0.1)
@@ -79,6 +88,8 @@ final class LargeTitledNavigationBar: UIView {
         button.addTarget(self, action: #selector(actionTapped), for: .touchUpInside)
         return button
     }()
+    
+    // MARK: - Lifecycle
     
     init(
         title: String,
@@ -135,6 +146,13 @@ final class LargeTitledNavigationBar: UIView {
         separatorConstraint.isActive = true
     }
     
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Methods | Setters
+    
     func set(title: String) {
         largeTitleLabel.text = title
         compactTitleLabel.text = title
@@ -155,6 +173,24 @@ final class LargeTitledNavigationBar: UIView {
         case .text(let title, let font):
             actionButton.setTitle(title, for: .normal)
             actionButton.titleLabel?.font = font
+        }
+    }
+    
+    // MARK: - Methods | Helpers
+    
+    private func setOffset(amount: CGFloat) {
+        let heightConstant = (barHeight - amount)
+            .clamp(lower: 50, upper: barHeight)
+        let widthConstant = (minWidth + amount).clamp(lower: minWidth, upper: frame.width)
+        heightConstraint.constant = heightConstant
+        separatorConstraint.constant = widthConstant
+    }
+    
+    private func determineState() {
+        if heightConstraint.constant >= barHeight - 15 {
+            state = .large
+        } else {
+            state = .compact
         }
     }
     
@@ -181,10 +217,7 @@ final class LargeTitledNavigationBar: UIView {
         }
     }
     
-    @available(*, unavailable)
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    // MARK: - Methods | Actions
     
     @objc private func actionTapped() {
         onActionButtonTapped?()
@@ -192,26 +225,6 @@ final class LargeTitledNavigationBar: UIView {
     
     @objc private func titlesTapped() {
         onTitlesTapped?()
-    }
-    
-    var minWidth: CGFloat {
-        frame.width - 50
-    }
-    
-    func setOffset(amount: CGFloat) {
-        let heightConstant = (barHeight - amount)
-            .clamp(lower: 50, upper: barHeight)
-        let widthConstant = (minWidth + amount).clamp(lower: minWidth, upper: frame.width)
-        heightConstraint.constant = heightConstant
-        separatorConstraint.constant = widthConstant
-    }
-    
-    private func determineState() {
-        if heightConstraint.constant >= barHeight - 15 {
-            state = .large
-        } else {
-            state = .compact
-        }
     }
 }
 
