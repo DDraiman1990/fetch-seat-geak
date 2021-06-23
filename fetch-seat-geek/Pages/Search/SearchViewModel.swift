@@ -16,7 +16,8 @@ final class SearchViewModel: ViewModel {
     // MARK: - Properties | Dependencies
     
     private let seatGeekInteractor: SeatGeekInteracting
-
+    private let logger: Logger
+    
     // MARK: - Properties | ViewModel
     
     private let valueRelay: BehaviorRelay<Consumer.Model> = .init(value: .init())
@@ -45,6 +46,7 @@ final class SearchViewModel: ViewModel {
     
     init(resolver: DependencyResolving) {
         self.seatGeekInteractor = resolver.resolve()
+        self.logger = resolver.resolve()
     }
     
     // MARK: - Methods | ViewModel
@@ -64,7 +66,6 @@ final class SearchViewModel: ViewModel {
     // MARK: - Methods | Data Fetching
     
     private func search(text: String) {
-        print("Searching \(text)")
         seatGeekInteractor
             .getAllEvents(queries: [
                 .search(term: text)
@@ -76,7 +77,7 @@ final class SearchViewModel: ViewModel {
                         $0.toSummary
                     }
                 case .failure(let error):
-                    print(error)
+                    self?.logger.error(error)
                 }
             }
             .disposed(by: disposeBag)

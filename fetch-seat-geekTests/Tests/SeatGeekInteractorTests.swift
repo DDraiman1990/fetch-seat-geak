@@ -74,8 +74,11 @@ class SeatGeekInteractorTests: QuickSpec {
                         .getAllEvents(queries: [])
                         .subscribeToResult { result in
                             switch result {
-                            case .success(let events):
-                                print()
+                            case .success(let response):
+                                expect(response.events.count)
+                                    .toEventually(
+                                        beGreaterThan(0),
+                                        timeout: .milliseconds(500))
                             default:
                                 fail()
                             }
@@ -111,8 +114,11 @@ class SeatGeekInteractorTests: QuickSpec {
                         .getAllPerformers(queries: [])
                         .subscribeToResult { result in
                             switch result {
-                            case .success(let performers):
-                                print()
+                            case .success(let response):
+                                expect(response.performers.count)
+                                    .toEventually(
+                                        beGreaterThan(0),
+                                        timeout: .milliseconds(500))
                             default:
                                 fail()
                             }
@@ -148,8 +154,11 @@ class SeatGeekInteractorTests: QuickSpec {
                         .getAllVenues(queries: [])
                         .subscribeToResult { result in
                             switch result {
-                            case .success(let venues):
-                                print()
+                            case .success(let response):
+                                expect(response.venues.count)
+                                    .toEventually(
+                                        beGreaterThan(0),
+                                        timeout: .milliseconds(500))
                             default:
                                 fail()
                             }
@@ -157,10 +166,6 @@ class SeatGeekInteractorTests: QuickSpec {
                         .disposed(by: disposeBag)
                 }
             }
-        }
-        
-        context("Error responses") {
-            
         }
     }
 }

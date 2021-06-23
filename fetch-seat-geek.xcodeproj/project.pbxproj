@@ -114,6 +114,8 @@
 		6499EE582682BB2200CA1C3E /* ViewAllHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6499EE572682BB2200CA1C3E /* ViewAllHeaderCell.swift */; };
 		6499EE642682C32800CA1C3E /* FeaturedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6499EE632682C32800CA1C3E /* FeaturedData.swift */; };
 		6499EE6C2682C63600CA1C3E /* TravelTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6499EE6B2682C63600CA1C3E /* TravelTime.swift */; };
+		6499EE752682CA0900CA1C3E /* TrackedManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6499EE702682CA0500CA1C3E /* TrackedManagerTests.swift */; };
+		6499EE7D2682CDAF00CA1C3E /* DatabaseInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6499EE7C2682CDAF00CA1C3E /* DatabaseInteractorMock.swift */; };
 		64A03765267BF66900A27D5E /* Int?+Add+Subtract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A03764267BF66900A27D5E /* Int?+Add+Subtract.swift */; };
 		64A0376D267BF8C200A27D5E /* Comparable+Clamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A0376C267BF8C200A27D5E /* Comparable+Clamp.swift */; };
 		64A03778267C344100A27D5E /* Array+Chunked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A03777267C344100A27D5E /* Array+Chunked.swift */; };
@@ -298,6 +300,8 @@
 		6499EE572682BB2200CA1C3E /* ViewAllHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAllHeaderCell.swift; sourceTree = "<group>"; };
 		6499EE632682C32800CA1C3E /* FeaturedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedData.swift; sourceTree = "<group>"; };
 		6499EE6B2682C63600CA1C3E /* TravelTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelTime.swift; sourceTree = "<group>"; };
+		6499EE702682CA0500CA1C3E /* TrackedManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackedManagerTests.swift; sourceTree = "<group>"; };
+		6499EE7C2682CDAF00CA1C3E /* DatabaseInteractorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseInteractorMock.swift; sourceTree = "<group>"; };
 		64A03764267BF66900A27D5E /* Int?+Add+Subtract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int?+Add+Subtract.swift"; sourceTree = "<group>"; };
 		64A0376C267BF8C200A27D5E /* Comparable+Clamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Comparable+Clamp.swift"; sourceTree = "<group>"; };
 		64A03777267C344100A27D5E /* Array+Chunked.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Chunked.swift"; sourceTree = "<group>"; };
@@ -400,6 +404,7 @@
 		640F8758267815470055C4A4 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				6499EE702682CA0500CA1C3E /* TrackedManagerTests.swift */,
 				6440B76A267672660087987F /* NetworkServiceTests.swift */,
 				640F87592678155F0055C4A4 /* LoggerTests.swift */,
 				640F87C726783F0C0055C4A4 /* SeatGeekInteractorTests.swift */,
@@ -486,6 +491,7 @@
 				6440B7B3267687710087987F /* RouteMock.swift */,
 				640F8766267827200055C4A4 /* MockCoreLogger.swift */,
 				640F87CC26783F7A0055C4A4 /* NetworkServiceMock.swift */,
+				6499EE7C2682CDAF00CA1C3E /* DatabaseInteractorMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -1430,6 +1436,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6499EE752682CA0900CA1C3E /* TrackedManagerTests.swift in Sources */,
 				64B05E6D2676E23C00CFBEA4 /* EventStub.swift in Sources */,
 				6440B7A5267675920087987F /* URLSessionMock.swift in Sources */,
 				640F87C826783F0C0055C4A4 /* SeatGeekInteractorTests.swift in Sources */,
@@ -1443,6 +1450,7 @@
 				640F87D3267840E30055C4A4 /* NetworkResultBuilder.swift in Sources */,
 				640F8767267827200055C4A4 /* MockCoreLogger.swift in Sources */,
 				6440B7AA267676180087987F /* LoggerMock.swift in Sources */,
+				6499EE7D2682CDAF00CA1C3E /* DatabaseInteractorMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -62,6 +62,7 @@ final class BrowseViewModel: ViewModel {
     
     private let seatGeekInteractor: SeatGeekInteracting
     private let trackedManager: TrackedManaging
+    private let logger: Logger
     
     // MARK: - Properties | ViewModel
     
@@ -118,13 +119,13 @@ final class BrowseViewModel: ViewModel {
         case .trackTappedFor(id: let id):
             trackedManager.toggleTracked(id: id)
                 .subscribeToValue { [weak self] isTracked in
-                    print("Id \(id) is now \(isTracked ? "tracked" : "untracked")")
+                    self?.logger.info("Id \(id) is now \(isTracked ? "tracked" : "untracked")")
                 }
                 .disposed(by: disposeBag)
         case .tappedViewAll(section: let section):
-            print("Showing more for section \(section.header ?? "N/A")")
+            logger.info("Should show more for section \(section.header ?? "N/A") if I had time to implement it")
         case .tappedDateAndLocation:
-            print("Showing date selection")
+            logger.info("Should show date selection if I had time to implement it")
         }
     }
     
@@ -143,7 +144,7 @@ final class BrowseViewModel: ViewModel {
         ])
         let upcomingPerformers = seatGeekInteractor.getPerformersWithUpcoming()
         Observable.zip(allEvents, upcomingPerformers)
-            .subscribeToResult { result in
+            .subscribeToResult { [weak self] result in
                 switch result {
                 case .success(let tupleResponse):
                     let featuredEvents = tupleResponse
@@ -160,9 +161,9 @@ final class BrowseViewModel: ViewModel {
                                 .performer(performer: $0.toSummary)
                         }
                     let combined = featuredEvents + featuredPerformers
-                    self.tableDataRelay.mutableValue.featured = combined.shuffled()
+                    self?.tableDataRelay.mutableValue.featured = combined.shuffled()
                 case .failure(let error):
-                    print(error)
+                    self?.logger.error(error)
                 }
             }
             .disposed(by: disposeBag)
@@ -179,12 +180,12 @@ final class BrowseViewModel: ViewModel {
     private func fetchGenres() {
         seatGeekInteractor
             .getAllGenres()
-            .subscribeToResult { result in
+            .subscribeToResult { [weak self] result in
                 switch result {
                 case .success(let response):
-                    self.tableDataRelay.mutableValue.browseCategories = response.genres
+                    self?.tableDataRelay.mutableValue.browseCategories = response.genres
                 case .failure(let error):
-                    print(error)
+                    self?.logger.error(error)
                 }
             }
             .disposed(by: disposeBag)
@@ -193,17 +194,17 @@ final class BrowseViewModel: ViewModel {
     private func fetchCategories() {
         seatGeekInteractor
             .getBrowseCategories()
-            .subscribeToResult { result in
+            .subscribeToResult { [weak self] result in
                 switch result {
                 case .success(let response):
-                    self.tableDataRelay.mutableValue.genres = response.genres.map {
+                    self?.tableDataRelay.mutableValue.genres = response.genres.map {
                         return GenreSection(
                             name: $0.name,
                             slug: $0.slug,
                             events: $0.evnets.map { $0.toSummary })
                     }
                 case .failure(let error):
-                    print(error)
+                    self?.logger.error(error)
                 }
             }
             .disposed(by: disposeBag)
@@ -212,17 +213,17 @@ final class BrowseViewModel: ViewModel {
     // MARK: - Methods | Helpers
     
     private func onSelected(event: SGEventSummary) {
-        print("Selected event \(event.title)")
+        logger.info("Selected \(event.id)")
         let eventDetails = PageFactory.eventsDetails(eventId: event.id)
         presentRelay.onNext(eventDetails)
     }
     
     private func onSelected(genre: SGGenre) {
-        print("Selected genre \(genre.name)")
+        logger.info("Should show genre \(genre.name) details if I had time to implement this.")
     }
     
     private func onSelected(performer: SGPerformerSummary) {
-        print("Selected performer \(performer.name)")
+        logger.info("Should show performer \(performer.name) details if I had time to implement this.")
     }
     
     private func onSelected(index: Int,

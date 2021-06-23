@@ -18,7 +18,8 @@ final class TrackedViewModel: ViewModel {
     
     private let seatGeekInteractor: SeatGeekInteracting
     private let trackedManager: TrackedManaging
-
+    private let logger: Logger
+    
     // MARK: - Properties | ViewModel
     
     private let valueRelay: BehaviorRelay<Consumer.Model> = .init(value: .init(pageTitle: R.string.main.tracked_tab_title()))
@@ -46,6 +47,7 @@ final class TrackedViewModel: ViewModel {
     init(resolver: DependencyResolving) {
         self.seatGeekInteractor = resolver.resolve()
         self.trackedManager = resolver.resolve()
+        self.logger = resolver.resolve()
         
         trackedManager
             .onTrackedChanged
@@ -64,12 +66,12 @@ final class TrackedViewModel: ViewModel {
         case .trackTapped(let id):
             trackedManager
                 .toggleTracked(id: id)
-                .subscribeToResult { result in
+                .subscribeToResult { [weak self] result in
                     switch result {
-                    case .success:
-                        print("Success")
+                    case .success(let tracked):
+                        self?.logger.info("Successfully set ID \(id) to \(tracked ? "tracked" : "untracked")")
                     case .failure(let error):
-                        print(error)
+                        self?.logger.error(error)
                     }
                 }
                 .disposed(by: disposeBag)
@@ -114,8 +116,8 @@ final class TrackedViewModel: ViewModel {
                         imageUrl: event.eventImageUrl,
                         isTracked: true)
                 }
-            } onFailure: { (error) in
-                print(error)
+            } onFailure: { [weak self] (error) in
+                self?.logger.error(error)
             }
             .disposed(by: disposeBag)
     }

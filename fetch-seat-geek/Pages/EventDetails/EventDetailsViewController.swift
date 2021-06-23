@@ -285,7 +285,6 @@ extension EventDetailsViewController: UITableViewDelegate, UITableViewDataSource
             isTracked: headerData.isTracked)
         cell.selectionStyle = .none
         cell.onShareTapped = { [weak self] in
-            print("Share")
             self?.viewModel.send(.shareTapped)
         }
         cell.onTrackingTapped = { [weak self] in

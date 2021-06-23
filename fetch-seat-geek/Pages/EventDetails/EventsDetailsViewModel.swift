@@ -17,6 +17,7 @@ final class EventsDetailsViewModel: ViewModel {
     
     private let seatGeekInteractor: SeatGeekInteracting
     private let trackedManager: TrackedManaging
+    private let logger: Logger
     
     // MARK: - Properties | ViewModel
     
@@ -48,6 +49,7 @@ final class EventsDetailsViewModel: ViewModel {
         self.eventId = eventId
         self.seatGeekInteractor = resolver.resolve()
         self.trackedManager = resolver.resolve()
+        self.logger = resolver.resolve()
         
         trackedManager
             .onTrackedChanged
@@ -69,14 +71,15 @@ final class EventsDetailsViewModel: ViewModel {
         case .shareTapped:
             presentShare()
         case .trackingTapped:
+            let id = self.eventId
             trackedManager
-                .toggleTracked(id: self.eventId)
-                .subscribeToResult { result in
+                .toggleTracked(id: id)
+                .subscribeToResult { [weak self] result in
                     switch result {
-                    case .success:
-                        print("Success")
+                    case .success(let tracked):
+                        self?.logger.info("Successfully set ID \(id) to \(tracked ? "tracked" : "untracked")")
                     case .failure(let error):
-                        print(error)
+                        self?.logger.error(error)
                     }
                 }
                 .disposed(by: disposeBag)
@@ -100,7 +103,7 @@ final class EventsDetailsViewModel: ViewModel {
                     self?.onFetched(event: event)
                 case .failure(let error):
                     //TODO: Show popup and dismiss on approval
-                    print(error)
+                    self?.logger.error(error)
                 }
             }
             .disposed(by: disposeBag)
@@ -120,8 +123,8 @@ final class EventsDetailsViewModel: ViewModel {
                         image: image))
                 let vc = builder.buildActivityViewController { _ in }
                 self?.presentRelay.onNext(vc)
-            } onFailure: { error in
-                print(error)
+            } onFailure: { [weak self] error in
+                self?.logger.error(error)
             }
             .disposed(by: disposeBag)
     }
@@ -133,12 +136,12 @@ final class EventsDetailsViewModel: ViewModel {
                 single(.failure(NSError()))
                 return Disposables.create()
             }
-            ImagePipeline.shared.loadImage(with: url) { result in
+            ImagePipeline.shared.loadImage(with: url) { [weak self] result in
                 switch result {
                 case .success(let res):
                     single(.success(res.image))
                 case .failure(let error):
-                    print(error)
+                    self?.logger.error(error)
                     single(.failure(error))
                 }
             }

@@ -24,7 +24,9 @@ final class DependencyManager: DependencyManaging {
     private let _databaseInteractor: DatabaseInteracting = DatabaseInteractor(suiteName: AppConstants.Database.suiteName)
     private let apiKeysManager = APIKeysManager()
     
-    private lazy var _trackedManager: TrackedManaging = TrackedManager(databaseInteractor: _databaseInteractor)
+    private lazy var _trackedManager: TrackedManaging = TrackedManager(
+        databaseInteractor: _databaseInteractor,
+        logger: _logger)
     private lazy var _networkService: NetworkServicing = NetworkService(
         session: .shared,
         plugins: [

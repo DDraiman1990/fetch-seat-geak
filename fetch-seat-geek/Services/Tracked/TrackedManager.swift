@@ -21,9 +21,12 @@ final class TrackedManager: TrackedManaging {
     private let trackedDatabaseKey = "tracked-ids"
     private let tracked: BehaviorRelay<Set<Int>> = .init(value: [])
     private let databaseInteractor: DatabaseInteracting
+    private let logger: Logger
     
-    init(databaseInteractor: DatabaseInteracting) {
+    init(databaseInteractor: DatabaseInteracting,
+         logger: Logger) {
         self.databaseInteractor = databaseInteractor
+        self.logger = logger
         load()
     }
     
@@ -44,8 +47,7 @@ final class TrackedManager: TrackedManaging {
                dbError != .noValue {
                 return
             }
-            //TODO: log
-            print(error)
+            logger.error(error)
         }
     }
     
