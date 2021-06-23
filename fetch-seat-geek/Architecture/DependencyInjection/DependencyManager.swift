@@ -21,7 +21,9 @@ final class DependencyManager: DependencyManaging {
         logger.set(format: AppConstants.Logs.logFormat)
         return logger
     }()
-    private let _databaseInteractor: DatabaseInteracting = DatabaseInteractor(suiteName: AppConstants.Database.suiteName)
+    private lazy var _databaseInteractor: DatabaseInteracting = DatabaseInteractor(
+        suiteName: AppConstants.Database.suiteName,
+        logger: _logger)
     private let apiKeysManager = APIKeysManager()
     
     private lazy var _trackedManager: TrackedManaging = TrackedManager(

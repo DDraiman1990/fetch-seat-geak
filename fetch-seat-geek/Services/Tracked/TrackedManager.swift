@@ -27,6 +27,7 @@ final class TrackedManager: TrackedManaging {
          logger: Logger) {
         self.databaseInteractor = databaseInteractor
         self.logger = logger
+        logger.debug("TrackedManager created.")
         load()
     }
     
@@ -35,12 +36,18 @@ final class TrackedManager: TrackedManaging {
     }
     
     var onTrackedChanged: Observable<Set<Int>> {
-        return tracked.share().asObservable()
+        return tracked
+            .share()
+            .asObservable()
+            .do(onNext: { [weak self] ids in
+                self?.logger.debug("trackeIds changed to \(ids)")
+        })
     }
     
     private func load() {
         do {
             let loaded: Set<Int> = try databaseInteractor.get(key: trackedDatabaseKey)
+            logger.debug("Successfully loaded tracked ids: \(loaded)")
             self.tracked.accept(loaded)
         } catch {
             if let dbError = error as? DatabaseError,
@@ -53,12 +60,15 @@ final class TrackedManager: TrackedManaging {
     
     private func store(tracked: Set<Int>) -> Observable<Void>  {
         let key = trackedDatabaseKey
+        logger.debug("Attempting to store \(tracked)")
         return Single.create { [weak self] single in
             do {
                 try self?.databaseInteractor.store(tracked, forKey: key)
+                self?.logger.debug("Successfully stored \(tracked) in key \(key)")
                 single(.success(()))
             }
             catch {
+                self?.logger.error(error)
                 single(.failure(error))
             }
             return Disposables.create()
@@ -67,6 +77,7 @@ final class TrackedManager: TrackedManaging {
     }
     
     func addToTracked(id: Int) -> Observable<Void> {
+        logger.debug("Adding \(id) to tracked.")
         var existing = tracked.value
         existing.insert(id)
         return store(tracked: existing)
@@ -76,6 +87,7 @@ final class TrackedManager: TrackedManaging {
     }
     
     func removeFromTracked(id: Int) -> Observable<Void> {
+        logger.debug("Removing \(id) from tracked")
         var existing = tracked.value
         existing.remove(id)
         return store(tracked: existing)
@@ -86,6 +98,7 @@ final class TrackedManager: TrackedManaging {
     
     func toggleTracked(id: Int) -> Observable<Bool> {
         let isTracked = tracked.value.contains(id)
+        logger.debug("\(id) is \(isTracked ? "tracked" : "not tracked")")
         if isTracked {
             return removeFromTracked(id: id)
                 .map { !isTracked }
