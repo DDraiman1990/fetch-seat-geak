@@ -337,8 +337,6 @@
 		64E6E91C2672F59300BDE2E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64E6E9212672F59300BDE2E6 /* fetch-seat-geekTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "fetch-seat-geekTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		64E6E9272672F59300BDE2E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		64E6E9302672F59300BDE2E6 /* fetch_seat_geekUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fetch_seat_geekUITests.swift; sourceTree = "<group>"; };
-		64E6E9322672F59300BDE2E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64E6E96A2672F90000BDE2E6 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		64E6E96F2672F96400BDE2E6 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		64E6E9992672F9CE00BDE2E6 /* DependencyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyManager.swift; sourceTree = "<group>"; };
@@ -767,7 +765,6 @@
 			children = (
 				64E6E90D2672F59100BDE2E6 /* fetch-seat-geek */,
 				64E6E9242672F59300BDE2E6 /* fetch-seat-geekTests */,
-				64E6E92F2672F59300BDE2E6 /* fetch-seat-geekUITests */,
 				64E6E90C2672F59100BDE2E6 /* Products */,
 				EBAFE4F46C6F2ED0A2D65D04 /* Pods */,
 				08D7F4CD06D4A713CA6D8903 /* Frameworks */,
@@ -809,15 +806,6 @@
 				64E6E9272672F59300BDE2E6 /* Info.plist */,
 			);
 			path = "fetch-seat-geekTests";
-			sourceTree = "<group>";
-		};
-		64E6E92F2672F59300BDE2E6 /* fetch-seat-geekUITests */ = {
-			isa = PBXGroup;
-			children = (
-				64E6E9302672F59300BDE2E6 /* fetch_seat_geekUITests.swift */,
-				64E6E9322672F59300BDE2E6 /* Info.plist */,
-			);
-			path = "fetch-seat-geekUITests";
 			sourceTree = "<group>";
 		};
 		64E6E9412672F5A000BDE2E6 /* System */ = {
