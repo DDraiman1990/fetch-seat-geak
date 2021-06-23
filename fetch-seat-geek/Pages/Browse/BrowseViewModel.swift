@@ -91,6 +91,7 @@ final class BrowseViewModel: ViewModel {
     init(resolver: DependencyResolving) {
         self.seatGeekInteractor = resolver.resolve()
         self.trackedManager = resolver.resolve()
+        self.logger = resolver.resolve()
         
         tableDataRelay
             .asObservable()
