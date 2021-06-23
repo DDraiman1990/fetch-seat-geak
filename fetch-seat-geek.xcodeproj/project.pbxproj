@@ -154,7 +154,6 @@
 		64E6E9112672F59100BDE2E6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E6E9102672F59100BDE2E6 /* SceneDelegate.swift */; };
 		64E6E9182672F59300BDE2E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64E6E9172672F59300BDE2E6 /* Assets.xcassets */; };
 		64E6E91B2672F59300BDE2E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64E6E9192672F59300BDE2E6 /* LaunchScreen.storyboard */; };
-		64E6E9312672F59300BDE2E6 /* fetch_seat_geekUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E6E9302672F59300BDE2E6 /* fetch_seat_geekUITests.swift */; };
 		64E6E96B2672F90000BDE2E6 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E6E96A2672F90000BDE2E6 /* R.generated.swift */; };
 		64E6E9702672F96400BDE2E6 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E6E96F2672F96400BDE2E6 /* NetworkService.swift */; };
 		64E6E99B2672F9CE00BDE2E6 /* DependencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E6E9992672F9CE00BDE2E6 /* DependencyManager.swift */; };
@@ -167,19 +166,11 @@
 		64E6E9AC2672FA2300BDE2E6 /* OSLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E6E9A62672FA2300BDE2E6 /* OSLogger.swift */; };
 		64E6E9B52672FBB900BDE2E6 /* SeatGeekRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E6E9B42672FBB900BDE2E6 /* SeatGeekRoutes.swift */; };
 		89BD7C9563D60562466C2B5D /* Pods_fetch_seat_geekTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 194684EF8A48324BE919A546 /* Pods_fetch_seat_geekTests.framework */; };
-		9B9DB868CAB1C8847E66D79B /* Pods_fetch_seat_geekUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5111C3FD2CD01E6AB313D685 /* Pods_fetch_seat_geekUITests.framework */; };
 		D6151CE990784A097DA39D5D /* Pods_fetch_seat_geek.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A1CC6BBA1FA661F4BA8EA8C /* Pods_fetch_seat_geek.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		64E6E9222672F59300BDE2E6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 64E6E9032672F59100BDE2E6 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 64E6E90A2672F59100BDE2E6;
-			remoteInfo = "fetch-seat-geek";
-		};
-		64E6E92D2672F59300BDE2E6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 64E6E9032672F59100BDE2E6 /* Project object */;
 			proxyType = 1;
@@ -346,7 +337,6 @@
 		64E6E91C2672F59300BDE2E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64E6E9212672F59300BDE2E6 /* fetch-seat-geekTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "fetch-seat-geekTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		64E6E9272672F59300BDE2E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		64E6E92C2672F59300BDE2E6 /* fetch-seat-geekUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "fetch-seat-geekUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		64E6E9302672F59300BDE2E6 /* fetch_seat_geekUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fetch_seat_geekUITests.swift; sourceTree = "<group>"; };
 		64E6E9322672F59300BDE2E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64E6E96A2672F90000BDE2E6 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
@@ -381,14 +371,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				89BD7C9563D60562466C2B5D /* Pods_fetch_seat_geekTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		64E6E9292672F59300BDE2E6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9B9DB868CAB1C8847E66D79B /* Pods_fetch_seat_geekUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -797,7 +779,6 @@
 			children = (
 				64E6E90B2672F59100BDE2E6 /* fetch-seat-geek.app */,
 				64E6E9212672F59300BDE2E6 /* fetch-seat-geekTests.xctest */,
-				64E6E92C2672F59300BDE2E6 /* fetch-seat-geekUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1053,26 +1034,6 @@
 			productReference = 64E6E9212672F59300BDE2E6 /* fetch-seat-geekTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		64E6E92B2672F59300BDE2E6 /* fetch-seat-geekUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 64E6E93B2672F59300BDE2E6 /* Build configuration list for PBXNativeTarget "fetch-seat-geekUITests" */;
-			buildPhases = (
-				9465731F7A62B091F87C33C5 /* [CP] Check Pods Manifest.lock */,
-				64E6E9282672F59300BDE2E6 /* Sources */,
-				64E6E9292672F59300BDE2E6 /* Frameworks */,
-				64E6E92A2672F59300BDE2E6 /* Resources */,
-				A3B3F43E4702AB0C02C14F41 /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				64E6E92E2672F59300BDE2E6 /* PBXTargetDependency */,
-			);
-			name = "fetch-seat-geekUITests";
-			productName = "fetch-seat-geekUITests";
-			productReference = 64E6E92C2672F59300BDE2E6 /* fetch-seat-geekUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1086,10 +1047,6 @@
 						CreatedOnToolsVersion = 12.3;
 					};
 					64E6E9202672F59300BDE2E6 = {
-						CreatedOnToolsVersion = 12.3;
-						TestTargetID = 64E6E90A2672F59100BDE2E6;
-					};
-					64E6E92B2672F59300BDE2E6 = {
 						CreatedOnToolsVersion = 12.3;
 						TestTargetID = 64E6E90A2672F59100BDE2E6;
 					};
@@ -1110,7 +1067,6 @@
 			targets = (
 				64E6E90A2672F59100BDE2E6 /* fetch-seat-geek */,
 				64E6E9202672F59300BDE2E6 /* fetch-seat-geekTests */,
-				64E6E92B2672F59300BDE2E6 /* fetch-seat-geekUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -1149,13 +1105,6 @@
 				640F87BF26783EEF0055C4A4 /* PerformersResponse.json in Resources */,
 				640F87C026783EEF0055C4A4 /* VenuesResponse.json in Resources */,
 				640F87BE26783EEF0055C4A4 /* EventsResponse.json in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		64E6E92A2672F59300BDE2E6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1260,45 +1209,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
-		};
-		9465731F7A62B091F87C33C5 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-fetch-seat-geekUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A3B3F43E4702AB0C02C14F41 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-fetch-seat-geekUITests/Pods-fetch-seat-geekUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-fetch-seat-geekUITests/Pods-fetch-seat-geekUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-fetch-seat-geekUITests/Pods-fetch-seat-geekUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		DFA0976833547FF6ACF69225 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1470,14 +1380,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		64E6E9282672F59300BDE2E6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				64E6E9312672F59300BDE2E6 /* fetch_seat_geekUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1485,11 +1387,6 @@
 			isa = PBXTargetDependency;
 			target = 64E6E90A2672F59100BDE2E6 /* fetch-seat-geek */;
 			targetProxy = 64E6E9222672F59300BDE2E6 /* PBXContainerItemProxy */;
-		};
-		64E6E92E2672F59300BDE2E6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 64E6E90A2672F59100BDE2E6 /* fetch-seat-geek */;
-			targetProxy = 64E6E92D2672F59300BDE2E6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1707,46 +1604,6 @@
 			};
 			name = Release;
 		};
-		64E6E93C2672F59300BDE2E6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 32252E898AE8BC658927026B /* Pods-fetch-seat-geekUITests.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VL5EGTTRCJ;
-				INFOPLIST_FILE = "fetch-seat-geekUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nexxmark.fetch-seat-geekUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "fetch-seat-geek";
-			};
-			name = Debug;
-		};
-		64E6E93D2672F59300BDE2E6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6977923F958B9C5926738351 /* Pods-fetch-seat-geekUITests.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VL5EGTTRCJ;
-				INFOPLIST_FILE = "fetch-seat-geekUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nexxmark.fetch-seat-geekUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "fetch-seat-geek";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1773,15 +1630,6 @@
 			buildConfigurations = (
 				64E6E9392672F59300BDE2E6 /* Debug */,
 				64E6E93A2672F59300BDE2E6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		64E6E93B2672F59300BDE2E6 /* Build configuration list for PBXNativeTarget "fetch-seat-geekUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				64E6E93C2672F59300BDE2E6 /* Debug */,
-				64E6E93D2672F59300BDE2E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

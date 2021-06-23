@@ -18,10 +18,12 @@ class DatabaseInteractorTests: QuickSpec {
         let testKey = "testKey"
         let testString = "SomeValue"
         var sut: DatabaseInteractor!
+        var mockLogger: LoggerMock!
         
         func createSut() {
             UserDefaults(suiteName: suiteName)?.removeAll()
-            sut = .init(suiteName: suiteName)
+            mockLogger = LoggerMock()
+            sut = .init(suiteName: suiteName, logger: mockLogger)
         }
         beforeEach {
             
