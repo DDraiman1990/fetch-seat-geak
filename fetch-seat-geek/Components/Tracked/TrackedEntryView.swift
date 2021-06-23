@@ -9,7 +9,12 @@ import UIKit
 import Nuke
 
 final class TrackedEntryView: UIView {
+    
+    // MARK: - Properties
+    
     var trackTapped: (() -> Void)?
+    
+    // MARK: - UI Components
     
     private lazy var contentStack: UIStackView = {
         let stack = UIStackView()
@@ -48,6 +53,8 @@ final class TrackedEntryView: UIView {
     private let subtitleLabel = UILabel().styled(with: .trackedEventSubtitle)
     private let priceLabel = UILabel().styled(with: .trackedEventPrice)
     
+    // MARK: - Lifecycle
+    
     init(title: String,
          subtitle: String,
          price: String?,
@@ -73,6 +80,8 @@ final class TrackedEntryView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Methods | Setters
+    
     func set(title: String) {
         titleLabel.text = title
     }
@@ -92,6 +101,8 @@ final class TrackedEntryView: UIView {
     func set(isTracked: Bool) {
         heartButton.isActive = isTracked
     }
+    
+    // MARK: - Methods | Actions
     
     @objc private func heartTapped() {
         trackTapped?()

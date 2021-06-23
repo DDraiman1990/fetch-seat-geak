@@ -19,7 +19,7 @@ final class BrowseViewModel: ViewModel {
     }
 
     private struct TableData: Equatable {
-        var featured: [FeaturedInnerCollectionView.FeaturedData]?
+        var featured: [FeaturedData]?
         var justForYou: [SGEventSummary]?
         var trendingEvents: [SGEventSummary]?
         var recentlyViewed: [SGEventSummary]?
@@ -150,16 +150,13 @@ final class BrowseViewModel: ViewModel {
                         .0
                         .events
                         .map {
-                            FeaturedInnerCollectionView
-                                .FeaturedData
-                                .event(summary: $0.toSummary)
+                            FeaturedData.event(summary: $0.toSummary)
                         }
                     let featuredPerformers = tupleResponse
                         .1
                         .performers
                         .map {
-                            FeaturedInnerCollectionView
-                                .FeaturedData
+                            FeaturedData
                                 .performer(performer: $0.toSummary)
                         }
                     let combined = featuredEvents + featuredPerformers
@@ -228,7 +225,8 @@ final class BrowseViewModel: ViewModel {
         print("Selected performer \(performer.name)")
     }
     
-    private func onSelected(index: Int, from featured: [FeaturedInnerCollectionView.FeaturedData]) {
+    private func onSelected(index: Int,
+                            from featured: [FeaturedData]) {
         if let data = featured.elementIfExists(index: index) {
             switch data {
             case .event(let summary):

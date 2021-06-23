@@ -7,13 +7,15 @@
 
 import UIKit
 
-enum TravelTime {
-    case drive, walk
-}
-
 final class EventDetailsLocationView: UIView {
+    
+    // MARK: - Properties
+    
     var onViewAllTapped: (() -> Void)?
     var onTravelTimeTapped: ((TravelTime) -> Void)?
+    
+    // MARK: - UI Components
+    
     private let titleLabel = UILabel().styled(with: .eventDetailsLocationTitle)
     private let locationNameLabel = UILabel().styled(with: .eventDetailsLocationName)
     private let locationLabel = UILabel().styled(with: .eventDetailsLocation)
@@ -78,6 +80,8 @@ final class EventDetailsLocationView: UIView {
         return stack
     }()
     
+    // MARK: - Lifecycle
+    
     init(locationName: String,
          location: String,
          driveTime: String? = nil,
@@ -112,6 +116,8 @@ final class EventDetailsLocationView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Methods | Setters
+    
     func set(location: String) {
         locationLabel.text = location
     }
@@ -130,6 +136,8 @@ final class EventDetailsLocationView: UIView {
         walkTravelTimeView.set(travelTime: walkTime ?? "")
         walkTravelTimeView.isHidden = walkTime == nil
     }
+    
+    // MARK: - Methods | Actions
     
     @objc private func viewAllTapped() {
         onViewAllTapped?()

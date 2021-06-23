@@ -8,7 +8,12 @@
 import UIKit
 
 final class GenresCollectionView: UIView, CollectionViewContaining {
+    
+    // MARK: - Properties
+    
     var onSelectedItem: ((IndexPath) -> Void)?
+    
+    // MARK: - UI Components
     
     private lazy var collection: CollectionView<Int, SGGenre> = .init(
         layout: AppConstants.Collections.Layouts.basicHorizontal(spacing: 12)) { _, _ -> CGSize in
@@ -23,6 +28,8 @@ final class GenresCollectionView: UIView, CollectionViewContaining {
             (cell as? GenreSummaryCell)?.setup(genre: data)
             return cell
         }
+    
+    // MARK: - Lifecycle
 
     init() {
         super.init(frame: .zero)
@@ -43,6 +50,8 @@ final class GenresCollectionView: UIView, CollectionViewContaining {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Methods | Setters
     
     func set(data: [SGGenre]) {
         collection.set(sections: [

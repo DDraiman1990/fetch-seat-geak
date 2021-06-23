@@ -9,12 +9,17 @@ import UIKit
 import Nuke
 
 final class GenreSummaryView: UIView {
+    
+    // MARK: - UI Components
+    
     private let titleLabel = UILabel().styled(with: .genreTitle)
     private let backgroundImage: TintedImageView = {
         let imageView = TintedImageView()
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
+    
+    // MARK: - Lifecycle
     
     init(genre: SGGenre? = nil) {
         super.init(frame: .zero)
@@ -36,6 +41,8 @@ final class GenreSummaryView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Methods | Setters
     
     func setup(genre: SGGenre) {
         self.titleLabel.text = genre.name

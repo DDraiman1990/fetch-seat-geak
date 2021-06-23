@@ -8,8 +8,14 @@
 import UIKit
 
 final class EventDetailsInformationView: UIView {
+    
+    // MARK: - Properties
+    
     var onTrackingTapped: (() -> Void)?
     var onShareTapped: (() -> Void)?
+    
+    // MARK: - UI Components
+    
     private let titleLabel = UILabel().styled(with: .eventDetailsTitle)
     private let subtitleLabel = UILabel().styled(with: .eventDetailsSubtitle)
     private lazy var trackingButton: ActionButton = {
@@ -59,6 +65,8 @@ final class EventDetailsInformationView: UIView {
         return stack
     }()
     
+    // MARK: - Lifecycle
+    
     init(title: String,
          subtitle: String,
          isTracked: Bool) {
@@ -77,6 +85,8 @@ final class EventDetailsInformationView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Methods | Setters
+    
     func set(title: String) {
         titleLabel.text = title
     }
@@ -93,6 +103,8 @@ final class EventDetailsInformationView: UIView {
                             R.string.general.tracking():
                             R.string.general.track())
     }
+    
+    // MARK: - Methods | Actions
     
     @objc private func shareTapped() {
         onShareTapped?()

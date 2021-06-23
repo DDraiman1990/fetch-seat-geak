@@ -8,6 +8,11 @@
 import UIKit
 
 final class FeaturedInnerCollectionCell: UITableViewCell, CollectionViewContaining, TrackableView {
+    
+    public static let cellId = "FeaturedInnerCollectionCell"
+
+    // MARK: - Properties
+    
     var onSelectedItem: ((IndexPath) -> Void)? {
         get {
             view.onSelectedItem
@@ -26,12 +31,14 @@ final class FeaturedInnerCollectionCell: UITableViewCell, CollectionViewContaini
         }
     }
     
-    public static let cellId = "FeaturedInnerCollectionCell"
+    // MARK: - UI Components
     
     private let view: FeaturedInnerCollectionView = {
         let view = FeaturedInnerCollectionView()
         return view
     }()
+    
+    // MARK: - Lifecycle
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -45,7 +52,9 @@ final class FeaturedInnerCollectionCell: UITableViewCell, CollectionViewContaini
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(data: [FeaturedInnerCollectionView.FeaturedData]) {
+    // MARK: - Methods | Setters
+    
+    func setup(data: [FeaturedData]) {
         view.set(data: data)
     }
     

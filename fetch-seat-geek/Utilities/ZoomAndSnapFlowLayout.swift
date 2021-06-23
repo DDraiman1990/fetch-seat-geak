@@ -10,7 +10,7 @@ import UIKit
 class ZoomAndSnapFlowLayout: UICollectionViewFlowLayout {
 
     let activeDistance: CGFloat = 200
-    let zoomFactor: CGFloat = 0
+    var zoomFactor: CGFloat = 0
 
     override init() {
         super.init()
@@ -26,7 +26,9 @@ class ZoomAndSnapFlowLayout: UICollectionViewFlowLayout {
     }
 
     override func prepare() {
-        guard let collectionView = collectionView else { fatalError() }
+        guard let collectionView = collectionView else {
+            fatalError()
+        }
         let verticalInsets = (collectionView.frame.height - collectionView.adjustedContentInset.top - collectionView.adjustedContentInset.bottom - itemSize.height) / 2
         let horizontalInsets = (collectionView.frame.width - collectionView.adjustedContentInset.right - collectionView.adjustedContentInset.left - itemSize.width) / 2
         sectionInset = UIEdgeInsets(top: verticalInsets, left: horizontalInsets, bottom: verticalInsets, right: horizontalInsets)
@@ -36,43 +38,43 @@ class ZoomAndSnapFlowLayout: UICollectionViewFlowLayout {
     
     override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
         
-        let collectionViewSize: CGSize = self.collectionView!.bounds.size
-        let rectBounds: CGRect = self.collectionView!.bounds
-        let halfWidth: CGFloat = rectBounds.size.width * CGFloat(0.50)
-        let proposedContentOffsetCenterX: CGFloat = proposedContentOffset.x + halfWidth
+        guard let rectBounds = self.collectionView?.bounds else {
+            return .zero
+        }
         
-        let proposedRect: CGRect = self.collectionView!.bounds
-        
-        let attributesArray = self.layoutAttributesForElements(in: proposedRect)!
-        
-        var candidateAttributes:UICollectionViewLayoutAttributes?
-        
-        
+        let halfWidth = rectBounds.size.width * CGFloat(0.50)
+        let proposedContentOffsetCenterX = proposedContentOffset.x + halfWidth
+        guard let proposedRect = self.collectionView?.bounds,
+              let attributesArray = self.layoutAttributesForElements(in: proposedRect) else {
+            return .zero
+        }
+        var candidateAttributes: UICollectionViewLayoutAttributes?
         for layoutAttributes : AnyObject in attributesArray {
-            
             if let _layoutAttributes = layoutAttributes as? UICollectionViewLayoutAttributes {
-                
                 if _layoutAttributes.representedElementCategory != UICollectionView.ElementCategory.cell {
                     continue
                 }
-                
                 if candidateAttributes == nil {
                     candidateAttributes = _layoutAttributes
                     continue
                 }
-                
-                if fabsf(Float(_layoutAttributes.center.x) - Float(proposedContentOffsetCenterX)) < fabsf(Float(candidateAttributes!.center.x) - Float(proposedContentOffsetCenterX)) {
+                if let atts = candidateAttributes, fabsf(Float(_layoutAttributes.center.x) - Float(proposedContentOffsetCenterX)) < fabsf(Float(atts.center.x) - Float(proposedContentOffsetCenterX)) {
                     candidateAttributes = _layoutAttributes
                 }
-                
             }
         }
         
         if attributesArray.count == 0 {
-            return CGPoint(x: proposedContentOffset.x - halfWidth * 2,y: proposedContentOffset.y)
+            return CGPoint(
+                x: proposedContentOffset.x - halfWidth * 2,
+                y: proposedContentOffset.y)
         }
-        
-        return CGPoint(x: candidateAttributes!.center.x - halfWidth, y: proposedContentOffset.y)
+        guard let atts = candidateAttributes else {
+            return .zero
+        }
+        return CGPoint(
+            x: atts.center.x - halfWidth,
+            y: proposedContentOffset.y)
     }
 
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {

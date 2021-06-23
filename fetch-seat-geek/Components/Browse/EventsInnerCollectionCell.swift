@@ -10,6 +10,8 @@ import UIKit
 final class EventsInnerCollectionCell: UITableViewCell, CollectionViewContaining, TrackableView {
     public static let cellId = "EventsInnerCollectionCell"
     
+    // MARK: - Properties
+    
     var onSelectedItem: ((IndexPath) -> Void)? {
         get {
             view.onSelectedItem
@@ -28,10 +30,14 @@ final class EventsInnerCollectionCell: UITableViewCell, CollectionViewContaining
         }
     }
     
+    // MARK: - UI Components
+    
     private let view: EventsCollectionView = {
         let view = EventsCollectionView()
         return view
     }()
+    
+    // MARK: - Lifecycle
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -43,6 +49,8 @@ final class EventsInnerCollectionCell: UITableViewCell, CollectionViewContaining
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Methods | Setters
     
     func setup(data: [SGEventSummary]) {
         view.set(data: data)

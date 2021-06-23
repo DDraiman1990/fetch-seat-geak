@@ -40,6 +40,7 @@ class CollectionView<SectionModel: Hashable,
     
     private var onDequeueCell: CellDequeue
     private var cellTypeForModel: CellTypeForModel
+    
     var insetForSection: InsetForSection?
     var sizeForItem: SizeForItem?
     var didSelectItem: DidSelectItem?
@@ -92,7 +93,8 @@ class CollectionView<SectionModel: Hashable,
     }
     
     // MARK: - Properties | Private
-    
+    private var items: [[ItemModel]] = []
+
     override var backgroundColor: UIColor? {
         get {
             return collection.backgroundColor
@@ -101,8 +103,6 @@ class CollectionView<SectionModel: Hashable,
             collection.backgroundColor = newValue
         }
     }
-   
-    private var items: [[ItemModel]] = []
     
     var isPagingEnabled: Bool {
         get {
@@ -120,6 +120,7 @@ class CollectionView<SectionModel: Hashable,
             collection.decelerationRate = snaps ? .fast : .normal
         }
     }
+    
     private var refreshControl: UIRefreshControl?
     private var registeredCells: Set<String> = []
     private let inverted: Bool
@@ -218,6 +219,8 @@ class CollectionView<SectionModel: Hashable,
             completion: completion)
     }
     
+    // MARK: - Public API
+    
     func scrollToNextCell(animated: Bool) {
         guard let nearest = collection.nearestCellToCenter() else {
             return
@@ -248,9 +251,7 @@ class CollectionView<SectionModel: Hashable,
             at: .centeredHorizontally,
             animated: animated)
     }
-    
-    // MARK: - Public API
-    
+        
     func set(layout: UICollectionViewLayout,
              animated: Bool = true,
              completion: ((Bool) -> Void)? = nil) {
@@ -299,22 +300,8 @@ class CollectionView<SectionModel: Hashable,
             self.collection.reloadSections(sections)
         }
     }
-        
-    // MARK: - UITableViewDelegate
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let data = dataSource.selectionData(for: indexPath) else {
-            return
-        }
-        didSelectItem?(data.0, data.1)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        guard let item = dataSource.item(for: indexPath) else {
-            return .init(width: 0, height: 0)
-        }
-        return sizeForItem?(item, indexPath) ?? UICollectionViewFlowLayout.automaticSize
-    }
+    // MARK: - Helpers
     
     private func snapToNearestCellIfNeeded() {
         if snaps {
@@ -329,7 +316,33 @@ class CollectionView<SectionModel: Hashable,
                                          at: .centeredHorizontally,
                                          animated: true)
         }
+    }
+    
+    func set(sections: [DiffableDataSource<SectionModel, ItemModel>.SectionEntry],
+             animated: Bool = true,
+             completion: (() -> Void)? = nil) {
+        update(sections: sections, animated: animated, completion: completion)
+        collection.backgroundView?.isHidden = !sections.isEmpty
+    }
+    
+    func getData() -> [DiffableDataSource<SectionModel, ItemModel>.SectionEntry] {
+        return dataSource.data
+    }
         
+    // MARK: - UICollectionViewDelegate
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let data = dataSource.selectionData(for: indexPath) else {
+            return
+        }
+        didSelectItem?(data.0, data.1)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        guard let item = dataSource.item(for: indexPath) else {
+            return .init(width: 0, height: 0)
+        }
+        return sizeForItem?(item, indexPath) ?? UICollectionViewFlowLayout.automaticSize
     }
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
@@ -350,17 +363,6 @@ class CollectionView<SectionModel: Hashable,
         if !decelerate {
             snapToNearestCellIfNeeded()
         }
-    }
-        
-    func set(sections: [DiffableDataSource<SectionModel, ItemModel>.SectionEntry],
-             animated: Bool = true,
-             completion: (() -> Void)? = nil) {
-        update(sections: sections, animated: animated, completion: completion)
-        collection.backgroundView?.isHidden = !sections.isEmpty
-    }
-    
-    func getData() -> [DiffableDataSource<SectionModel, ItemModel>.SectionEntry] {
-        return dataSource.data
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

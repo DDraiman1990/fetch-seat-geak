@@ -23,6 +23,7 @@ final class ApplicationManager {
     private func globalStyling() {
         UINavigationBar.appearance().titleTextAttributes = [
             .font: R.font.proximaNovaSemibold(size: 18)
+                ?? .systemFont(ofSize: 18)
         ]
     }
 }

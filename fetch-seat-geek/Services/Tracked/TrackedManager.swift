@@ -94,7 +94,3 @@ final class TrackedManager: TrackedManaging {
         }
     }
 }
-
-protocol TrackableView: UIView {
-    var trackTapped: ((Int) -> Void)? { get set }
-}

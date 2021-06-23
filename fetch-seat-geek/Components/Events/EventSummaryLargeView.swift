@@ -9,9 +9,17 @@ import UIKit
 import Nuke
 
 final class EventSummaryLargeView: UIView {
+    
+    // MARK: - Properties
+    
     var trackTapped: (() -> Void)?
-
-    // MARK: - Properties | Components
+    private let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = AppConstants.Dates.Formats.shortDate
+        return formatter
+    }()
+    
+    // MARK: - UI Components
     
     private let bannerView = TitledBannerView()
     private let priceTagView = PriceTagView(backgroundColor: R.color.brand() ?? .black)
@@ -36,14 +44,6 @@ final class EventSummaryLargeView: UIView {
         stack.addArrangedSubview(titleLabel)
         stack.addArrangedSubview(subtitleLabel)
         return stack
-    }()
-    
-    // MARK: - Properties
-    
-    private let dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = AppConstants.Dates.Formats.shortDate
-        return formatter
     }()
     
     // MARK: - Lifecycle
@@ -90,6 +90,26 @@ final class EventSummaryLargeView: UIView {
     
     // MARK: - Methods | Setup
     
+    private func setupSubtitle(from event: SGEventSummary) {
+        let date = dateString(from: event.date)
+        subtitleLabel.text = "\(date) • \(event.venueName), \(event.venueLocation)"
+    }
+    
+    private func setupHeartButton(by event: SGEventSummary) {
+        heartButton.isHidden = !event.canBeTracked
+    }
+    
+    private func setupBanner(by banner: SGBanner?) {
+        bannerView.isHidden = banner == nil
+        bannerView.set(title: banner?.text ?? "")
+        bannerView.style(with: .init(
+                            titleColor: banner?.textColor ?? .black,
+                            font: banner?.font ?? .systemFont(ofSize: 15),
+                            backgroundColor: banner?.backgroundColor ?? .clear))
+    }
+    
+    // MARK: - Methods | Setters
+    
     func setup(using event: SGEventSummary) {
         setupBanner(by: event.banner)
         setupHeartButton(by: event)
@@ -104,10 +124,11 @@ final class EventSummaryLargeView: UIView {
             into: backgroundImageView)
     }
     
-    private func setupSubtitle(from event: SGEventSummary) {
-        let date = dateString(from: event.date)
-        subtitleLabel.text = "\(date) • \(event.venueName), \(event.venueLocation)"
+    func set(isTracked: Bool) {
+        heartButton.isActive = isTracked
     }
+    
+    // MARK: - Methods | Helpers
     
     private func dateString(from date: Date) -> String {
         if Calendar.current.isDateInTomorrow(date) {
@@ -116,22 +137,7 @@ final class EventSummaryLargeView: UIView {
         return dateFormatter.string(from: date)
     }
     
-    private func setupHeartButton(by event: SGEventSummary) {
-        heartButton.isHidden = !event.canBeTracked
-    }
-    
-    func set(isTracked: Bool) {
-        heartButton.isActive = isTracked
-    }
-    
-    private func setupBanner(by banner: SGBanner?) {
-        bannerView.isHidden = banner == nil
-        bannerView.set(title: banner?.text ?? "")
-        bannerView.style(with: .init(
-                            titleColor: banner?.textColor ?? .black,
-                            font: banner?.font ?? .systemFont(ofSize: 15),
-                            backgroundColor: banner?.backgroundColor ?? .clear))
-    }
+    // MARK: - Methods | Actions
     
     @objc private func heartTapped() {
         trackTapped?()

@@ -81,7 +81,4 @@ final class SearchViewModel: ViewModel {
             }
             .disposed(by: disposeBag)
     }
-    
-    // MARK: - Methods | Helpers
-    
 }

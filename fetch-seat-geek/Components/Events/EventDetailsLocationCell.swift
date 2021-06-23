@@ -9,6 +9,9 @@ import UIKit
 
 final class EventDetailsLocationCell: UITableViewCell {
     public static let cellId = "EventDetailsLocationCell"
+    
+    // MARK: - Properties
+    
     var onViewAllTapped: (() -> Void)? {
         get {
             view.onViewAllTapped
@@ -25,10 +28,15 @@ final class EventDetailsLocationCell: UITableViewCell {
             view.onTravelTimeTapped = newValue
         }
     }
+    
+    // MARK: - UI Components
+    
     private let view: EventDetailsLocationView = {
         let view = EventDetailsLocationView(locationName: "", location: "")
         return view
     }()
+    
+    // MARK: - Lifecycle
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -40,6 +48,8 @@ final class EventDetailsLocationCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Methods | Setters
     
     func setup(locationName: String,
                location: String,

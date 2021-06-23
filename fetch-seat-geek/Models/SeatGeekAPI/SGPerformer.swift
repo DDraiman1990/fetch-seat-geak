@@ -13,17 +13,6 @@ struct SGPerformerSummary: Hashable, IdentifiableItem {
     var shortName: String
     var image: String
     var hasUpcomingEvents: Bool
-    
-    static func stub() -> SGPerformerSummary {
-        let firstName = (Bool.random() ? "Justin" : "Dodo") + "\(Int.random(in: 1...1000))"
-        let lastName = (Bool.random() ? "Bieber" : "Gomez") + "\(Int.random(in: 1...1000))"
-        return .init(
-            id: Int.random(in: 1...100000),
-            name: "\(firstName) \(lastName)",
-            shortName: firstName,
-            image: "https://seatgeek.com/images/performers-landscape/bad-bunny-7b9cd4/616548/huge.jpg",
-            hasUpcomingEvents: Bool.random())
-    }
 }
 
 struct SGPerformer: Decodable, Hashable {

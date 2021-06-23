@@ -9,9 +9,17 @@ import UIKit
 import Nuke
 
 final class EventSummarySmallView: UIView {
+    
+    // MARK: - Properties
+    
     var trackTapped: (() -> Void)?
-
-    // MARK: - Properties | Components
+    private let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = AppConstants.Dates.Formats.dayWithShortSlashDate
+        return formatter
+    }()
+    
+    // MARK: - UI Components
     
     private let bannerView = TitledBannerView()
     private let priceTagView = PriceTagView()
@@ -73,14 +81,6 @@ final class EventSummarySmallView: UIView {
             padding: .init(constant: 12))
         return view
     }()
-    
-    // MARK: - Properties
-    
-    private let dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = AppConstants.Dates.Formats.dayWithShortSlashDate
-        return formatter
-    }()
 
     // MARK: - Lifecycle
     
@@ -108,20 +108,6 @@ final class EventSummarySmallView: UIView {
     
     // MARK: - Methods | Setup
     
-    func setup(using event: SGEventSummary) {
-        setupBanner(by: event.banner)
-        setupHeartButton(by: event)
-        setupSubtitle(from: event)
-        if let ticketPrice = event.ticketPrice {
-            priceTagView.set(price: ticketPrice)
-        }
-        priceTagView.isHidden = event.ticketPrice == nil
-        titleLabel.text = event.title
-        Nuke.loadImage(
-            with: URL(string: event.imageUrl)!,
-            into: backgroundImageView)
-    }
-    
     private func setupSubtitle(from event: SGEventSummary) {
         let date = dateString(from: event.date)
         subtitleLabel.text = "\(date) • \(event.venueLocation)"
@@ -138,10 +124,6 @@ final class EventSummarySmallView: UIView {
         heartButton.isHidden = !event.canBeTracked
     }
     
-    func set(isTracked: Bool) {
-        heartButton.isActive = isTracked
-    }
-    
     private func setupBanner(by banner: SGBanner?) {
         bannerView.isHidden = banner == nil
         bannerView.set(title: banner?.text ?? "")
@@ -150,6 +132,28 @@ final class EventSummarySmallView: UIView {
                             font: banner?.font ?? .systemFont(ofSize: 15),
                             backgroundColor: banner?.backgroundColor ?? .clear))
     }
+    
+    // MARK: - Methods | Setters
+    
+    func setup(using event: SGEventSummary) {
+        setupBanner(by: event.banner)
+        setupHeartButton(by: event)
+        setupSubtitle(from: event)
+        if let ticketPrice = event.ticketPrice {
+            priceTagView.set(price: ticketPrice)
+        }
+        priceTagView.isHidden = event.ticketPrice == nil
+        titleLabel.text = event.title
+        Nuke.loadImage(
+            with: URL(string: event.imageUrl)!,
+            into: backgroundImageView)
+    }
+    
+    func set(isTracked: Bool) {
+        heartButton.isActive = isTracked
+    }
+    
+    // MARK: - Methods | Actions
     
     @objc private func heartTapped() {
         trackTapped?()

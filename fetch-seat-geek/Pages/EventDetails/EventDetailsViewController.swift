@@ -62,6 +62,7 @@ final class EventDetailsViewController: UIViewController, ViewModeled {
     }
     
     // MARK: - Properties | UI Components
+    
     private lazy var plainBackBarButton = UIBarButtonItem(image: R.image.chevronLeft(), style: .plain, target: self, action: #selector(backTapped))
     private lazy var styledBackBarButton: UIBarButtonItem = {
         let button = UIButton()
@@ -142,6 +143,8 @@ final class EventDetailsViewController: UIViewController, ViewModeled {
         navigationController?.isNavigationBarHidden = true
     }
     
+    // MARK: - Methods | Navigation bar
+    
     private func setTransparentNavigationBar() {
         if isBarTransparent {
             return
@@ -167,6 +170,8 @@ final class EventDetailsViewController: UIViewController, ViewModeled {
         topBarSafeAreaCoverView.backgroundColor = topBar.backgroundColor
         topBar.items?.first?.setLeftBarButton(plainBackBarButton, animated: true)
     }
+    
+    // MARK: - Methods | Styling
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return isBarTransparent ? .lightContent : .default
@@ -199,6 +204,8 @@ final class EventDetailsViewController: UIViewController, ViewModeled {
             Nuke.loadImage(with: url, into: headerImageView)
         }
     }
+    
+    // MARK: - Methods | Actions
     
     @objc private func backTapped() {
         self.pop(animated: true)
@@ -238,52 +245,74 @@ extension EventDetailsViewController: UITableViewDelegate, UITableViewDataSource
             contentInset: scrollView.contentInset)
     }
     
+    private func dequeueLocationCell(
+        locationData: LocationData,
+        indexPath: IndexPath
+    ) -> UITableViewCell {
+        guard let cell = table
+                .dequeueReusableCell(
+                    withIdentifier: EventDetailsLocationCell.cellId,
+                    for: indexPath) as? EventDetailsLocationCell else {
+            return UITableViewCell()
+        }
+        cell.setup(locationName: locationData.locationName,
+                   location: locationData.location,
+                   driveTime: locationData.driveTime,
+                   walkTime: locationData.walkTime)
+        cell.selectionStyle = .none
+        cell.onTravelTimeTapped = { [weak self] method in
+            self?.viewModel.send(.travelTimeTapped(method: method))
+        }
+        cell.onViewAllTapped = { [weak self] in
+            self?.viewModel.send(.viewAllTapped)
+        }
+        return cell
+    }
+    
+    private func dequeueInformationCell(
+        headerData: HeaderData,
+        indexPath: IndexPath
+    ) -> UITableViewCell {
+        guard let cell = table
+                .dequeueReusableCell(
+                    withIdentifier: EventDetailsInformationCell.cellId,
+                    for: indexPath) as? EventDetailsInformationCell else {
+            return UITableViewCell()
+        }
+        cell.setup(
+            title: headerData.title,
+            subtitle: headerData.subtitle,
+            isTracked: headerData.isTracked)
+        cell.selectionStyle = .none
+        cell.onShareTapped = { [weak self] in
+            print("Share")
+            self?.viewModel.send(.shareTapped)
+        }
+        cell.onTrackingTapped = { [weak self] in
+            self?.viewModel.send(.trackingTapped)
+        }
+        return cell
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let section = Section(rawValue: indexPath.section) else {
             return UITableViewCell()
         }
         switch section {
         case .eventInfo:
-            guard let headerData = viewModel.value.headerData,
-                  let cell = tableView
-                    .dequeueReusableCell(
-                        withIdentifier: EventDetailsInformationCell.cellId,
-                        for: indexPath) as? EventDetailsInformationCell else {
+            guard let headerData = viewModel.value.headerData else {
                 return UITableViewCell()
             }
-            cell.setup(
-                title: headerData.title,
-                subtitle: headerData.subtitle,
-                isTracked: headerData.isTracked)
-            cell.selectionStyle = .none
-            cell.onShareTapped = { [weak self] in
-                print("Share")
-                self?.viewModel.send(.shareTapped)
-            }
-            cell.onTrackingTapped = { [weak self] in
-                self?.viewModel.send(.trackingTapped)
-            }
-            return cell
+            return dequeueInformationCell(
+                headerData: headerData,
+                indexPath: indexPath)
         case .location:
-            guard let locationData = viewModel.value.locationData,
-                  let cell = tableView
-                    .dequeueReusableCell(
-                        withIdentifier: EventDetailsLocationCell.cellId,
-                        for: indexPath) as? EventDetailsLocationCell else {
+            guard let locationData = viewModel.value.locationData else {
                 return UITableViewCell()
             }
-            cell.setup(locationName: locationData.locationName,
-                       location: locationData.location,
-                       driveTime: locationData.driveTime,
-                       walkTime: locationData.walkTime)
-            cell.selectionStyle = .none
-            cell.onTravelTimeTapped = { [weak self] method in
-                self?.viewModel.send(.travelTimeTapped(method: method))
-            }
-            cell.onViewAllTapped = { [weak self] in
-                self?.viewModel.send(.viewAllTapped)
-            }
-            return cell
+            return dequeueLocationCell(
+                locationData: locationData,
+                indexPath: indexPath)
         }
     }
 }

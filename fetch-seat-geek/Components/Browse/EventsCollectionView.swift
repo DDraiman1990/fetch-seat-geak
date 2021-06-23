@@ -8,9 +8,15 @@
 import UIKit
 
 final class EventsCollectionView: UIView, CollectionViewContaining {
+    
+    // MARK: - Properties
+    
     var onSelectedItem: ((IndexPath) -> Void)?
     var trackTapped: ((Int) -> Void)?
     private var trackedIds: Set<Int> = []
+    
+    // MARK: - UI Components
+    
     private lazy var collection: CollectionView<Int, SGEventSummary> = .init(
         layout: AppConstants.Collections.Layouts.basicHorizontal(spacing: 8)) { _, _ -> CGSize in
             let height = self.frame.height - 8
@@ -31,6 +37,8 @@ final class EventsCollectionView: UIView, CollectionViewContaining {
             return cell
         }
     
+    // MARK: - Lifecycle
+    
     init() {
         super.init(frame: .zero)
         addSubview(collection)
@@ -50,6 +58,8 @@ final class EventsCollectionView: UIView, CollectionViewContaining {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Methods | Setters
     
     func set(data: [SGEventSummary]) {
         collection.set(sections: [

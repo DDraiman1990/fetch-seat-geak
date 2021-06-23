@@ -8,6 +8,8 @@
 import UIKit
 
 final class HeartButton: UIButton {
+    // MARK: - Properties
+    
     private let activeIcon = R.image.suitHeartFill()
     private let inactiveIcon = R.image.heart()
     
@@ -16,6 +18,8 @@ final class HeartButton: UIButton {
             onStateChanged()
         }
     }
+    
+    // MARK: - Lifecycle
     
     init(isActive: Bool) {
         super.init(frame: .zero)
@@ -27,6 +31,8 @@ final class HeartButton: UIButton {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Methods | Helpers
     
     private func onStateChanged() {
         setImage(isActive ? activeIcon : inactiveIcon, for: .normal)

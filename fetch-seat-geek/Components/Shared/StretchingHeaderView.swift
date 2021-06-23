@@ -9,17 +9,20 @@ import UIKit
 
 class StretchingHeaderView: UIView, ScrollAware {
     
-    // MARK: - Components
+    // MARK: - Properties
     
     private var contentHeightConstraint: NSLayoutConstraint!
     private var contentBottomConstraint: NSLayoutConstraint!
     private var containerHeightConstraint: NSLayoutConstraint!
+    
+    // MARK: - UI Components
 
     private var contentContainer: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    
     private let content: UIView
     
     // MARK: - Lifecycle
@@ -38,6 +41,8 @@ class StretchingHeaderView: UIView, ScrollAware {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Methods | Setup
+    
     private func setConstraints() {
         NSLayoutConstraint.activate([
             contentContainer.widthAnchor.constraint(equalTo: widthAnchor),
@@ -54,6 +59,8 @@ class StretchingHeaderView: UIView, ScrollAware {
         contentHeightConstraint = content.heightAnchor.constraint(equalTo: contentContainer.heightAnchor)
         contentHeightConstraint.isActive = true
     }
+    
+    // MARK: - Methods | ScrollAware
     
     func onScrolling(contentOffset: CGPoint, contentInset: UIEdgeInsets) {
         contentHeightConstraint.constant = contentInset.top

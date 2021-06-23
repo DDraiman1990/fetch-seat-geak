@@ -9,12 +9,16 @@ import UIKit
 import Nuke
 
 final class PerformerSummaryView: UIView {
+    // MARK: - UI Components
+    
     private let titleLabel = UILabel().styled(with: .featuredPerformerTitle)
     private let backgroundImage: TintedImageView = {
         let imageView = TintedImageView()
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
+    
+    // MARK: - Lifecycle
     
     init(performer: SGPerformerSummary? = nil) {
         super.init(frame: .zero)
@@ -36,6 +40,8 @@ final class PerformerSummaryView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Methods | Setters
     
     func setup(performer: SGPerformerSummary) {
         self.titleLabel.text = performer.name

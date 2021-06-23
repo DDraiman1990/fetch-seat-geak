@@ -36,6 +36,7 @@ final class EventsDetailsViewModel: ViewModel {
     }
     
     // MARK: - Properties
+    
     private let eventId: Int
     private var event: SGEvent?
     private let disposeBag = DisposeBag()
@@ -79,12 +80,12 @@ final class EventsDetailsViewModel: ViewModel {
                     }
                 }
                 .disposed(by: disposeBag)
-        case .travelTimeTapped(method: let method):
-            //TODO: implement simple popup
-            print("Travel TIme")
+        case .travelTimeTapped(_):
+            //TODO: Implement if you find the time.
+            break
         case .viewAllTapped:
-            //TODO: show list of all
-            print("View ALl")
+            //TODO: Implement if you find the time.
+            break
         }
     }
     
@@ -98,7 +99,7 @@ final class EventsDetailsViewModel: ViewModel {
                 case .success(let event):
                     self?.onFetched(event: event)
                 case .failure(let error):
-                    //TODO: show popup for error
+                    //TODO: Show popup and dismiss on approval
                     print(error)
                 }
             }
@@ -152,17 +153,20 @@ final class EventsDetailsViewModel: ViewModel {
             .fullDateAndTimeFormatter
             .string(from: event.datetimeLocal)
         let isTracked = trackedManager.trackedIds.contains(event.id)
-        self.valueRelay.accept(.init(
-                                headerImageUrl: event.eventImageUrl,
-                                pageTitle: event.shortTitle,
-                                headerData: .init(
-                                    title: event.title,
-                                    subtitle: subtitle,
-                                    isTracked: isTracked),
-                                locationData: .init(
-                                    locationName: event.venue.name,
-                                    location: event.venue.fullAddress,
-                                    driveTime: "\(Int.random(in: 1...4))h, \(Int.random(in: 1...59)) min",
-                                    walkTime: "\(Int.random(in: 5...40))h, \(Int.random(in: 1...59)) min")))
+        let headerData = Consumer.HeaderData(
+            title: event.title,
+            subtitle: subtitle,
+            isTracked: isTracked)
+        let locationData = Consumer.LocationData(
+            locationName: event.venue.name,
+            location: event.venue.fullAddress,
+            driveTime: "\(Int.random(in: 1...4))h, \(Int.random(in: 1...59)) min",
+            walkTime: "\(Int.random(in: 5...40))h, \(Int.random(in: 1...59)) min")
+        let data = Consumer.Model(
+            headerImageUrl: event.eventImageUrl,
+            pageTitle: event.shortTitle,
+            headerData: headerData,
+            locationData: locationData)
+        self.valueRelay.accept(data)
     }
 }

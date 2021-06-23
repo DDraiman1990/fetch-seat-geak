@@ -9,6 +9,9 @@ import UIKit
 import Nuke
 
 final class SearchEntryView: UIView {
+    
+    // MARK: - UI Components
+    
     private lazy var contentStack: UIStackView = {
         let stack = UIStackView()
         stack.axis = .horizontal
@@ -38,6 +41,8 @@ final class SearchEntryView: UIView {
     
     private let titleLabel = UILabel().styled(with: .searchEntryTitle)
     
+    // MARK: - Lifecycle
+    
     init(title: String,
          imageUrl: String?) {
         super.init(frame: .zero)
@@ -60,6 +65,8 @@ final class SearchEntryView: UIView {
         entryImageView.clipsToBounds = false
         entryImageView.layer.cornerRadius = entryImageView.frame.height
     }
+    
+    // MARK: - Methods | Setters
     
     func set(title: String) {
         titleLabel.text = title
